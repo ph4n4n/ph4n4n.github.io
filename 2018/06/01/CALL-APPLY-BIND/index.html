@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="CALLEnglish: Call invokes the function and allows you to pass in arguments one by one with comma. Tiếng Việt: Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy. 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CALL, APPLY &amp; BIND">
+<meta property="og:url" content="https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="CALLEnglish: Call invokes the function and allows you to pass in arguments one by one with comma. Tiếng Việt: Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy. 1">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-01T02:53:32.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:40:33.182Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>CALL, APPLY &amp; BIND</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/06/06/Make-countdown-timer/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/05/29/client-server-token-validate/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&text=CALL, APPLY &amp; BIND"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&is_video=false&description=CALL, APPLY &amp; BIND"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CALL, APPLY &amp; BIND&body=Check out this article: https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&name=CALL, APPLY &amp; BIND&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&t=CALL, APPLY &amp; BIND"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CALL"><span class="toc-number">1.</span> <span class="toc-text">CALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APPLY"><span class="toc-number">2.</span> <span class="toc-text">APPLY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIND"><span class="toc-number">3.</span> <span class="toc-text">BIND</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-sanh"><span class="toc-number">4.</span> <span class="toc-text">So sánh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">5.</span> <span class="toc-text">Ví dụ thực tế</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        CALL, APPLY &amp; BIND
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-06-01T02:53:32.000Z" class="dt-published" itemprop="datePublished">2018-06-01</time>
+        
+        (Updated: <time datetime="2025-06-19T06:40:33.182Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="CALL"><a href="#CALL" class="headerlink" title="CALL"></a>CALL</h2><p><strong>English:</strong> Call invokes the function and allows you to pass in arguments one by one with comma.</p>
+<p><strong>Tiếng Việt:</strong> Gọi hàm và cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> teo = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tèo&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Kuteo&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> ty = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tý&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Cún&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">chaoHoi</span>(<span class="params">greeting, question</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(greeting + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">ten</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">nickname</span> + <span class="string">&#x27;, &#x27;</span> + question);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chaoHoi.<span class="title function_">call</span>(teo, <span class="string">&#x27;Chào&#x27;</span>, <span class="string">&#x27;Năm nay bạn được mấy nồi bánh chưng rồi?&#x27;</span>); </span><br><span class="line"><span class="comment">// =&gt; Chào Tèo Kuteo, Năm nay bạn được mấy nồi bánh chưng rồi?</span></span><br><span class="line"></span><br><span class="line">chaoHoi.<span class="title function_">call</span>(ty, <span class="string">&#x27;Hế lô&#x27;</span>, <span class="string">&#x27;Tết này bạn có ai để dẫn đi chơi chưa?&#x27;</span>); </span><br><span class="line"><span class="comment">// =&gt; Hế lô Tý Cún, Tết này bạn có ai để dẫn đi chơi chưa?</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="APPLY"><a href="#APPLY" class="headerlink" title="APPLY"></a>APPLY</h2><p><strong>English:</strong> Apply invokes the function and allows you to pass in arguments as an array.</p>
+<p><strong>Tiếng Việt:</strong> Gọi hàm và cho phép bạn truyền vào một object và các đối số thông qua mảng.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> teo = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tèo&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Kuteo&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> ty = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tý&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Cún&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">chaoHoi</span>(<span class="params">greeting, question</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(greeting + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">ten</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">nickname</span> + <span class="string">&#x27;, &#x27;</span> + question);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chaoHoi.<span class="title function_">apply</span>(teo, [<span class="string">&#x27;Xin Chào&#x27;</span>, <span class="string">&#x27;Năm nay bạn được mấy nồi bánh chưng rồi?&#x27;</span>]); </span><br><span class="line"><span class="comment">// =&gt; Xin Chào Tèo Kuteo, Năm nay bạn được mấy nồi bánh chưng rồi?</span></span><br><span class="line"></span><br><span class="line">chaoHoi.<span class="title function_">apply</span>(ty, [<span class="string">&#x27;Hế lô&#x27;</span>, <span class="string">&#x27;Tết này bạn có ai để dẫn đi chơi chưa?&#x27;</span>]); </span><br><span class="line"><span class="comment">// =&gt; Hế lô Tý Cún, Tết này bạn có ai để dẫn đi chơi chưa?</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="BIND"><a href="#BIND" class="headerlink" title="BIND"></a>BIND</h2><p><strong>English:</strong> Bind returns a new function, allowing you to pass in a this array and any number of arguments.</p>
+<p><strong>Tiếng Việt:</strong> Trả về một hàm số mới, cho phép bạn truyền vào một object và các đối số phân cách nhau bởi dấu phẩy.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> teo = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tèo&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Kuteo&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> ty = &#123; <span class="attr">ten</span>: <span class="string">&#x27;Tý&#x27;</span>, <span class="attr">nickname</span>: <span class="string">&#x27;Cún&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">chaoHoi</span>(<span class="params">greeting, question</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(greeting + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">ten</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">nickname</span> + <span class="string">&#x27;, &#x27;</span> + question);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> chaoTeo = chaoHoi.<span class="title function_">bind</span>(teo, <span class="string">&#x27;Xin Chào&#x27;</span>, <span class="string">&#x27;Năm nay bạn được mấy nồi bánh chưng rồi?&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> chaoTy = chaoHoi.<span class="title function_">bind</span>(ty, <span class="string">&#x27;Hế lô&#x27;</span>, <span class="string">&#x27;Tết này bạn có ai để dẫn đi chơi chưa?&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">chaoTeo</span>(); <span class="comment">// =&gt; Xin Chào Tèo Kuteo, Năm nay bạn được mấy nồi bánh chưng rồi?</span></span><br><span class="line"><span class="title function_">chaoTy</span>(); <span class="comment">// =&gt; Hế lô Tý Cún, Tết này bạn có ai để dẫn đi chơi chưa?</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="So-sanh"><a href="#So-sanh" class="headerlink" title="So sánh"></a>So sánh</h2><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Execution</th>
+<th>Parameters</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>call()</code></td>
+<td>Ngay lập tức</td>
+<td>Từng tham số riêng biệt</td>
+<td>Kết quả của function</td>
+</tr>
+<tr>
+<td><code>apply()</code></td>
+<td>Ngay lập tức</td>
+<td>Array các tham số</td>
+<td>Kết quả của function</td>
+</tr>
+<tr>
+<td><code>bind()</code></td>
+<td>Tạo function mới</td>
+<td>Từng tham số riêng biệt</td>
+<td>Function mới</td>
+</tr>
+</tbody></table>
+<h2 id="Vi-du-thuc-te"><a href="#Vi-du-thuc-te" class="headerlink" title="Ví dụ thực tế"></a>Ví dụ thực tế</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sử dụng Math.max với array</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách cũ</span></span><br><span class="line"><span class="keyword">const</span> max1 = <span class="title class_">Math</span>.<span class="property">max</span>.<span class="title function_">apply</span>(<span class="literal">null</span>, numbers);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 spread operator  </span></span><br><span class="line"><span class="keyword">const</span> max2 = <span class="title class_">Math</span>.<span class="title function_">max</span>(...numbers);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(max1, max2); <span class="comment">// 5 5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tham khảo:</strong> <a href="https://codeplanet.io/javascript-apply-vs-call-vs-bind/">JavaScript Apply vs Call vs Bind</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CALL"><span class="toc-number">1.</span> <span class="toc-text">CALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APPLY"><span class="toc-number">2.</span> <span class="toc-text">APPLY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIND"><span class="toc-number">3.</span> <span class="toc-text">BIND</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-sanh"><span class="toc-number">4.</span> <span class="toc-text">So sánh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">5.</span> <span class="toc-text">Ví dụ thực tế</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&text=CALL, APPLY &amp; BIND"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&is_video=false&description=CALL, APPLY &amp; BIND"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CALL, APPLY &amp; BIND&body=Check out this article: https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&title=CALL, APPLY &amp; BIND"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&name=CALL, APPLY &amp; BIND&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/06/01/CALL-APPLY-BIND/&t=CALL, APPLY &amp; BIND"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

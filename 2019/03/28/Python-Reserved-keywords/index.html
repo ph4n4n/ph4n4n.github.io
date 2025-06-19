@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Python Reserved KeywordsĐây là danh sách 35 từ khóa trong Python mà bạn không thể sử dụng làm tên biến, hàm, hoặc class. Danh sách Keywords   Column 1 Column 2 Column 3 Column 4 Column 5    and def Fa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python: Reserved Keywords">
+<meta property="og:url" content="https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Python Reserved KeywordsĐây là danh sách 35 từ khóa trong Python mà bạn không thể sử dụng làm tên biến, hàm, hoặc class. Danh sách Keywords   Column 1 Column 2 Column 3 Column 4 Column 5    and def Fa">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-28T04:27:17.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:46:18.214Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Python: Reserved Keywords</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/04/09/Python-shorthand/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/03/27/Compare-Python-with-Javascript/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&text=Python: Reserved Keywords"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&is_video=false&description=Python: Reserved Keywords"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python: Reserved Keywords&body=Check out this article: https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&name=Python: Reserved Keywords&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&t=Python: Reserved Keywords"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Reserved-Keywords"><span class="toc-number">1.</span> <span class="toc-text">Python Reserved Keywords</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Danh-sach-Keywords"><span class="toc-number">1.1.</span> <span class="toc-text">Danh sách Keywords</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-kiem-tra-Keywords"><span class="toc-number">1.2.</span> <span class="toc-text">Cách kiểm tra Keywords</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phan-loai-Keywords"><span class="toc-number">1.3.</span> <span class="toc-text">Phân loại Keywords</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Control-Flow-Keywords"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Control Flow Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Function-Class-Keywords"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Function &amp; Class Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Exception-Handling"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. Exception Handling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Import-Keywords"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. Import Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Logical-Comparison"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. Logical &amp; Comparison</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Scope-Keywords"><span class="toc-number">1.3.6.</span> <span class="toc-text">6. Scope Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-Boolean-None"><span class="toc-number">1.3.7.</span> <span class="toc-text">7. Boolean &amp; None</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Keywords-theo-Python-version"><span class="toc-number">1.4.</span> <span class="toc-text">Keywords theo Python version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Context-Managers"><span class="toc-number">1.5.</span> <span class="toc-text">Context Managers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async-Keywords-Python-3-7"><span class="toc-number">1.6.</span> <span class="toc-text">Async Keywords (Python 3.7+)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Luu-y-quan-trong"><span class="toc-number">1.7.</span> <span class="toc-text">Lưu ý quan trọng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Built-in-Functions-khong-phai-keywords"><span class="toc-number">1.8.</span> <span class="toc-text">Built-in Functions (không phải keywords)</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Python: Reserved Keywords
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-03-28T04:27:17.000Z" class="dt-published" itemprop="datePublished">2019-03-28</time>
+        
+        (Updated: <time datetime="2025-06-19T06:46:18.214Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Python-Reserved-Keywords"><a href="#Python-Reserved-Keywords" class="headerlink" title="Python Reserved Keywords"></a>Python Reserved Keywords</h2><p>Đây là danh sách <strong>35 từ khóa</strong> trong Python mà bạn <strong>không thể</strong> sử dụng làm tên biến, hàm, hoặc class.</p>
+<h3 id="Danh-sach-Keywords"><a href="#Danh-sach-Keywords" class="headerlink" title="Danh sách Keywords"></a>Danh sách Keywords</h3><table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+<th>Column 4</th>
+<th>Column 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>and</code></td>
+<td><code>def</code></td>
+<td><code>False</code></td>
+<td><code>import</code></td>
+<td><code>not</code></td>
+</tr>
+<tr>
+<td><code>as</code></td>
+<td><code>del</code></td>
+<td><code>finally</code></td>
+<td><code>in</code></td>
+<td><code>or</code></td>
+</tr>
+<tr>
+<td><code>assert</code></td>
+<td><code>elif</code></td>
+<td><code>for</code></td>
+<td><code>is</code></td>
+<td><code>pass</code></td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td><code>else</code></td>
+<td><code>from</code></td>
+<td><code>lambda</code></td>
+<td><code>raise</code></td>
+</tr>
+<tr>
+<td><code>class</code></td>
+<td><code>except</code></td>
+<td><code>global</code></td>
+<td><code>None</code></td>
+<td><code>return</code></td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td><code>exec</code></td>
+<td><code>if</code></td>
+<td><code>nonlocal</code></td>
+<td><code>try</code></td>
+</tr>
+<tr>
+<td><code>True</code></td>
+<td><code>while</code></td>
+<td><code>with</code></td>
+<td><code>yield</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Cach-kiem-tra-Keywords"><a href="#Cach-kiem-tra-Keywords" class="headerlink" title="Cách kiểm tra Keywords"></a>Cách kiểm tra Keywords</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line"></span><br><span class="line"><span class="comment"># Xem tất cả keywords</span></span><br><span class="line"><span class="built_in">print</span>(keyword.kwlist)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kiểm tra một từ có phải keyword không</span></span><br><span class="line"><span class="built_in">print</span>(keyword.iskeyword(<span class="string">&#x27;def&#x27;</span>))    <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(keyword.iskeyword(<span class="string">&#x27;hello&#x27;</span>))  <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Số lượng keywords</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(keyword.kwlist))  <span class="comment"># 35 (Python 3.9+)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Phan-loai-Keywords"><a href="#Phan-loai-Keywords" class="headerlink" title="Phân loại Keywords"></a>Phân loại Keywords</h3><h4 id="1-Control-Flow-Keywords"><a href="#1-Control-Flow-Keywords" class="headerlink" title="1. Control Flow Keywords"></a>1. <strong>Control Flow Keywords</strong></h4><ul>
+<li><code>if</code>, <code>elif</code>, <code>else</code> - Điều kiện</li>
+<li><code>for</code>, <code>while</code> - Vòng lặp  </li>
+<li><code>break</code>, <code>continue</code> - Điều khiển vòng lặp</li>
+<li><code>pass</code> - Placeholder</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">elif</span> <span class="literal">False</span>:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Function-Class-Keywords"><a href="#2-Function-Class-Keywords" class="headerlink" title="2. Function &amp; Class Keywords"></a>2. <strong>Function &amp; Class Keywords</strong></h4><ul>
+<li><code>def</code> - Định nghĩa function</li>
+<li><code>class</code> - Định nghĩa class</li>
+<li><code>return</code> - Trả về giá trị</li>
+<li><code>yield</code> - Generator function</li>
+<li><code>lambda</code> - Anonymous function</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Lambda function</span></span><br><span class="line">square = <span class="keyword">lambda</span> x: x ** <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Exception-Handling"><a href="#3-Exception-Handling" class="headerlink" title="3. Exception Handling"></a>3. <strong>Exception Handling</strong></h4><ul>
+<li><code>try</code>, <code>except</code>, <code>finally</code> - Xử lý exception</li>
+<li><code>raise</code> - Throw exception</li>
+<li><code>assert</code> - Debug assertion</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    result = <span class="number">10</span> / <span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&quot;Division by zero&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Cleanup&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Import-Keywords"><a href="#4-Import-Keywords" class="headerlink" title="4. Import Keywords"></a>4. <strong>Import Keywords</strong></h4><ul>
+<li><code>import</code> - Import module</li>
+<li><code>from</code> - Import specific items</li>
+<li><code>as</code> - Alias</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime <span class="keyword">as</span> dt</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-Logical-Comparison"><a href="#5-Logical-Comparison" class="headerlink" title="5. Logical &amp; Comparison"></a>5. <strong>Logical &amp; Comparison</strong></h4><ul>
+<li><code>and</code>, <code>or</code>, <code>not</code> - Logical operators</li>
+<li><code>is</code>, <code>in</code> - Identity &amp; membership</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> <span class="keyword">and</span> x &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> item <span class="keyword">in</span> my_list:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> obj <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-Scope-Keywords"><a href="#6-Scope-Keywords" class="headerlink" title="6. Scope Keywords"></a>6. <strong>Scope Keywords</strong></h4><ul>
+<li><code>global</code> - Global variable</li>
+<li><code>nonlocal</code> - Nonlocal variable  </li>
+<li><code>del</code> - Delete reference</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>():</span><br><span class="line">    x = <span class="number">20</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="keyword">global</span> x        <span class="comment"># Refers to global x</span></span><br><span class="line">        <span class="keyword">nonlocal</span> x      <span class="comment"># Error: can&#x27;t use both</span></span><br><span class="line">        <span class="keyword">del</span> x           <span class="comment"># Delete reference</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="7-Boolean-None"><a href="#7-Boolean-None" class="headerlink" title="7. Boolean &amp; None"></a>7. <strong>Boolean &amp; None</strong></h4><ul>
+<li><code>True</code>, <code>False</code> - Boolean values</li>
+<li><code>None</code> - Null value</li>
+</ul>
+<h3 id="Keywords-theo-Python-version"><a href="#Keywords-theo-Python-version" class="headerlink" title="Keywords theo Python version"></a>Keywords theo Python version</h3><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Keywords count</th>
+<th>New additions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python 2.7</td>
+<td>31</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Python 3.0</td>
+<td>33</td>
+<td><code>True</code>, <code>False</code>, <code>None</code></td>
+</tr>
+<tr>
+<td>Python 3.5</td>
+<td>33</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Python 3.7</td>
+<td>35</td>
+<td><code>async</code>, <code>await</code></td>
+</tr>
+</tbody></table>
+<h3 id="Context-Managers"><a href="#Context-Managers" class="headerlink" title="Context Managers"></a>Context Managers</h3><ul>
+<li><code>with</code> - Context manager</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;file.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Async-Keywords-Python-3-7"><a href="#Async-Keywords-Python-3-7" class="headerlink" title="Async Keywords (Python 3.7+)"></a>Async Keywords (Python 3.7+)</h3><ul>
+<li><code>async</code> - Async function&#x2F;context manager</li>
+<li><code>await</code> - Await coroutine</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">fetch_data</span>():</span><br><span class="line">    <span class="keyword">await</span> some_async_operation()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Luu-y-quan-trong"><a href="#Luu-y-quan-trong" class="headerlink" title="Lưu ý quan trọng"></a>Lưu ý quan trọng</h3><p>⚠️ <strong>Không được đặt tên biến trùng với keywords:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ❌ Sai</span></span><br><span class="line"><span class="keyword">def</span> = <span class="string">&quot;hello&quot;</span>      <span class="comment"># SyntaxError</span></span><br><span class="line"><span class="keyword">class</span> = MyClass    <span class="comment"># SyntaxError  </span></span><br><span class="line"><span class="keyword">if</span> = <span class="literal">True</span>          <span class="comment"># SyntaxError</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ✅ Đúng</span></span><br><span class="line">definition = <span class="string">&quot;hello&quot;</span></span><br><span class="line">my_class = MyClass</span><br><span class="line">condition = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Built-in-Functions-khong-phai-keywords"><a href="#Built-in-Functions-khong-phai-keywords" class="headerlink" title="Built-in Functions (không phải keywords)"></a>Built-in Functions (không phải keywords)</h3><p>Những từ này <strong>không phải keywords</strong> nhưng nên tránh dùng làm tên biến:</p>
+<ul>
+<li><code>print</code>, <code>input</code>, <code>len</code>, <code>str</code>, <code>int</code>, <code>list</code>, <code>dict</code></li>
+<li><code>min</code>, <code>max</code>, <code>sum</code>, <code>all</code>, <code>any</code></li>
+<li><code>open</code>, <code>range</code>, <code>enumerate</code>, <code>zip</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Có thể làm nhưng không nên</span></span><br><span class="line"><span class="built_in">list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]    <span class="comment"># Che đi built-in list()</span></span><br><span class="line"><span class="built_in">print</span> = <span class="string">&quot;hello&quot;</span>     <span class="comment"># Che đi built-in print()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Khôi phục</span></span><br><span class="line"><span class="keyword">del</span> <span class="built_in">list</span></span><br><span class="line"><span class="keyword">del</span> <span class="built_in">print</span></span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Reserved-Keywords"><span class="toc-number">1.</span> <span class="toc-text">Python Reserved Keywords</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Danh-sach-Keywords"><span class="toc-number">1.1.</span> <span class="toc-text">Danh sách Keywords</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-kiem-tra-Keywords"><span class="toc-number">1.2.</span> <span class="toc-text">Cách kiểm tra Keywords</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phan-loai-Keywords"><span class="toc-number">1.3.</span> <span class="toc-text">Phân loại Keywords</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Control-Flow-Keywords"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Control Flow Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Function-Class-Keywords"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Function &amp; Class Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Exception-Handling"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. Exception Handling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Import-Keywords"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. Import Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Logical-Comparison"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. Logical &amp; Comparison</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Scope-Keywords"><span class="toc-number">1.3.6.</span> <span class="toc-text">6. Scope Keywords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-Boolean-None"><span class="toc-number">1.3.7.</span> <span class="toc-text">7. Boolean &amp; None</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Keywords-theo-Python-version"><span class="toc-number">1.4.</span> <span class="toc-text">Keywords theo Python version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Context-Managers"><span class="toc-number">1.5.</span> <span class="toc-text">Context Managers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async-Keywords-Python-3-7"><span class="toc-number">1.6.</span> <span class="toc-text">Async Keywords (Python 3.7+)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Luu-y-quan-trong"><span class="toc-number">1.7.</span> <span class="toc-text">Lưu ý quan trọng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Built-in-Functions-khong-phai-keywords"><span class="toc-number">1.8.</span> <span class="toc-text">Built-in Functions (không phải keywords)</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&text=Python: Reserved Keywords"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&is_video=false&description=Python: Reserved Keywords"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python: Reserved Keywords&body=Check out this article: https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&title=Python: Reserved Keywords"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&name=Python: Reserved Keywords&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/&t=Python: Reserved Keywords"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

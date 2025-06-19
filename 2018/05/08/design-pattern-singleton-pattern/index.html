@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Khái niệmSingleton Pattern là một creational design pattern đảm bảo rằng một class chỉ có duy nhất một instance trong toàn bộ ứng dụng và cung cấp một global access point đến instance đó. Cải tiến từ:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design Pattern: Singleton Pattern">
+<meta property="og:url" content="https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Khái niệmSingleton Pattern là một creational design pattern đảm bảo rằng một class chỉ có duy nhất một instance trong toàn bộ ứng dụng và cung cấp một global access point đến instance đó. Cải tiến từ:">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-05-08T08:04:57.000Z">
+<meta property="article:modified_time" content="2025-06-19T07:59:59.511Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Design Pattern: Singleton Pattern</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/05/09/i18n-with-pure-CSS-using-variable-in-CSS/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/05/08/Javascript-shorthand/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&text=Design Pattern: Singleton Pattern"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&is_video=false&description=Design Pattern: Singleton Pattern"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Design Pattern: Singleton Pattern&body=Check out this article: https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&name=Design Pattern: Singleton Pattern&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&t=Design Pattern: Singleton Pattern"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Khai-niem"><span class="toc-number">1.</span> <span class="toc-text">Khái niệm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dac-diem"><span class="toc-number">2.</span> <span class="toc-text">Đặc điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-minh-hoa"><span class="toc-number">3.</span> <span class="toc-text">Code minh họa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">4.</span> <span class="toc-text">Ví dụ thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Database-Connection"><span class="toc-number">4.1.</span> <span class="toc-text">1. Database Connection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Logger-System"><span class="toc-number">4.2.</span> <span class="toc-text">2. Logger System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-Class-Implementation"><span class="toc-number">5.</span> <span class="toc-text">ES6 Class Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Uu-diem"><span class="toc-number">6.</span> <span class="toc-text">Ưu điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nhuoc-diem"><span class="toc-number">7.</span> <span class="toc-text">Nhược điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-nen-su-dung"><span class="toc-number">8.</span> <span class="toc-text">Khi nào nên sử dụng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">9.</span> <span class="toc-text">Demo</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Design Pattern: Singleton Pattern
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-05-08T08:04:57.000Z" class="dt-published" itemprop="datePublished">2018-05-08</time>
+        
+        (Updated: <time datetime="2025-06-19T07:59:59.511Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Khai-niem"><a href="#Khai-niem" class="headerlink" title="Khái niệm"></a>Khái niệm</h2><p>Singleton Pattern là một creational design pattern đảm bảo rằng một class chỉ có duy nhất một instance trong toàn bộ ứng dụng và cung cấp một global access point đến instance đó.</p>
+<p><strong>Cải tiến từ:</strong> <a href="/2018/05/08/design-pattern-module-pattern/">Module Pattern</a></p>
+<h2 id="Dac-diem"><a href="#Dac-diem" class="headerlink" title="Đặc điểm"></a>Đặc điểm</h2><ul>
+<li><strong>Duy nhất:</strong> Chỉ có một instance duy nhất</li>
+<li><strong>Global Access:</strong> Có thể truy cập từ bất kỳ đâu</li>
+<li><strong>Lazy Initialization:</strong> Chỉ tạo instance khi cần thiết</li>
+<li><strong>Thread-safe:</strong> An toàn trong môi trường đa luồng</li>
+</ul>
+<h2 id="Code-minh-hoa"><a href="#Code-minh-hoa" class="headerlink" title="Code minh họa"></a>Code minh họa</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anph = (<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> instance; <span class="comment">// Private variable để lưu instance</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">init</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Private properties</span></span><br><span class="line">    <span class="keyword">const</span> a = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> n = <span class="string">&#x27;n&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> p = <span class="string">&#x27;p&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> h = <span class="string">&#x27;h&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Private methods</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getA</span> = (<span class="params"></span>) =&gt; a;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getN</span> = (<span class="params"></span>) =&gt; n;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getP</span> = (<span class="params"></span>) =&gt; p;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getH</span> = (<span class="params"></span>) =&gt; h;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getph4n4n</span> = (<span class="params"></span>) =&gt; <span class="title function_">getA</span>() + n + p + h;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Public API</span></span><br><span class="line">    <span class="keyword">return</span> &#123; </span><br><span class="line">      getph4n4n, </span><br><span class="line">      getP </span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">getInstance</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!instance) &#123; <span class="comment">// Đảm bảo chỉ tạo 1 object duy nhất</span></span><br><span class="line">        instance = <span class="title function_">init</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Testing</span></span><br><span class="line"><span class="comment">// console.log(anph.getInstance().getA()); // TypeError: getA is not a function</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(anph.<span class="title function_">getInstance</span>().<span class="title function_">getph4n4n</span>()); <span class="comment">// &quot;ph4n4n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Kiểm tra singleton behavior</span></span><br><span class="line"><span class="keyword">const</span> instance1 = anph.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="keyword">const</span> instance2 = anph.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(instance1 === instance2); <span class="comment">// true - cùng một instance</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Vi-du-thuc-te"><a href="#Vi-du-thuc-te" class="headerlink" title="Ví dụ thực tế"></a>Ví dụ thực tế</h2><h3 id="1-Database-Connection"><a href="#1-Database-Connection" class="headerlink" title="1. Database Connection"></a>1. Database Connection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">DatabaseConnection</span> = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">createConnection</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">      <span class="attr">port</span>: <span class="number">3306</span>,</span><br><span class="line">      <span class="attr">database</span>: <span class="string">&#x27;myapp&#x27;</span>,</span><br><span class="line">      <span class="title function_">connect</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Connected to database&#x27;</span>);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="title function_">disconnect</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Disconnected from database&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="title function_">getInstance</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!instance) &#123;</span><br><span class="line">        instance = <span class="title function_">createConnection</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sử dụng</span></span><br><span class="line"><span class="keyword">const</span> db1 = <span class="title class_">DatabaseConnection</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="keyword">const</span> db2 = <span class="title class_">DatabaseConnection</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(db1 === db2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Logger-System"><a href="#2-Logger-System" class="headerlink" title="2. Logger System"></a>2. Logger System</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Logger</span> = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">createLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> logs = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="title function_">log</span>(<span class="params">message</span>) &#123;</span><br><span class="line">        logs.<span class="title function_">push</span>(&#123;</span><br><span class="line">          message,</span><br><span class="line">          <span class="attr">timestamp</span>: <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toISOString</span>()</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`[<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toISOString()&#125;</span>] <span class="subst">$&#123;message&#125;</span>`</span>);</span><br><span class="line">      &#125;,</span><br><span class="line">      </span><br><span class="line">      <span class="title function_">getLogs</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [...logs]; <span class="comment">// Return copy to prevent direct manipulation</span></span><br><span class="line">      &#125;,</span><br><span class="line">      </span><br><span class="line">      <span class="title function_">clearLogs</span>(<span class="params"></span>) &#123;</span><br><span class="line">        logs.<span class="property">length</span> = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="title function_">getInstance</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!instance) &#123;</span><br><span class="line">        instance = <span class="title function_">createLogger</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sử dụng</span></span><br><span class="line"><span class="keyword">const</span> logger1 = <span class="title class_">Logger</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="keyword">const</span> logger2 = <span class="title class_">Logger</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"></span><br><span class="line">logger1.<span class="title function_">log</span>(<span class="string">&#x27;First message&#x27;</span>);</span><br><span class="line">logger2.<span class="title function_">log</span>(<span class="string">&#x27;Second message&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(logger1.<span class="title function_">getLogs</span>()); <span class="comment">// Có cả 2 messages</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(logger1 === logger2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6-Class-Implementation"><a href="#ES6-Class-Implementation" class="headerlink" title="ES6 Class Implementation"></a>ES6 Class Implementation</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Singleton</span>.<span class="property">instance</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Singleton</span>.<span class="property">instance</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">data</span> = [];</span><br><span class="line">    <span class="title class_">Singleton</span>.<span class="property">instance</span> = <span class="variable language_">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">addData</span>(<span class="params">item</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">data</span>.<span class="title function_">push</span>(item);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">getData</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">data</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">getInstance</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Singleton</span>.<span class="property">instance</span>) &#123;</span><br><span class="line">      <span class="title class_">Singleton</span>.<span class="property">instance</span> = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Singleton</span>.<span class="property">instance</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Testing</span></span><br><span class="line"><span class="keyword">const</span> s1 = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line"><span class="keyword">const</span> s2 = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line"><span class="keyword">const</span> s3 = <span class="title class_">Singleton</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"></span><br><span class="line">s1.<span class="title function_">addData</span>(<span class="string">&#x27;item1&#x27;</span>);</span><br><span class="line">s2.<span class="title function_">addData</span>(<span class="string">&#x27;item2&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1.<span class="title function_">getData</span>()); <span class="comment">// [&#x27;item1&#x27;, &#x27;item2&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1 === s2 === s3); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Uu-diem"><a href="#Uu-diem" class="headerlink" title="Ưu điểm"></a>Ưu điểm</h2><ul>
+<li><strong>Kiểm soát instance:</strong> Đảm bảo chỉ có một instance duy nhất</li>
+<li><strong>Tiết kiệm memory:</strong> Không tạo ra nhiều object không cần thiết</li>
+<li><strong>Global access:</strong> Dễ dàng truy cập từ mọi nơi</li>
+<li><strong>Lazy loading:</strong> Chỉ tạo khi cần thiết</li>
+</ul>
+<h2 id="Nhuoc-diem"><a href="#Nhuoc-diem" class="headerlink" title="Nhược điểm"></a>Nhược điểm</h2><ul>
+<li><strong>Global state:</strong> Có thể tạo ra coupling cao</li>
+<li><strong>Testing khó khăn:</strong> Khó mock và test</li>
+<li><strong>Thread safety:</strong> Cần xử lý cẩn thận trong môi trường đa luồng</li>
+<li><strong>Violation of Single Responsibility:</strong> Class vừa quản lý business logic vừa quản lý instance</li>
+</ul>
+<h2 id="Khi-nao-nen-su-dung"><a href="#Khi-nao-nen-su-dung" class="headerlink" title="Khi nào nên sử dụng"></a>Khi nào nên sử dụng</h2><ul>
+<li>Database connections</li>
+<li>Logger systems</li>
+<li>Configuration objects</li>
+<li>Cache systems</li>
+<li>Thread pools</li>
+</ul>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="http://jsbin.com/becokebetu/edit?js,console">Singleton Pattern Demo</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Khai-niem"><span class="toc-number">1.</span> <span class="toc-text">Khái niệm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dac-diem"><span class="toc-number">2.</span> <span class="toc-text">Đặc điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-minh-hoa"><span class="toc-number">3.</span> <span class="toc-text">Code minh họa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">4.</span> <span class="toc-text">Ví dụ thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Database-Connection"><span class="toc-number">4.1.</span> <span class="toc-text">1. Database Connection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Logger-System"><span class="toc-number">4.2.</span> <span class="toc-text">2. Logger System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-Class-Implementation"><span class="toc-number">5.</span> <span class="toc-text">ES6 Class Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Uu-diem"><span class="toc-number">6.</span> <span class="toc-text">Ưu điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nhuoc-diem"><span class="toc-number">7.</span> <span class="toc-text">Nhược điểm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-nen-su-dung"><span class="toc-number">8.</span> <span class="toc-text">Khi nào nên sử dụng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">9.</span> <span class="toc-text">Demo</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&text=Design Pattern: Singleton Pattern"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&is_video=false&description=Design Pattern: Singleton Pattern"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Design Pattern: Singleton Pattern&body=Check out this article: https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&title=Design Pattern: Singleton Pattern"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&name=Design Pattern: Singleton Pattern&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/05/08/design-pattern-singleton-pattern/&t=Design Pattern: Singleton Pattern"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

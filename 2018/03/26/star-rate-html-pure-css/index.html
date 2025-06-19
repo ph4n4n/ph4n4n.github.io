@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="HTML12345678910111213141516171819202122232425262728293031&lt;fieldset class&#x3D;&quot;rating&quot;&gt;    &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;star5&quot; name&#x3D;&quot;rating&quot; value&#x3D;&quot;5&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Star Rate Html + Pure Css">
+<meta property="og:url" content="https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="HTML12345678910111213141516171819202122232425262728293031&lt;fieldset class&#x3D;&quot;rating&quot;&gt;    &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;star5&quot; name&#x3D;&quot;rating&quot; value&#x3D;&quot;5&quot;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-03-26T04:35:05.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:31:21.347Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Star Rate Html + Pure Css</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/04/26/create-json-from-form-input/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&text=Star Rate Html + Pure Css"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&is_video=false&description=Star Rate Html + Pure Css"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Star Rate Html + Pure Css&body=Check out this article: https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&name=Star Rate Html + Pure Css&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&t=Star Rate Html + Pure Css"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OUTPUT"><span class="toc-number">3.</span> <span class="toc-text">OUTPUT</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Star Rate Html + Pure Css
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-03-26T04:35:05.000Z" class="dt-published" itemprop="datePublished">2018-03-26</time>
+        
+        (Updated: <time datetime="2025-06-19T06:31:21.347Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/css/" rel="tag">css</a>, <a class="p-category" href="/tags/html/" rel="tag">html</a>, <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">&quot;rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star5&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span> = <span class="string">&quot;full&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star5&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Awesome - 5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star4half&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;4 and a half&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star4half&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Pretty good - 4.5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star4&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span> = <span class="string">&quot;full&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star4&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Pretty good - 4 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star3half&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;3 and a half&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star3half&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Meh - 3.5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star3&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span> = <span class="string">&quot;full&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star3&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Meh - 3 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star2half&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;2 and a half&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star2half&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Kinda bad - 2.5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star2&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span> = <span class="string">&quot;full&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star2&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Kinda bad - 2 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star1half&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1 and a half&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star1half&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Meh - 1.5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;star1&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span> = <span class="string">&quot;full&quot;</span> <span class="attr">for</span>=<span class="string">&quot;star1&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Sucks big time - 1 star&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;starhalf&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating&quot;</span> <span class="attr">value</span>=<span class="string">&quot;half&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span> <span class="attr">for</span>=<span class="string">&quot;starhalf&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Sucks big time - 0.5 stars&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(//netdna.bootstrapcdn.com/font-awesome/<span class="number">3.2</span>.<span class="number">1</span>/css/font-awesome.css);</span><br><span class="line"><span class="selector-tag">fieldset</span>,<span class="selector-tag">label</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">20px</span>;&#125;</span><br><span class="line"><span class="selector-tag">h1</span>&#123;<span class="attribute">font-size</span>:<span class="number">1.5em</span>;<span class="attribute">margin</span>:<span class="number">10px</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/****** Style Star Rating Widget *****/</span></span><br><span class="line"><span class="selector-class">.rating</span>&#123;<span class="attribute">border</span>:none;<span class="attribute">float</span><span class="selector-pseudo">:left</span>;&#125;</span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">input</span>&#123;<span class="attribute">display</span>:none;&#125;</span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">label</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">margin</span>:<span class="number">5px</span>;<span class="attribute">font-size</span>:<span class="number">1.25em</span>;<span class="attribute">font-family</span>:FontAwesome;<span class="attribute">display</span>:inline-block;<span class="attribute">content</span>:<span class="string">&quot;\f005&quot;</span>;&#125;</span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-class">.half</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">content</span>:<span class="string">&quot;\f089&quot;</span>;<span class="attribute">position</span>:absolute;&#125;</span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">label</span>&#123;<span class="attribute">color</span>:<span class="number">#ddd</span>;<span class="attribute">float</span><span class="selector-pseudo">:right</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***** CSS Magic to Highlight Stars on Hover *****/</span></span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> ~ <span class="selector-tag">label</span>, <span class="comment">/* show gold star when clicked */</span></span><br><span class="line"><span class="selector-class">.rating</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:checked</span>) &gt; <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span>, <span class="comment">/* hover current star */</span></span><br><span class="line"><span class="selector-class">.rating</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:checked</span>) &gt; <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span> ~ <span class="selector-tag">label</span>&#123;<span class="attribute">color</span>:<span class="number">#FFD700</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* hover previous stars in list */</span></span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span>, <span class="comment">/* hover current star when changing rating */</span></span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> ~ <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span>,<span class="selector-class">.rating</span> &gt; <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span> ~ <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> ~ <span class="selector-tag">label</span>, <span class="comment">/* lighten current selection */</span></span><br><span class="line"><span class="selector-class">.rating</span> &gt; <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> ~ <span class="selector-tag">label</span><span class="selector-pseudo">:hover</span> ~ <span class="selector-tag">label</span>&#123;<span class="attribute">color</span>:<span class="number">#FFED85</span>;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>If want to passive load we need push <code>disabled</code> attribute to all <code>input[type=&quot;text&quot;]</code> and run JS code below:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">calcRate</span>(<span class="params">r</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> t = <span class="number">5</span> === a ? star5 </span><br><span class="line">    : r &gt;= <span class="number">4.5</span> ? star4half </span><br><span class="line">      : r &gt;= <span class="number">4</span> ? star4 </span><br><span class="line">        : r &gt;= <span class="number">3.5</span> ? star3half </span><br><span class="line">          : r &gt;= <span class="number">3</span> ? star3 </span><br><span class="line">            : r &gt;= <span class="number">2.5</span> ? star2half </span><br><span class="line">              : r &gt;= <span class="number">2</span> ? star2  </span><br><span class="line">                : r &gt;= <span class="number">1.5</span> ? star1half </span><br><span class="line">                  : r &gt;= <span class="number">1</span> ? star1 </span><br><span class="line">                    : r &gt;= <span class="number">.5</span> ? starhalf </span><br><span class="line">                      : <span class="literal">null</span>;</span><br><span class="line">  t &amp;&amp; (t.<span class="property">checked</span> = !<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="OUTPUT"><a href="#OUTPUT" class="headerlink" title="OUTPUT"></a>OUTPUT</h3><p><a href="http://output.jsbin.com/dojovax/2">Pure CSS Star Rating Widget</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OUTPUT"><span class="toc-number">3.</span> <span class="toc-text">OUTPUT</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&text=Star Rate Html + Pure Css"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&is_video=false&description=Star Rate Html + Pure Css"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Star Rate Html + Pure Css&body=Check out this article: https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&title=Star Rate Html + Pure Css"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&name=Star Rate Html + Pure Css&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/&t=Star Rate Html + Pure Css"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

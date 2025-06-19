@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vấn đềKhi cần cộng 2 số quá lớn (big number) mà JavaScript không thể xử lý chính xác do giới hạn của Number.MAX_SAFE_INTEGER (2^53 - 1). Ví dụ: 12console.log(9007199254740991 + 2); &#x2F;&#x2F; 9007199254740992">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sum Big Numbers From String">
+<meta property="og:url" content="https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Vấn đềKhi cần cộng 2 số quá lớn (big number) mà JavaScript không thể xử lý chính xác do giới hạn của Number.MAX_SAFE_INTEGER (2^53 - 1). Ví dụ: 12console.log(9007199254740991 + 2); &#x2F;&#x2F; 9007199254740992">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-14T06:48:10.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:47:03.113Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Sum Big Numbers From String</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/01/03/19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&text=Sum Big Numbers From String"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&is_video=false&description=Sum Big Numbers From String"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Sum Big Numbers From String&body=Check out this article: https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&name=Sum Big Numbers From String&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&t=Sum Big Numbers From String"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Van-de"><span class="toc-number">1.</span> <span class="toc-text">Vấn đề</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Giai-phap"><span class="toc-number">2.</span> <span class="toc-text">Giải pháp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-1-Manual-String-Addition"><span class="toc-number">2.1.</span> <span class="toc-text">Cách 1: Manual String Addition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-2-ES6-Version-Optimized"><span class="toc-number">2.2.</span> <span class="toc-text">Cách 2: ES6 Version (Optimized)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-3-Su-dung-BigInt-ES2020"><span class="toc-number">2.3.</span> <span class="toc-text">Cách 3: Sử dụng BigInt (ES2020)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-su-dung"><span class="toc-number">3.</span> <span class="toc-text">Ví dụ sử dụng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparison-va-Performance"><span class="toc-number">4.</span> <span class="toc-text">Comparison và Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-operations-khac"><span class="toc-number">5.</span> <span class="toc-text">Các operations khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Subtraction-Tru"><span class="toc-number">5.1.</span> <span class="toc-text">Subtraction (Trừ)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiplication-Nhan"><span class="toc-number">5.2.</span> <span class="toc-text">Multiplication (Nhân)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Support"><span class="toc-number">6.</span> <span class="toc-text">Browser Support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">7.</span> <span class="toc-text">Kết luận</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Sum Big Numbers From String
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-03-14T06:48:10.000Z" class="dt-published" itemprop="datePublished">2019-03-14</time>
+        
+        (Updated: <time datetime="2025-06-19T06:47:03.113Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Van-de"><a href="#Van-de" class="headerlink" title="Vấn đề"></a>Vấn đề</h2><p>Khi cần cộng 2 số quá lớn (big number) mà JavaScript không thể xử lý chính xác do giới hạn của <code>Number.MAX_SAFE_INTEGER</code> (2^53 - 1).</p>
+<p>Ví dụ:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740991</span> + <span class="number">2</span>); <span class="comment">// 9007199254740992 (sai!)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="property">MAX_SAFE_INTEGER</span>); <span class="comment">// 9007199254740991</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Giai-phap"><a href="#Giai-phap" class="headerlink" title="Giải pháp"></a>Giải pháp</h2><h3 id="Cach-1-Manual-String-Addition"><a href="#Cach-1-Manual-String-Addition" class="headerlink" title="Cách 1: Manual String Addition"></a>Cách 1: Manual String Addition</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">sumBigNumbers</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// Chuyển thành mảng và reverse để dễ xử lý từ phải sang trái</span></span><br><span class="line">  <span class="keyword">const</span> aDigits = a.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  <span class="keyword">const</span> bDigits = b.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> maxLength = <span class="title class_">Math</span>.<span class="title function_">max</span>(a.<span class="property">length</span>, b.<span class="property">length</span>);</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> carry = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; maxLength || carry &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> digitA = <span class="built_in">parseInt</span>(aDigits[i] || <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> digitB = <span class="built_in">parseInt</span>(bDigits[i] || <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> sum = digitA + digitB + carry;</span><br><span class="line">    result.<span class="title function_">push</span>(sum % <span class="number">10</span>);</span><br><span class="line">    carry = <span class="title class_">Math</span>.<span class="title function_">floor</span>(sum / <span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hàm loại bỏ số 0 đầu (nếu cần)</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">removeLeadingZeros</span> = (<span class="params">str</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>) || <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cach-2-ES6-Version-Optimized"><a href="#Cach-2-ES6-Version-Optimized" class="headerlink" title="Cách 2: ES6 Version (Optimized)"></a>Cách 2: ES6 Version (Optimized)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">sumBigNumbers</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">normalize</span> = (<span class="params">str</span>) =&gt; str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  <span class="keyword">const</span> [aDigits, bDigits] = [<span class="title function_">normalize</span>(a), <span class="title function_">normalize</span>(b)];</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">let</span> carry = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">const</span> maxLength = <span class="title class_">Math</span>.<span class="title function_">max</span>(aDigits.<span class="property">length</span>, bDigits.<span class="property">length</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; maxLength || carry; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> sum = (<span class="built_in">parseInt</span>(aDigits[i]) || <span class="number">0</span>) + </span><br><span class="line">                 (<span class="built_in">parseInt</span>(bDigits[i]) || <span class="number">0</span>) + </span><br><span class="line">                 carry;</span><br><span class="line">    </span><br><span class="line">    result.<span class="title function_">push</span>(sum % <span class="number">10</span>);</span><br><span class="line">    carry = <span class="title class_">Math</span>.<span class="title function_">floor</span>(sum / <span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>) || <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cach-3-Su-dung-BigInt-ES2020"><a href="#Cach-3-Su-dung-BigInt-ES2020" class="headerlink" title="Cách 3: Sử dụng BigInt (ES2020)"></a>Cách 3: Sử dụng BigInt (ES2020)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cách đơn giản nhất với BigInt</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sumBigNumbers</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="title class_">BigInt</span>(a) + <span class="title class_">BigInt</span>(b)).<span class="title function_">toString</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hoặc với validation</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sumBigNumbersSafe</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="title class_">BigInt</span>(a) + <span class="title class_">BigInt</span>(b)).<span class="title function_">toString</span>();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Invalid number format&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vi-du-su-dung"><a href="#Vi-du-su-dung" class="headerlink" title="Ví dụ sử dụng"></a>Ví dụ sử dụng</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Test cases</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sumBigNumbers</span>(<span class="string">&#x27;123&#x27;</span>, <span class="string">&#x27;321&#x27;</span>)); <span class="comment">// &quot;444&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sumBigNumbers</span>(<span class="string">&#x27;8797927323&#x27;</span>, <span class="string">&#x27;3232321&#x27;</span>)); <span class="comment">// &quot;8801159644&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sumBigNumbers</span>(<span class="string">&#x27;999999999999999999&#x27;</span>, <span class="string">&#x27;1&#x27;</span>)); <span class="comment">// &quot;1000000000000000000&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sumBigNumbers</span>(<span class="string">&#x27;123456789012345678901234567890&#x27;</span>, <span class="string">&#x27;987654321098765432109876543210&#x27;</span>)); </span><br><span class="line"><span class="comment">// &quot;1111111110111111111011111111100&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// So sánh với BigInt</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="title class_">BigInt</span>(<span class="string">&#x27;123&#x27;</span>) + <span class="title class_">BigInt</span>(<span class="string">&#x27;321&#x27;</span>)).<span class="title function_">toString</span>()); <span class="comment">// &quot;444&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Comparison-va-Performance"><a href="#Comparison-va-Performance" class="headerlink" title="Comparison và Performance"></a>Comparison và Performance</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Benchmark</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">benchmark</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> num1 = <span class="string">&#x27;12345678901234567890123456789012345678901234567890&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> num2 = <span class="string">&#x27;98765432109876543210987654321098765432109876543210&#x27;</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&#x27;Manual Addition&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    <span class="title function_">sumBigNumbers</span>(num1, num2);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&#x27;Manual Addition&#x27;</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&#x27;BigInt Addition&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    (<span class="title class_">BigInt</span>(num1) + <span class="title class_">BigInt</span>(num2)).<span class="title function_">toString</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&#x27;BigInt Addition&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// benchmark(); // BigInt thường nhanh hơn</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Cac-operations-khac"><a href="#Cac-operations-khac" class="headerlink" title="Các operations khác"></a>Các operations khác</h2><h3 id="Subtraction-Tru"><a href="#Subtraction-Tru" class="headerlink" title="Subtraction (Trừ)"></a>Subtraction (Trừ)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">subtractBigNumbers</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// Đảm bảo a &gt;= b</span></span><br><span class="line">  <span class="keyword">if</span> (a.<span class="property">length</span> &lt; b.<span class="property">length</span> || (a.<span class="property">length</span> === b.<span class="property">length</span> &amp;&amp; a &lt; b)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;-&#x27;</span> + <span class="title function_">subtractBigNumbers</span>(b, a);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> aDigits = a.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  <span class="keyword">const</span> bDigits = b.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> borrow = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; aDigits.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> diff = <span class="built_in">parseInt</span>(aDigits[i]) - (<span class="built_in">parseInt</span>(bDigits[i]) || <span class="number">0</span>) - borrow;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (diff &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      diff += <span class="number">10</span>;</span><br><span class="line">      borrow = <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      borrow = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    result.<span class="title function_">push</span>(diff);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>) || <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Multiplication-Nhan"><a href="#Multiplication-Nhan" class="headerlink" title="Multiplication (Nhân)"></a>Multiplication (Nhân)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">multiplyBigNumbers</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (a === <span class="string">&#x27;0&#x27;</span> || b === <span class="string">&#x27;0&#x27;</span>) <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> result = <span class="title class_">Array</span>(a.<span class="property">length</span> + b.<span class="property">length</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> aDigits = a.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  <span class="keyword">const</span> bDigits = b.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; aDigits.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; bDigits.<span class="property">length</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">const</span> product = <span class="built_in">parseInt</span>(aDigits[i]) * <span class="built_in">parseInt</span>(bDigits[j]);</span><br><span class="line">      <span class="keyword">const</span> pos1 = i + j;</span><br><span class="line">      <span class="keyword">const</span> pos2 = i + j + <span class="number">1</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">const</span> sum = product + result[pos1];</span><br><span class="line">      result[pos1] = sum % <span class="number">10</span>;</span><br><span class="line">      result[pos2] += <span class="title class_">Math</span>.<span class="title function_">floor</span>(sum / <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>) || <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Browser-Support"><a href="#Browser-Support" class="headerlink" title="Browser Support"></a>Browser Support</h2><ul>
+<li><strong>Manual Implementation:</strong> Tất cả browsers</li>
+<li><strong>BigInt:</strong> Chrome 67+, Firefox 68+, Safari 14+, Node.js 12+</li>
+</ul>
+<h2 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h2><ul>
+<li><strong>Sử dụng BigInt</strong> nếu môi trường hỗ trợ (modern browsers&#x2F;Node.js)</li>
+<li><strong>Manual implementation</strong> cho legacy support hoặc học thuật toán</li>
+<li><strong>Performance:</strong> BigInt thường nhanh hơn và đáng tin cậy  hơn</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Van-de"><span class="toc-number">1.</span> <span class="toc-text">Vấn đề</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Giai-phap"><span class="toc-number">2.</span> <span class="toc-text">Giải pháp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-1-Manual-String-Addition"><span class="toc-number">2.1.</span> <span class="toc-text">Cách 1: Manual String Addition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-2-ES6-Version-Optimized"><span class="toc-number">2.2.</span> <span class="toc-text">Cách 2: ES6 Version (Optimized)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cach-3-Su-dung-BigInt-ES2020"><span class="toc-number">2.3.</span> <span class="toc-text">Cách 3: Sử dụng BigInt (ES2020)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-su-dung"><span class="toc-number">3.</span> <span class="toc-text">Ví dụ sử dụng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparison-va-Performance"><span class="toc-number">4.</span> <span class="toc-text">Comparison và Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-operations-khac"><span class="toc-number">5.</span> <span class="toc-text">Các operations khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Subtraction-Tru"><span class="toc-number">5.1.</span> <span class="toc-text">Subtraction (Trừ)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiplication-Nhan"><span class="toc-number">5.2.</span> <span class="toc-text">Multiplication (Nhân)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Support"><span class="toc-number">6.</span> <span class="toc-text">Browser Support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">7.</span> <span class="toc-text">Kết luận</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&text=Sum Big Numbers From String"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&is_video=false&description=Sum Big Numbers From String"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Sum Big Numbers From String&body=Check out this article: https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&title=Sum Big Numbers From String"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&name=Sum Big Numbers From String&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/&t=Sum Big Numbers From String"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

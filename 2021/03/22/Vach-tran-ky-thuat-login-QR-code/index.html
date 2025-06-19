@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Mến chào các đồng code,Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này.. nhỉ? Vừa rồi mình nhận được đề nghị của boss trang Anonystick chia sẻ về k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vạch Trần Kỹ Thuật Login QR Code">
+<meta property="og:url" content="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Mến chào các đồng code,Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này.. nhỉ? Vừa rồi mình nhận được đề nghị của boss trang Anonystick chia sẻ về k">
+<meta property="og:locale">
+<meta property="og:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/socket.png">
+<meta property="og:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/qr.jpg">
+<meta property="article:published_time" content="2021-03-22T02:40:20.000Z">
+<meta property="article:modified_time" content="2025-06-19T07:59:51.365Z">
+<meta property="article:author" content="Anph">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/socket.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Vạch Trần Kỹ Thuật Login QR Code</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/04/11/Vo-de/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&text=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&is_video=false&description=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vạch Trần Kỹ Thuật Login QR Code&body=Check out this article: https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&name=Vạch Trần Kỹ Thuật Login QR Code&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&t=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Vạch Trần Kỹ Thuật Login QR Code
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-03-22T02:40:20.000Z" class="dt-published" itemprop="datePublished">2021-03-22</time>
+        
+        (Updated: <time datetime="2025-06-19T07:59:51.365Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Mến chào các đồng code,<br>Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này.. nhỉ?</p>
+<p>Vừa rồi mình nhận được đề nghị của boss trang Anonystick chia sẻ về kỹ thuật login QR code nên mình mạo muội viết ít dòng, có gì sai sót mong quý bạn và các vị góp ý! Xin chân thành cảm ơn! Không để phí thời gian quý báu của các bạn, mình vào luôn chủ đề hôm nay nhé! Dzô..</p>
+<p>Concept cơ bản của kỹ thuật này sẽ nằm gọn trong hình sau<br><img src="/./images/Vach-tran-ky-thuat-login-QR-code/socket.png"></p>
+<p>Như bạn đã thấy, ở đây mình dùng SocketIO server để làm trung gian cho 2 client là Web và App theo thứ tự mình đánh số trong hình. Mình sẽ giải thích cặn kẽ kèm theo code cho từng bước ngay sau đây.</p>
+<ol>
+<li>User vào trang <code>/login</code> của ứng dụng<br>HTML dùng hiển thị:</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;login-panel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;code-panel&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--QR code sẽ được tạo ra và hiện ở đây--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qrcode&quot;</span> <span class="attr">class</span>=<span class="string">&quot;code-view&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--lớp che và nút làm mới khi QR hết hạn--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;qrcode-mask show&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>QR code hết hạn!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span> <span class="attr">id</span>=<span class="string">&quot;f5Btn&quot;</span>&gt;</span>refresh<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;expire_qr&quot;</span> <span class="attr">class</span>=<span class="string">&quot;expire-countdown&quot;</span>&gt;</span></span><br><span class="line">        Hết hạn trong<span class="tag">&lt;<span class="name">span</span>&gt;</span>30<span class="tag">&lt;/<span class="name">span</span>&gt;</span>giây</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>sau đó thêm 1 ít css cho nhìn thuận mắt:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.login-panel</span>&#123;<span class="attribute">width</span>:<span class="number">100vw</span>;&#125;</span><br><span class="line"><span class="selector-class">.code-panel</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">width</span>:<span class="number">250px</span>;<span class="attribute">height</span>:<span class="number">130px</span>;<span class="attribute">margin</span>:<span class="number">0</span> auto;&#125;</span><br><span class="line"><span class="selector-class">.code-view</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>&#125;</span><br><span class="line"><span class="selector-class">.code-view</span> <span class="selector-tag">img</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:auto&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span>&#123;<span class="attribute">display</span>:none;<span class="attribute">position</span>:absolute;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">top</span>:<span class="number">0</span>;<span class="attribute">left</span>:<span class="number">0</span>;<span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,.<span class="number">7</span>);<span class="attribute">padding</span>:<span class="number">25%</span> <span class="number">0</span>;<span class="attribute">display</span>:none&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span> <span class="selector-tag">p</span>&#123;<span class="attribute">text-align</span>:center;<span class="attribute">display</span>: inline-block;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">color</span>:<span class="number">#00f</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span> <span class="selector-tag">button</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> auto;<span class="attribute">display</span>: block&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span><span class="selector-class">.show</span>&#123;<span class="attribute">display</span>:block&#125;</span><br><span class="line"><span class="selector-class">.expire-countdown</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">text-align</span>:center;<span class="attribute">margin</span>:<span class="number">20px</span> <span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-class">.expire-countdown</span> <span class="selector-tag">span</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">5px</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./images/Vach-tran-ky-thuat-login-QR-code/qr.jpg"></p>
+<p>Có 2 thành phần trên GUI trông sẽ như thế này. Bây giờ chúng ta bắt đầu vào phần JS xử lý, mình sẽ trình bày theo mạch code nên đôi khi hơi rối mạch suy nghĩ, bạn cố gắng xoắn não tý cho vui nhé:</p>
+<p>Đầu tiên <code>window.onload</code> gọi <code>refreshToken()</code>: hàm này là nguồn cơn mọi vấn đề</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socket;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">refreshToken</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>..và thêm sẵn event click refresh gọi hàm này luôn, 1 công đôi việc</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">_q</span>(#f5Btn<span class="string">&#x27;).addEventlistener(function () &#123; </span></span><br><span class="line"><span class="string">  refreshToken();</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p><code>refreshToken()</code> chỉ có nhiệm vụ mở kết nối tới socket server và đăng ký sự kiện <code>socket on connect</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">refreshToken</span>(<span class="params"></span>) &#123;</span><br><span class="line">  socket = io.<span class="title function_">connect</span>(<span class="string">&#x27;localhost&#x27;</span>, &#123; <span class="string">&#x27;forceNew&#x27;</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  socket.<span class="title function_">on</span>(<span class="string">&#x27;connect&#x27;</span>, socketConnect);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Hàm <code>socketConnect()</code> để nhận và xử lý sự kiện <code>socket on connect</code> ở trên mình có chú thích trong từng dòng nên không nói thêm nha</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">socketConnect</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 1. Dùng socket id của web kèm theo thông tin browser gói thành 1 chuỗi</span></span><br><span class="line">  <span class="keyword">var</span> token = <span class="title function_">createToken</span>();</span><br><span class="line">  $(<span class="string">&#x27;#qrcode&#x27;</span>).<span class="title function_">html</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="comment">// 2. Dùng thư viện tạo QR code đưa vào div#qrcode, size 200x200</span></span><br><span class="line">  <span class="keyword">var</span> qrcode = <span class="keyword">new</span> <span class="title class_">QRCode</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;qrcode&quot;</span>), &#123; <span class="attr">width</span>: <span class="number">200</span>, <span class="attr">height</span>: <span class="number">200</span> &#125;);</span><br><span class="line">  <span class="comment">// 3. Tạo QR code từ token ở trên</span></span><br><span class="line">  qrcode.<span class="title function_">makeCode</span>(token);</span><br><span class="line">  <span class="comment">// 4. Hiện mask lên đầu tiên</span></span><br><span class="line">  <span class="title function_">_q</span>(<span class="string">&#x27;.qrcode-mask&#x27;</span>).<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;show&#x27;</span>);</span><br><span class="line">  <span class="title function_">_q</span>(<span class="string">&#x27;.code-view&#x27;</span>).<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;disable&#x27;</span>);</span><br><span class="line">  <span class="title function_">_q</span>(<span class="string">&#x27;#expire_qr&#x27;</span>).<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;show&#x27;</span>);</span><br><span class="line">  <span class="comment">// 5. đẩy token lên server socket để đăng ký room đây là điểm mấu chốt đưa ta đến bước 2</span></span><br><span class="line">  socket.<span class="title function_">emit</span>(<span class="string">&#x27;webClientJoin&#x27;</span>, &#123; token &#125;);</span><br><span class="line">  <span class="comment">// 6. gọi countdown </span></span><br><span class="line">  <span class="title function_">countDown</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Hàm tạo token để gửi lên socket server theo format <code>&lt;socketid&gt;@&lt;bonus info&gt;</code><br><code>getBrowserInfo()</code>: mình dùng để lấy thông tin browser client, các bạn có thể tự viết theo cách của mình.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createToken</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> bInfo = <span class="title function_">getBrowserInfo</span>()</span><br><span class="line">    , token = [</span><br><span class="line">      socket.<span class="property">id</span>,</span><br><span class="line">      bInfo.<span class="property">OSName</span> + <span class="string">&#x27; - &#x27;</span> + bInfo.<span class="property">browserName</span> + <span class="string">&#x27;/&#x27;</span> + bInfo.<span class="property">majorVersion</span></span><br><span class="line">    ].<span class="title function_">join</span>(<span class="string">&#x27;@&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">b64EncodeUnicode</span>(token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Hàm <code>countDown()</code> dùng đếm ngược thời gian hết hạn, mục đích của việc Giới hạn thời gian mở room 30s  nhằm để:</p>
+<ul>
+<li>Tránh lãng phí tài nguyên khi kết nối liên tục</li>
+<li>Không dùng lại QR nhằm tăng tính bảo mật</li>
+<li>và để cho ngầu nữa ahihi</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">countdown</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">30</span></span><br><span class="line">  , intervalQR = <span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">_q</span>(<span class="string">&#x27;#expire_qr&gt;span&#x27;</span>).<span class="property">innerHTML</span> = --count</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> === count) &#123;</span><br><span class="line">      <span class="title function_">_q</span>(<span class="string">&#x27;.qrcode-mask&#x27;</span>).<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;show&#x27;</span>);</span><br><span class="line">      <span class="title function_">_q</span>(<span class="string">&#x27;.code-view&#x27;</span>).<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;disable&#x27;</span>);</span><br><span class="line">      <span class="title function_">_q</span>(<span class="string">&#x27;#expire_qr&#x27;</span>).<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;show&#x27;</span>);</span><br><span class="line">      socket.<span class="title function_">disconnect</span>();</span><br><span class="line">      <span class="built_in">clearInterval</span>(intervalQR);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Sau đây là phần code socket ở server, ở đây có 4 event tất cả, tạm thời để ở đây  mình sẽ có hàm xử lý và giải thích theo từng event.</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&#x27;socket.io&#x27;</span>).<span class="title function_">listen</span>(app);</span><br><span class="line">io.<span class="property">sockets</span>.<span class="title function_">on</span>(<span class="string">&#x27;connection&#x27;</span>, <span class="keyword">function</span>(<span class="params">socket</span>) &#123;</span><br><span class="line"></span><br><span class="line">  socket.<span class="title function_">on</span>(<span class="string">&#x27;webClientJoin&#x27;</span>, <span class="keyword">function</span>(<span class="params">data, callback</span>) &#123;</span><br><span class="line">    <span class="title function_">webClientJoin</span>(socket, data, callback);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  socket.<span class="title function_">on</span>(<span class="string">&#x27;webClientLeave&#x27;</span>, <span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="title function_">webClientLeave</span>(socket, data);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  socket.<span class="title function_">on</span>(<span class="string">&#x27;appClientJoin&#x27;</span>, <span class="keyword">function</span>(<span class="params">data, callback</span>) &#123;</span><br><span class="line">    <span class="title function_">appClientJoin</span>(socket, data, callback);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  socket.<span class="title function_">on</span>(<span class="string">&#x27;appClientConfirm&#x27;</span>, <span class="keyword">function</span>(<span class="params">data, callback</span>) &#123;</span><br><span class="line">    <span class="title function_">appClientConfirm</span>(socket, data, callback);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>User mở App scan QR code được tạo và hiển thị ở bước 1</li>
+</ol>
+<p>Hiện tại trên Thế giới thịnh hành 2 OS mobile iOS và Android, nhưng để tiện và dễ hiểu trong ví dụ này mình sẽ giả lập client App bằng JS luôn để bạn dễ hình dung và thử nhé.<br>Văn vở vậy đủ rồi, vấn đề chính mình không biết làm app ahihi</p>
+<p>Theo yêu cầu của bài viết là làm rõ login với QR code, cho nên chúng ta giả định app đã login thành công đang giữ <code>token</code> và ở bước này chúng ta sẽ dùng token đó giúp Web login vào user tương ứng bằng 2 biến trong session app: <code>token</code>, <code>usrname</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;#login&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> socket = io.<span class="title function_">connect</span>(<span class="string">&#x27;localhost&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">socket.<span class="title function_">emit</span>(<span class="string">&quot;appClientJoin&quot;</span>, &#123; <span class="attr">token</span>: tokenInput.<span class="property">value</span> &#125;, <span class="keyword">function</span> (<span class="params">rs</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">&quot;success&quot;</span> !== rs.<span class="property">status</span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(rs))</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="title function_">confirm</span>(<span class="string">&quot;Are you sure allow: &quot;</span> + rs.<span class="property">body</span> + <span class="string">&quot; login your account?&quot;</span>))</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Access denied!&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      socket.<span class="title function_">emit</span>(<span class="string">&quot;appClientConfirm&quot;</span>, &#123;</span><br><span class="line">      usrname,</span><br><span class="line">      token</span><br><span class="line">      &#125;, <span class="keyword">function</span> (<span class="params">n</span>) &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(n)) </span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Socket server trả về client login thành công</li>
+<li></li>
+</ol>
+<p>Bonus một số hàm util dùng trong bài:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hàm này để rút gọn `querySelector`</span></span><br><span class="line"><span class="keyword">var</span> _q = <span class="variable language_">document</span>.<span class="property">querySelector</span>.<span class="title function_">bind</span>(<span class="variable language_">document</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mã hóa Base64</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b64EncodeUnicode</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">btoa</span>(<span class="built_in">encodeURIComponent</span>(str).<span class="title function_">replace</span>(<span class="regexp">/%([0-9A-F]&#123;2&#125;)/g</span>, <span class="keyword">function</span> (<span class="params">match, p1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="string">&#x27;0x&#x27;</span> + p1);</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Giải mã Base64</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b64DecodeUnicode</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">map</span>.<span class="title function_">call</span>(<span class="title function_">atob</span>(str), <span class="keyword">function</span> (<span class="params">c</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;%&#x27;</span> + (<span class="string">&#x27;00&#x27;</span> + c.<span class="title function_">charCodeAt</span>(<span class="number">0</span>).<span class="title function_">toString</span>(<span class="number">16</span>)).<span class="title function_">slice</span>(-<span class="number">2</span>);</span><br><span class="line">  &#125;).<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Lưu ý: trong bài này mình chỉ đề cập về kỹ thuật và bỏ qua các bước bảo mật cho code dễ nhìn, khi đi vào thực tế từng request các bạn phải verify theo cách của mình để hệ thống được an toàn hơn.</p>
+<p>Mong là những gì mình vừa trình bày có thể giúp bạn thỏa mãn phần nhỏ trong quá trình tìm tòi và tò mò về mọi thứ trên đời.</p>
+<p>Chúc bạn thành công!</p>
+<p>ph4n4n</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&text=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&is_video=false&description=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vạch Trần Kỹ Thuật Login QR Code&body=Check out this article: https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&title=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&name=Vạch Trần Kỹ Thuật Login QR Code&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/&t=Vạch Trần Kỹ Thuật Login QR Code"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

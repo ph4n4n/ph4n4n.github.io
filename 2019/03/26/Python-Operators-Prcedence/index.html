@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Python Operators PrecedenceBảng sau liệt kê tất cả các operators từ độ ưu tiên cao nhất đến thấp nhất. Bảng Precedence   No Operator Description Example    1 () (Highest) Parentheses (grouping) (2 + 3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Operators Precedence">
+<meta property="og:url" content="https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Python Operators PrecedenceBảng sau liệt kê tất cả các operators từ độ ưu tiên cao nhất đến thấp nhất. Bảng Precedence   No Operator Description Example    1 () (Highest) Parentheses (grouping) (2 + 3">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-26T09:54:45.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:46:56.118Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Python Operators Precedence</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/03/27/Compare-Python-with-Javascript/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&text=Python Operators Precedence"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&is_video=false&description=Python Operators Precedence"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python Operators Precedence&body=Check out this article: https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&name=Python Operators Precedence&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&t=Python Operators Precedence"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Operators-Precedence"><span class="toc-number">1.</span> <span class="toc-text">Python Operators Precedence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-Precedence"><span class="toc-number">1.1.</span> <span class="toc-text">Bảng Precedence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">1.2.</span> <span class="toc-text">Ví dụ thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Arithmetic-Precedence"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Arithmetic Precedence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Comparison-vs-Logical"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. Comparison vs Logical</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Bitwise-Operations"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. Bitwise Operations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Assignment-vs-Comparison"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. Assignment vs Comparison</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Mistakes-Solutions"><span class="toc-number">1.3.</span> <span class="toc-text">Common Mistakes &amp; Solutions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Boolean-Logic"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Boolean Logic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Arithmetic-voi-Boolean"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Arithmetic với Boolean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-String-Operations"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. String Operations</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Tips"><span class="toc-number">1.4.</span> <span class="toc-text">Memory Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PEMDAS-cho-Python"><span class="toc-number">1.4.1.</span> <span class="toc-text">PEMDAS cho Python:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mnemonic-cho-Bitwise"><span class="toc-number">1.4.2.</span> <span class="toc-text">Mnemonic cho Bitwise:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Best-Practices"><span class="toc-number">1.5.</span> <span class="toc-text">Best Practices</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Python Operators Precedence
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-03-26T09:54:45.000Z" class="dt-published" itemprop="datePublished">2019-03-26</time>
+        
+        (Updated: <time datetime="2025-06-19T06:46:56.118Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Python-Operators-Precedence"><a href="#Python-Operators-Precedence" class="headerlink" title="Python Operators Precedence"></a>Python Operators Precedence</h2><p>Bảng sau liệt kê tất cả các operators từ <strong>độ ưu tiên cao nhất</strong> đến <strong>thấp nhất</strong>.</p>
+<h3 id="Bang-Precedence"><a href="#Bang-Precedence" class="headerlink" title="Bảng Precedence"></a>Bảng Precedence</h3><table>
+<thead>
+<tr>
+<th>No</th>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>()</code></td>
+<td><strong>(Highest)</strong> Parentheses (grouping)</td>
+<td><code>(2 + 3) * 4 = 20</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>f(args…)</code></td>
+<td>Function call</td>
+<td><code>len([1,2,3])</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>(…), […], &#123;…&#125;, &#123;…&#125;</code></td>
+<td>Binding&#x2F;tuple, list, dict, set display</td>
+<td><code>[1,2], &#123;&#39;a&#39;:1&#125;</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>x[index], x[index:index]</code><br><code>x(arguments), x.attribute</code></td>
+<td>Subscription, slicing,<br>call, attribute reference</td>
+<td><code>arr[0], obj.attr</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>await x</code></td>
+<td>Await expression</td>
+<td><code>await fetch()</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>**</code></td>
+<td>Exponentiation</td>
+<td><code>2 ** 3 = 8</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>+x, -x, ~x</code></td>
+<td>Unary positive, negative, bitwise NOT</td>
+<td><code>-5, ~10</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>*, @, /, //, %</code></td>
+<td>Multiplication, matrix multiply,<br>division, floor division, modulo</td>
+<td><code>5 * 2, 7 // 3</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>+, -</code></td>
+<td>Addition, subtraction</td>
+<td><code>5 + 3, 8 - 2</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>&lt;&lt;, &gt;&gt;</code></td>
+<td>Bitwise left&#x2F;right shifts</td>
+<td><code>8 &lt;&lt; 2 = 32</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>&amp;</code></td>
+<td>Bitwise AND</td>
+<td><code>5 &amp; 3 = 1</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>^</code></td>
+<td>Bitwise XOR</td>
+<td><code>5 ^ 3 = 6</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>|</code></td>
+<td>Bitwise OR</td>
+<td><code>5 | 3 = 7</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>in, not in, is, is not</code><br><code>&lt;, &lt;=, &gt;, &gt;=, !=, ==</code></td>
+<td>Comparisons, membership,<br>identity operators</td>
+<td><code>x in list, a == b</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>not x</code></td>
+<td>Boolean NOT</td>
+<td><code>not True = False</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>and</code></td>
+<td>Boolean AND</td>
+<td><code>True and False = False</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>or</code></td>
+<td>Boolean OR</td>
+<td><code>True or False = True</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td><code>if-else</code></td>
+<td>Conditional expression (ternary)</td>
+<td><code>x if x &gt; 0 else -x</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>lambda</code></td>
+<td><strong>(Lowest)</strong> Lambda expression</td>
+<td><code>lambda x: x * 2</code></td>
+</tr>
+</tbody></table>
+<h3 id="Vi-du-thuc-te"><a href="#Vi-du-thuc-te" class="headerlink" title="Ví dụ thực tế"></a>Ví dụ thực tế</h3><h4 id="1-Arithmetic-Precedence"><a href="#1-Arithmetic-Precedence" class="headerlink" title="1. Arithmetic Precedence"></a>1. Arithmetic Precedence</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Precedence: ** &gt; */ &gt; +-</span></span><br><span class="line">result = <span class="number">2</span> + <span class="number">3</span> * <span class="number">4</span> ** <span class="number">2</span>    <span class="comment"># 2 + 3 * 16 = 2 + 48 = 50</span></span><br><span class="line"><span class="built_in">print</span>(result)              <span class="comment"># 50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Với parentheses</span></span><br><span class="line">result = (<span class="number">2</span> + <span class="number">3</span>) * <span class="number">4</span> ** <span class="number">2</span>  <span class="comment"># 5 * 16 = 80</span></span><br><span class="line"><span class="built_in">print</span>(result)              <span class="comment"># 80</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Comparison-vs-Logical"><a href="#2-Comparison-vs-Logical" class="headerlink" title="2. Comparison vs Logical"></a>2. Comparison vs Logical</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Comparison có precedence cao hơn logical</span></span><br><span class="line">x = <span class="number">5</span></span><br><span class="line">result = x &gt; <span class="number">3</span> <span class="keyword">and</span> x &lt; <span class="number">10</span>  <span class="comment"># (x &gt; 3) and (x &lt; 10) = True and True = True</span></span><br><span class="line"><span class="built_in">print</span>(result)              <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tương đương với:</span></span><br><span class="line">result = (x &gt; <span class="number">3</span>) <span class="keyword">and</span> (x &lt; <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Bitwise-Operations"><a href="#3-Bitwise-Operations" class="headerlink" title="3. Bitwise Operations"></a>3. Bitwise Operations</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bitwise precedence: &lt;&lt; &gt;&gt; &gt; &amp; &gt; ^ &gt; |</span></span><br><span class="line">a = <span class="number">8</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">result = a | b &amp; c &lt;&lt; <span class="number">1</span>    <span class="comment"># a | (b &amp; (c &lt;&lt; 1)) = 8 | (2 &amp; 6) = 8 | 2 = 10</span></span><br><span class="line"><span class="built_in">print</span>(result)              <span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Breakdown:</span></span><br><span class="line"><span class="comment"># c &lt;&lt; 1  →  3 &lt;&lt; 1 = 6</span></span><br><span class="line"><span class="comment"># b &amp; 6   →  2 &amp; 6 = 2  </span></span><br><span class="line"><span class="comment"># a | 2   →  8 | 2 = 10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Assignment-vs-Comparison"><a href="#4-Assignment-vs-Comparison" class="headerlink" title="4. Assignment vs Comparison"></a>4. Assignment vs Comparison</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># = có precedence thấp nhất (không trong bảng trên)</span></span><br><span class="line">x = y = <span class="number">5</span> &gt; <span class="number">3</span>    <span class="comment"># x = (y = (5 &gt; 3)) = x = (y = True) </span></span><br><span class="line"><span class="built_in">print</span>(x, y)      <span class="comment"># True True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Walrus operator := có precedence cao hơn</span></span><br><span class="line"><span class="keyword">while</span> (n := <span class="built_in">input</span>(<span class="string">&quot;Enter: &quot;</span>)) != <span class="string">&quot;quit&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;You entered: <span class="subst">&#123;n&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Common-Mistakes-Solutions"><a href="#Common-Mistakes-Solutions" class="headerlink" title="Common Mistakes &amp; Solutions"></a>Common Mistakes &amp; Solutions</h3><h4 id="1-Boolean-Logic"><a href="#1-Boolean-Logic" class="headerlink" title="1. Boolean Logic"></a>1. Boolean Logic</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ❌ Sai hiểu precedence</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> x == y:          <span class="comment"># not (x == y)</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ✅ Đúng ý định  </span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> (x == y):        <span class="comment"># Same as above, but clearer</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> x != y:              <span class="comment"># More pythonic</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Arithmetic-voi-Boolean"><a href="#2-Arithmetic-voi-Boolean" class="headerlink" title="2. Arithmetic với Boolean"></a>2. Arithmetic với Boolean</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Boolean được treated as 0/1</span></span><br><span class="line">result = <span class="literal">True</span> + <span class="literal">False</span> * <span class="number">2</span>   <span class="comment"># True + (False * 2) = 1 + 0 = 1</span></span><br><span class="line"><span class="built_in">print</span>(result)               <span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Có thể gây confusion:</span></span><br><span class="line">result = <span class="number">5</span> &gt; <span class="number">3</span> + <span class="number">1</span>          <span class="comment"># 5 &gt; (3 + 1) = 5 &gt; 4 = True</span></span><br><span class="line"><span class="built_in">print</span>(result)               <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-String-Operations"><a href="#3-String-Operations" class="headerlink" title="3. String Operations"></a>3. String Operations</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># String multiplication vs addition</span></span><br><span class="line">result = <span class="string">&quot;Hello&quot;</span> + <span class="string">&quot;World&quot;</span> * <span class="number">3</span>   <span class="comment"># &quot;Hello&quot; + (&quot;World&quot; * 3)</span></span><br><span class="line"><span class="built_in">print</span>(result)                    <span class="comment"># &quot;HelloWorldWorldWorld&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Nếu muốn khác:</span></span><br><span class="line">result = (<span class="string">&quot;Hello&quot;</span> + <span class="string">&quot;World&quot;</span>) * <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(result)                    <span class="comment"># &quot;HelloWorldHelloWorldHelloWorld&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Memory-Tips"><a href="#Memory-Tips" class="headerlink" title="Memory Tips"></a>Memory Tips</h3><h4 id="PEMDAS-cho-Python"><a href="#PEMDAS-cho-Python" class="headerlink" title="PEMDAS cho Python:"></a><strong>PEMDAS</strong> cho Python:</h4><ol>
+<li><strong>P</strong>arentheses - <code>()</code></li>
+<li><strong>E</strong>xponents - <code>**</code>  </li>
+<li><strong>M</strong>ultiplication&#x2F;Division - <code>* / // %</code></li>
+<li><strong>A</strong>ddition&#x2F;Subtraction - <code>+ -</code></li>
+<li><strong>S</strong>hifts, Bitwise, Comparison, Logical</li>
+</ol>
+<h4 id="Mnemonic-cho-Bitwise"><a href="#Mnemonic-cho-Bitwise" class="headerlink" title="Mnemonic cho Bitwise:"></a><strong>Mnemonic cho Bitwise:</strong></h4><ul>
+<li><strong>S</strong>hifts first - <code>&lt;&lt; &gt;&gt;</code></li>
+<li><strong>A</strong>nd next - <code>&amp;</code></li>
+<li><strong>X</strong>or then - <code>^</code> </li>
+<li><strong>O</strong>r last - <code>|</code></li>
+</ul>
+<h3 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h3><ol>
+<li><strong>Sử dụng parentheses</strong> khi không chắc chắn:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Thay vì dựa vào precedence</span></span><br><span class="line">result = a + b * c ** d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Hãy explicit</span></span><br><span class="line">result = a + (b * (c ** d))</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>Chia nhỏ biểu thức phức tạp:</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Khó đọc</span></span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> <span class="keyword">and</span> y &lt; <span class="number">10</span> <span class="keyword">or</span> z == <span class="number">5</span> <span class="keyword">and</span> <span class="keyword">not</span> w:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Dễ hiểu hơn</span></span><br><span class="line">positive_x = x &gt; <span class="number">0</span></span><br><span class="line">small_y = y &lt; <span class="number">10</span>  </span><br><span class="line">z_is_five = z == <span class="number">5</span></span><br><span class="line">not_w = <span class="keyword">not</span> w</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (positive_x <span class="keyword">and</span> small_y) <span class="keyword">or</span> (z_is_five <span class="keyword">and</span> not_w):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>Sử dụng comparison chaining:</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python specific - very readable</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span> &lt; x &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tương đương nhưng dài hơn</span></span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> <span class="keyword">and</span> x &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Operators-Precedence"><span class="toc-number">1.</span> <span class="toc-text">Python Operators Precedence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-Precedence"><span class="toc-number">1.1.</span> <span class="toc-text">Bảng Precedence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-du-thuc-te"><span class="toc-number">1.2.</span> <span class="toc-text">Ví dụ thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Arithmetic-Precedence"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Arithmetic Precedence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Comparison-vs-Logical"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. Comparison vs Logical</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Bitwise-Operations"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. Bitwise Operations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Assignment-vs-Comparison"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. Assignment vs Comparison</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Mistakes-Solutions"><span class="toc-number">1.3.</span> <span class="toc-text">Common Mistakes &amp; Solutions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Boolean-Logic"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Boolean Logic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Arithmetic-voi-Boolean"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Arithmetic với Boolean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-String-Operations"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. String Operations</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Tips"><span class="toc-number">1.4.</span> <span class="toc-text">Memory Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PEMDAS-cho-Python"><span class="toc-number">1.4.1.</span> <span class="toc-text">PEMDAS cho Python:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mnemonic-cho-Bitwise"><span class="toc-number">1.4.2.</span> <span class="toc-text">Mnemonic cho Bitwise:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Best-Practices"><span class="toc-number">1.5.</span> <span class="toc-text">Best Practices</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&text=Python Operators Precedence"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&is_video=false&description=Python Operators Precedence"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python Operators Precedence&body=Check out this article: https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&title=Python Operators Precedence"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&name=Python Operators Precedence&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/&t=Python Operators Precedence"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

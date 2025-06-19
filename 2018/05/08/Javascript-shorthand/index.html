@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1. Sử dụng .bind() hiệu quả1234567891011&#x2F;&#x2F; document.querySelectorconst $ &#x3D; document.querySelector.bind(document);&#x2F;&#x2F; Cách sử dụngconst ele1 &#x3D; $(&quot;#id1&quot;);const ele2 &#x3D; $(&quot;.class2&quot;);con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Shorthand">
+<meta property="og:url" content="https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="1. Sử dụng .bind() hiệu quả1234567891011&#x2F;&#x2F; document.querySelectorconst $ &#x3D; document.querySelector.bind(document);&#x2F;&#x2F; Cách sử dụngconst ele1 &#x3D; $(&quot;#id1&quot;);const ele2 &#x3D; $(&quot;.class2&quot;);con">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-05-08T06:47:49.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:36:39.936Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>JavaScript Shorthand</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/05/08/design-pattern-singleton-pattern/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/05/08/QB-table-syntax/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&text=JavaScript Shorthand"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&is_video=false&description=JavaScript Shorthand"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Shorthand&body=Check out this article: https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&name=JavaScript Shorthand&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&t=JavaScript Shorthand"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Su-dung-bind-hieu-qua"><span class="toc-number">1.</span> <span class="toc-text">1. Sử dụng .bind() hiệu quả</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Clone-object-array"><span class="toc-number">2.</span> <span class="toc-text">2. Clone object, array</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Object"><span class="toc-number">2.1.</span> <span class="toc-text">a. Object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Array"><span class="toc-number">2.2.</span> <span class="toc-text">b. Array</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Swap-gia-tri"><span class="toc-number">3.</span> <span class="toc-text">3. Swap giá trị</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Random-so-trong-khoang"><span class="toc-number">4.</span> <span class="toc-text">4. Random số trong khoảng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Tu-viet-trim"><span class="toc-number">5.</span> <span class="toc-text">5. Tự viết trim()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Chuyen-arguments-thanh-Array"><span class="toc-number">6.</span> <span class="toc-text">6. Chuyển arguments thành Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Tim-max-min-trong-array"><span class="toc-number">7.</span> <span class="toc-text">7. Tìm max, min trong array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Reset-Array"><span class="toc-number">8.</span> <span class="toc-text">8. Reset Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Xoa-phan-tu-trong-Array"><span class="toc-number">9.</span> <span class="toc-text">9. Xoá phần tử trong Array</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Cach-sai"><span class="toc-number">9.1.</span> <span class="toc-text">a. Cách sai</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Cach-dung"><span class="toc-number">9.2.</span> <span class="toc-text">b. Cách đúng</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Dung-hoac-thay-cho-if-va-if-else"><span class="toc-number">10.</span> <span class="toc-text">10. Dùng &amp;&amp; hoặc || thay cho if và if else</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Thay-the-if"><span class="toc-number">10.1.</span> <span class="toc-text">a. Thay thế if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Thay-the-if-else"><span class="toc-number">10.2.</span> <span class="toc-text">b. Thay thế if else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Loop-object"><span class="toc-number">11.</span> <span class="toc-text">11. Loop object</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Su-dung-for-in"><span class="toc-number">11.1.</span> <span class="toc-text">1. Sử dụng for..in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Su-dung-array-prototype-function-map-forEach%E2%80%A6"><span class="toc-number">11.2.</span> <span class="toc-text">2. Sử dụng array prototype function (map, forEach…)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Clone-object-va-array-su-dung-Spread-Operator"><span class="toc-number">12.</span> <span class="toc-text">12. Clone object và array sử dụng Spread Operator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Clone-object"><span class="toc-number">12.1.</span> <span class="toc-text">a. Clone object:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Clone-array"><span class="toc-number">12.2.</span> <span class="toc-text">b. Clone array:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Noi-Array"><span class="toc-number">13.</span> <span class="toc-text">13. Nối Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-Destructuring-Assignment"><span class="toc-number">14.</span> <span class="toc-text">14. Destructuring Assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Template-Literals"><span class="toc-number">15.</span> <span class="toc-text">15. Template Literals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-Short-circuit-Evaluation"><span class="toc-number">16.</span> <span class="toc-text">16. Short-circuit Evaluation</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        JavaScript Shorthand
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-05-08T06:47:49.000Z" class="dt-published" itemprop="datePublished">2018-05-08</time>
+        
+        (Updated: <time datetime="2025-06-19T06:36:39.936Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="1-Su-dung-bind-hieu-qua"><a href="#1-Su-dung-bind-hieu-qua" class="headerlink" title="1. Sử dụng .bind() hiệu quả"></a>1. Sử dụng <code>.bind()</code> hiệu quả</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// document.querySelector</span></span><br><span class="line"><span class="keyword">const</span> $ = <span class="variable language_">document</span>.<span class="property">querySelector</span>.<span class="title function_">bind</span>(<span class="variable language_">document</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách sử dụng</span></span><br><span class="line"><span class="keyword">const</span> ele1 = $(<span class="string">&quot;#id1&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> ele2 = $(<span class="string">&quot;.class2&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> ele3 = $(<span class="string">&quot;div.user-panel.main input[name=&#x27;login&#x27;]&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log</span></span><br><span class="line"><span class="keyword">const</span> log = <span class="variable language_">console</span>.<span class="property">log</span>.<span class="title function_">bind</span>(<span class="variable language_">console</span>);</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span>); <span class="comment">// -&gt; hello</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Clone-object-array"><a href="#2-Clone-object-array" class="headerlink" title="2. Clone object, array"></a>2. Clone object, array</h2><h3 id="a-Object"><a href="#a-Object" class="headerlink" title="a. Object"></a>a. Object</h3><p><strong>Shallow clone:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newObj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Deep clone:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br></pre></td></tr></table></figure>
+
+<h3 id="b-Array"><a href="#b-Array" class="headerlink" title="b. Array"></a>b. Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> b = a.<span class="title function_">slice</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);       <span class="comment">// -&gt; [1, 2, 3]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b === a); <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Swap-gia-tri"><a href="#3-Swap-gia-tri" class="headerlink" title="3. Swap giá trị"></a>3. Swap giá trị</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x, y); <span class="comment">// 1, 2</span></span><br><span class="line"></span><br><span class="line">[x, y] = [y, x];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x, y); <span class="comment">// 2, 1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Random-so-trong-khoang"><a href="#4-Random-so-trong-khoang" class="headerlink" title="4. Random số trong khoảng"></a>4. Random số trong khoảng</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">random</span> = (<span class="params">min, max</span>) =&gt; <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (max - min + <span class="number">1</span>)) + min;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách sử dụng</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">random</span>(<span class="number">1</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Tu-viet-trim"><a href="#5-Tu-viet-trim" class="headerlink" title="5. Tự viết trim()"></a>5. Tự viết <code>trim()</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">trim</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x.<span class="title function_">replace</span>(<span class="regexp">/^\s+|\s+$/gm</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&quot;       Hello World!        &quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str);        <span class="comment">// -&gt;        Hello World!        </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">trim</span>(str));  <span class="comment">// -&gt; Hello World!</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Chuyen-arguments-thanh-Array"><a href="#6-Chuyen-arguments-thanh-Array" class="headerlink" title="6. Chuyển arguments thành Array"></a>6. Chuyển <code>arguments</code> thành <code>Array</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cách cũ</span></span><br><span class="line"><span class="keyword">const</span> args = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>);</span><br><span class="line"><span class="keyword">const</span> args = [].<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES2015</span></span><br><span class="line"><span class="keyword">const</span> args = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="variable language_">arguments</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Tim-max-min-trong-array"><a href="#7-Tim-max-min-trong-array" class="headerlink" title="7. Tìm max, min trong array"></a>7. Tìm max, min trong array</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">8</span>, <span class="number">10</span>, -<span class="number">125</span>, <span class="number">28</span>, <span class="number">100</span>, <span class="number">215</span>, -<span class="number">85</span>]; </span><br><span class="line"><span class="keyword">const</span> maxInNumbers = <span class="title class_">Math</span>.<span class="property">max</span>.<span class="title function_">apply</span>(<span class="title class_">Math</span>, numbers); </span><br><span class="line"><span class="keyword">const</span> minInNumbers = <span class="title class_">Math</span>.<span class="property">min</span>.<span class="title function_">apply</span>(<span class="title class_">Math</span>, numbers);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(maxInNumbers, minInNumbers); <span class="comment">// -&gt; 215 -125</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Hoặc sử dụng spread operator (ES6)</span></span><br><span class="line"><span class="keyword">const</span> maxInNumbers = <span class="title class_">Math</span>.<span class="title function_">max</span>(...numbers);</span><br><span class="line"><span class="keyword">const</span> minInNumbers = <span class="title class_">Math</span>.<span class="title function_">min</span>(...numbers);</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Reset-Array"><a href="#8-Reset-Array" class="headerlink" title="8. Reset Array"></a>8. Reset Array</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">// a = []; // không dùng cách này</span></span><br><span class="line">a.<span class="property">length</span> = <span class="number">0</span>; <span class="comment">// dùng cách này</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// -&gt; []</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-Xoa-phan-tu-trong-Array"><a href="#9-Xoa-phan-tu-trong-Array" class="headerlink" title="9. Xoá phần tử trong Array"></a>9. Xoá phần tử trong Array</h2><h3 id="a-Cach-sai"><a href="#a-Cach-sai" class="headerlink" title="a. Cách sai"></a>a. Cách sai</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="number">1</span>, -<span class="number">5</span>, <span class="string">&quot;cde&quot;</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);        <span class="comment">// -&gt; [&quot;a&quot;, 1, -5, &quot;cde&quot;]</span></span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);        <span class="comment">// -&gt; [&quot;a&quot;, 1, undefined, &quot;cde&quot;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">length</span>); <span class="comment">// -&gt; 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="b-Cach-dung"><a href="#b-Cach-dung" class="headerlink" title="b. Cách đúng"></a>b. Cách đúng</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="number">1</span>, -<span class="number">5</span>, <span class="string">&quot;cde&quot;</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);        <span class="comment">// -&gt; [&quot;a&quot;, 1, -5, &quot;cde&quot;]</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);        <span class="comment">// -&gt; [&quot;a&quot;, 1, &quot;cde&quot;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">length</span>); <span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="10-Dung-hoac-thay-cho-if-va-if-else"><a href="#10-Dung-hoac-thay-cho-if-va-if-else" class="headerlink" title="10. Dùng &amp;&amp; hoặc || thay cho if và if else"></a>10. Dùng <code>&amp;&amp;</code> hoặc <code>||</code> thay cho <code>if</code> và <code>if else</code></h2><h3 id="a-Thay-the-if"><a href="#a-Thay-the-if" class="headerlink" title="a. Thay thế if"></a>a. Thay thế <code>if</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cách cũ</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (a === <span class="number">10</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a === 10&quot;</span>); <span class="comment">// -&gt; a === 10</span></span><br><span class="line"><span class="keyword">if</span> (a !== <span class="number">5</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a !== 5&quot;</span>);   <span class="comment">// -&gt; a !== 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách mới</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">a === <span class="number">10</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a === 10&quot;</span>); <span class="comment">// -&gt; a === 10</span></span><br><span class="line">a === <span class="number">5</span> || <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a !== 5&quot;</span>);   <span class="comment">// -&gt; a !== 5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="b-Thay-the-if-else"><a href="#b-Thay-the-if-else" class="headerlink" title="b. Thay thế if else"></a>b. Thay thế <code>if else</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cách cũ</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (a === <span class="number">5</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a === 5&quot;</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a !== 5&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách mới</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">a === <span class="number">5</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a === 5&quot;</span>) || <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a !== 5&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-Loop-object"><a href="#11-Loop-object" class="headerlink" title="11. Loop object"></a>11. Loop object</h2><blockquote>
+<p><strong>Lưu ý:</strong> Cách này thực sự hiệu quả khi object chỉ có 1 level</p>
+</blockquote>
+<h3 id="1-Su-dung-for-in"><a href="#1-Su-dung-for-in" class="headerlink" title="1. Sử dụng for..in"></a>1. Sử dụng <code>for..in</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> object = &#123;...&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> name <span class="keyword">in</span> object) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (object.<span class="title function_">hasOwnProperty</span>(name)) &#123; </span><br><span class="line">        <span class="comment">// xử lý với name                    </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Su-dung-array-prototype-function-map-forEach…"><a href="#2-Su-dung-array-prototype-function-map-forEach…" class="headerlink" title="2. Sử dụng array prototype function (map, forEach…)"></a>2. Sử dụng <code>array prototype function</code> (map, forEach…)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> object = &#123;...&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(object).<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// xử lý với key                    </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-Clone-object-va-array-su-dung-Spread-Operator"><a href="#12-Clone-object-va-array-su-dung-Spread-Operator" class="headerlink" title="12. Clone object và array sử dụng Spread Operator"></a>12. Clone object và array sử dụng Spread Operator</h2><h3 id="a-Clone-object"><a href="#a-Clone-object" class="headerlink" title="a. Clone object:"></a>a. Clone object:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;...obj&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2); <span class="comment">// -&gt; &#123;a: 1, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="b-Clone-array"><a href="#b-Clone-array" class="headerlink" title="b. Clone array:"></a>b. Clone array:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [...arr];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2); <span class="comment">// -&gt; [1, 2]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="13-Noi-Array"><a href="#13-Noi-Array" class="headerlink" title="13. Nối Array"></a>13. Nối Array</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> one = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> two = [<span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> three = [<span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;i&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách cũ #1</span></span><br><span class="line"><span class="keyword">const</span> result1 = one.<span class="title function_">concat</span>(two, three);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// -&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách cũ #2</span></span><br><span class="line"><span class="keyword">const</span> result2 = [].<span class="title function_">concat</span>(one, two, three);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// -&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách mới (ES6)</span></span><br><span class="line"><span class="keyword">const</span> result3 = [...one, ...two, ...three];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result3); <span class="comment">// -&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="14-Destructuring-Assignment"><a href="#14-Destructuring-Assignment" class="headerlink" title="14. Destructuring Assignment"></a>14. Destructuring Assignment</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object destructuring</span></span><br><span class="line"><span class="keyword">const</span> person = &#123;<span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span>, <span class="attr">city</span>: <span class="string">&#x27;New York&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = person;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name, age); <span class="comment">// -&gt; John 30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Array destructuring</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> [first, second, ...rest] = numbers;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(first, second, rest); <span class="comment">// -&gt; 1 2 [3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="15-Template-Literals"><a href="#15-Template-Literals" class="headerlink" title="15. Template Literals"></a>15. Template Literals</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;John&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách cũ</span></span><br><span class="line"><span class="keyword">const</span> message1 = <span class="string">&#x27;Hello, my name is &#x27;</span> + name + <span class="string">&#x27; and I am &#x27;</span> + age + <span class="string">&#x27; years old.&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cách mới</span></span><br><span class="line"><span class="keyword">const</span> message2 = <span class="string">`Hello, my name is <span class="subst">$&#123;name&#125;</span> and I am <span class="subst">$&#123;age&#125;</span> years old.`</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="16-Short-circuit-Evaluation"><a href="#16-Short-circuit-Evaluation" class="headerlink" title="16. Short-circuit Evaluation"></a>16. Short-circuit Evaluation</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Default values</span></span><br><span class="line"><span class="keyword">const</span> username = user.<span class="property">name</span> || <span class="string">&#x27;Anonymous&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conditional execution</span></span><br><span class="line">user.<span class="property">isAdmin</span> &amp;&amp; <span class="title function_">showAdminPanel</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Null/undefined check with optional chaining (ES2020)</span></span><br><span class="line"><span class="keyword">const</span> city = user?.<span class="property">address</span>?.<span class="property">city</span>;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Su-dung-bind-hieu-qua"><span class="toc-number">1.</span> <span class="toc-text">1. Sử dụng .bind() hiệu quả</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Clone-object-array"><span class="toc-number">2.</span> <span class="toc-text">2. Clone object, array</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Object"><span class="toc-number">2.1.</span> <span class="toc-text">a. Object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Array"><span class="toc-number">2.2.</span> <span class="toc-text">b. Array</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Swap-gia-tri"><span class="toc-number">3.</span> <span class="toc-text">3. Swap giá trị</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Random-so-trong-khoang"><span class="toc-number">4.</span> <span class="toc-text">4. Random số trong khoảng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Tu-viet-trim"><span class="toc-number">5.</span> <span class="toc-text">5. Tự viết trim()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Chuyen-arguments-thanh-Array"><span class="toc-number">6.</span> <span class="toc-text">6. Chuyển arguments thành Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Tim-max-min-trong-array"><span class="toc-number">7.</span> <span class="toc-text">7. Tìm max, min trong array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Reset-Array"><span class="toc-number">8.</span> <span class="toc-text">8. Reset Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Xoa-phan-tu-trong-Array"><span class="toc-number">9.</span> <span class="toc-text">9. Xoá phần tử trong Array</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Cach-sai"><span class="toc-number">9.1.</span> <span class="toc-text">a. Cách sai</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Cach-dung"><span class="toc-number">9.2.</span> <span class="toc-text">b. Cách đúng</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Dung-hoac-thay-cho-if-va-if-else"><span class="toc-number">10.</span> <span class="toc-text">10. Dùng &amp;&amp; hoặc || thay cho if và if else</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Thay-the-if"><span class="toc-number">10.1.</span> <span class="toc-text">a. Thay thế if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Thay-the-if-else"><span class="toc-number">10.2.</span> <span class="toc-text">b. Thay thế if else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Loop-object"><span class="toc-number">11.</span> <span class="toc-text">11. Loop object</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Su-dung-for-in"><span class="toc-number">11.1.</span> <span class="toc-text">1. Sử dụng for..in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Su-dung-array-prototype-function-map-forEach%E2%80%A6"><span class="toc-number">11.2.</span> <span class="toc-text">2. Sử dụng array prototype function (map, forEach…)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Clone-object-va-array-su-dung-Spread-Operator"><span class="toc-number">12.</span> <span class="toc-text">12. Clone object và array sử dụng Spread Operator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Clone-object"><span class="toc-number">12.1.</span> <span class="toc-text">a. Clone object:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Clone-array"><span class="toc-number">12.2.</span> <span class="toc-text">b. Clone array:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Noi-Array"><span class="toc-number">13.</span> <span class="toc-text">13. Nối Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-Destructuring-Assignment"><span class="toc-number">14.</span> <span class="toc-text">14. Destructuring Assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Template-Literals"><span class="toc-number">15.</span> <span class="toc-text">15. Template Literals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-Short-circuit-Evaluation"><span class="toc-number">16.</span> <span class="toc-text">16. Short-circuit Evaluation</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&text=JavaScript Shorthand"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&is_video=false&description=JavaScript Shorthand"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript Shorthand&body=Check out this article: https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&title=JavaScript Shorthand"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&name=JavaScript Shorthand&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/05/08/Javascript-shorthand/&t=JavaScript Shorthand"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

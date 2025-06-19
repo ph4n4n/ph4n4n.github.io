@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="LIST OF MAT TYPE IN OPENCV A Mapping of Type to Numbers in OpenCV | C1  | C2  | C3 |  C4:-|-:|-:|-:|-:|-:CV_8U   | 0	|8  | 16 | 24CV_8S   | 1 |9  | 17 | 25CV_16U  | 2	|10 |	18 | 26CV_16S  | 3 |11 | 19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="List of Mat Type in onpenCV">
+<meta property="og:url" content="https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="LIST OF MAT TYPE IN OPENCV A Mapping of Type to Numbers in OpenCV | C1  | C2  | C3 |  C4:-|-:|-:|-:|-:|-:CV_8U   | 0	|8  | 16 | 24CV_8S   | 1 |9  | 17 | 25CV_16U  | 2	|10 |	18 | 26CV_16S  | 3 |11 | 19">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-25T09:23:30.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:31:21.345Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="opencv">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>List of Mat Type in onpenCV</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/03/26/Python-Operators-Prcedence/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/03/14/sum-big-number-from-string/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&text=List of Mat Type in onpenCV"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&is_video=false&description=List of Mat Type in onpenCV"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=List of Mat Type in onpenCV&body=Check out this article: https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&name=List of Mat Type in onpenCV&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&t=List of Mat Type in onpenCV"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-8bits-uchar-0-255"><span class="toc-number">1.</span> <span class="toc-text">Unsigned 8bits uchar 0~255</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-8bits-char-128-127"><span class="toc-number">2.</span> <span class="toc-text">Signed 8bits char -128~127</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-16bits-ushort-0-65535"><span class="toc-number">3.</span> <span class="toc-text">Unsigned 16bits ushort 0~65535</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-16bits-short-32768-32767"><span class="toc-number">4.</span> <span class="toc-text">Signed 16bits short -32768~32767</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-32bits-int-2147483648-2147483647"><span class="toc-number">5.</span> <span class="toc-text">Signed 32bits int -2147483648~2147483647</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Float-32bits-float-1-1810-38-3-4010-38"><span class="toc-number">6.</span> <span class="toc-text">Float 32bits float -1.1810-38~3.4010-38</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-64bits-double"><span class="toc-number">7.</span> <span class="toc-text">Double 64bits double</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-1bit-bool"><span class="toc-number">8.</span> <span class="toc-text">Unsigned 1bit bool</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        List of Mat Type in onpenCV
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-03-25T09:23:30.000Z" class="dt-published" itemprop="datePublished">2019-03-25</time>
+        
+        (Updated: <time datetime="2025-06-19T06:31:21.345Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/opencv/">opencv</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/opencv/" rel="tag">opencv</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>LIST OF MAT TYPE IN OPENCV</p>
+<p>A Mapping of Type to Numbers in OpenCV</p>
+<p>| C1  | C2  | C3 |  C4<br>:-|-:|-:|-:|-:|-:<br>CV_8U   | 0	|8  | 16 | 24<br>CV_8S   | 1 |9  | 17 | 25<br>CV_16U  | 2	|10 |	18 | 26<br>CV_16S  | 3 |11 | 19 | 27<br>CV_32S  | 4 |12 | 20 | 28<br>CV_32F  | 5 |13 | 21 | 29<br>CV_64F  | 6 |14 | 22 | 30</p>
+<h2 id="Unsigned-8bits-uchar-0-255"><a href="#Unsigned-8bits-uchar-0-255" class="headerlink" title="Unsigned 8bits uchar 0~255"></a>Unsigned 8bits uchar 0~255</h2><p>IplImage: IPL_DEPTH_8U<br>Mat: CV_8UC1, CV_8UC2, CV_8UC3, CV_8UC4</p>
+<h2 id="Signed-8bits-char-128-127"><a href="#Signed-8bits-char-128-127" class="headerlink" title="Signed 8bits char -128~127"></a>Signed 8bits char -128~127</h2><p>IplImage: IPL_DEPTH_8S<br>Mat: CV_8SC1，CV_8SC2，CV_8SC3，CV_8SC4</p>
+<h2 id="Unsigned-16bits-ushort-0-65535"><a href="#Unsigned-16bits-ushort-0-65535" class="headerlink" title="Unsigned 16bits ushort 0~65535"></a>Unsigned 16bits ushort 0~65535</h2><p>IplImage: IPL_DEPTH_16U<br>Mat: CV_16UC1，CV_16UC2，CV_16UC3，CV_16UC4</p>
+<h2 id="Signed-16bits-short-32768-32767"><a href="#Signed-16bits-short-32768-32767" class="headerlink" title="Signed 16bits short -32768~32767"></a>Signed 16bits short -32768~32767</h2><p>IplImage: IPL_DEPTH_16S<br>Mat: CV_16SC1，CV_16SC2，CV_16SC3，CV_16SC4</p>
+<h2 id="Signed-32bits-int-2147483648-2147483647"><a href="#Signed-32bits-int-2147483648-2147483647" class="headerlink" title="Signed 32bits int -2147483648~2147483647"></a>Signed 32bits int -2147483648~2147483647</h2><p>IplImage: IPL_DEPTH_32S<br>Mat: CV_32SC1，CV_32SC2，CV_32SC3，CV_32SC4</p>
+<h2 id="Float-32bits-float-1-1810-38-3-4010-38"><a href="#Float-32bits-float-1-1810-38-3-4010-38" class="headerlink" title="Float 32bits float -1.1810-38~3.4010-38"></a>Float 32bits float -1.18<em>10-38~3.40</em>10-38</h2><p>IplImage: IPL_DEPTH_32F<br>Mat: CV_32FC1，CV_32FC2，CV_32FC3，CV_32FC4</p>
+<h2 id="Double-64bits-double"><a href="#Double-64bits-double" class="headerlink" title="Double 64bits double"></a>Double 64bits double</h2><p>Mat: CV_64FC1，CV_64FC2，CV_64FC3，CV_64FC4</p>
+<h2 id="Unsigned-1bit-bool"><a href="#Unsigned-1bit-bool" class="headerlink" title="Unsigned 1bit bool"></a>Unsigned 1bit bool</h2><p>IplImage: IPL_DEPTH_1U</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-8bits-uchar-0-255"><span class="toc-number">1.</span> <span class="toc-text">Unsigned 8bits uchar 0~255</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-8bits-char-128-127"><span class="toc-number">2.</span> <span class="toc-text">Signed 8bits char -128~127</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-16bits-ushort-0-65535"><span class="toc-number">3.</span> <span class="toc-text">Unsigned 16bits ushort 0~65535</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-16bits-short-32768-32767"><span class="toc-number">4.</span> <span class="toc-text">Signed 16bits short -32768~32767</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-32bits-int-2147483648-2147483647"><span class="toc-number">5.</span> <span class="toc-text">Signed 32bits int -2147483648~2147483647</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Float-32bits-float-1-1810-38-3-4010-38"><span class="toc-number">6.</span> <span class="toc-text">Float 32bits float -1.1810-38~3.4010-38</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-64bits-double"><span class="toc-number">7.</span> <span class="toc-text">Double 64bits double</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsigned-1bit-bool"><span class="toc-number">8.</span> <span class="toc-text">Unsigned 1bit bool</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&text=List of Mat Type in onpenCV"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&is_video=false&description=List of Mat Type in onpenCV"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=List of Mat Type in onpenCV&body=Check out this article: https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&title=List of Mat Type in onpenCV"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&name=List of Mat Type in onpenCV&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/&t=List of Mat Type in onpenCV"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

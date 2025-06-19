@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Docker là gì?Định nghĩa cũng tràn lan trên mạng rồi nên tôi cũng không cần phải copy lại chi cho mệt. Giờ tôi sẽ giải thích một cách đơn giản và dân dã nhất để cho ai cũng có thể hiểu được! Đầu tiên">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ĐÙa Nghịch Với Docker Trong 5 Phút">
+<meta property="og:url" content="https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Docker là gì?Định nghĩa cũng tràn lan trên mạng rồi nên tôi cũng không cần phải copy lại chi cho mệt. Giờ tôi sẽ giải thích một cách đơn giản và dân dã nhất để cho ai cũng có thể hiểu được! Đầu tiên">
+<meta property="og:locale">
+<meta property="og:image" content="https://ph4n4n.github.io/images/docker_logo.png">
+<meta property="article:published_time" content="2019-01-03T10:34:40.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:40:35.200Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ph4n4n.github.io/images/docker_logo.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>ĐÙa Nghịch Với Docker Trong 5 Phút</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/01/03/19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/07/21/30-regex/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&text=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&is_video=false&description=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ĐÙa Nghịch Với Docker Trong 5 Phút&body=Check out this article: https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&name=ĐÙa Nghịch Với Docker Trong 5 Phút&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&t=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-la-gi"><span class="toc-number">1.</span> <span class="toc-text">Docker là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vay-cau-hoi-dat-ra-la-nguyen-nhan-do-dau"><span class="toc-number">1.1.</span> <span class="toc-text">Vậy câu hỏi đặt ra là nguyên nhân do đâu?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Compose-la-gi"><span class="toc-number">2.</span> <span class="toc-text">Docker Compose là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cung-lam-chung-voi-nhau-phan-nay-nhe"><span class="toc-number">2.1.</span> <span class="toc-text">Cùng làm chung với nhau phần này nhé!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chuan-bi"><span class="toc-number">2.1.1.</span> <span class="toc-text">Chuẩn bị</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-ung-dung-Node-js-co-ban"><span class="toc-number">2.1.2.</span> <span class="toc-text">Setup ứng dụng Node.js cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-Docker-image-cua-ung-dung-Node-js"><span class="toc-number">2.1.3.</span> <span class="toc-text">Build Docker image của ứng dụng Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Viet-file-docker-compose-yml"><span class="toc-number">2.1.4.</span> <span class="toc-text">Viết file docker-compose.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-app"><span class="toc-number">2.2.</span> <span class="toc-text">Test app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Luu-tru-du-lieu"><span class="toc-number">2.3.</span> <span class="toc-text">Lưu trữ dữ liệu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tong-ket"><span class="toc-number">2.4.</span> <span class="toc-text">Tổng kết</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-lenh-Docker-huu-ich"><span class="toc-number">2.5.</span> <span class="toc-text">Các lệnh Docker hữu ích</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        ĐÙa Nghịch Với Docker Trong 5 Phút
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-03T10:34:40.000Z" class="dt-published" itemprop="datePublished">2019-01-03</time>
+        
+        (Updated: <time datetime="2025-06-19T06:40:35.200Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/docker/">docker</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/docker/" rel="tag">docker</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><img src="/images/docker_logo.png" alt="Docker Logo"></p>
+<h1 id="Docker-la-gi"><a href="#Docker-la-gi" class="headerlink" title="Docker là gì?"></a>Docker là gì?</h1><p>Định nghĩa cũng tràn lan trên mạng rồi nên tôi cũng không cần phải copy lại chi cho mệt. Giờ tôi sẽ giải thích một cách đơn giản và dân dã nhất để cho ai cũng có thể hiểu được!</p>
+<p>Đầu tiên cùng tưởng tượng rằng bạn và đồng nghiệp của mình đang cùng làm việc trên cùng một dự án. Một ngày đẹp trời đồng nghiệp của bạn bỗng nhiên chạy source code để debug nhưng kết quả lại khác với kết quả trên máy của bạn khi chạy với cùng dữ liệu như nhau.</p>
+<h2 id="Vay-cau-hoi-dat-ra-la-nguyen-nhan-do-dau"><a href="#Vay-cau-hoi-dat-ra-la-nguyen-nhan-do-dau" class="headerlink" title="Vậy câu hỏi đặt ra là nguyên nhân do đâu?"></a>Vậy câu hỏi đặt ra là nguyên nhân do đâu?</h2><p>Có thể có một số nguyên nhân ví dụ như:</p>
+<ul>
+<li>Hệ điều hành của bạn và đồng nghiệp không giống nhau</li>
+<li>Version của library trên máy bạn và trên máy của đồng nghiệp khác nhau</li>
+<li>Các cấu hình môi trường khác nhau</li>
+<li>v.v.</li>
+</ul>
+<p>Docker sinh ra để giải quyết những vấn đề như vậy. Hiểu một cách đơn giản, Docker container có thể được coi như là một cái “máy tính” nằm bên trong cái máy tính của bạn. Điều hay ho là bạn có thể gửi cái “máy tính” đó cho bạn bè, đồng nghiệp của mình để họ có thể bật nó lên và chạy code mà kết quả sẽ giống y hệt với kết quả mà bạn thấy trên máy của mình.</p>
+<p><strong>Tóm lại:</strong> Docker giúp cho bạn gói gém tất cả môi trường máy tính của bạn, tạo thành một “image” và mang nó chạy trên một máy tính khác một cách dễ dàng. Image khi được chạy lên thì tạo nên một instance của image đó và nó được gọi là “container”. <strong>Image</strong> và <strong>Container</strong> chính là hai từ khoá quan trọng mà bạn phải nhớ trong suốt bài viết này, cũng như trong quá trình làm việc với Docker.</p>
+<h1 id="Docker-Compose-la-gi"><a href="#Docker-Compose-la-gi" class="headerlink" title="Docker Compose là gì?"></a>Docker Compose là gì?</h1><p>Docker Compose là một công cụ để định nghĩa và chạy những Docker container. Một trong những trường hợp cụ thể mà bạn cần sử dụng tới Docker Compose đó là khi bạn muốn giả lập một môi trường giống hệt môi trường thực tế của ứng dụng ví dụ như:</p>
+<ul>
+<li>Kết nối database</li>
+<li>Gọi cache server</li>
+<li>Các service khác</li>
+</ul>
+<p>Một trường hợp khác nữa mà tôi có thể kể tới ví dụ như các bạn muốn thực hiện automation testing cho hệ thống của mình, và đảm bảo rằng mọi thứ được thực hiện tách biệt với những môi trường khác từ server, database, cache, v.v.</p>
+<h2 id="Cung-lam-chung-voi-nhau-phan-nay-nhe"><a href="#Cung-lam-chung-voi-nhau-phan-nay-nhe" class="headerlink" title="Cùng làm chung với nhau phần này nhé!"></a>Cùng làm chung với nhau phần này nhé!</h2><h3 id="Chuan-bi"><a href="#Chuan-bi" class="headerlink" title="Chuẩn bị"></a>Chuẩn bị</h3><p>Để tiến hành “đùa nghịch” thì các bạn nhớ chuẩn bị sẵn những công cụ sau đây:</p>
+<ul>
+<li>Git</li>
+<li>Docker</li>
+<li>Docker Compose</li>
+</ul>
+<p>Hướng dẫn cài đặt mấy thứ này thì cũng tràn lan trên mạng và thời gian cài đặt sẽ từ khoảng 5 đến 15 phút tuỳ trình độ cũng như tốc độ mạng của các bạn!</p>
+<h3 id="Setup-ung-dung-Node-js-co-ban"><a href="#Setup-ung-dung-Node-js-co-ban" class="headerlink" title="Setup ứng dụng Node.js cơ bản"></a>Setup ứng dụng Node.js cơ bản</h3><p>Đầu tiên là setup một ứng dụng Node.js đơn giản sử dụng MongoDB. Để cho các bạn có thể thoả sức nghịch Docker thì tôi làm sẵn luôn một ứng dụng Node.js cơ bản. Các bạn có thể checkout code như sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/codeaholicguy/nodejs-mongodb-docker-example.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>Giới thiệu sơ qua:</strong> Đây là RESTful API lưu danh bạ gồm 2 endpoint chính:</p>
+<ul>
+<li><code>POST</code> để lưu danh bạ</li>
+<li><code>GET</code> để lấy danh bạ</li>
+</ul>
+<p>Các bạn có thể config mongo URL bằng cách thêm environment variable <code>MONGO_URL</code> hoặc dùng file <code>.env</code> đã được setup sẵn.</p>
+<h3 id="Build-Docker-image-cua-ung-dung-Node-js"><a href="#Build-Docker-image-cua-ung-dung-Node-js" class="headerlink" title="Build Docker image của ứng dụng Node.js"></a>Build Docker image của ứng dụng Node.js</h3><p>Đây mới là phần chính của bài viết!</p>
+<p>Để tạo một Docker image, chúng ta cần tạo một file gọi là <code>Dockerfile</code> ngay tại thư mục root của project.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create app directory</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /usr/src/app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install app dependencies</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy app source code</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose port and start application</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [ <span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span> ]</span></span><br></pre></td></tr></table></figure>
+
+<p>Các lệnh khá rõ ràng và dễ hiểu, các bạn có thể đọc thêm document của Docker để biết thêm chi tiết. Sau khi đã có <code>Dockerfile</code>, các bạn có thể build image bằng lệnh sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t awesome-app .</span><br></pre></td></tr></table></figure>
+
+<p>Như vậy, các bạn đã có một Docker image cho source code hiện tại, và các bạn cũng có thể chạy thử image bằng lệnh:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run awesome-app</span><br></pre></td></tr></table></figure>
+
+<p>Tuy nhiên các bạn sẽ nhận ra là chạy không được, do ứng dụng của chúng ta cần thêm MongoDB để lưu trữ dữ liệu nữa. Vậy làm thế nào để setup? Cùng bước sang phần tiếp theo nhé!</p>
+<h3 id="Viet-file-docker-compose-yml"><a href="#Viet-file-docker-compose-yml" class="headerlink" title="Viết file docker-compose.yml"></a>Viết file docker-compose.yml</h3><p>Các bạn tạo file <code>docker-compose.yml</code>, file này sẽ chứa thông tin của môi trường Docker.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MONGO_URL=mongodb://mongo:27017</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mongo</span></span><br><span class="line">  <span class="attr">mongo:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;27017:27017&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Trong file này chúng ta định nghĩa hai Docker services:</p>
+<ul>
+<li><strong>app:</strong> Đây chính là ứng dụng Node.js của chúng ta</li>
+<li><strong>mongo:</strong> Chính là database MongoDB được map với port như định nghĩa</li>
+</ul>
+<p>Mặc định <code>app</code> sẽ gọi <code>mongo</code> bằng cách sử dụng tên của service, như các bạn có thể thấy env <code>MONGO_URL</code> chúng ta sử dụng <code>mongo</code> cho phần hostname.</p>
+<p>Sau khi các bạn đã có file <code>docker-compose.yml</code>, các bạn có thể chạy nó lên bằng lệnh sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<p>Giờ thử vào <code>http://localhost:3000/directory</code> để test xem mọi thứ đã chạy ổn chưa nhé.</p>
+<h2 id="Test-app"><a href="#Test-app" class="headerlink" title="Test app"></a>Test app</h2><p>Bạn có thể test API bằng các tool như Postman hoặc curl:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Lấy danh sách</span></span><br><span class="line">curl http://localhost:3000/directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># Thêm contact mới</span></span><br><span class="line">curl -X POST http://localhost:3000/directory \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;name&quot;: &quot;John Doe&quot;, &quot;phone&quot;: &quot;123456789&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Luu-tru-du-lieu"><a href="#Luu-tru-du-lieu" class="headerlink" title="Lưu trữ dữ liệu"></a>Lưu trữ dữ liệu</h2><p>Với setup như trên, mỗi lần xoá mongo image và rebuild lại thì dữ liệu trước đó sẽ mất hết, bởi vì dữ liệu được lưu trữ trong mongo container. Vậy làm sao để dữ liệu được giữ nguyên?</p>
+<p>Để làm chuyện này, chúng ta sử dụng một kỹ thuật gọi là <strong>volume</strong>, để làm cho storage của container sẽ trỏ về một thư mục trên máy tính thật. Để làm chuyện này thì cũng khá đơn giản thôi. Các bạn chỉnh sửa file <code>docker-compose.yml</code> như sau:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MONGO_URL=mongodb://mongo:27017</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mongo</span></span><br><span class="line">  <span class="attr">mongo:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;27017:27017&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mongo_data:/data/db</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mongo_data:</span></span><br></pre></td></tr></table></figure>
+
+<p>Như các bạn có thể thấy, chúng ta thêm <code>volumes</code> vào và map nó với thư mục <code>/data/db</code> trong mongo container. Vậy thực sự thư mục dữ liệu này nằm ở đâu?</p>
+<p>Các bạn chạy lệnh sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123; .Mounts &#125;&#125;&#x27;</span> <span class="variable">$&#123;container_id&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Kết quả:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#123;volume nodejs-mongodb-docker-example_mongo_data /var/lib/docker/volumes/nodejs-mongodb-docker-example_mongo_data/_data /data/db local rw true &#125;]</span><br></pre></td></tr></table></figure>
+
+<p>Trong đó <code>container_id</code> chính là id của mongo container, các bạn có thể lấy nó thông qua lệnh <code>docker ps</code>. </p>
+<p>Kết quả trả về có ba thành phần:</p>
+<ol>
+<li><strong>Volume name:</strong> <code>nodejs-mongodb-docker-example_mongo_data</code></li>
+<li><strong>Đường dẫn thực tế:</strong> <code>/var/lib/docker/volumes/nodejs-mongodb-docker-example_mongo_data/_data</code></li>
+<li><strong>Mapping trên container:</strong> <code>/data/db</code></li>
+</ol>
+<h2 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h2><p>Bài viết này đã giới thiệu cho các bạn về:</p>
+<ul>
+<li><strong>Docker:</strong> Công cụ containerization</li>
+<li><strong>Docker Compose:</strong> Quản lý multi-container applications</li>
+<li><strong>Volume:</strong> Cách lưu trữ dữ liệu persistent</li>
+</ul>
+<p>Đây chính là tất cả những thứ đơn giản nhất (những thứ phức tạp còn nhiều vô số kể) để thực hiện việc Dockerize ứng dụng của các bạn và sử dụng Docker Compose để chạy môi trường của ứng dụng chỉ bằng một lệnh duy nhất, cũng như việc lưu trữ lại dữ liệu ngay cả khi container bị xoá.</p>
+<h2 id="Cac-lenh-Docker-huu-ich"><a href="#Cac-lenh-Docker-huu-ich" class="headerlink" title="Các lệnh Docker hữu ích"></a>Các lệnh Docker hữu ích</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Xem danh sách containers đang chạy</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># Xem danh sách images</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop tất cả containers</span></span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line"><span class="comment"># Rebuild và start lại</span></span><br><span class="line">docker-compose up --build</span><br><span class="line"></span><br><span class="line"><span class="comment"># Xem logs</span></span><br><span class="line">docker-compose logs</span><br><span class="line"></span><br><span class="line"><span class="comment"># Vào shell của container</span></span><br><span class="line">docker <span class="built_in">exec</span> -it &lt;container_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>Nguồn:</strong> Bài viết được tham khảo từ <a href="https://techtalk.vn/dua-nghich-voi-docker-trong-5-phut.html">TechTalk</a> với mục đích học tập.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-la-gi"><span class="toc-number">1.</span> <span class="toc-text">Docker là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vay-cau-hoi-dat-ra-la-nguyen-nhan-do-dau"><span class="toc-number">1.1.</span> <span class="toc-text">Vậy câu hỏi đặt ra là nguyên nhân do đâu?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Compose-la-gi"><span class="toc-number">2.</span> <span class="toc-text">Docker Compose là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cung-lam-chung-voi-nhau-phan-nay-nhe"><span class="toc-number">2.1.</span> <span class="toc-text">Cùng làm chung với nhau phần này nhé!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chuan-bi"><span class="toc-number">2.1.1.</span> <span class="toc-text">Chuẩn bị</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-ung-dung-Node-js-co-ban"><span class="toc-number">2.1.2.</span> <span class="toc-text">Setup ứng dụng Node.js cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-Docker-image-cua-ung-dung-Node-js"><span class="toc-number">2.1.3.</span> <span class="toc-text">Build Docker image của ứng dụng Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Viet-file-docker-compose-yml"><span class="toc-number">2.1.4.</span> <span class="toc-text">Viết file docker-compose.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-app"><span class="toc-number">2.2.</span> <span class="toc-text">Test app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Luu-tru-du-lieu"><span class="toc-number">2.3.</span> <span class="toc-text">Lưu trữ dữ liệu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tong-ket"><span class="toc-number">2.4.</span> <span class="toc-text">Tổng kết</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-lenh-Docker-huu-ich"><span class="toc-number">2.5.</span> <span class="toc-text">Các lệnh Docker hữu ích</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&text=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&is_video=false&description=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ĐÙa Nghịch Với Docker Trong 5 Phút&body=Check out this article: https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&title=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&name=ĐÙa Nghịch Với Docker Trong 5 Phút&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/&t=ĐÙa Nghịch Với Docker Trong 5 Phút"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

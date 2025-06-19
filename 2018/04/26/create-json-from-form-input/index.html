@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vấn đềQuestion: How can I create a JavaScript JSON object based on two input fields per row, with 48 rows? Câu hỏi: Làm thế nào để tạo một JSON object từ dữ liệu form có 2 input fields mỗi hàng, với 4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Create JSON Data From Form Input">
+<meta property="og:url" content="https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Vấn đềQuestion: How can I create a JavaScript JSON object based on two input fields per row, with 48 rows? Câu hỏi: Làm thế nào để tạo một JSON object từ dữ liệu form có 2 input fields mỗi hàng, với 4">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-04-26T02:12:47.000Z">
+<meta property="article:modified_time" content="2025-06-19T06:43:29.498Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Create JSON Data From Form Input</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/05/08/design-pattern-module-pattern/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/03/26/star-rate-html-pure-css/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&text=Create JSON Data From Form Input"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&is_video=false&description=Create JSON Data From Form Input"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Create JSON Data From Form Input&body=Check out this article: https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&name=Create JSON Data From Form Input&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&t=Create JSON Data From Form Input"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Van-de"><span class="toc-number">1.</span> <span class="toc-text">Vấn đề</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Giai-phap"><span class="toc-number">2.</span> <span class="toc-text">Giải pháp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Cau-truc-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Bước 1: Cấu trúc HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-JavaScript-Implementation"><span class="toc-number">2.2.</span> <span class="toc-text">Bước 2: JavaScript Implementation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-Modern-JavaScript-Vanilla-JS"><span class="toc-number">2.3.</span> <span class="toc-text">Bước 3: Modern JavaScript (Vanilla JS)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-Structure"><span class="toc-number">3.</span> <span class="toc-text">HTML Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-cach-tiep-can-khac"><span class="toc-number">4.</span> <span class="toc-text">Các cách tiếp cận khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Su-dung-Fetch-API-de-gui-data"><span class="toc-number">4.1.</span> <span class="toc-text">1. Sử dụng Fetch API để gửi data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Xu-ly-nested-objects"><span class="toc-number">4.2.</span> <span class="toc-text">2. Xử lý nested objects</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Validation-truoc-khi-convert"><span class="toc-number">4.3.</span> <span class="toc-text">3. Validation trước khi convert</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-qua-mau"><span class="toc-number">5.</span> <span class="toc-text">Kết quả mẫu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo-Links"><span class="toc-number">6.</span> <span class="toc-text">Demo Links</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Support"><span class="toc-number">7.</span> <span class="toc-text">Browser Support</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Create JSON Data From Form Input
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-26T02:12:47.000Z" class="dt-published" itemprop="datePublished">2018-04-26</time>
+        
+        (Updated: <time datetime="2025-06-19T06:43:29.498Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/html/" rel="tag">html</a>, <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Van-de"><a href="#Van-de" class="headerlink" title="Vấn đề"></a>Vấn đề</h2><p><strong>Question:</strong> How can I create a JavaScript JSON object based on two input fields per row, with 48 rows?</p>
+<p><strong>Câu hỏi:</strong> Làm thế nào để tạo một JSON object từ dữ liệu form có 2 input fields mỗi hàng, với 48 hàng?</p>
+<h2 id="Giai-phap"><a href="#Giai-phap" class="headerlink" title="Giải pháp"></a>Giải pháp</h2><h3 id="Buoc-1-Cau-truc-HTML"><a href="#Buoc-1-Cau-truc-HTML" class="headerlink" title="Bước 1: Cấu trúc HTML"></a>Bước 1: Cấu trúc HTML</h3><ol>
+<li>Đặt tất cả các hàng vào 1 form với <code>name</code> unique cho mỗi input</li>
+<li>Lấy dữ liệu form qua jQuery</li>
+<li>Sử dụng function <code>formObj2Json()</code> để convert form data thành JSON</li>
+</ol>
+<h3 id="Buoc-2-JavaScript-Implementation"><a href="#Buoc-2-JavaScript-Implementation" class="headerlink" title="Bước 2: JavaScript Implementation"></a>Bước 2: JavaScript Implementation</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="variable language_">document</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;#grap&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> formData = $(<span class="string">&#x27;#anph&#x27;</span>).<span class="title function_">serializeArray</span>();</span><br><span class="line">    <span class="keyword">var</span> rs = <span class="title function_">formObj2Json</span>(formData);</span><br><span class="line">    $(<span class="string">&#x27;#rs&#x27;</span>).<span class="title function_">html</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(rs, <span class="literal">undefined</span>, <span class="number">2</span>));</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5 Version</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formObj2Json</span>(<span class="params">formArray</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> returnArray = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = formArray.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">    returnArray[formArray[i].<span class="property">name</span>] = formArray[i].<span class="property">value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> returnArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 Version - Method 1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formObj2Json</span> = formArray =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> formArray.<span class="title function_">reduce</span>(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</span><br><span class="line">    obj[item.<span class="property">name</span>] = item.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 Version - Method 2 (using Object.fromEntries)</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formObj2Json</span> = formArray =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(</span><br><span class="line">    formArray.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> [item.<span class="property">name</span>, item.<span class="property">value</span>])</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-3-Modern-JavaScript-Vanilla-JS"><a href="#Buoc-3-Modern-JavaScript-Vanilla-JS" class="headerlink" title="Bước 3: Modern JavaScript (Vanilla JS)"></a>Bước 3: Modern JavaScript (Vanilla JS)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Không cần jQuery</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;grap&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> form = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;anph&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Convert FormData to Object</span></span><br><span class="line">    <span class="keyword">const</span> jsonObject = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(formData.<span class="title function_">entries</span>());</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Display result</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;rs&#x27;</span>).<span class="property">textContent</span> = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsonObject, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hoặc sử dụng cách ngắn gọn hơn</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getFormJSON</span>(<span class="params">form</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(data.<span class="title function_">entries</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML-Structure"><a href="#HTML-Structure" class="headerlink" title="HTML Structure"></a>HTML Structure</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Form to JSON Converter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.group</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.group</span> <span class="selector-tag">label</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.group</span> <span class="selector-tag">input</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#grap</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: <span class="number">#007bff</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#grap</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: <span class="number">#0056b3</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#rs</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: <span class="number">#f8f9fa</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dee2e6</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">15px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">white-space</span>: pre-wrap;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">font-family</span>: monospace;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Form to JSON Converter<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;grap&quot;</span>&gt;</span>Convert to JSON<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;anph&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;group&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span>&gt;</span>Item 1:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;John&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Name&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;85&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;group&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span>&gt;</span>Item 2:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name2&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Jane&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Name&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating2&quot;</span> <span class="attr">value</span>=<span class="string">&quot;92&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;group&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span>&gt;</span>Item 3:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name3&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Bob&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Name&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating3&quot;</span> <span class="attr">value</span>=<span class="string">&quot;78&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- Add more groups as needed --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;group&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span>&gt;</span>Item 4:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name4&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Alice&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Name&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating4&quot;</span> <span class="attr">value</span>=<span class="string">&quot;96&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;group&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span>&gt;</span>Item 5:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name5&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Charlie&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Name&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rating5&quot;</span> <span class="attr">value</span>=<span class="string">&quot;88&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Rating&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>JSON Result:<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span> <span class="attr">id</span>=<span class="string">&quot;rs&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Cac-cach-tiep-can-khac"><a href="#Cac-cach-tiep-can-khac" class="headerlink" title="Các cách tiếp cận khác"></a>Các cách tiếp cận khác</h2><h3 id="1-Su-dung-Fetch-API-de-gui-data"><a href="#1-Su-dung-Fetch-API-de-gui-data" class="headerlink" title="1. Sử dụng Fetch API để gửi data"></a>1. Sử dụng Fetch API để gửi data</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">submitFormAsJSON</span>(<span class="params">formId</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> form = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(formId);</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">  <span class="keyword">const</span> jsonData = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(formData.<span class="title function_">entries</span>());</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/api/submit&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsonData)</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (response.<span class="property">ok</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Data submitted successfully&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error submitting data:&#x27;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Xu-ly-nested-objects"><a href="#2-Xu-ly-nested-objects" class="headerlink" title="2. Xử lý nested objects"></a>2. Xử lý nested objects</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">formToNestedJSON</span>(<span class="params">form</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">  <span class="keyword">const</span> result = &#123;&#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> formData.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">    <span class="comment">// Xử lý key như &quot;user.name&quot; hoặc &quot;user.address.city&quot;</span></span><br><span class="line">    <span class="keyword">const</span> keys = key.<span class="title function_">split</span>(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> current = result;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!current[keys[i]]) &#123;</span><br><span class="line">        current[keys[i]] = &#123;&#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      current = current[keys[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    current[keys[keys.<span class="property">length</span> - <span class="number">1</span>]] = value;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Validation-truoc-khi-convert"><a href="#3-Validation-truoc-khi-convert" class="headerlink" title="3. Validation trước khi convert"></a>3. Validation trước khi convert</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">validateAndConvert</span>(<span class="params">form</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> requiredFields = [<span class="string">&#x27;name1&#x27;</span>, <span class="string">&#x27;rating1&#x27;</span>];</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Check required fields</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> field <span class="keyword">of</span> requiredFields) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!formData.<span class="title function_">get</span>(field)) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">`Field <span class="subst">$&#123;field&#125;</span> is required!`</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Validate ratings are numbers</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> [key, value] <span class="keyword">of</span> formData.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (key.<span class="title function_">startsWith</span>(<span class="string">&#x27;rating&#x27;</span>) &amp;&amp; <span class="built_in">isNaN</span>(value)) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">`<span class="subst">$&#123;key&#125;</span> must be a number!`</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(formData.<span class="title function_">entries</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ket-qua-mau"><a href="#Ket-qua-mau" class="headerlink" title="Kết quả mẫu"></a>Kết quả mẫu</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name1&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rating1&quot;</span><span class="punctuation">:</span> <span class="string">&quot;85&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jane&quot;</span><span class="punctuation">,</span> </span><br><span class="line">  <span class="attr">&quot;rating2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;92&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name3&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Bob&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rating3&quot;</span><span class="punctuation">:</span> <span class="string">&quot;78&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name4&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rating4&quot;</span><span class="punctuation">:</span> <span class="string">&quot;96&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name5&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Charlie&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rating5&quot;</span><span class="punctuation">:</span> <span class="string">&quot;88&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Demo-Links"><a href="#Demo-Links" class="headerlink" title="Demo Links"></a>Demo Links</h2><ul>
+<li><a href="http://jsbin.com/daraxeqesi/1/edit?html,js,output">Create JSON from Form Input</a></li>
+<li><a href="http://jsbin.com/noxedof/edit?js,console,output">ES6 Version Demo</a></li>
+</ul>
+<h2 id="Browser-Support"><a href="#Browser-Support" class="headerlink" title="Browser Support"></a>Browser Support</h2><ul>
+<li><strong>FormData:</strong> IE 10+</li>
+<li><strong>Object.fromEntries:</strong> Chrome 73+, Firefox 63+, Safari 12.1+</li>
+<li><strong>Spread operator:</strong> IE không hỗ trợ, cần transpile với Babel</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Van-de"><span class="toc-number">1.</span> <span class="toc-text">Vấn đề</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Giai-phap"><span class="toc-number">2.</span> <span class="toc-text">Giải pháp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Cau-truc-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Bước 1: Cấu trúc HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-JavaScript-Implementation"><span class="toc-number">2.2.</span> <span class="toc-text">Bước 2: JavaScript Implementation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-Modern-JavaScript-Vanilla-JS"><span class="toc-number">2.3.</span> <span class="toc-text">Bước 3: Modern JavaScript (Vanilla JS)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-Structure"><span class="toc-number">3.</span> <span class="toc-text">HTML Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-cach-tiep-can-khac"><span class="toc-number">4.</span> <span class="toc-text">Các cách tiếp cận khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Su-dung-Fetch-API-de-gui-data"><span class="toc-number">4.1.</span> <span class="toc-text">1. Sử dụng Fetch API để gửi data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Xu-ly-nested-objects"><span class="toc-number">4.2.</span> <span class="toc-text">2. Xử lý nested objects</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Validation-truoc-khi-convert"><span class="toc-number">4.3.</span> <span class="toc-text">3. Validation trước khi convert</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-qua-mau"><span class="toc-number">5.</span> <span class="toc-text">Kết quả mẫu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo-Links"><span class="toc-number">6.</span> <span class="toc-text">Demo Links</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Support"><span class="toc-number">7.</span> <span class="toc-text">Browser Support</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&text=Create JSON Data From Form Input"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&is_video=false&description=Create JSON Data From Form Input"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Create JSON Data From Form Input&body=Check out this article: https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&title=Create JSON Data From Form Input"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&name=Create JSON Data From Form Input&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2018/04/26/create-json-from-form-input/&t=Create JSON Data From Form Input"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>
