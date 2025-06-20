@@ -48,89 +48,6 @@
   </entry>
   
   <entry>
-    <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
-    <published>2025-06-20T10:19:44.000Z</published>
-    <updated>2025-06-20T10:37:57.156Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-    <category term="programming" scheme="https://ph4n4n.github.io/tags/programming/"/>
-    
-    <category term="concepts" scheme="https://ph4n4n.github.io/tags/concepts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Partition Trong Database Tối Giản</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/</id>
-    <published>2025-06-20T10:16:05.000Z</published>
-    <updated>2025-06-20T10:25:22.590Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;&gt;&lt;a href=&quot;#Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
-    
-    
-    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
-    
-    <category term="mysql" scheme="https://ph4n4n.github.io/tags/mysql/"/>
-    
-    <category term="performance" scheme="https://ph4n4n.github.io/tags/performance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/</id>
-    <published>2025-06-20T09:39:15.000Z</published>
-    <updated>2025-06-20T09:56:06.725Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
-    
-    
-    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SOLID Cho Dev &quot;đầU Óc đơN Giản&quot;</title>
     <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
     <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
@@ -183,6 +100,60 @@
   </entry>
   
   <entry>
+    <title>Partition Trong Database Tối Giản</title>
+    <link href="https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/"/>
+    <id>https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/</id>
+    <published>2024-03-20T10:16:05.000Z</published>
+    <updated>2025-06-20T10:39:41.138Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;&gt;&lt;a href=&quot;#Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    
+    <category term="mysql" scheme="https://ph4n4n.github.io/tags/mysql/"/>
+    
+    <category term="performance" scheme="https://ph4n4n.github.io/tags/performance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
+    <link href="https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"/>
+    <id>https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/</id>
+    <published>2023-06-20T09:39:15.000Z</published>
+    <updated>2025-06-20T10:39:23.065Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vạch Trần Kỹ Thuật Login QR Code</title>
     <link href="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"/>
     <id>https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/</id>
@@ -208,6 +179,35 @@
     <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
     
     <category term="socket.io" scheme="https://ph4n4n.github.io/tags/socket-io/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
+    <link href="https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
+    <id>https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
+    <published>2021-01-20T10:19:44.000Z</published>
+    <updated>2025-06-20T10:39:49.459Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    
+    <category term="programming" scheme="https://ph4n4n.github.io/tags/programming/"/>
+    
+    <category term="concepts" scheme="https://ph4n4n.github.io/tags/concepts/"/>
     
   </entry>
   
