@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: Simple (đơn giản), Open (mở rộng), Logic (hợp lý), I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SOLID Cho Dev &quot;đầU Óc đơN Giản&quot;">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: Simple (đơn giản), Open (mở rộng), Logic (hợp lý), I">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T08:12:09.000Z">
+<meta property="article:modified_time" content="2025-06-20T08:14:36.199Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="design-pattern">
+<meta property="article:tag" content="oop">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/06/20/ACID-trong-DBMS/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&text=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&is_video=false&description=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;&body=Check out this article: https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&name=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&t=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SOLID-la-gi"><span class="toc-number">1.</span> <span class="toc-text">SOLID là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S-Single-Responsibility-Principle"><span class="toc-number">2.</span> <span class="toc-text">S - Single Responsibility Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai"><span class="toc-number">2.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung"><span class="toc-number">2.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O-Open-Closed-Principle"><span class="toc-number">3.</span> <span class="toc-text">O - Open&#x2F;Closed Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-1"><span class="toc-number">3.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-1"><span class="toc-number">3.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-Liskov-Substitution-Principle"><span class="toc-number">4.</span> <span class="toc-text">L - Liskov Substitution Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-2"><span class="toc-number">4.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-2"><span class="toc-number">4.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Interface-Segregation-Principle"><span class="toc-number">5.</span> <span class="toc-text">I - Interface Segregation Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-3"><span class="toc-number">5.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-3"><span class="toc-number">5.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Dependency-Inversion-Principle"><span class="toc-number">6.</span> <span class="toc-text">D - Dependency Inversion Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-4"><span class="toc-number">6.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-4"><span class="toc-number">6.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-tong-hop-E-commerce-System"><span class="toc-number">7.</span> <span class="toc-text">Ví dụ tổng hợp: E-commerce System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tom-tat-cho-dev-%E2%80%9Cdau-oc-don-gian%E2%80%9D"><span class="toc-number">8.</span> <span class="toc-text">Tóm tắt cho dev “đầu óc đơn giản”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-ap-dung-SOLID"><span class="toc-number">9.</span> <span class="toc-text">Khi nào áp dụng SOLID?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Nen-ap-dung"><span class="toc-number">9.1.</span> <span class="toc-text">✅ Nên áp dụng:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-can-qua-khat-khe"><span class="toc-number">9.2.</span> <span class="toc-text">❌ Không cần quá khắt khe:</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T08:12:09.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T08:14:36.199Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/design-pattern/" rel="tag">design-pattern</a>, <a class="p-category" href="/tags/oop/" rel="tag">oop</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="SOLID-la-gi"><a href="#SOLID-la-gi" class="headerlink" title="SOLID là gì?"></a>SOLID là gì?</h2><p>SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: <strong>S</strong>imple (đơn giản), <strong>O</strong>pen (mở rộng), <strong>L</strong>ogic (hợp lý), <strong>I</strong>ndependent (độc lập), <strong>D</strong>etachable (tách rời) 😄</p>
+<h2 id="S-Single-Responsibility-Principle"><a href="#S-Single-Responsibility-Principle" class="headerlink" title="S - Single Responsibility Principle"></a>S - Single Responsibility Principle</h2><p><strong>Nguyên tắc</strong>: Một class chỉ nên có <strong>1 lý do để thay đổi</strong>.</p>
+<h3 id="❌-Sai"><a href="#❌-Sai" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, email</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">email</span> = email;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Quản lý user data</span></span><br><span class="line">  <span class="title function_">save</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Lưu vào database</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Gửi email (không liên quan đến User!)</span></span><br><span class="line">  <span class="title function_">sendWelcomeEmail</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Gửi email chào mừng</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Validate data (cũng không liên quan!)</span></span><br><span class="line">  <span class="title function_">validateEmail</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">email</span>.<span class="title function_">includes</span>(<span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Dung"><a href="#✅-Dung" class="headerlink" title="✅ Đúng:"></a>✅ Đúng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, email</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">email</span> = email;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserRepository</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="comment">// Chỉ lo việc lưu data</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EmailService</span> &#123;</span><br><span class="line">  <span class="title function_">sendWelcomeEmail</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="comment">// Chỉ lo việc gửi email</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserValidator</span> &#123;</span><br><span class="line">  <span class="title function_">validateEmail</span>(<span class="params">email</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> email.<span class="title function_">includes</span>(<span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Nhớ bằng cách</strong>: Mỗi class như 1 nhân viên, mỗi người chỉ làm 1 việc thôi. Đừng bắt thằng bán hàng kiêm luôn kế toán! 🤷‍♂️</p>
+<h2 id="O-Open-Closed-Principle"><a href="#O-Open-Closed-Principle" class="headerlink" title="O - Open&#x2F;Closed Principle"></a>O - Open&#x2F;Closed Principle</h2><p><strong>Nguyên tắc</strong>: Class nên <strong>mở cho mở rộng</strong>, <strong>đóng cho sửa đổi</strong>.</p>
+<h3 id="❌-Sai-1"><a href="#❌-Sai-1" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Calculator</span> &#123;</span><br><span class="line">  <span class="title function_">calculate</span>(<span class="params">operation, a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (operation === <span class="string">&#x27;add&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (operation === <span class="string">&#x27;subtract&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Muốn thêm multiply? Phải sửa class này! 😱</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Dung-1"><a href="#✅-Dung-1" class="headerlink" title="✅ Đúng:"></a>✅ Đúng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Operation</span> &#123;</span><br><span class="line">  <span class="title function_">execute</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Must implement execute method&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AddOperation</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Operation</span> &#123;</span><br><span class="line">  <span class="title function_">execute</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubtractOperation</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Operation</span> &#123;</span><br><span class="line">  <span class="title function_">execute</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Calculator</span> &#123;</span><br><span class="line">  <span class="title function_">calculate</span>(<span class="params">operation, a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> operation.<span class="title function_">execute</span>(a, b);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Muốn thêm multiply? Tạo class mới, không sửa code cũ!</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MultiplyOperation</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Operation</span> &#123;</span><br><span class="line">  <span class="title function_">execute</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Nhớ bằng cách</strong>: Như cửa hàng - mở rộng thêm sản phẩm mới, không sửa lại sản phẩm cũ! 🏪</p>
+<h2 id="L-Liskov-Substitution-Principle"><a href="#L-Liskov-Substitution-Principle" class="headerlink" title="L - Liskov Substitution Principle"></a>L - Liskov Substitution Principle</h2><p><strong>Nguyên tắc</strong>: Object của class con phải thay thế được object của class cha mà không làm hỏng chương trình.</p>
+<h3 id="❌-Sai-2"><a href="#❌-Sai-2" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">  <span class="title function_">fly</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Flying high!&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Penguin</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Bird</span> &#123;</span><br><span class="line">  <span class="title function_">fly</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Penguins cannot fly!&#x27;</span>); <span class="comment">// Phá vỡ hành vi của Bird!</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">makeBirdFly</span>(<span class="params">bird</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> bird.<span class="title function_">fly</span>(); <span class="comment">// Boom! Nếu truyền Penguin vào</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Dung-2"><a href="#✅-Dung-2" class="headerlink" title="✅ Đúng:"></a>✅ Đúng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">  <span class="title function_">move</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Moving...&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FlyingBird</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Bird</span> &#123;</span><br><span class="line">  <span class="title function_">fly</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Flying high!&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">move</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">fly</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SwimmingBird</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Bird</span> &#123;</span><br><span class="line">  <span class="title function_">swim</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Swimming gracefully!&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">move</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">swim</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Eagle</span> <span class="keyword">extends</span> <span class="title class_ inherited__">FlyingBird</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Penguin</span> <span class="keyword">extends</span> <span class="title class_ inherited__">SwimmingBird</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Nhớ bằng cách</strong>: Con phải giống bố&#x2F;mẹ về tính cách cơ bản. Đừng sinh ra đứa con “nổi loạn” phá hoại gia đình! 👨‍👩‍👧‍👦</p>
+<h2 id="I-Interface-Segregation-Principle"><a href="#I-Interface-Segregation-Principle" class="headerlink" title="I - Interface Segregation Principle"></a>I - Interface Segregation Principle</h2><p><strong>Nguyên tắc</strong>: Đừng ép client implement những method không cần thiết.</p>
+<h3 id="❌-Sai-3"><a href="#❌-Sai-3" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AllInOneDevice</span> &#123;</span><br><span class="line">  <span class="title function_">print</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">  <span class="title function_">scan</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">  <span class="title function_">fax</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">  <span class="title function_">makeCall</span>(<span class="params"></span>) &#123;&#125; <span class="comment">// Máy in mà gọi điện?! 🤔</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimplePrinter</span> <span class="keyword">extends</span> <span class="title class_ inherited__">AllInOneDevice</span> &#123;</span><br><span class="line">  <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Printing...&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">scan</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Cannot scan!&#x27;</span>); <span class="comment">// Bắt buộc phải có nhưng không dùng</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">fax</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Cannot fax!&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">makeCall</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Cannot make call!&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Dung-3"><a href="#✅-Dung-3" class="headerlink" title="✅ Đúng:"></a>✅ Đúng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Printer</span> &#123;</span><br><span class="line">  <span class="title function_">print</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Scanner</span> &#123;</span><br><span class="line">  <span class="title function_">scan</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FaxMachine</span> &#123;</span><br><span class="line">  <span class="title function_">fax</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span> &#123;</span><br><span class="line">  <span class="title function_">makeCall</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Chỉ implement những gì cần thiết</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimplePrinter</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Printer</span> &#123;</span><br><span class="line">  <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Printing...&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AllInOnePrinter</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Printer</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">scanner</span> = <span class="keyword">new</span> <span class="title class_">Scanner</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">faxMachine</span> = <span class="keyword">new</span> <span class="title class_">FaxMachine</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Printing...&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">scan</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">scanner</span>.<span class="title function_">scan</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">fax</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">faxMachine</span>.<span class="title function_">fax</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Nhớ bằng cách</strong>: Đừng bắt người bán bánh mì phải biết sửa xe máy! Mỗi người chỉ cần biết skill của mình! 🥖</p>
+<h2 id="D-Dependency-Inversion-Principle"><a href="#D-Dependency-Inversion-Principle" class="headerlink" title="D - Dependency Inversion Principle"></a>D - Dependency Inversion Principle</h2><p><strong>Nguyên tắc</strong>: Phụ thuộc vào abstraction, không phụ thuộc vào implementation cụ thể.</p>
+<h3 id="❌-Sai-4"><a href="#❌-Sai-4" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MySQLDatabase</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="comment">// Lưu vào MySQL</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Saving to MySQL:&#x27;</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">database</span> = <span class="keyword">new</span> <span class="title class_">MySQLDatabase</span>(); <span class="comment">// Phụ thuộc cứng vào MySQL!</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">saveUser</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">database</span>.<span class="title function_">save</span>(user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Muốn đổi sang PostgreSQL? Phải sửa UserService! 😰</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Dung-4"><a href="#✅-Dung-4" class="headerlink" title="✅ Đúng:"></a>✅ Đúng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Abstraction</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Database</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Must implement save method&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Implementations</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MySQLDatabase</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Database</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Saving to MySQL:&#x27;</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PostgreSQLDatabase</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Database</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Saving to PostgreSQL:&#x27;</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">database</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">database</span> = database; <span class="comment">// Phụ thuộc vào abstraction</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">saveUser</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">database</span>.<span class="title function_">save</span>(user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sử dụng</span></span><br><span class="line"><span class="keyword">const</span> mysqlDb = <span class="keyword">new</span> <span class="title class_">MySQLDatabase</span>();</span><br><span class="line"><span class="keyword">const</span> postgresDb = <span class="keyword">new</span> <span class="title class_">PostgreSQLDatabase</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userService1 = <span class="keyword">new</span> <span class="title class_">UserService</span>(mysqlDb);</span><br><span class="line"><span class="keyword">const</span> userService2 = <span class="keyword">new</span> <span class="title class_">UserService</span>(postgresDb);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Nhớ bằng cách</strong>: Đừng yêu con người vì ngoại hình, hãy yêu vì tính cách! Database cũng vậy, yêu interface chứ đừng yêu implementation! 💕</p>
+<h2 id="Vi-du-tong-hop-E-commerce-System"><a href="#Vi-du-tong-hop-E-commerce-System" class="headerlink" title="Ví dụ tổng hợp: E-commerce System"></a>Ví dụ tổng hợp: E-commerce System</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// S - Single Responsibility</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">id, name, price</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">id</span> = id;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">price</span> = price;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProductRepository</span> &#123;</span><br><span class="line">  <span class="title function_">save</span>(<span class="params">product</span>) &#123; <span class="comment">/* Chỉ lo lưu data */</span> &#125;</span><br><span class="line">  <span class="title function_">findById</span>(<span class="params">id</span>) &#123; <span class="comment">/* Chỉ lo tìm data */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProductValidator</span> &#123;</span><br><span class="line">  <span class="title function_">validate</span>(<span class="params">product</span>) &#123; <span class="comment">/* Chỉ lo validate */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O - Open/Closed</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DiscountCalculator</span> &#123;</span><br><span class="line">  <span class="title function_">calculate</span>(<span class="params">product, discount</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> discount.<span class="title function_">apply</span>(product.<span class="property">price</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PercentageDiscount</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">percentage</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">percentage</span> = percentage;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">apply</span>(<span class="params">price</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> price * (<span class="number">1</span> - <span class="variable language_">this</span>.<span class="property">percentage</span> / <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FixedDiscount</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">amount</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">amount</span> = amount;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">apply</span>(<span class="params">price</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">0</span>, price - <span class="variable language_">this</span>.<span class="property">amount</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// L - Liskov Substitution</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentProcessor</span> &#123;</span><br><span class="line">  <span class="title function_">process</span>(<span class="params">amount</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">success</span>: <span class="literal">true</span>, amount &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CreditCardProcessor</span> <span class="keyword">extends</span> <span class="title class_ inherited__">PaymentProcessor</span> &#123;</span><br><span class="line">  <span class="title function_">process</span>(<span class="params">amount</span>) &#123;</span><br><span class="line">    <span class="comment">// Xử lý thanh toán credit card</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">success</span>: <span class="literal">true</span>, amount, <span class="attr">method</span>: <span class="string">&#x27;credit_card&#x27;</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PayPalProcessor</span> <span class="keyword">extends</span> <span class="title class_ inherited__">PaymentProcessor</span> &#123;</span><br><span class="line">  <span class="title function_">process</span>(<span class="params">amount</span>) &#123;</span><br><span class="line">    <span class="comment">// Xử lý thanh toán PayPal</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">success</span>: <span class="literal">true</span>, amount, <span class="attr">method</span>: <span class="string">&#x27;paypal&#x27;</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I - Interface Segregation</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OrderPrinter</span> &#123;</span><br><span class="line">  <span class="title function_">printOrder</span>(<span class="params">order</span>) &#123; <span class="comment">/* In đơn hàng */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OrderEmailer</span> &#123;</span><br><span class="line">  <span class="title function_">sendOrderEmail</span>(<span class="params">order</span>) &#123; <span class="comment">/* Gửi email đơn hàng */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OrderSMSer</span> &#123;</span><br><span class="line">  <span class="title function_">sendOrderSMS</span>(<span class="params">order</span>) &#123; <span class="comment">/* Gửi SMS đơn hàng */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// D - Dependency Inversion</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">repository, paymentProcessor, notifier</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">repository</span> = repository;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">paymentProcessor</span> = paymentProcessor;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">notifier</span> = notifier;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">createOrder</span>(<span class="params">orderData</span>) &#123;</span><br><span class="line">    <span class="comment">// Tạo đơn hàng</span></span><br><span class="line">    <span class="keyword">const</span> order = <span class="keyword">new</span> <span class="title class_">Order</span>(orderData);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Thanh toán</span></span><br><span class="line">    <span class="keyword">const</span> payment = <span class="variable language_">this</span>.<span class="property">paymentProcessor</span>.<span class="title function_">process</span>(order.<span class="property">total</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (payment.<span class="property">success</span>) &#123;</span><br><span class="line">      <span class="comment">// Lưu đơn hàng</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">repository</span>.<span class="title function_">save</span>(order);</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// Thông báo</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">notifier</span>.<span class="title function_">notify</span>(order);</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> order;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Payment failed&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tom-tat-cho-dev-“dau-oc-don-gian”"><a href="#Tom-tat-cho-dev-“dau-oc-don-gian”" class="headerlink" title="Tóm tắt cho dev “đầu óc đơn giản”"></a>Tóm tắt cho dev “đầu óc đơn giản”</h2><table>
+<thead>
+<tr>
+<th>Nguyên tắc</th>
+<th>Nhớ bằng</th>
+<th>Ví dụ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>S</strong>ingle Responsibility</td>
+<td>1 class &#x3D; 1 việc</td>
+<td>Thầy giáo không kiêm bán phở</td>
+</tr>
+<tr>
+<td><strong>O</strong>pen&#x2F;Closed</td>
+<td>Mở rộng, không sửa</td>
+<td>Thêm món mới, không đổi món cũ</td>
+</tr>
+<tr>
+<td><strong>L</strong>iskov Substitution</td>
+<td>Con phải giống bố&#x2F;mẹ</td>
+<td>Chim cánh cụt không bay được</td>
+</tr>
+<tr>
+<td><strong>I</strong>nterface Segregation</td>
+<td>Đừng ép làm việc không cần</td>
+<td>Thợ may không cần biết lái xe</td>
+</tr>
+<tr>
+<td><strong>D</strong>ependency Inversion</td>
+<td>Yêu tính cách, không yêu ngoại hình</td>
+<td>Yêu “Database” không yêu “MySQL”</td>
+</tr>
+</tbody></table>
+<h2 id="Khi-nao-ap-dung-SOLID"><a href="#Khi-nao-ap-dung-SOLID" class="headerlink" title="Khi nào áp dụng SOLID?"></a>Khi nào áp dụng SOLID?</h2><h3 id="✅-Nen-ap-dung"><a href="#✅-Nen-ap-dung" class="headerlink" title="✅ Nên áp dụng:"></a>✅ Nên áp dụng:</h3><ul>
+<li>Dự án lớn, nhiều người làm</li>
+<li>Code cần maintain lâu dài</li>
+<li>Yêu cầu thay đổi thường xuyên</li>
+<li>Team có kinh nghiệm OOP</li>
+</ul>
+<h3 id="❌-Khong-can-qua-khat-khe"><a href="#❌-Khong-can-qua-khat-khe" class="headerlink" title="❌ Không cần quá khắt khe:"></a>❌ Không cần quá khắt khe:</h3><ul>
+<li>Prototype nhanh</li>
+<li>Script nhỏ, dùng 1 lần</li>
+<li>Deadline gấp (nhưng nhớ refactor sau!)</li>
+<li>Solo project đơn giản</li>
+</ul>
+<hr>
+<p><em>Remember: SOLID giúp code không “solid” như đá mà “flexible” như nước! 🌊</em></p>
+<p><strong>Chúc các bạn code không còn “rắc rối” nữa!</strong></p>
+<p>ph4n4n</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SOLID-la-gi"><span class="toc-number">1.</span> <span class="toc-text">SOLID là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S-Single-Responsibility-Principle"><span class="toc-number">2.</span> <span class="toc-text">S - Single Responsibility Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai"><span class="toc-number">2.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung"><span class="toc-number">2.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O-Open-Closed-Principle"><span class="toc-number">3.</span> <span class="toc-text">O - Open&#x2F;Closed Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-1"><span class="toc-number">3.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-1"><span class="toc-number">3.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-Liskov-Substitution-Principle"><span class="toc-number">4.</span> <span class="toc-text">L - Liskov Substitution Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-2"><span class="toc-number">4.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-2"><span class="toc-number">4.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Interface-Segregation-Principle"><span class="toc-number">5.</span> <span class="toc-text">I - Interface Segregation Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-3"><span class="toc-number">5.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-3"><span class="toc-number">5.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Dependency-Inversion-Principle"><span class="toc-number">6.</span> <span class="toc-text">D - Dependency Inversion Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Sai-4"><span class="toc-number">6.1.</span> <span class="toc-text">❌ Sai:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Dung-4"><span class="toc-number">6.2.</span> <span class="toc-text">✅ Đúng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-tong-hop-E-commerce-System"><span class="toc-number">7.</span> <span class="toc-text">Ví dụ tổng hợp: E-commerce System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tom-tat-cho-dev-%E2%80%9Cdau-oc-don-gian%E2%80%9D"><span class="toc-number">8.</span> <span class="toc-text">Tóm tắt cho dev “đầu óc đơn giản”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-ap-dung-SOLID"><span class="toc-number">9.</span> <span class="toc-text">Khi nào áp dụng SOLID?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Nen-ap-dung"><span class="toc-number">9.1.</span> <span class="toc-text">✅ Nên áp dụng:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-can-qua-khat-khe"><span class="toc-number">9.2.</span> <span class="toc-text">❌ Không cần quá khắt khe:</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&text=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&is_video=false&description=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;&body=Check out this article: https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&title=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&name=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/&t=SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

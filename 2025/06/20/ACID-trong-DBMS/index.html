@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="ACID là gì?ACID là 4 tính chất cơ bản mà một transaction trong database phải có. Giống như 4 điều kiện để làm boyfriend&#x2F;girlfriend ấy: Authentic (thật thà), Consistent (nhất quán), Isolated (riên">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACID Trong DBMS">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="ACID là gì?ACID là 4 tính chất cơ bản mà một transaction trong database phải có. Giống như 4 điều kiện để làm boyfriend&#x2F;girlfriend ấy: Authentic (thật thà), Consistent (nhất quán), Isolated (riên">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T08:06:31.000Z">
+<meta property="article:modified_time" content="2025-06-20T08:11:43.581Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>ACID Trong DBMS</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2025/06/20/SOLID-cho-devpid/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&text=ACID Trong DBMS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&is_video=false&description=ACID Trong DBMS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ACID Trong DBMS&body=Check out this article: https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&name=ACID Trong DBMS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&t=ACID Trong DBMS"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID-la-gi"><span class="toc-number">1.</span> <span class="toc-text">ACID là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Atomicity-Tinh-nguyen-tu"><span class="toc-number">2.</span> <span class="toc-text">A - Atomicity (Tính nguyên tử)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Consistency-Tinh-nhat-quan"><span class="toc-number">3.</span> <span class="toc-text">C - Consistency (Tính nhất quán)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Isolation-Tinh-co-lap"><span class="toc-number">4.</span> <span class="toc-text">I - Isolation (Tính cô lập)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Isolation-Levels"><span class="toc-number">4.1.</span> <span class="toc-text">Isolation Levels:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Durability-Tinh-ben-vung"><span class="toc-number">5.</span> <span class="toc-text">D - Durability (Tính bền vững)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-tong-hop-E-commerce-Order"><span class="toc-number">6.</span> <span class="toc-text">Ví dụ tổng hợp: E-commerce Order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-can-ACID"><span class="toc-number">7.</span> <span class="toc-text">Khi nào cần ACID?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Can-ACID"><span class="toc-number">7.1.</span> <span class="toc-text">✅ Cần ACID:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-can-ACID-nghiem-ngat"><span class="toc-number">7.2.</span> <span class="toc-text">❌ Không cần ACID nghiêm ngặt:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Luu-y-thuc-te"><span class="toc-number">8.</span> <span class="toc-text">Lưu ý thực tế</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        ACID Trong DBMS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T08:06:31.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T08:11:43.581Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/database/">database</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/database/" rel="tag">database</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="ACID-la-gi"><a href="#ACID-la-gi" class="headerlink" title="ACID là gì?"></a>ACID là gì?</h2><p>ACID là 4 tính chất cơ bản mà một transaction trong database phải có. Giống như 4 điều kiện để làm boyfriend&#x2F;girlfriend ấy: <strong>A</strong>uthentic (thật thà), <strong>C</strong>onsistent (nhất quán), <strong>I</strong>solated (riêng tư), <strong>D</strong>urable (bền vững) 😄</p>
+<h2 id="A-Atomicity-Tinh-nguyen-tu"><a href="#A-Atomicity-Tinh-nguyen-tu" class="headerlink" title="A - Atomicity (Tính nguyên tử)"></a>A - Atomicity (Tính nguyên tử)</h2><p><strong>Định nghĩa</strong>: Transaction phải hoàn thành toàn bộ hoặc không làm gì cả.</p>
+<p><strong>Ví dụ thực tế</strong>: Chuyển tiền từ tài khoản A sang B</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> TRANSACTION;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance <span class="operator">=</span> balance <span class="operator">-</span> <span class="number">100</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> accounts <span class="keyword">SET</span> balance <span class="operator">=</span> balance <span class="operator">+</span> <span class="number">100</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Nếu bước nào fail → rollback hết. Không có chuyện A mất tiền mà B không nhận được (thảm họa! 💸)</p>
+<h2 id="C-Consistency-Tinh-nhat-quan"><a href="#C-Consistency-Tinh-nhat-quan" class="headerlink" title="C - Consistency (Tính nhất quán)"></a>C - Consistency (Tính nhất quán)</h2><p><strong>Định nghĩa</strong>: Database phải luôn ở trạng thái hợp lệ trước và sau transaction.</p>
+<p><strong>Ví dụ</strong>: Tổng tiền trong hệ thống banking phải không đổi</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Trước transaction: A có 1000, B có 500 → Tổng = 1500</span></span><br><span class="line"><span class="comment">-- Sau transaction: A có 900, B có 600 → Tổng = 1500 ✅</span></span><br></pre></td></tr></table></figure>
+
+<p>Constraint như <code>NOT NULL</code>, <code>FOREIGN KEY</code> phải được tôn trọng. Không có chuyện sinh viên không có tên hoặc đăng ký môn học không tồn tại.</p>
+<h2 id="I-Isolation-Tinh-co-lap"><a href="#I-Isolation-Tinh-co-lap" class="headerlink" title="I - Isolation (Tính cô lập)"></a>I - Isolation (Tính cô lập)</h2><p><strong>Định nghĩa</strong>: Các transaction chạy đồng thời không được ảnh hưởng lẫn nhau.</p>
+<p><strong>Ví dụ</strong>: 2 người cùng lúc mua vé concert</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- User 1: SELECT seats WHERE available = true; -- Thấy ghế A1 trống</span></span><br><span class="line"><span class="comment">-- User 2: SELECT seats WHERE available = true; -- Cũng thấy ghế A1 trống</span></span><br><span class="line"><span class="comment">-- User 1: UPDATE seats SET available = false WHERE id = &#x27;A1&#x27;;</span></span><br><span class="line"><span class="comment">-- User 2: UPDATE seats SET available = false WHERE id = &#x27;A1&#x27;; -- Fail!</span></span><br></pre></td></tr></table></figure>
+
+<p>Database phải đảm bảo chỉ 1 người mua được ghế A1. Không có chuyện 2 người ngồi chung 1 ghế (trừ khi… 👫)</p>
+<h3 id="Isolation-Levels"><a href="#Isolation-Levels" class="headerlink" title="Isolation Levels:"></a>Isolation Levels:</h3><ul>
+<li><strong>READ UNCOMMITTED</strong>: Đọc được data chưa commit (dirty read) - nguy hiểm!</li>
+<li><strong>READ COMMITTED</strong>: Chỉ đọc data đã commit</li>
+<li><strong>REPEATABLE READ</strong>: Đảm bảo đọc lại cùng 1 kết quả</li>
+<li><strong>SERIALIZABLE</strong>: Chạy tuần tự (chậm nhưng an toàn)</li>
+</ul>
+<h2 id="D-Durability-Tinh-ben-vung"><a href="#D-Durability-Tinh-ben-vung" class="headerlink" title="D - Durability (Tính bền vững)"></a>D - Durability (Tính bền vững)</h2><p><strong>Định nghĩa</strong>: Khi transaction đã commit, data phải được lưu vĩnh viễn.</p>
+<p><strong>Ví dụ</strong>: Sau khi chuyển tiền thành công</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COMMIT</span>; <span class="comment">-- Từ giây này, dù server có nổ tung cũng không mất transaction</span></span><br></pre></td></tr></table></figure>
+
+<p>Ngay cả khi:</p>
+<ul>
+<li>Server crash 💥</li>
+<li>Mất điện ⚡</li>
+<li>Động đất 🌍</li>
+<li>Sếp bực tức tắt máy 😤</li>
+</ul>
+<p>Data vẫn phải còn nguyên trong database.</p>
+<h2 id="Vi-du-tong-hop-E-commerce-Order"><a href="#Vi-du-tong-hop-E-commerce-Order" class="headerlink" title="Ví dụ tổng hợp: E-commerce Order"></a>Ví dụ tổng hợp: E-commerce Order</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> TRANSACTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 1. Giảm số lượng sản phẩm</span></span><br><span class="line"><span class="keyword">UPDATE</span> products <span class="keyword">SET</span> quantity <span class="operator">=</span> quantity <span class="operator">-</span> <span class="number">1</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. Tạo đơn hàng</span></span><br><span class="line"><span class="keyword">INSERT INTO</span> orders (user_id, product_id, amount) <span class="keyword">VALUES</span> (<span class="number">456</span>, <span class="number">123</span>, <span class="number">99000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. Trừ tiền tài khoản</span></span><br><span class="line"><span class="keyword">UPDATE</span> wallets <span class="keyword">SET</span> balance <span class="operator">=</span> balance <span class="operator">-</span> <span class="number">99000</span> <span class="keyword">WHERE</span> user_id <span class="operator">=</span> <span class="number">456</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4. Tạo lịch sử giao dịch</span></span><br><span class="line"><span class="keyword">INSERT INTO</span> transactions (user_id, type, amount) <span class="keyword">VALUES</span> (<span class="number">456</span>, <span class="string">&#x27;purchase&#x27;</span>, <span class="number">99000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>ACID đảm bảo:</strong></p>
+<ul>
+<li><strong>A</strong>: Tất cả 4 bước thành công hoặc không làm gì</li>
+<li><strong>C</strong>: Tổng tiền trong hệ thống không đổi, quantity &gt;&#x3D; 0</li>
+<li><strong>I</strong>: 2 người không thể mua cùng 1 sản phẩm cuối cùng</li>
+<li><strong>D</strong>: Đơn hàng không bị mất sau khi thanh toán</li>
+</ul>
+<h2 id="Khi-nao-can-ACID"><a href="#Khi-nao-can-ACID" class="headerlink" title="Khi nào cần ACID?"></a>Khi nào cần ACID?</h2><h3 id="✅-Can-ACID"><a href="#✅-Can-ACID" class="headerlink" title="✅ Cần ACID:"></a>✅ Cần ACID:</h3><ul>
+<li>Banking, Payment</li>
+<li>E-commerce checkout</li>
+<li>Inventory management</li>
+<li>User registration</li>
+</ul>
+<h3 id="❌-Khong-can-ACID-nghiem-ngat"><a href="#❌-Khong-can-ACID-nghiem-ngat" class="headerlink" title="❌ Không cần ACID nghiêm ngặt:"></a>❌ Không cần ACID nghiêm ngặt:</h3><ul>
+<li>Logging, Analytics</li>
+<li>Social media posts</li>
+<li>Search indexing</li>
+<li>Cache updates</li>
+</ul>
+<h2 id="Luu-y-thuc-te"><a href="#Luu-y-thuc-te" class="headerlink" title="Lưu ý thực tế"></a>Lưu ý thực tế</h2><p><strong>NoSQL vs SQL:</strong></p>
+<ul>
+<li><strong>SQL databases</strong>: ACID by default (MySQL, PostgreSQL)</li>
+<li><strong>NoSQL</strong>: Thường ưu tiên performance hơn ACID (MongoDB, Cassandra)</li>
+</ul>
+<p><strong>Trade-offs:</strong></p>
+<ul>
+<li>ACID mạnh → Performance chậm</li>
+<li>Performance cao → ACID yếu</li>
+</ul>
+<p>Chọn theo use case, đừng có “vì ACID mà chậm như rùa” hay “vì nhanh mà mất data” 😅</p>
+<hr>
+<p><em>Remember: ACID không phải là chất ăn da, mà là chất bảo vệ data! 🛡️</em></p>
+<p><strong>Have a nice day!</strong></p>
+<p>ph4n4n</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID-la-gi"><span class="toc-number">1.</span> <span class="toc-text">ACID là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Atomicity-Tinh-nguyen-tu"><span class="toc-number">2.</span> <span class="toc-text">A - Atomicity (Tính nguyên tử)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Consistency-Tinh-nhat-quan"><span class="toc-number">3.</span> <span class="toc-text">C - Consistency (Tính nhất quán)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Isolation-Tinh-co-lap"><span class="toc-number">4.</span> <span class="toc-text">I - Isolation (Tính cô lập)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Isolation-Levels"><span class="toc-number">4.1.</span> <span class="toc-text">Isolation Levels:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Durability-Tinh-ben-vung"><span class="toc-number">5.</span> <span class="toc-text">D - Durability (Tính bền vững)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-tong-hop-E-commerce-Order"><span class="toc-number">6.</span> <span class="toc-text">Ví dụ tổng hợp: E-commerce Order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-can-ACID"><span class="toc-number">7.</span> <span class="toc-text">Khi nào cần ACID?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Can-ACID"><span class="toc-number">7.1.</span> <span class="toc-text">✅ Cần ACID:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-can-ACID-nghiem-ngat"><span class="toc-number">7.2.</span> <span class="toc-text">❌ Không cần ACID nghiêm ngặt:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Luu-y-thuc-te"><span class="toc-number">8.</span> <span class="toc-text">Lưu ý thực tế</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&text=ACID Trong DBMS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&is_video=false&description=ACID Trong DBMS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ACID Trong DBMS&body=Check out this article: https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&title=ACID Trong DBMS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&name=ACID Trong DBMS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/&t=ACID Trong DBMS"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-19T07:59:51.365Z</updated>
+  <updated>2025-06-20T08:14:36.199Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SOLID Cho Dev &quot;đầU Óc đơN Giản&quot;</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
+    <published>2025-06-20T08:12:09.000Z</published>
+    <updated>2025-06-20T08:14:36.199Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SOLID-la-gi&quot;&gt;&lt;a href=&quot;#SOLID-la-gi&quot; class=&quot;headerlink&quot; title=&quot;SOLID là gì?&quot;&gt;&lt;/a&gt;SOLID là gì?&lt;/h2&gt;&lt;p&gt;SOLID là 5 nguyên tắc thiết kế</summary>
+        
+      
+    
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    
+    
+    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
+    
+    <category term="oop" scheme="https://ph4n4n.github.io/tags/oop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ACID Trong DBMS</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/</id>
+    <published>2025-06-20T08:06:31.000Z</published>
+    <updated>2025-06-20T08:11:43.581Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;ACID-la-gi&quot;&gt;&lt;a href=&quot;#ACID-la-gi&quot; class=&quot;headerlink&quot; title=&quot;ACID là gì?&quot;&gt;&lt;/a&gt;ACID là gì?&lt;/h2&gt;&lt;p&gt;ACID là 4 tính chất cơ bản mà một</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    
+  </entry>
   
   <entry>
     <title>Vạch Trần Kỹ Thuật Login QR Code</title>
@@ -134,9 +186,9 @@
     <category term="python" scheme="https://ph4n4n.github.io/categories/python/"/>
     
     
-    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
-    
     <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    
+    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
     
   </entry>
   
@@ -369,6 +421,31 @@
   </entry>
   
   <entry>
+    <title>NHỮNG ĐIỀU MÀ TÔI ĐÃ HỌC ĐƯỢC TỪ ĐÀN BÀ VÀ NHỮNG MỐI QUAN HỆ (What I Learned About Women and Relationships)</title>
+    <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
+    <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
+    <published>2018-05-29T03:23:02.000Z</published>
+    <updated>2025-06-19T07:43:11.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn&lt;br&gt;ông thì đến từ sao Hỏa, còn đàn bà</summary>
+        
+      
+    
+    
+    
+    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
+    
+    
+    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Client - Server Token Validate</title>
     <link href="https://ph4n4n.github.io/2018/05/29/client-server-token-validate/"/>
     <id>https://ph4n4n.github.io/2018/05/29/client-server-token-validate/</id>
@@ -394,31 +471,6 @@
     
     
     <category term="algorithm" scheme="https://ph4n4n.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NHỮNG ĐIỀU MÀ TÔI ĐÃ HỌC ĐƯỢC TỪ ĐÀN BÀ VÀ NHỮNG MỐI QUAN HỆ (What I Learned About Women and Relationships)</title>
-    <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
-    <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
-    <published>2018-05-29T03:23:02.000Z</published>
-    <updated>2025-06-19T07:43:11.648Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn&lt;br&gt;ông thì đến từ sao Hỏa, còn đàn bà</summary>
-        
-      
-    
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
     
   </entry>
   
@@ -470,56 +522,6 @@
     
     
     <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Currying Technique</title>
-    <link href="https://ph4n4n.github.io/2018/05/10/currying-technique/"/>
-    <id>https://ph4n4n.github.io/2018/05/10/currying-technique/</id>
-    <published>2018-05-10T07:31:32.000Z</published>
-    <updated>2025-06-19T06:34:20.119Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Khai-niem-ly-thuyet&quot;&gt;&lt;a href=&quot;#Khai-niem-ly-thuyet&quot; class=&quot;headerlink&quot; title=&quot;Khái niệm lý thuyết&quot;&gt;&lt;/a&gt;Khái niệm lý</summary>
-        
-      
-    
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sort in JavaScript - Professional Style</title>
-    <link href="https://ph4n4n.github.io/2018/05/09/sort-in-javascript/"/>
-    <id>https://ph4n4n.github.io/2018/05/09/sort-in-javascript/</id>
-    <published>2018-05-09T09:52:32.000Z</published>
-    <updated>2025-06-19T06:44:28.812Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-Selection-Sort&quot;&gt;&lt;a href=&quot;#1-Selection-Sort&quot; class=&quot;headerlink&quot; title=&quot;1. Selection Sort&quot;&gt;&lt;/a&gt;1. Selection</summary>
-        
-      
-    
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
     
   </entry>
   

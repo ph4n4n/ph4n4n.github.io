@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ph4n4n.github.io/about/index.html</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/2018/05/09/i18n-with-pure-CSS-using-variable-in-CSS/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/2018/03/26/star-rate-html-pure-css/</loc>
     
     <lastmod>2025-06-20</lastmod>
@@ -48,15 +84,6 @@
   
   <url>
     <loc>https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/</loc>
-    
-    <lastmod>2025-06-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/about/index.html</loc>
     
     <lastmod>2025-06-19</lastmod>
     
@@ -227,15 +254,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/2018/05/09/i18n-with-pure-CSS-using-variable-in-CSS/</loc>
-    
-    <lastmod>2025-06-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/</loc>
     
     <lastmod>2025-06-19</lastmod>
@@ -288,14 +306,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/regex/</loc>
+    <loc>https://ph4n4n.github.io/tags/database/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/python/</loc>
+    <loc>https://ph4n4n.github.io/tags/regex/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -316,7 +334,28 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/tags/python/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/tags/DB/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/design-pattern/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/oop/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -337,7 +376,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/algorithm/</loc>
+    <loc>https://ph4n4n.github.io/tags/opencv/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -351,14 +390,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/opencv/</loc>
+    <loc>https://ph4n4n.github.io/tags/nodejs/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/nodejs/</loc>
+    <loc>https://ph4n4n.github.io/tags/algorithm/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -374,14 +413,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/regex/</loc>
+    <loc>https://ph4n4n.github.io/categories/database/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/python/</loc>
+    <loc>https://ph4n4n.github.io/categories/regex/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -402,6 +441,13 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/categories/python/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/categories/DB/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -416,7 +462,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/algorithm/</loc>
+    <loc>https://ph4n4n.github.io/categories/opencv/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -430,14 +476,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/opencv/</loc>
+    <loc>https://ph4n4n.github.io/categories/nodejs/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/nodejs/</loc>
+    <loc>https://ph4n4n.github.io/categories/algorithm/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
