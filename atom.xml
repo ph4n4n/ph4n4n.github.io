@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-20T08:33:50.137Z</updated>
+  <updated>2025-06-20T09:56:06.725Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,31 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Những đIều AI Làm đượC Và Ngược Lại (Trong Software Development)</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/Nhung-dieu-AI-la-duoc-va-nguoc-lai/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/Nhung-dieu-AI-la-duoc-va-nguoc-lai/</id>
-    <published>2025-06-20T08:27:17.000Z</published>
-    <updated>2025-06-20T08:33:50.137Z</updated>
+    <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/</id>
+    <published>2025-06-20T09:39:15.000Z</published>
+    <updated>2025-06-20T09:56:06.725Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Mo-dau&quot;&gt;&lt;a href=&quot;#Mo-dau&quot; class=&quot;headerlink&quot; title=&quot;Mở đầu&quot;&gt;&lt;/a&gt;Mở đầu&lt;/h2&gt;&lt;p&gt;AI đang hot như “trend TikTok”, mọi người đều nói về</summary>
+    <summary type="html">&lt;h1 id=&quot;SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="opinion" scheme="https://ph4n4n.github.io/categories/opinion/"/>
+    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
     
     
-    <category term="ai" scheme="https://ph4n4n.github.io/tags/ai/"/>
-    
-    <category term="software-development" scheme="https://ph4n4n.github.io/tags/software-development/"/>
-    
-    <category term="opinion" scheme="https://ph4n4n.github.io/tags/opinion/"/>
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
     
   </entry>
   
@@ -102,7 +98,7 @@
     <link href="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"/>
     <id>https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/</id>
     <published>2021-03-22T02:40:20.000Z</published>
-    <updated>2025-06-19T07:59:51.365Z</updated>
+    <updated>2025-06-20T10:00:06.806Z</updated>
     
     
       
@@ -123,14 +119,16 @@
     <link href="https://ph4n4n.github.io/2019/04/11/Vo-de/"/>
     <id>https://ph4n4n.github.io/2019/04/11/Vo-de/</id>
     <published>2019-04-11T07:35:43.000Z</published>
-    <updated>2025-06-19T08:14:54.686Z</updated>
+    <updated>2025-06-20T10:09:09.429Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/./images/Vo-de/vode.gif&quot;&gt;&lt;br&gt;Chung quy trên đời cũng chỉ có 3 việc, việc của ông trời, việc của người khác, việc của bản</summary>
+    <summary type="html">&lt;img src=&quot;/2019/04/11/Vo-de/vode.gif&quot; class=&quot;&quot; title=&quot;Vo De Animation&quot;&gt;
+
+&lt;p&gt;Chung quy trong đời, mọi việc cũng chỉ gói gọn trong ba</summary>
         
       
     
@@ -148,15 +146,16 @@
     <link href="https://ph4n4n.github.io/2019/04/09/Python-shorthand/"/>
     <id>https://ph4n4n.github.io/2019/04/09/Python-shorthand/</id>
     <published>2019-04-09T02:10:17.000Z</published>
-    <updated>2025-06-19T06:37:13.802Z</updated>
+    <updated>2025-06-20T09:59:56.753Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/python-tip.png&quot; alt=&quot;Python Tips&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-Reverse-string&quot;&gt;&lt;a href=&quot;#1-Reverse-string&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+    <summary type="html">&lt;img src=&quot;/2019/04/09/Python-shorthand/python-tip.png&quot; class=&quot;&quot; title=&quot;Python Tips&quot;&gt;
+
+&lt;h2 id=&quot;1-Reverse-string&quot;&gt;&lt;a href=&quot;#1-Reverse-string&quot;</summary>
         
       
     
@@ -199,7 +198,7 @@
     <link href="https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/"/>
     <id>https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/</id>
     <published>2019-03-27T04:04:35.000Z</published>
-    <updated>2025-06-19T07:59:51.370Z</updated>
+    <updated>2025-06-20T09:59:52.453Z</updated>
     
     
       
@@ -483,14 +482,14 @@
     <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
     <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
     <published>2018-05-29T03:23:02.000Z</published>
-    <updated>2025-06-19T07:43:11.648Z</updated>
+    <updated>2025-06-20T10:01:20.733Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn&lt;br&gt;ông thì đến từ sao Hỏa, còn đàn bà</summary>
+    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn ông thì đến từ sao Hỏa, còn đàn bà</summary>
         
       
     

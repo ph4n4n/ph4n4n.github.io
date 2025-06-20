@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
 <meta property="og:description" content="Mến chào các đồng code,Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này.. nhỉ? Vừa rồi mình nhận được đề nghị của boss trang Anonystick chia sẻ về k">
 <meta property="og:locale">
-<meta property="og:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/socket.png">
-<meta property="og:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/qr.jpg">
+<meta property="og:image" content="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/socket.png">
+<meta property="og:image" content="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/qr.jpg">
 <meta property="article:published_time" content="2021-03-22T02:40:20.000Z">
-<meta property="article:modified_time" content="2025-06-19T07:59:51.365Z">
+<meta property="article:modified_time" content="2025-06-20T10:00:06.806Z">
 <meta property="article:author" content="Anph">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ph4n4n.github.io/images/Vach-tran-ky-thuat-login-QR-code/socket.png">
+<meta name="twitter:image" content="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/socket.png">
     
     
       
@@ -152,7 +152,7 @@
       
         <time datetime="2021-03-22T02:40:20.000Z" class="dt-published" itemprop="datePublished">2021-03-22</time>
         
-        (Updated: <time datetime="2025-06-19T07:59:51.365Z" class="dt-updated" itemprop="dateModified">2025-06-19</time>)
+        (Updated: <time datetime="2025-06-20T10:00:06.806Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
         
       
     </div>
@@ -169,7 +169,9 @@
   <div class="content e-content" itemprop="articleBody">
     <p>Mến chào các đồng code,<br>Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này.. nhỉ?</p>
 <p>Vừa rồi mình nhận được đề nghị của boss trang Anonystick chia sẻ về kỹ thuật login QR code nên mình mạo muội viết ít dòng, có gì sai sót mong quý bạn và các vị góp ý! Xin chân thành cảm ơn! Không để phí thời gian quý báu của các bạn, mình vào luôn chủ đề hôm nay nhé! Dzô..</p>
-<p>Concept cơ bản của kỹ thuật này sẽ nằm gọn trong hình sau<br><img src="/./images/Vach-tran-ky-thuat-login-QR-code/socket.png"></p>
+<p>Concept cơ bản của kỹ thuật này sẽ nằm gọn trong hình sau</p>
+<img src="/2021/03/22/Vach-tran-ky-thuat-login-QR-code/socket.png" class="" title="Socket Connection">
+
 <p>Như bạn đã thấy, ở đây mình dùng SocketIO server để làm trung gian cho 2 client là Web và App theo thứ tự mình đánh số trong hình. Mình sẽ giải thích cặn kẽ kèm theo code cho từng bước ngay sau đây.</p>
 <ol>
 <li>User vào trang <code>/login</code> của ứng dụng<br>HTML dùng hiển thị:</li>
@@ -178,7 +180,8 @@
 <p>sau đó thêm 1 ít css cho nhìn thuận mắt:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.login-panel</span>&#123;<span class="attribute">width</span>:<span class="number">100vw</span>;&#125;</span><br><span class="line"><span class="selector-class">.code-panel</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">width</span>:<span class="number">250px</span>;<span class="attribute">height</span>:<span class="number">130px</span>;<span class="attribute">margin</span>:<span class="number">0</span> auto;&#125;</span><br><span class="line"><span class="selector-class">.code-view</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>&#125;</span><br><span class="line"><span class="selector-class">.code-view</span> <span class="selector-tag">img</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:auto&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span>&#123;<span class="attribute">display</span>:none;<span class="attribute">position</span>:absolute;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">top</span>:<span class="number">0</span>;<span class="attribute">left</span>:<span class="number">0</span>;<span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,.<span class="number">7</span>);<span class="attribute">padding</span>:<span class="number">25%</span> <span class="number">0</span>;<span class="attribute">display</span>:none&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span> <span class="selector-tag">p</span>&#123;<span class="attribute">text-align</span>:center;<span class="attribute">display</span>: inline-block;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">color</span>:<span class="number">#00f</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span> <span class="selector-tag">button</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> auto;<span class="attribute">display</span>: block&#125;</span><br><span class="line"><span class="selector-class">.qrcode-mask</span><span class="selector-class">.show</span>&#123;<span class="attribute">display</span>:block&#125;</span><br><span class="line"><span class="selector-class">.expire-countdown</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">text-align</span>:center;<span class="attribute">margin</span>:<span class="number">20px</span> <span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-class">.expire-countdown</span> <span class="selector-tag">span</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">5px</span>&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./images/Vach-tran-ky-thuat-login-QR-code/qr.jpg"></p>
+<img src="/2021/03/22/Vach-tran-ky-thuat-login-QR-code/qr.jpg" class="" title="QR Code Flow">
+
 <p>Có 2 thành phần trên GUI trông sẽ như thế này. Bây giờ chúng ta bắt đầu vào phần JS xử lý, mình sẽ trình bày theo mạch code nên đôi khi hơi rối mạch suy nghĩ, bạn cố gắng xoắn não tý cho vui nhé:</p>
 <p>Đầu tiên <code>window.onload</code> gọi <code>refreshToken()</code>: hàm này là nguồn cơn mọi vấn đề</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socket;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">refreshToken</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

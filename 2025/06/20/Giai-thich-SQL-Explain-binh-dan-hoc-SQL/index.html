@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔Explain là gì?Imagine bạn đang hỏi đường một ông taxi già: “Anh ơi, từ đây đi Landmark 81 sao anh?” Ông taxi không trả lời ngay mà bắt đầ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Giải Thích SQL Explain Bình Dân Học SQL">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔Explain là gì?Imagine bạn đang hỏi đường một ông taxi già: “Anh ơi, từ đây đi Landmark 81 sao anh?” Ông taxi không trả lời ngay mà bắt đầ">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T09:39:15.000Z">
+<meta property="article:modified_time" content="2025-06-20T09:56:06.725Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/06/20/SOLID-cho-devpid/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&text=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&is_video=false&description=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Giải Thích SQL Explain Bình Dân Học SQL&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&name=Giải Thích SQL Explain Bình Dân Học SQL&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&t=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-%F0%9F%A4%94"><span class="toc-number">1.</span> <span class="toc-text">SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">Explain là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain-de-lam-gi"><span class="toc-number">1.2.</span> <span class="toc-text">Explain để làm gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Debug-Performance-Issues-%F0%9F%90%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Debug Performance Issues 🐌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Toi-Uu-Query-Truoc-Khi-Deploy-%F0%9F%9A%80"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. Tối Ưu Query Trước Khi Deploy 🚀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-So-Sanh-Cac-Cach-Viet-Query-%F0%9F%93%8A"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. So Sánh Các Cách Viết Query 📊</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-Loai-EXPLAIN-Pho-Bien"><span class="toc-number">1.3.</span> <span class="toc-text">Các Loại EXPLAIN Phổ Biến</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%F0%9F%90%AC"><span class="toc-number">1.3.1.</span> <span class="toc-text">MySQL 🐬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PostgreSQL-%F0%9F%90%98"><span class="toc-number">1.3.2.</span> <span class="toc-text">PostgreSQL 🐘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-Server-%F0%9F%AA%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">SQL Server 🪟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Doc-Hieu-Execution-Plan-Nhu-The-Nao-%F0%9F%94%8D"><span class="toc-number">1.4.</span> <span class="toc-text">Đọc Hiểu Execution Plan Như Thế Nào? 🔍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cac-Thuat-Ngu-Quan-Trong"><span class="toc-number">1.4.1.</span> <span class="toc-text">Các Thuật Ngữ Quan Trọng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-Du-Thuc-Te"><span class="toc-number">1.4.2.</span> <span class="toc-text">Ví Dụ Thực Tế</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Red-Flags-Can-Chu-Y-%F0%9F%9A%A9"><span class="toc-number">1.5.</span> <span class="toc-text">Red Flags Cần Chú Ý! 🚩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Table-Scan-Tren-Bang-Lon"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. Table Scan Trên Bảng Lớn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Cost-Qua-Cao"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. Cost Quá Cao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nested-Loop-Voi-Bang-Lon"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. Nested Loop Với Bảng Lớn</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips-Thuc-Chien-%F0%9F%92%A1"><span class="toc-number">1.6.</span> <span class="toc-text">Tips Thực Chiến 💡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Luon-EXPLAIN-Truoc-Khi-Optimize"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. Luôn EXPLAIN Trước Khi Optimize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-So-Sanh-Truoc-Va-Sau-Optimize"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. So Sánh Trước Và Sau Optimize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Chu-Y-Den-Cardinality"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. Chú Ý Đến Cardinality</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-Luan"><span class="toc-number">1.7.</span> <span class="toc-text">Kết Luận</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Giải Thích SQL Explain Bình Dân Học SQL
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T09:39:15.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T09:56:06.725Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/database/">database</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/database/" rel="tag">database</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔"><a href="#SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔" class="headerlink" title="SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔"></a>SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔</h1><h2 id="Explain-la-gi"><a href="#Explain-la-gi" class="headerlink" title="Explain là gì?"></a>Explain là gì?</h2><p>Imagine bạn đang hỏi đường một ông taxi già: “Anh ơi, từ đây đi Landmark 81 sao anh?”</p>
+<p>Ông taxi không trả lời ngay mà bắt đầu lẩm bẩm:</p>
+<ul>
+<li>“Ừm… đi đường Nguyễn Hữu Cảnh thì kẹt xe…”</li>
+<li>“Đi cầu Thủ Thiêm thì xa…”  </li>
+<li>“À thôi, đi Xa lộ Hà Nội rồi vòng qua cho chắc!”</li>
+</ul>
+<p><strong>EXPLAIN</strong> chính là cái lẩm bẩm đó của database! 🚗</p>
+<p>Khi bạn ném một câu query vào database, nó không thực thi ngay mà sẽ:</p>
+<ol>
+<li>Nghĩ xem có bao nhiêu cách để lấy data</li>
+<li>Tính toán xem cách nào nhanh nhất, tốn ít resource nhất</li>
+<li>Chọn plan tối ưu nhất</li>
+<li>Rồi mới thực thi</li>
+</ol>
+<p><strong>EXPLAIN</strong> là cách để database show bạn cái plan nó đã chọn!</p>
+<h2 id="Explain-de-lam-gi"><a href="#Explain-de-lam-gi" class="headerlink" title="Explain để làm gì?"></a>Explain để làm gì?</h2><h3 id="1-Debug-Performance-Issues-🐌"><a href="#1-Debug-Performance-Issues-🐌" class="headerlink" title="1. Debug Performance Issues 🐌"></a>1. Debug Performance Issues 🐌</h3><p>Khi query chạy chậm như rùa bò, thay vì ngồi đó mà:</p>
+<ul>
+<li>“Sao nó chậm thế?”</li>
+<li>“Có phải do server không?”  </li>
+<li>“Hay do network?”</li>
+</ul>
+<p>Thì bạn chỉ cần <code>EXPLAIN</code> để xem database đang làm gì:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> email <span class="operator">=</span> <span class="string">&#x27;admin@example.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Nếu thấy <code>Table Scan</code> (quét toàn bộ table) thay vì <code>Index Seek</code> thì biết ngay: <strong>THIẾU INDEX!</strong> 🎯</p>
+<h3 id="2-Toi-Uu-Query-Truoc-Khi-Deploy-🚀"><a href="#2-Toi-Uu-Query-Truoc-Khi-Deploy-🚀" class="headerlink" title="2. Tối Ưu Query Trước Khi Deploy 🚀"></a>2. Tối Ưu Query Trước Khi Deploy 🚀</h3><p>Thay vì deploy lên production rồi user la làng “web chậm quá!”, bạn có thể:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Kiểm tra query trước khi deploy</span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> u.name, <span class="built_in">COUNT</span>(o.id) </span><br><span class="line"><span class="keyword">FROM</span> users u </span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id </span><br><span class="line"><span class="keyword">WHERE</span> u.created_at <span class="operator">&gt;</span> <span class="string">&#x27;2024-01-01&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> u.id;</span><br></pre></td></tr></table></figure>
+
+<p>Nếu thấy cost cao hoặc có table scan thì biết ngay cần optimize!</p>
+<h3 id="3-So-Sanh-Cac-Cach-Viet-Query-📊"><a href="#3-So-Sanh-Cac-Cach-Viet-Query-📊" class="headerlink" title="3. So Sánh Các Cách Viết Query 📊"></a>3. So Sánh Các Cách Viết Query 📊</h3><p>Cùng một kết quả, có thể viết theo nhiều cách. EXPLAIN giúp bạn chọn cách tốt nhất:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Cách 1: Subquery</span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users </span><br><span class="line"><span class="keyword">WHERE</span> id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> user_id <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> total <span class="operator">&gt;</span> <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Cách 2: JOIN  </span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> u.<span class="operator">*</span> <span class="keyword">FROM</span> users u</span><br><span class="line"><span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id </span><br><span class="line"><span class="keyword">WHERE</span> o.total <span class="operator">&gt;</span> <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Cách nào cost thấp hơn thì chọn cách đó!</p>
+<h2 id="Cac-Loai-EXPLAIN-Pho-Bien"><a href="#Cac-Loai-EXPLAIN-Pho-Bien" class="headerlink" title="Các Loại EXPLAIN Phổ Biến"></a>Các Loại EXPLAIN Phổ Biến</h2><h3 id="MySQL-🐬"><a href="#MySQL-🐬" class="headerlink" title="MySQL 🐬"></a>MySQL 🐬</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Explain cơ bản</span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Explain format JSON (chi tiết hơn)</span></span><br><span class="line">EXPLAIN FORMAT<span class="operator">=</span>JSON <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Explain Analyze (thực thi luôn và show thời gian thực)</span></span><br><span class="line">EXPLAIN ANALYZE <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="PostgreSQL-🐘"><a href="#PostgreSQL-🐘" class="headerlink" title="PostgreSQL 🐘"></a>PostgreSQL 🐘</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Explain cơ bản  </span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Explain với cost và timing</span></span><br><span class="line">EXPLAIN (ANALYZE, BUFFERS) <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Explain format JSON</span></span><br><span class="line">EXPLAIN (FORMAT JSON) <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL-Server-🪟"><a href="#SQL-Server-🪟" class="headerlink" title="SQL Server 🪟"></a>SQL Server 🪟</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Bật execution plan</span></span><br><span class="line"><span class="keyword">SET</span> SHOWPLAN_ALL <span class="keyword">ON</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Hoặc dùng Management Studio: Ctrl + M rồi chạy query</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Doc-Hieu-Execution-Plan-Nhu-The-Nao-🔍"><a href="#Doc-Hieu-Execution-Plan-Nhu-The-Nao-🔍" class="headerlink" title="Đọc Hiểu Execution Plan Như Thế Nào? 🔍"></a>Đọc Hiểu Execution Plan Như Thế Nào? 🔍</h2><h3 id="Cac-Thuat-Ngu-Quan-Trong"><a href="#Cac-Thuat-Ngu-Quan-Trong" class="headerlink" title="Các Thuật Ngữ Quan Trọng"></a>Các Thuật Ngữ Quan Trọng</h3><table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Nghĩa</th>
+<th>Ví dụ đời thường</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Table Scan</strong></td>
+<td>Quét toàn bộ table</td>
+<td>Như tìm người trong cả thành phố mà không biết địa chỉ</td>
+</tr>
+<tr>
+<td><strong>Index Seek</strong></td>
+<td>Tìm qua index</td>
+<td>Như tra từ điển theo thứ tự ABC</td>
+</tr>
+<tr>
+<td><strong>Index Scan</strong></td>
+<td>Quét toàn bộ index</td>
+<td>Như đọc cả từ điển từ đầu đến cuối</td>
+</tr>
+<tr>
+<td><strong>Nested Loop</strong></td>
+<td>Vòng lặp lồng nhau</td>
+<td>Như so sánh từng người với từng người</td>
+</tr>
+<tr>
+<td><strong>Hash Join</strong></td>
+<td>Join qua hash table</td>
+<td>Như tạo danh sách rồi đối chiếu</td>
+</tr>
+<tr>
+<td><strong>Sort</strong></td>
+<td>Sắp xếp</td>
+<td>Như xếp hàng theo thứ tự</td>
+</tr>
+</tbody></table>
+<h3 id="Vi-Du-Thuc-Te"><a href="#Vi-Du-Thuc-Te" class="headerlink" title="Ví Dụ Thực Tế"></a>Ví Dụ Thực Tế</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> u.name, o.total </span><br><span class="line"><span class="keyword">FROM</span> users u </span><br><span class="line"><span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id </span><br><span class="line"><span class="keyword">WHERE</span> u.age <span class="operator">&gt;</span> <span class="number">25</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> o.total <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Kết quả có thể như này:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. Sort (cost=1000..1200 rows=100)</span><br><span class="line">   -&gt; Hash Join (cost=500..800 rows=100)  </span><br><span class="line">      -&gt; Seq Scan on users u (cost=0..200 rows=50)</span><br><span class="line">           Filter: (age &gt; 25)</span><br><span class="line">      -&gt; Hash (cost=300..300 rows=1000)</span><br><span class="line">         -&gt; Seq Scan on orders o (cost=0..300 rows=1000)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Đọc từ trong ra ngoài:</strong></p>
+<ol>
+<li>Quét table <code>users</code>, lọc <code>age &gt; 25</code></li>
+<li>Quét table <code>orders</code>, tạo hash table</li>
+<li>Hash join 2 bảng</li>
+<li>Sort kết quả theo <code>total DESC</code></li>
+</ol>
+<h2 id="Red-Flags-Can-Chu-Y-🚩"><a href="#Red-Flags-Can-Chu-Y-🚩" class="headerlink" title="Red Flags Cần Chú Ý! 🚩"></a>Red Flags Cần Chú Ý! 🚩</h2><h3 id="1-Table-Scan-Tren-Bang-Lon"><a href="#1-Table-Scan-Tren-Bang-Lon" class="headerlink" title="1. Table Scan Trên Bảng Lớn"></a>1. Table Scan Trên Bảng Lớn</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Seq Scan on big_table (cost=0..50000 rows=1000000)</span><br></pre></td></tr></table></figure>
+<p>➡️ <strong>Cần index ngay!</strong></p>
+<h3 id="2-Cost-Qua-Cao"><a href="#2-Cost-Qua-Cao" class="headerlink" title="2. Cost Quá Cao"></a>2. Cost Quá Cao</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sort (cost=100000..120000 rows=1000000)</span><br></pre></td></tr></table></figure>
+<p>➡️ <strong>Cần optimize query hoặc thêm index</strong></p>
+<h3 id="3-Nested-Loop-Voi-Bang-Lon"><a href="#3-Nested-Loop-Voi-Bang-Lon" class="headerlink" title="3. Nested Loop Với Bảng Lớn"></a>3. Nested Loop Với Bảng Lớn</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nested Loop (cost=0..1000000 rows=100000)</span><br></pre></td></tr></table></figure>
+<p>➡️ <strong>Có thể cần đổi sang Hash Join</strong></p>
+<h2 id="Tips-Thuc-Chien-💡"><a href="#Tips-Thuc-Chien-💡" class="headerlink" title="Tips Thực Chiến 💡"></a>Tips Thực Chiến 💡</h2><h3 id="1-Luon-EXPLAIN-Truoc-Khi-Optimize"><a href="#1-Luon-EXPLAIN-Truoc-Khi-Optimize" class="headerlink" title="1. Luôn EXPLAIN Trước Khi Optimize"></a>1. Luôn EXPLAIN Trước Khi Optimize</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Sai: Thêm index ngẫu nhiên</span></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_random <span class="keyword">ON</span> users(random_column);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Đúng: Explain trước, xem thiếu gì</span></span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> email <span class="operator">=</span> <span class="string">&#x27;test@test.com&#x27;</span>;</span><br><span class="line"><span class="comment">-- Thấy Table Scan -&gt; Thêm index cho email</span></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_users_email <span class="keyword">ON</span> users(email);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-So-Sanh-Truoc-Va-Sau-Optimize"><a href="#2-So-Sanh-Truoc-Va-Sau-Optimize" class="headerlink" title="2. So Sánh Trước Và Sau Optimize"></a>2. So Sánh Trước Và Sau Optimize</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Trước optimize</span></span><br><span class="line">EXPLAIN ANALYZE <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> created_at <span class="operator">&gt;</span> <span class="string">&#x27;2024-01-01&#x27;</span>;</span><br><span class="line"><span class="comment">-- Execution time: 1000ms</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Thêm index</span></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_orders_created_at <span class="keyword">ON</span> orders(created_at);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Sau optimize  </span></span><br><span class="line">EXPLAIN ANALYZE <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> created_at <span class="operator">&gt;</span> <span class="string">&#x27;2024-01-01&#x27;</span>;</span><br><span class="line"><span class="comment">-- Execution time: 50ms</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Chu-Y-Den-Cardinality"><a href="#3-Chu-Y-Den-Cardinality" class="headerlink" title="3. Chú Ý Đến Cardinality"></a>3. Chú Ý Đến Cardinality</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Query này sẽ chậm nếu 90% users có age &gt; 25</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Nhưng nhanh nếu chỉ 1% users có age &gt; 80  </span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">80</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ket-Luan"><a href="#Ket-Luan" class="headerlink" title="Kết Luận"></a>Kết Luận</h2><p><strong>EXPLAIN</strong> là best friend của mọi developer làm việc với database! </p>
+<ul>
+<li>✅ <strong>Trước khi deploy</strong>: EXPLAIN để đảm bảo performance</li>
+<li>✅ <strong>Khi có vấn đề</strong>: EXPLAIN để debug  </li>
+<li>✅ <strong>Khi optimize</strong>: EXPLAIN để so sánh</li>
+</ul>
+<blockquote>
+<p><strong>Remember</strong>: Database engine thông minh hơn bạn nghĩ, nhưng nó cần data statistics và index để đưa ra quyết định tốt!</p>
+</blockquote>
+<p><strong>Pro tip cuối</strong>: Đừng chỉ nhìn vào cost, hãy chạy <code>EXPLAIN ANALYZE</code> để thấy thời gian thực tế. Đôi khi plan có vẻ tốt nhưng thực tế lại chậm do data skew hoặc cache miss! 🎯</p>
+<hr>
+<p>Chốt hạ có câu này hay vãi ò:  “Premature optimization is the root of all evil.” - Donald Knuth.</p>
+<p>Nhưng không có optimization thì là “root of all performance issues”! 😄</p>
+<p><em>Happy querying, happy coding</em></p>
+<p>ph4n4n</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-%F0%9F%A4%94"><span class="toc-number">1.</span> <span class="toc-text">SQL EXPLAIN - Cái Gì Mà Database Engine Đang Nghĩ Trong Đầu? 🤔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">Explain là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain-de-lam-gi"><span class="toc-number">1.2.</span> <span class="toc-text">Explain để làm gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Debug-Performance-Issues-%F0%9F%90%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Debug Performance Issues 🐌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Toi-Uu-Query-Truoc-Khi-Deploy-%F0%9F%9A%80"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. Tối Ưu Query Trước Khi Deploy 🚀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-So-Sanh-Cac-Cach-Viet-Query-%F0%9F%93%8A"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. So Sánh Các Cách Viết Query 📊</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cac-Loai-EXPLAIN-Pho-Bien"><span class="toc-number">1.3.</span> <span class="toc-text">Các Loại EXPLAIN Phổ Biến</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%F0%9F%90%AC"><span class="toc-number">1.3.1.</span> <span class="toc-text">MySQL 🐬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PostgreSQL-%F0%9F%90%98"><span class="toc-number">1.3.2.</span> <span class="toc-text">PostgreSQL 🐘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-Server-%F0%9F%AA%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">SQL Server 🪟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Doc-Hieu-Execution-Plan-Nhu-The-Nao-%F0%9F%94%8D"><span class="toc-number">1.4.</span> <span class="toc-text">Đọc Hiểu Execution Plan Như Thế Nào? 🔍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cac-Thuat-Ngu-Quan-Trong"><span class="toc-number">1.4.1.</span> <span class="toc-text">Các Thuật Ngữ Quan Trọng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-Du-Thuc-Te"><span class="toc-number">1.4.2.</span> <span class="toc-text">Ví Dụ Thực Tế</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Red-Flags-Can-Chu-Y-%F0%9F%9A%A9"><span class="toc-number">1.5.</span> <span class="toc-text">Red Flags Cần Chú Ý! 🚩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Table-Scan-Tren-Bang-Lon"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. Table Scan Trên Bảng Lớn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Cost-Qua-Cao"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. Cost Quá Cao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nested-Loop-Voi-Bang-Lon"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. Nested Loop Với Bảng Lớn</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips-Thuc-Chien-%F0%9F%92%A1"><span class="toc-number">1.6.</span> <span class="toc-text">Tips Thực Chiến 💡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Luon-EXPLAIN-Truoc-Khi-Optimize"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. Luôn EXPLAIN Trước Khi Optimize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-So-Sanh-Truoc-Va-Sau-Optimize"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. So Sánh Trước Và Sau Optimize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Chu-Y-Den-Cardinality"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. Chú Ý Đến Cardinality</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-Luan"><span class="toc-number">1.7.</span> <span class="toc-text">Kết Luận</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&text=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&is_video=false&description=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Giải Thích SQL Explain Bình Dân Học SQL&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&title=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&name=Giải Thích SQL Explain Bình Dân Học SQL&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/&t=Giải Thích SQL Explain Bình Dân Học SQL"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>
