@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-20T08:14:36.199Z</updated>
+  <updated>2025-06-20T08:31:17.297Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Những đIều AI Làm đượC Và Ngược Lại (Trong Software Development)</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/Nhung-dieu-AI-la-duoc-va-nguoc-lai/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/Nhung-dieu-AI-la-duoc-va-nguoc-lai/</id>
+    <published>2025-06-20T08:27:17.000Z</published>
+    <updated>2025-06-20T08:31:17.297Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Mo-dau&quot;&gt;&lt;a href=&quot;#Mo-dau&quot; class=&quot;headerlink&quot; title=&quot;Mở đầu&quot;&gt;&lt;/a&gt;Mở đầu&lt;/h2&gt;&lt;p&gt;AI đang hot như “trend TikTok”, mọi người đều nói về</summary>
+        
+      
+    
+    
+    
+    <category term="opinion" scheme="https://ph4n4n.github.io/categories/opinion/"/>
+    
+    
+    <category term="ai" scheme="https://ph4n4n.github.io/tags/ai/"/>
+    
+    <category term="software-development" scheme="https://ph4n4n.github.io/tags/software-development/"/>
+    
+    <category term="opinion" scheme="https://ph4n4n.github.io/tags/opinion/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SOLID Cho Dev &quot;đầU Óc đơN Giản&quot;</title>
     <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
     <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
     <published>2025-06-20T08:12:09.000Z</published>
-    <updated>2025-06-20T08:14:36.199Z</updated>
+    <updated>2025-06-20T08:27:35.018Z</updated>
     
     
       
@@ -34,7 +63,7 @@
     
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    <category term="oop" scheme="https://ph4n4n.github.io/categories/oop/"/>
     
     
     <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
@@ -421,31 +450,6 @@
   </entry>
   
   <entry>
-    <title>NHỮNG ĐIỀU MÀ TÔI ĐÃ HỌC ĐƯỢC TỪ ĐÀN BÀ VÀ NHỮNG MỐI QUAN HỆ (What I Learned About Women and Relationships)</title>
-    <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
-    <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
-    <published>2018-05-29T03:23:02.000Z</published>
-    <updated>2025-06-19T07:43:11.648Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn&lt;br&gt;ông thì đến từ sao Hỏa, còn đàn bà</summary>
-        
-      
-    
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Client - Server Token Validate</title>
     <link href="https://ph4n4n.github.io/2018/05/29/client-server-token-validate/"/>
     <id>https://ph4n4n.github.io/2018/05/29/client-server-token-validate/</id>
@@ -475,6 +479,31 @@
   </entry>
   
   <entry>
+    <title>NHỮNG ĐIỀU MÀ TÔI ĐÃ HỌC ĐƯỢC TỪ ĐÀN BÀ VÀ NHỮNG MỐI QUAN HỆ (What I Learned About Women and Relationships)</title>
+    <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
+    <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
+    <published>2018-05-29T03:23:02.000Z</published>
+    <updated>2025-06-19T07:43:11.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn&lt;br&gt;ông thì đến từ sao Hỏa, còn đàn bà</summary>
+        
+      
+    
+    
+    
+    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
+    
+    
+    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Paste Html to Div(contentediable)</title>
     <link href="https://ph4n4n.github.io/2018/05/25/Paste-html-to-div-contentediable/"/>
     <id>https://ph4n4n.github.io/2018/05/25/Paste-html-to-div-contentediable/</id>
@@ -496,32 +525,6 @@
     
     
     <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nodeJS CLI Tool With Example Make Module</title>
-    <link href="https://ph4n4n.github.io/2018/05/17/nodejs-cli-tool-with-example-make-module/"/>
-    <id>https://ph4n4n.github.io/2018/05/17/nodejs-cli-tool-with-example-make-module/</id>
-    <published>2018-05-17T02:45:51.000Z</published>
-    <updated>2025-06-19T07:59:59.511Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;TECHNIQUE&quot;&gt;&lt;a href=&quot;#TECHNIQUE&quot; class=&quot;headerlink&quot; title=&quot;TECHNIQUE&quot;&gt;&lt;/a&gt;TECHNIQUE&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;commander (npm install commander</summary>
-        
-      
-    
-    
-    
-    <category term="nodejs" scheme="https://ph4n4n.github.io/categories/nodejs/"/>
-    
-    
-    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
     
   </entry>
   
