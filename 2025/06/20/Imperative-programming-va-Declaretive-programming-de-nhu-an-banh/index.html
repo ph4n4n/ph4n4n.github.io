@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊 Imperative programming: telling the “machine” HOW to do something, and as a result WHAT you want to happen will happen. Dec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Imperative Programming Và Declarative Programming Dễ Như ăN Bánh">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊 Imperative programming: telling the “machine” HOW to do something, and as a result WHAT you want to happen will happen. Dec">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T10:19:44.000Z">
+<meta property="article:modified_time" content="2025-06-20T10:23:07.198Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="concepts">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/06/20/Partition-trong-database-toi-gian/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&text=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&is_video=false&description=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&name=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&t=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-%F0%9F%A5%8A"><span class="toc-number">1.</span> <span class="toc-text">Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dinh-nghia-cho-nguoi-luoi-doc"><span class="toc-number">1.1.</span> <span class="toc-text">Định nghĩa cho người lười đọc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-sanh-bang-code-JavaScript"><span class="toc-number">1.2.</span> <span class="toc-text">So sánh bằng code (JavaScript)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-Imperative-Style-%E2%80%9CChi-dao-tung-buoc%E2%80%9D"><span class="toc-number">1.2.1.</span> <span class="toc-text">🤖 Imperative Style - “Chỉ đạo từng bước”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Declarative-Style-%E2%80%9CNoi-thang-muc-tieu%E2%80%9D"><span class="toc-number">1.2.2.</span> <span class="toc-text">🎯 Declarative Style - “Nói thẳng mục tiêu”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-khac"><span class="toc-number">1.3.</span> <span class="toc-text">Ví dụ thực tế khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8B-Tao-danh-sach-HTML"><span class="toc-number">1.3.1.</span> <span class="toc-text">📋 Tạo danh sách HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Imperative-%E2%80%9CLam-tung-buoc%E2%80%9D"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Imperative - “Làm từng bước”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Declarative-%E2%80%9CNoi-thang-muon-gi%E2%80%9D"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Declarative - “Nói thẳng muốn gì”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8D-Tim-kiem-du-lieu"><span class="toc-number">1.3.2.</span> <span class="toc-text">🔍 Tìm kiếm dữ liệu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Imperative-%E2%80%9CChi-dao-tung-buoc%E2%80%9D"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">Imperative - “Chỉ đạo từng bước”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Declarative-%E2%80%9CNoi-thang-muc-tieu%E2%80%9D"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Declarative - “Nói thẳng mục tiêu”</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Uu-nhuoc-diem"><span class="toc-number">1.4.</span> <span class="toc-text">Ưu nhược điểm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Imperative-Programming"><span class="toc-number">1.4.1.</span> <span class="toc-text">🎯 Imperative Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%A8-Declarative-Programming"><span class="toc-number">1.4.2.</span> <span class="toc-text">🎨 Declarative Programming</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-dung-cai-gi"><span class="toc-number">1.5.</span> <span class="toc-text">Khi nào dùng cái gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-Dung-Imperative-khi"><span class="toc-number">1.5.1.</span> <span class="toc-text">🤖 Dùng Imperative khi:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Dung-Declarative-khi"><span class="toc-number">1.5.2.</span> <span class="toc-text">🎯 Dùng Declarative khi:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-trong-cac-ngon-ngu-framework"><span class="toc-number">1.6.</span> <span class="toc-text">Ví dụ trong các ngôn ngữ&#x2F;framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.6.1.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL"><span class="toc-number">1.6.2.</span> <span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.6.3.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React"><span class="toc-number">1.6.4.</span> <span class="toc-text">React</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">1.7.</span> <span class="toc-text">Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Imperative Programming Và Declarative Programming Dễ Như ăN Bánh
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T10:19:44.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T10:23:07.198Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/concepts/" rel="tag">concepts</a>, <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>, <a class="p-category" href="/tags/programming/" rel="tag">programming</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊"><a href="#Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊" class="headerlink" title="Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊"></a>Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊</h1><blockquote>
+<p><strong>Imperative programming</strong>: telling the “machine” HOW to do something, and as a result WHAT you want to happen will happen.</p>
+<p><strong>Declarative programming</strong>: telling the “machine” WHAT you would like to happen, and let the computer figure out HOW to do it.</p>
+</blockquote>
+<h2 id="Dinh-nghia-cho-nguoi-luoi-doc"><a href="#Dinh-nghia-cho-nguoi-luoi-doc" class="headerlink" title="Định nghĩa cho người lười đọc"></a>Định nghĩa cho người lười đọc</h2><p><strong>Imperative Programming</strong>: Bảo máy tính <strong>LÀM THẾ NÀO</strong> (HOW) để có được <strong>CÁI GÌ</strong> (WHAT) bạn muốn.</p>
+<p><strong>Declarative Programming</strong>: Bảo máy tính <strong>CÁI GÌ</strong> (WHAT) bạn muốn, để máy tự nghĩ ra <strong>LÀM THẾ NÀO</strong> (HOW).</p>
+<blockquote>
+<p><strong>Ví dụ đời thường</strong>: </p>
+<ul>
+<li><strong>Imperative</strong>: “Anh taxi ơi, đi thẳng 500m, rẽ phải, qua 2 ngã tư, rẽ trái…”</li>
+<li><strong>Declarative</strong>: “Anh taxi ơi, đi Landmark 81!” 🚗</li>
+</ul>
+</blockquote>
+<h2 id="So-sanh-bang-code-JavaScript"><a href="#So-sanh-bang-code-JavaScript" class="headerlink" title="So sánh bằng code (JavaScript)"></a>So sánh bằng code (JavaScript)</h2><h3 id="🤖-Imperative-Style-“Chi-dao-tung-buoc”"><a href="#🤖-Imperative-Style-“Chi-dao-tung-buoc”" class="headerlink" title="🤖 Imperative Style - “Chỉ đạo từng bước”"></a>🤖 <strong>Imperative Style - “Chỉ đạo từng bước”</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tìm số chẵn trong array</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line"><span class="keyword">const</span> evenNumbers = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Nói máy tính từng bước một cách chi tiết</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numbers.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (numbers[i] % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        evenNumbers.<span class="title function_">push</span>(numbers[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(evenNumbers); <span class="comment">// [2, 4, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Đặc điểm</strong>: </p>
+<ul>
+<li>Kiểm soát từng bước</li>
+<li>Nói rõ “làm gì”, “khi nào”, “như thế nào”</li>
+<li>Giống như hướng dẫn nấu ăn chi tiết: “Bước 1: Thái hành, Bước 2: Đun dầu…”</li>
+</ul>
+<h3 id="🎯-Declarative-Style-“Noi-thang-muc-tieu”"><a href="#🎯-Declarative-Style-“Noi-thang-muc-tieu”" class="headerlink" title="🎯 Declarative Style - “Nói thẳng mục tiêu”"></a>🎯 <strong>Declarative Style - “Nói thẳng mục tiêu”</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cùng một việc nhưng declarative</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Chỉ nói muốn gì, không nói làm thế nào</span></span><br><span class="line"><span class="keyword">const</span> evenNumbers = numbers.<span class="title function_">filter</span>(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(evenNumbers); <span class="comment">// [2, 4, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Đặc điểm</strong>:</p>
+<ul>
+<li>Tập trung vào kết quả</li>
+<li>Ít code hơn, dễ đọc hơn</li>
+<li>Giống như gọi món: “Cho tôi một phở bò!” (không cần biết làm thế nào)</li>
+</ul>
+<h2 id="Vi-du-thuc-te-khac"><a href="#Vi-du-thuc-te-khac" class="headerlink" title="Ví dụ thực tế khác"></a>Ví dụ thực tế khác</h2><h3 id="📋-Tao-danh-sach-HTML"><a href="#📋-Tao-danh-sach-HTML" class="headerlink" title="📋 Tạo danh sách HTML"></a>📋 <strong>Tạo danh sách HTML</strong></h3><h4 id="Imperative-“Lam-tung-buoc”"><a href="#Imperative-“Lam-tung-buoc”" class="headerlink" title="Imperative - “Làm từng bước”"></a>Imperative - “Làm từng bước”</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Charlie&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> html = <span class="string">&#x27;&lt;ul&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; users.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    html += <span class="string">&#x27;&lt;li&gt;&#x27;</span> + users[i] + <span class="string">&#x27;&lt;/li&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">html += <span class="string">&#x27;&lt;/ul&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span> = html;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Declarative-“Noi-thang-muon-gi”"><a href="#Declarative-“Noi-thang-muon-gi”" class="headerlink" title="Declarative - “Nói thẳng muốn gì”"></a>Declarative - “Nói thẳng muốn gì”</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Charlie&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// React style</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">UserList</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;users.map(user =&gt; <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;user&#125;</span>&gt;</span>&#123;user&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>)&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hoặc template literal</span></span><br><span class="line"><span class="keyword">const</span> html = <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;users.map(user =&gt; <span class="string">`&lt;li&gt;<span class="subst">$&#123;user&#125;</span>&lt;/li&gt;`</span>).join(<span class="string">&#x27;&#x27;</span>)&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔍-Tim-kiem-du-lieu"><a href="#🔍-Tim-kiem-du-lieu" class="headerlink" title="🔍 Tìm kiếm dữ liệu"></a>🔍 <strong>Tìm kiếm dữ liệu</strong></h3><h4 id="Imperative-“Chi-dao-tung-buoc”"><a href="#Imperative-“Chi-dao-tung-buoc”" class="headerlink" title="Imperative - “Chỉ đạo từng bước”"></a>Imperative - “Chỉ đạo từng bước”</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> products = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;iPhone&#x27;</span>, <span class="attr">price</span>: <span class="number">1000</span>, <span class="attr">category</span>: <span class="string">&#x27;phone&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;MacBook&#x27;</span>, <span class="attr">price</span>: <span class="number">2000</span>, <span class="attr">category</span>: <span class="string">&#x27;laptop&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;iPad&#x27;</span>, <span class="attr">price</span>: <span class="number">800</span>, <span class="attr">category</span>: <span class="string">&#x27;tablet&#x27;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Tìm sản phẩm giá &gt; 900</span></span><br><span class="line"><span class="keyword">const</span> expensiveProducts = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; products.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (products[i].<span class="property">price</span> &gt; <span class="number">900</span>) &#123;</span><br><span class="line">        expensiveProducts.<span class="title function_">push</span>(products[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Declarative-“Noi-thang-muc-tieu”"><a href="#Declarative-“Noi-thang-muc-tieu”" class="headerlink" title="Declarative - “Nói thẳng mục tiêu”"></a>Declarative - “Nói thẳng mục tiêu”</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cùng kết quả nhưng ngắn gọn hơn</span></span><br><span class="line"><span class="keyword">const</span> expensiveProducts = products.<span class="title function_">filter</span>(<span class="function"><span class="params">product</span> =&gt;</span> product.<span class="property">price</span> &gt; <span class="number">900</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hoặc dùng SQL (declarative thuần túy)</span></span><br><span class="line"><span class="comment">// SELECT * FROM products WHERE price &gt; 900;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Uu-nhuoc-diem"><a href="#Uu-nhuoc-diem" class="headerlink" title="Ưu nhược điểm"></a>Ưu nhược điểm</h2><h3 id="🎯-Imperative-Programming"><a href="#🎯-Imperative-Programming" class="headerlink" title="🎯 Imperative Programming"></a>🎯 <strong>Imperative Programming</strong></h3><p><strong>Ưu điểm:</strong></p>
+<ul>
+<li>✅ Kiểm soát hoàn toàn flow</li>
+<li>✅ Performance có thể tối ưu tốt hơn</li>
+<li>✅ Dễ debug từng bước</li>
+<li>✅ Phù hợp với algorithm phức tạp</li>
+</ul>
+<p><strong>Nhược điểm:</strong></p>
+<ul>
+<li>❌ Code dài dòng, khó đọc</li>
+<li>❌ Dễ bug (nhiều state để track)</li>
+<li>❌ Khó maintain khi logic phức tạp</li>
+<li>❌ Tốn thời gian viết</li>
+</ul>
+<h3 id="🎨-Declarative-Programming"><a href="#🎨-Declarative-Programming" class="headerlink" title="🎨 Declarative Programming"></a>🎨 <strong>Declarative Programming</strong></h3><p><strong>Ưu điểm:</strong></p>
+<ul>
+<li>✅ Code ngắn gọn, dễ đọc</li>
+<li>✅ Ít bug hơn (ít state)</li>
+<li>✅ Dễ test và maintain</li>
+<li>✅ Tập trung vào business logic</li>
+</ul>
+<p><strong>Nhược điểm:</strong></p>
+<ul>
+<li>❌ Ít control hơn</li>
+<li>❌ Đôi khi performance không tối ưu</li>
+<li>❌ Cần hiểu framework&#x2F;library</li>
+<li>❌ Khó debug khi có vấn đề</li>
+</ul>
+<h2 id="Khi-nao-dung-cai-gi"><a href="#Khi-nao-dung-cai-gi" class="headerlink" title="Khi nào dùng cái gì?"></a>Khi nào dùng cái gì?</h2><h3 id="🤖-Dung-Imperative-khi"><a href="#🤖-Dung-Imperative-khi" class="headerlink" title="🤖 Dùng Imperative khi:"></a>🤖 <strong>Dùng Imperative khi:</strong></h3><ul>
+<li>Cần performance cao (game, real-time system)</li>
+<li>Algorithm phức tạp (sorting, graph traversal)</li>
+<li>Low-level programming</li>
+<li>Cần kiểm soát từng bước</li>
+</ul>
+<h3 id="🎯-Dung-Declarative-khi"><a href="#🎯-Dung-Declarative-khi" class="headerlink" title="🎯 Dùng Declarative khi:"></a>🎯 <strong>Dùng Declarative khi:</strong></h3><ul>
+<li>UI development (React, Vue)</li>
+<li>Data processing</li>
+<li>Business logic</li>
+<li>Rapid development</li>
+</ul>
+<h2 id="Vi-du-trong-cac-ngon-ngu-framework"><a href="#Vi-du-trong-cac-ngon-ngu-framework" class="headerlink" title="Ví dụ trong các ngôn ngữ&#x2F;framework"></a>Ví dụ trong các ngôn ngữ&#x2F;framework</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Imperative</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Declarative</span></span><br><span class="line">arr.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> <span class="comment">/* ... */</span>)</span><br><span class="line">arr.<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> <span class="comment">/* ... */</span>)</span><br><span class="line">arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> <span class="comment">/* ... */</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Declarative thuần túy</span></span><br><span class="line"><span class="keyword">SELECT</span> name, price </span><br><span class="line"><span class="keyword">FROM</span> products </span><br><span class="line"><span class="keyword">WHERE</span> category <span class="operator">=</span> <span class="string">&#x27;phone&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Không cần biết database engine làm thế nào!</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Declarative */</span></span><br><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Nói muốn gì, browser tự render */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Declarative</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">TodoList</span>(<span class="params">&#123; todos &#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;todos.map(todo =&gt; </span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span>&gt;</span>&#123;todo.text&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            )&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Nói muốn UI như thế nào, React tự update DOM</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h2><p><strong>Imperative</strong>: Như một ông sếp micromanage - chỉ đạo từng việc nhỏ 👔</p>
+<p><strong>Declarative</strong>: Như một ông sếp thông minh - chỉ nói mục tiêu, để nhân viên tự nghĩ cách 🧠</p>
+<blockquote>
+<p><strong>Pro tip</strong>: Trong thực tế, hầu hết app đều mix cả 2 style. Declarative cho UI và business logic, Imperative cho performance-critical parts!</p>
+</blockquote>
+<p><strong>Nhớ công thức</strong>:</p>
+<ul>
+<li><strong>Imperative</strong> &#x3D; HOW (làm thế nào)</li>
+<li><strong>Declarative</strong> &#x3D; WHAT (muốn gì)</li>
+</ul>
+<p>Giờ đi code thôi! Nhớ chọn style phù hợp với từng tình huống nhé! 🚀</p>
+<hr>
+<p><em>“Code is poetry, choose your style wisely!”</em> 📝✨</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-%F0%9F%A5%8A"><span class="toc-number">1.</span> <span class="toc-text">Imperative vs Declarative Programming - Cuộc chiến của 2 phong cách code! 🥊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dinh-nghia-cho-nguoi-luoi-doc"><span class="toc-number">1.1.</span> <span class="toc-text">Định nghĩa cho người lười đọc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-sanh-bang-code-JavaScript"><span class="toc-number">1.2.</span> <span class="toc-text">So sánh bằng code (JavaScript)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-Imperative-Style-%E2%80%9CChi-dao-tung-buoc%E2%80%9D"><span class="toc-number">1.2.1.</span> <span class="toc-text">🤖 Imperative Style - “Chỉ đạo từng bước”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Declarative-Style-%E2%80%9CNoi-thang-muc-tieu%E2%80%9D"><span class="toc-number">1.2.2.</span> <span class="toc-text">🎯 Declarative Style - “Nói thẳng mục tiêu”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-khac"><span class="toc-number">1.3.</span> <span class="toc-text">Ví dụ thực tế khác</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8B-Tao-danh-sach-HTML"><span class="toc-number">1.3.1.</span> <span class="toc-text">📋 Tạo danh sách HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Imperative-%E2%80%9CLam-tung-buoc%E2%80%9D"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Imperative - “Làm từng bước”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Declarative-%E2%80%9CNoi-thang-muon-gi%E2%80%9D"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Declarative - “Nói thẳng muốn gì”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8D-Tim-kiem-du-lieu"><span class="toc-number">1.3.2.</span> <span class="toc-text">🔍 Tìm kiếm dữ liệu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Imperative-%E2%80%9CChi-dao-tung-buoc%E2%80%9D"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">Imperative - “Chỉ đạo từng bước”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Declarative-%E2%80%9CNoi-thang-muc-tieu%E2%80%9D"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Declarative - “Nói thẳng mục tiêu”</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Uu-nhuoc-diem"><span class="toc-number">1.4.</span> <span class="toc-text">Ưu nhược điểm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Imperative-Programming"><span class="toc-number">1.4.1.</span> <span class="toc-text">🎯 Imperative Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%A8-Declarative-Programming"><span class="toc-number">1.4.2.</span> <span class="toc-text">🎨 Declarative Programming</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-dung-cai-gi"><span class="toc-number">1.5.</span> <span class="toc-text">Khi nào dùng cái gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-Dung-Imperative-khi"><span class="toc-number">1.5.1.</span> <span class="toc-text">🤖 Dùng Imperative khi:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Dung-Declarative-khi"><span class="toc-number">1.5.2.</span> <span class="toc-text">🎯 Dùng Declarative khi:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-trong-cac-ngon-ngu-framework"><span class="toc-number">1.6.</span> <span class="toc-text">Ví dụ trong các ngôn ngữ&#x2F;framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.6.1.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL"><span class="toc-number">1.6.2.</span> <span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.6.3.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React"><span class="toc-number">1.6.4.</span> <span class="toc-text">React</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">1.7.</span> <span class="toc-text">Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&text=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&is_video=false&description=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&title=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&name=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/&t=Imperative Programming Và Declarative Programming Dễ Như ăN Bánh"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

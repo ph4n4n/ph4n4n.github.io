@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: Simple (đơn giản), Open (mở rộng), Logic (hợp lý), I">
+    <meta name="description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev:Simple (đơn giản)Open (mở rộng)Logic (hợp lý)Independ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SOLID Cho Dev &quot;đầU Óc đơN Giản&quot;">
 <meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/index.html">
 <meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
-<meta property="og:description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: Simple (đơn giản), Open (mở rộng), Logic (hợp lý), I">
+<meta property="og:description" content="SOLID là gì?SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev:Simple (đơn giản)Open (mở rộng)Logic (hợp lý)Independ">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-06-20T08:12:09.000Z">
-<meta property="article:modified_time" content="2025-06-20T08:27:35.018Z">
+<meta property="article:modified_time" content="2025-06-20T10:13:56.926Z">
 <meta property="article:author" content="Anph">
-<meta property="article:tag" content="design-pattern">
 <meta property="article:tag" content="oop">
+<meta property="article:tag" content="design-pattern">
 <meta name="twitter:card" content="summary">
     
     
@@ -155,7 +155,7 @@
       
         <time datetime="2025-06-20T08:12:09.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
         
-        (Updated: <time datetime="2025-06-20T08:27:35.018Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        (Updated: <time datetime="2025-06-20T10:13:56.926Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
         
       
     </div>
@@ -180,7 +180,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="SOLID-la-gi"><a href="#SOLID-la-gi" class="headerlink" title="SOLID là gì?"></a>SOLID là gì?</h2><p>SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev: <strong>S</strong>imple (đơn giản), <strong>O</strong>pen (mở rộng), <strong>L</strong>ogic (hợp lý), <strong>I</strong>ndependent (độc lập), <strong>D</strong>etachable (tách rời) 😄</p>
+    <h2 id="SOLID-la-gi"><a href="#SOLID-la-gi" class="headerlink" title="SOLID là gì?"></a>SOLID là gì?</h2><p>SOLID là 5 nguyên tắc thiết kế code OOP để tránh viết code như… mì tôm (rối rắm, khó sửa, dễ vỡ). Giống như 5 quy tắc sống còn của dev:<br><strong>S</strong>imple (đơn giản)<br><strong>O</strong>pen (mở rộng)<br><strong>L</strong>ogic (hợp lý)<br><strong>I</strong>ndependent (độc lập)<br><strong>D</strong>etachable (tách rời) </p>
 <h2 id="S-Single-Responsibility-Principle"><a href="#S-Single-Responsibility-Principle" class="headerlink" title="S - Single Responsibility Principle"></a>S - Single Responsibility Principle</h2><p><strong>Nguyên tắc</strong>: Một class chỉ nên có <strong>1 lý do để thay đổi</strong>.</p>
 <h3 id="❌-Sai"><a href="#❌-Sai" class="headerlink" title="❌ Sai:"></a>❌ Sai:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, email</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">email</span> = email;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Quản lý user data</span></span><br><span class="line">  <span class="title function_">save</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Lưu vào database</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Gửi email (không liên quan đến User!)</span></span><br><span class="line">  <span class="title function_">sendWelcomeEmail</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Gửi email chào mừng</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Validate data (cũng không liên quan!)</span></span><br><span class="line">  <span class="title function_">validateEmail</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">email</span>.<span class="title function_">includes</span>(<span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

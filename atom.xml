@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-20T09:56:06.725Z</updated>
+  <updated>2025-06-20T10:23:07.198Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
+    <published>2025-06-20T10:19:44.000Z</published>
+    <updated>2025-06-20T10:23:07.198Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    
+    <category term="programming" scheme="https://ph4n4n.github.io/tags/programming/"/>
+    
+    <category term="concepts" scheme="https://ph4n4n.github.io/tags/concepts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Partition Trong Database Tối Giản</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/</id>
+    <published>2025-06-20T10:16:05.000Z</published>
+    <updated>2025-06-20T10:25:22.590Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;&gt;&lt;a href=&quot;#Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    
+    
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    
+    <category term="mysql" scheme="https://ph4n4n.github.io/tags/mysql/"/>
+    
+    <category term="performance" scheme="https://ph4n4n.github.io/tags/performance/"/>
+    
+  </entry>
   
   <entry>
     <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
@@ -46,7 +104,7 @@
     <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
     <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
     <published>2025-06-20T08:12:09.000Z</published>
-    <updated>2025-06-20T08:27:35.018Z</updated>
+    <updated>2025-06-20T10:13:56.926Z</updated>
     
     
       
@@ -62,9 +120,9 @@
     <category term="oop" scheme="https://ph4n4n.github.io/categories/oop/"/>
     
     
-    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
-    
     <category term="oop" scheme="https://ph4n4n.github.io/tags/oop/"/>
+    
+    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
     
   </entry>
   
@@ -98,7 +156,7 @@
     <link href="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"/>
     <id>https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/</id>
     <published>2021-03-22T02:40:20.000Z</published>
-    <updated>2025-06-20T10:00:06.806Z</updated>
+    <updated>2025-06-20T10:13:34.084Z</updated>
     
     
       
@@ -111,6 +169,14 @@
     
     
     
+    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    
+    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    
+    <category term="socket.io" scheme="https://ph4n4n.github.io/tags/socket-io/"/>
     
   </entry>
   
@@ -119,7 +185,7 @@
     <link href="https://ph4n4n.github.io/2019/04/11/Vo-de/"/>
     <id>https://ph4n4n.github.io/2019/04/11/Vo-de/</id>
     <published>2019-04-11T07:35:43.000Z</published>
-    <updated>2025-06-20T10:09:09.429Z</updated>
+    <updated>2025-06-20T10:10:44.737Z</updated>
     
     
       
@@ -198,7 +264,7 @@
     <link href="https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/"/>
     <id>https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/</id>
     <published>2019-03-27T04:04:35.000Z</published>
-    <updated>2025-06-20T09:59:52.453Z</updated>
+    <updated>2025-06-20T10:13:45.104Z</updated>
     
     
       
@@ -474,56 +540,6 @@
     
     
     <category term="algorithm" scheme="https://ph4n4n.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NHỮNG ĐIỀU MÀ TÔI ĐÃ HỌC ĐƯỢC TỪ ĐÀN BÀ VÀ NHỮNG MỐI QUAN HỆ (What I Learned About Women and Relationships)</title>
-    <link href="https://ph4n4n.github.io/2018/05/29/man7woman/"/>
-    <id>https://ph4n4n.github.io/2018/05/29/man7woman/</id>
-    <published>2018-05-29T03:23:02.000Z</published>
-    <updated>2025-06-20T10:01:20.733Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Làm chủ mối quan hệ với đàn bà chưa bao giờ là điều dễ dàng đối với đàn ông. Người ta nói rằng đàn ông thì đến từ sao Hỏa, còn đàn bà</summary>
-        
-      
-    
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
-    
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Paste Html to Div(contentediable)</title>
-    <link href="https://ph4n4n.github.io/2018/05/25/Paste-html-to-div-contentediable/"/>
-    <id>https://ph4n4n.github.io/2018/05/25/Paste-html-to-div-contentediable/</id>
-    <published>2018-05-25T03:13:23.000Z</published>
-    <updated>2025-06-19T06:31:21.336Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
     
   </entry>
   

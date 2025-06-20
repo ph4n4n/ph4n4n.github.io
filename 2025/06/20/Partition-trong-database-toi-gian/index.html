@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Database Partitioning - Chia để trị với bảng “khủng long” 🦕I. Partition là gì?Partitioning là kỹ thuật chia một bảng database lớn thành nhiều phần nhỏ hơn gọi là partitions. Mỗi partition được xử lý">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Partition Trong Database Tối Giản">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Database Partitioning - Chia để trị với bảng “khủng long” 🦕I. Partition là gì?Partitioning là kỹ thuật chia một bảng database lớn thành nhiều phần nhỏ hơn gọi là partitions. Mỗi partition được xử lý">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T10:16:05.000Z">
+<meta property="article:modified_time" content="2025-06-20T10:25:22.590Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="performance">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Partition Trong Database Tối Giản</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&text=Partition Trong Database Tối Giản"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&is_video=false&description=Partition Trong Database Tối Giản"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Partition Trong Database Tối Giản&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&name=Partition Trong Database Tối Giản&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&t=Partition Trong Database Tối Giản"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Database-Partitioning-Chia-de-tri-voi-bang-%E2%80%9Ckhung-long%E2%80%9D-%F0%9F%A6%95"><span class="toc-number">1.</span> <span class="toc-text">Database Partitioning - Chia để trị với bảng “khủng long” 🦕</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Partition-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">I. Partition là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#II-Tai-sao-phai-partition-bang-lon"><span class="toc-number">1.2.</span> <span class="toc-text">II. Tại sao phải partition bảng lớn?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-Tang-hieu-suat-query"><span class="toc-number">1.2.1.</span> <span class="toc-text">🚀 Tăng hiệu suất query</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%82%EF%B8%8F-Quan-ly-du-lieu-de-dang"><span class="toc-number">1.2.2.</span> <span class="toc-text">🗂️ Quản lý dữ liệu dễ dàng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Xu-ly-song-song-Parallelism"><span class="toc-number">1.2.3.</span> <span class="toc-text">⚡ Xử lý song song (Parallelism)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-Toi-uu-index"><span class="toc-number">1.2.4.</span> <span class="toc-text">📊 Tối ưu index</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#III-Cac-loai-Partition-va-khi-nao-dung"><span class="toc-number">1.3.</span> <span class="toc-text">III. Các loại Partition và khi nào dùng</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%93%EF%B8%8F-Range-Partitioning"><span class="toc-number">1.3.1.</span> <span class="toc-text">🗓️ Range Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8B-List-Partitioning"><span class="toc-number">1.3.2.</span> <span class="toc-text">📋 List Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%80-Hash-Partitioning"><span class="toc-number">1.3.3.</span> <span class="toc-text">🔀 Hash Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%91-Key-Partitioning"><span class="toc-number">1.3.4.</span> <span class="toc-text">🔑 Key Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Composite-Partitioning"><span class="toc-number">1.3.5.</span> <span class="toc-text">🎯 Composite Partitioning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IV-Vi-du-thuc-te-Bang-deleted-item"><span class="toc-number">1.4.</span> <span class="toc-text">IV. Ví dụ thực tế: Bảng deleted_item</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-goc-chua-partition"><span class="toc-number">1.4.1.</span> <span class="toc-text">Bảng gốc (chưa partition):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-sau-khi-partition-theo-item-type"><span class="toc-number">1.4.2.</span> <span class="toc-text">Bảng sau khi partition (theo item_type):</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#V-Ke-hoach-Migration"><span class="toc-number">1.5.</span> <span class="toc-text">V. Kế hoạch Migration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Tao-bang-moi-co-partition"><span class="toc-number">1.5.1.</span> <span class="toc-text">Bước 1: Tạo bảng mới có partition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-Migrate-du-lieu-hien-tai"><span class="toc-number">1.5.2.</span> <span class="toc-text">Bước 2: Migrate dữ liệu hiện tại</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-Tao-trigger-cho-du-lieu-moi"><span class="toc-number">1.5.3.</span> <span class="toc-text">Bước 3: Tạo trigger cho dữ liệu mới</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-4-Kiem-tra-tinh-nhat-quan-du-lieu"><span class="toc-number">1.5.4.</span> <span class="toc-text">Bước 4: Kiểm tra tính nhất quán dữ liệu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-5-Tat-trigger"><span class="toc-number">1.5.5.</span> <span class="toc-text">Bước 5: Tắt trigger</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VI-Doi-ten-va-xoa-bang-cu"><span class="toc-number">1.6.</span> <span class="toc-text">VI. Đổi tên và xóa bảng cũ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Doi-ten-bang"><span class="toc-number">1.6.1.</span> <span class="toc-text">Bước 1: Đổi tên bảng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-Xoa-bang-cu-sau-khi-dam-bao-an-toan"><span class="toc-number">1.6.2.</span> <span class="toc-text">Bước 2: Xóa bảng cũ (sau khi đảm bảo an toàn)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VII-Luu-y-quan-trong"><span class="toc-number">1.7.</span> <span class="toc-text">VII. Lưu ý quan trọng</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-Truoc-khi-lam"><span class="toc-number">1.7.1.</span> <span class="toc-text">⚠️ Trước khi làm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-Sau-khi-partition"><span class="toc-number">1.7.2.</span> <span class="toc-text">📈 Sau khi partition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Best-Practices"><span class="toc-number">1.7.3.</span> <span class="toc-text">🎯 Best Practices</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Partition Trong Database Tối Giản
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T10:16:05.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T10:25:22.590Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/database/">database</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/database/" rel="tag">database</a>, <a class="p-category" href="/tags/mysql/" rel="tag">mysql</a>, <a class="p-category" href="/tags/performance/" rel="tag">performance</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕"><a href="#Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕" class="headerlink" title="Database Partitioning - Chia để trị với bảng “khủng long” 🦕"></a>Database Partitioning - Chia để trị với bảng “khủng long” 🦕</h1><h2 id="I-Partition-la-gi"><a href="#I-Partition-la-gi" class="headerlink" title="I. Partition là gì?"></a>I. Partition là gì?</h2><p><strong>Partitioning</strong> là kỹ thuật chia một bảng database lớn thành nhiều phần nhỏ hơn gọi là <strong>partitions</strong>. Mỗi partition được xử lý như một bảng riêng biệt nhưng vẫn giữ nguyên cấu trúc của bảng gốc.</p>
+<blockquote>
+<p><strong>Ví dụ đời thường</strong>: Giống như chia tủ quần áo thành nhiều ngăn - áo ở ngăn này, quần ở ngăn kia. Tìm đồ nhanh hơn, dọn dẹp dễ hơn! 👔</p>
+</blockquote>
+<h2 id="II-Tai-sao-phai-partition-bang-lon"><a href="#II-Tai-sao-phai-partition-bang-lon" class="headerlink" title="II. Tại sao phải partition bảng lớn?"></a>II. Tại sao phải partition bảng lớn?</h2><h3 id="🚀-Tang-hieu-suat-query"><a href="#🚀-Tang-hieu-suat-query" class="headerlink" title="🚀 Tăng hiệu suất query"></a>🚀 <strong>Tăng hiệu suất query</strong></h3><ul>
+<li>Thay vì scan toàn bộ 10 triệu records, chỉ cần scan partition có 1 triệu records</li>
+<li>Query nhanh hơn đáng kể, đặc biệt với <code>WHERE</code> clause</li>
+</ul>
+<h3 id="🗂️-Quan-ly-du-lieu-de-dang"><a href="#🗂️-Quan-ly-du-lieu-de-dang" class="headerlink" title="🗂️ Quản lý dữ liệu dễ dàng"></a>🗂️ <strong>Quản lý dữ liệu dễ dàng</strong></h3><ul>
+<li>Xóa dữ liệu cũ? Drop partition thay vì <code>DELETE</code> từng row</li>
+<li>Backup&#x2F;restore từng partition riêng lẻ</li>
+<li>Archive dữ liệu theo thời gian</li>
+</ul>
+<h3 id="⚡-Xu-ly-song-song-Parallelism"><a href="#⚡-Xu-ly-song-song-Parallelism" class="headerlink" title="⚡ Xử lý song song (Parallelism)"></a>⚡ <strong>Xử lý song song (Parallelism)</strong></h3><ul>
+<li>Database có thể query nhiều partition cùng lúc</li>
+<li>Tận dụng được multi-core CPU</li>
+</ul>
+<h3 id="📊-Toi-uu-index"><a href="#📊-Toi-uu-index" class="headerlink" title="📊 Tối ưu index"></a>📊 <strong>Tối ưu index</strong></h3><ul>
+<li>Index nhỏ hơn trên từng partition</li>
+<li>Rebuild index nhanh hơn</li>
+<li>Memory footprint thấp hơn</li>
+</ul>
+<h2 id="III-Cac-loai-Partition-va-khi-nao-dung"><a href="#III-Cac-loai-Partition-va-khi-nao-dung" class="headerlink" title="III. Các loại Partition và khi nào dùng"></a>III. Các loại Partition và khi nào dùng</h2><h3 id="🗓️-Range-Partitioning"><a href="#🗓️-Range-Partitioning" class="headerlink" title="🗓️ Range Partitioning"></a>🗓️ <strong>Range Partitioning</strong></h3><p>Chia theo khoảng giá trị (thường là thời gian)</p>
+<p><strong>Khi nào dùng</strong>: </p>
+<ul>
+<li>Dữ liệu time-series (logs, transactions)</li>
+<li>Dữ liệu có thể chia theo khoảng rõ ràng</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span> (<span class="keyword">YEAR</span>(created_date)) (</span><br><span class="line">    <span class="keyword">PARTITION</span> p2023 <span class="keyword">VALUES</span> LESS THAN (<span class="number">2024</span>),</span><br><span class="line">    <span class="keyword">PARTITION</span> p2024 <span class="keyword">VALUES</span> LESS THAN (<span class="number">2025</span>),</span><br><span class="line">    <span class="keyword">PARTITION</span> p2025 <span class="keyword">VALUES</span> LESS THAN (<span class="number">2026</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="📋-List-Partitioning"><a href="#📋-List-Partitioning" class="headerlink" title="📋 List Partitioning"></a>📋 <strong>List Partitioning</strong></h3><p>Chia theo danh sách giá trị cụ thể</p>
+<p><strong>Khi nào dùng</strong>:</p>
+<ul>
+<li>Phân loại theo regions, departments, categories</li>
+<li>Giá trị enum có thể đếm được</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> LIST (region) (</span><br><span class="line">    <span class="keyword">PARTITION</span> p_north <span class="keyword">VALUES</span> <span class="keyword">IN</span> (<span class="string">&#x27;Hanoi&#x27;</span>, <span class="string">&#x27;Haiphong&#x27;</span>),</span><br><span class="line">    <span class="keyword">PARTITION</span> p_south <span class="keyword">VALUES</span> <span class="keyword">IN</span> (<span class="string">&#x27;HCM&#x27;</span>, <span class="string">&#x27;Cantho&#x27;</span>),</span><br><span class="line">    <span class="keyword">PARTITION</span> p_central <span class="keyword">VALUES</span> <span class="keyword">IN</span> (<span class="string">&#x27;Danang&#x27;</span>, <span class="string">&#x27;Hue&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔀-Hash-Partitioning"><a href="#🔀-Hash-Partitioning" class="headerlink" title="🔀 Hash Partitioning"></a>🔀 <strong>Hash Partitioning</strong></h3><p>Chia theo hash function</p>
+<p><strong>Khi nào dùng</strong>:</p>
+<ul>
+<li>Phân bố đều dữ liệu</li>
+<li>Không có pattern rõ ràng để chia</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> HASH(user_id)</span><br><span class="line">PARTITIONS <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔑-Key-Partitioning"><a href="#🔑-Key-Partitioning" class="headerlink" title="🔑 Key Partitioning"></a>🔑 <strong>Key Partitioning</strong></h3><p>Giống Hash nhưng database tự chọn hash function</p>
+<h3 id="🎯-Composite-Partitioning"><a href="#🎯-Composite-Partitioning" class="headerlink" title="🎯 Composite Partitioning"></a>🎯 <strong>Composite Partitioning</strong></h3><p>Kết hợp 2 loại partition (Range + Hash, List + Hash)</p>
+<h2 id="IV-Vi-du-thuc-te-Bang-deleted-item"><a href="#IV-Vi-du-thuc-te-Bang-deleted-item" class="headerlink" title="IV. Ví dụ thực tế: Bảng deleted_item"></a>IV. Ví dụ thực tế: Bảng <code>deleted_item</code></h2><h3 id="Bang-goc-chua-partition"><a href="#Bang-goc-chua-partition" class="headerlink" title="Bảng gốc (chưa partition):"></a>Bảng gốc (chưa partition):</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `deleted_item` (</span><br><span class="line">  `id` <span class="type">bigint</span> unsigned <span class="keyword">NOT NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `user_id` <span class="type">bigint</span> unsigned <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `item_id` <span class="type">bigint</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `item_uid` <span class="type">varbinary</span>(<span class="number">1000</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `item_type` <span class="type">varbinary</span>(<span class="number">50</span>) <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  `is_recovery` tinyint unsigned <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `created_date` <span class="keyword">double</span>(<span class="number">13</span>,<span class="number">3</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `updated_date` <span class="keyword">double</span>(<span class="number">13</span>,<span class="number">3</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`id`),</span><br><span class="line">  KEY `idx_user_id` (`user_id`),</span><br><span class="line">  KEY `unq_on_user_id_and_item_id_and_item_uid_and_item_type` (`user_id`,`item_id`,`item_uid`,`item_type`),</span><br><span class="line">  KEY `idx_updated_date` (`updated_date`),</span><br><span class="line">  KEY `idx_object_uid_and_object_type` (`item_uid`,`item_type`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">12941937</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>latin1 COMMENT<span class="operator">=</span><span class="string">&#x27;latin1_swedish_ci&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bang-sau-khi-partition-theo-item-type"><a href="#Bang-sau-khi-partition-theo-item-type" class="headerlink" title="Bảng sau khi partition (theo item_type):"></a>Bảng sau khi partition (theo <code>item_type</code>):</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `deleted_item_partitioned` (</span><br><span class="line">  `id` <span class="type">bigint</span> unsigned <span class="keyword">NOT NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `user_id` <span class="type">bigint</span> unsigned <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `item_id` <span class="type">bigint</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `item_uid` <span class="type">varbinary</span>(<span class="number">1000</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `item_type` <span class="type">varbinary</span>(<span class="number">50</span>) <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  `is_recovery` tinyint unsigned <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `created_date` <span class="keyword">double</span>(<span class="number">13</span>,<span class="number">3</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `updated_date` <span class="keyword">double</span>(<span class="number">13</span>,<span class="number">3</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`id`, `item_type`), <span class="comment">-- Chú ý: phải include partition key</span></span><br><span class="line">  KEY `idx_user_id` (`user_id`),</span><br><span class="line">  KEY `unq_on_user_id_and_item_id_and_item_uid_and_item_type` (`user_id`,`item_id`,`item_uid`,`item_type`),</span><br><span class="line">  KEY `idx_updated_date` (`updated_date`),</span><br><span class="line">  KEY `idx_object_uid_and_object_type` (`item_uid`,`item_type`)</span><br><span class="line">) </span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> LIST COLUMNS(item_type) (</span><br><span class="line">  <span class="keyword">PARTITION</span> p_kanban <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;KANBAN&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_link <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;LINK&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_history <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;HISTORY&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_collection_link <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;COLLECTION_LINK&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_collection_notification <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;COLLECTION_NOTIFICATION&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_canvas <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;CANVAS&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_trash <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;TRASH&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_collection_comment <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;COLLECTION_COMMENT&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_share_member <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;SHARE_MEMBER&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_conferencing <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;CONFERENCING&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_folder <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;FOLDER&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_folder_member <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;FOLDER_MEMBER&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_vtodo <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;VTODO&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_metadata_email <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;METADATA_EMAIL&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_conference_member <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;CONFERENCE_MEMBER&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_csfile <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;CSFILE&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_url <span class="keyword">VALUES</span> <span class="keyword">IN</span> (UNHEX(HEX(<span class="string">&#x27;URL&#x27;</span>))),</span><br><span class="line">  <span class="keyword">PARTITION</span> p_other <span class="keyword">VALUES</span> <span class="keyword">IN</span> (</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;COLLECTION_HISTORY&#x27;</span>)), <span class="comment">-- convert to vabinary</span></span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;SET_3RD_ACC&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;TRACK&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;RECENT_OBJ&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;SYSTEM_COLLECTION&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;COLLECTION_ACTIVITY&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;CONFERENCE_HISTORY&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;MANUAL_RULE&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;FILE&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;COMMENT_ATTACHMENT&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;VIDEO_CALL&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;SUGGESTED_COLLECTION&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;CREDENTIAL&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;FILE_MEMBER&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;COLLECTION_INSTANCE_MEMBER&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;CONFERENCE_CHAT&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;CONFFERENCE_CHAT&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;VEVENT&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;VJOURNAL&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;ORDER_OBJ&#x27;</span>)),</span><br><span class="line">    UNHEX(HEX(<span class="string">&#x27;VCARD&#x27;</span>))</span><br><span class="line">  )</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;latin1_swedish_ci&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>Lưu ý</strong>: Đây chỉ là ví dụ minh họa, không phải giải pháp cuối cùng cho bảng này. Cần phân tích kỹ hơn cho các bảng lớn trong hệ thống.</p>
+</blockquote>
+<h2 id="V-Ke-hoach-Migration"><a href="#V-Ke-hoach-Migration" class="headerlink" title="V. Kế hoạch Migration"></a>V. Kế hoạch Migration</h2><h3 id="Buoc-1-Tao-bang-moi-co-partition"><a href="#Buoc-1-Tao-bang-moi-co-partition" class="headerlink" title="Bước 1: Tạo bảng mới có partition"></a>Bước 1: Tạo bảng mới có partition</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Tạo bảng partitioned như ví dụ trên</span></span><br><span class="line"><span class="comment">-- Lưu ý: Bỏ AUTO_INCREMENT để tránh conflict</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-2-Migrate-du-lieu-hien-tai"><a href="#Buoc-2-Migrate-du-lieu-hien-tai" class="headerlink" title="Bước 2: Migrate dữ liệu hiện tại"></a>Bước 2: Migrate dữ liệu hiện tại</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> deleted_item_partitioned (id, user_id, item_id, item_uid, item_type, is_recovery, created_date, updated_date)</span><br><span class="line"><span class="keyword">SELECT</span> id, user_id, item_id, item_uid, item_type, is_recovery, created_date, updated_date</span><br><span class="line"><span class="keyword">FROM</span> deleted_item_old;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-3-Tao-trigger-cho-du-lieu-moi"><a href="#Buoc-3-Tao-trigger-cho-du-lieu-moi" class="headerlink" title="Bước 3: Tạo trigger cho dữ liệu mới"></a>Bước 3: Tạo trigger cho dữ liệu mới</h3><p>Trong quá trình migration, dữ liệu mới vẫn được insert vào bảng cũ. Trigger sẽ tự động sync sang bảng mới:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> `before_insert_deleted_item`</span><br><span class="line">BEFORE <span class="keyword">INSERT</span> <span class="keyword">ON</span> `deleted_item_old`</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">INSERT INTO</span> deleted_item_partitioned (id, user_id, item_id, item_uid, item_type, is_recovery, created_date, updated_date)</span><br><span class="line">  <span class="keyword">VALUES</span> (NEW.id, NEW.user_id, NEW.item_id, NEW.item_uid, NEW.item_type, NEW.is_recovery, NEW.created_date, NEW.updated_date);</span><br><span class="line"><span class="keyword">END</span>$$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-4-Kiem-tra-tinh-nhat-quan-du-lieu"><a href="#Buoc-4-Kiem-tra-tinh-nhat-quan-du-lieu" class="headerlink" title="Bước 4: Kiểm tra tính nhất quán dữ liệu"></a>Bước 4: Kiểm tra tính nhất quán dữ liệu</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- So sánh số lượng records</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> original_count <span class="keyword">FROM</span> deleted_item_old;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> partitioned_count <span class="keyword">FROM</span> deleted_item_partitioned;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Kiểm tra spot-check</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> deleted_item_old <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> deleted_item_partitioned <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-5-Tat-trigger"><a href="#Buoc-5-Tat-trigger" class="headerlink" title="Bước 5: Tắt trigger"></a>Bước 5: Tắt trigger</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TRIGGER</span> IF <span class="keyword">EXISTS</span> `before_insert_deleted_item`;</span><br></pre></td></tr></table></figure>
+
+<h2 id="VI-Doi-ten-va-xoa-bang-cu"><a href="#VI-Doi-ten-va-xoa-bang-cu" class="headerlink" title="VI. Đổi tên và xóa bảng cũ"></a>VI. Đổi tên và xóa bảng cũ</h2><h3 id="Buoc-1-Doi-ten-bang"><a href="#Buoc-1-Doi-ten-bang" class="headerlink" title="Bước 1: Đổi tên bảng"></a>Bước 1: Đổi tên bảng</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RENAME <span class="keyword">TABLE</span> </span><br><span class="line">  deleted_item_old <span class="keyword">TO</span> deleted_item_backup, </span><br><span class="line">  deleted_item_partitioned <span class="keyword">TO</span> deleted_item;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Buoc-2-Xoa-bang-cu-sau-khi-dam-bao-an-toan"><a href="#Buoc-2-Xoa-bang-cu-sau-khi-dam-bao-an-toan" class="headerlink" title="Bước 2: Xóa bảng cũ (sau khi đảm bảo an toàn)"></a>Bước 2: Xóa bảng cũ (sau khi đảm bảo an toàn)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> deleted_item_backup;</span><br></pre></td></tr></table></figure>
+
+<h2 id="VII-Luu-y-quan-trong"><a href="#VII-Luu-y-quan-trong" class="headerlink" title="VII. Lưu ý quan trọng"></a>VII. Lưu ý quan trọng</h2><h3 id="⚠️-Truoc-khi-lam"><a href="#⚠️-Truoc-khi-lam" class="headerlink" title="⚠️ Trước khi làm"></a>⚠️ <strong>Trước khi làm</strong></h3><ul>
+<li><strong>Backup</strong>: Luôn backup trước khi thực hiện bất kỳ thao tác nào</li>
+<li><strong>Testing</strong>: Test kỹ trên DEV và QA environment trước</li>
+<li><strong>Monitoring</strong>: Theo dõi performance sau khi partition</li>
+</ul>
+<h3 id="📈-Sau-khi-partition"><a href="#📈-Sau-khi-partition" class="headerlink" title="📈 Sau khi partition"></a>📈 <strong>Sau khi partition</strong></h3><ul>
+<li>So sánh query performance giữa bảng cũ và mới</li>
+<li>Monitor memory usage và I&#x2F;O</li>
+<li>Kiểm tra application có hoạt động bình thường không</li>
+</ul>
+<h3 id="🎯-Best-Practices"><a href="#🎯-Best-Practices" class="headerlink" title="🎯 Best Practices"></a>🎯 <strong>Best Practices</strong></h3><ul>
+<li>Chọn partition key phù hợp với query pattern</li>
+<li>Tránh cross-partition queries nếu có thể</li>
+<li>Cân nhắc số lượng partition (quá nhiều cũng không tốt)</li>
+<li>Định kỳ maintenance các partition</li>
+</ul>
+<blockquote>
+<p><strong>Kết luận</strong>: Partition là “thuốc bổ” cho bảng lớn, nhưng dôi khi bổ quá cũng không tốt nha bro!</p>
+</blockquote>
+<hr>
+<p><em>Happy querying, happy coding</em></p>
+<p>ph4n4n</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Database-Partitioning-Chia-de-tri-voi-bang-%E2%80%9Ckhung-long%E2%80%9D-%F0%9F%A6%95"><span class="toc-number">1.</span> <span class="toc-text">Database Partitioning - Chia để trị với bảng “khủng long” 🦕</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Partition-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">I. Partition là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#II-Tai-sao-phai-partition-bang-lon"><span class="toc-number">1.2.</span> <span class="toc-text">II. Tại sao phải partition bảng lớn?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-Tang-hieu-suat-query"><span class="toc-number">1.2.1.</span> <span class="toc-text">🚀 Tăng hiệu suất query</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%82%EF%B8%8F-Quan-ly-du-lieu-de-dang"><span class="toc-number">1.2.2.</span> <span class="toc-text">🗂️ Quản lý dữ liệu dễ dàng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Xu-ly-song-song-Parallelism"><span class="toc-number">1.2.3.</span> <span class="toc-text">⚡ Xử lý song song (Parallelism)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-Toi-uu-index"><span class="toc-number">1.2.4.</span> <span class="toc-text">📊 Tối ưu index</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#III-Cac-loai-Partition-va-khi-nao-dung"><span class="toc-number">1.3.</span> <span class="toc-text">III. Các loại Partition và khi nào dùng</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%93%EF%B8%8F-Range-Partitioning"><span class="toc-number">1.3.1.</span> <span class="toc-text">🗓️ Range Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8B-List-Partitioning"><span class="toc-number">1.3.2.</span> <span class="toc-text">📋 List Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%80-Hash-Partitioning"><span class="toc-number">1.3.3.</span> <span class="toc-text">🔀 Hash Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%91-Key-Partitioning"><span class="toc-number">1.3.4.</span> <span class="toc-text">🔑 Key Partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Composite-Partitioning"><span class="toc-number">1.3.5.</span> <span class="toc-text">🎯 Composite Partitioning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IV-Vi-du-thuc-te-Bang-deleted-item"><span class="toc-number">1.4.</span> <span class="toc-text">IV. Ví dụ thực tế: Bảng deleted_item</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-goc-chua-partition"><span class="toc-number">1.4.1.</span> <span class="toc-text">Bảng gốc (chưa partition):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bang-sau-khi-partition-theo-item-type"><span class="toc-number">1.4.2.</span> <span class="toc-text">Bảng sau khi partition (theo item_type):</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#V-Ke-hoach-Migration"><span class="toc-number">1.5.</span> <span class="toc-text">V. Kế hoạch Migration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Tao-bang-moi-co-partition"><span class="toc-number">1.5.1.</span> <span class="toc-text">Bước 1: Tạo bảng mới có partition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-Migrate-du-lieu-hien-tai"><span class="toc-number">1.5.2.</span> <span class="toc-text">Bước 2: Migrate dữ liệu hiện tại</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-Tao-trigger-cho-du-lieu-moi"><span class="toc-number">1.5.3.</span> <span class="toc-text">Bước 3: Tạo trigger cho dữ liệu mới</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-4-Kiem-tra-tinh-nhat-quan-du-lieu"><span class="toc-number">1.5.4.</span> <span class="toc-text">Bước 4: Kiểm tra tính nhất quán dữ liệu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-5-Tat-trigger"><span class="toc-number">1.5.5.</span> <span class="toc-text">Bước 5: Tắt trigger</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VI-Doi-ten-va-xoa-bang-cu"><span class="toc-number">1.6.</span> <span class="toc-text">VI. Đổi tên và xóa bảng cũ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-Doi-ten-bang"><span class="toc-number">1.6.1.</span> <span class="toc-text">Bước 1: Đổi tên bảng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-Xoa-bang-cu-sau-khi-dam-bao-an-toan"><span class="toc-number">1.6.2.</span> <span class="toc-text">Bước 2: Xóa bảng cũ (sau khi đảm bảo an toàn)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VII-Luu-y-quan-trong"><span class="toc-number">1.7.</span> <span class="toc-text">VII. Lưu ý quan trọng</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-Truoc-khi-lam"><span class="toc-number">1.7.1.</span> <span class="toc-text">⚠️ Trước khi làm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-Sau-khi-partition"><span class="toc-number">1.7.2.</span> <span class="toc-text">📈 Sau khi partition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Best-Practices"><span class="toc-number">1.7.3.</span> <span class="toc-text">🎯 Best Practices</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&text=Partition Trong Database Tối Giản"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&is_video=false&description=Partition Trong Database Tối Giản"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Partition Trong Database Tối Giản&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&title=Partition Trong Database Tối Giản"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&name=Partition Trong Database Tối Giản&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Partition-trong-database-toi-gian/&t=Partition Trong Database Tối Giản"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>
