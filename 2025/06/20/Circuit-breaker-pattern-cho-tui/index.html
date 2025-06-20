@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡Circuit Breaker là cái gì?Circuit Breaker là một design pattern giống như cầu dao điện trong nhà bạn. Khi có chập điện (service lỗi), nó sẽ t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Circuit Breaker Pattern Cho Tui">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡Circuit Breaker là cái gì?Circuit Breaker là một design pattern giống như cầu dao điện trong nhà bạn. Khi có chập điện (service lỗi), nó sẽ t">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-20T10:28:09.000Z">
+<meta property="article:modified_time" content="2025-06-20T10:29:32.837Z">
+<meta property="article:author" content="Anph">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="design-pattern">
+<meta property="article:tag" content="microservices">
+<meta property="article:tag" content="nodejs">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Circuit Breaker Pattern Cho Tui</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&text=Circuit Breaker Pattern Cho Tui"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&is_video=false&description=Circuit Breaker Pattern Cho Tui"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Circuit Breaker Pattern Cho Tui&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&name=Circuit Breaker Pattern Cho Tui&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&t=Circuit Breaker Pattern Cho Tui"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Circuit-Breaker-Pattern-%E2%80%9CCau-dao-tu-dong%E2%80%9D-cho-he-thong-%E2%9A%A1"><span class="toc-number">1.</span> <span class="toc-text">Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Circuit-Breaker-la-cai-gi"><span class="toc-number">1.1.</span> <span class="toc-text">Circuit Breaker là cái gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tai-sao-can-Circuit-Breaker"><span class="toc-number">1.2.</span> <span class="toc-text">Tại sao cần Circuit Breaker?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-Van-de-khi-khong-co-Circuit-Breaker"><span class="toc-number">1.2.1.</span> <span class="toc-text">🔥 Vấn đề khi không có Circuit Breaker:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Voi-Circuit-Breaker"><span class="toc-number">1.2.2.</span> <span class="toc-text">✅ Với Circuit Breaker:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-trang-thai-cua-Circuit-Breaker"><span class="toc-number">1.3.</span> <span class="toc-text">3 trạng thái của Circuit Breaker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9F%A2-CLOSED-Dong-Hoat-dong-binh-thuong"><span class="toc-number">1.3.1.</span> <span class="toc-text">🟢 CLOSED (Đóng) - Hoạt động bình thường</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B4-OPEN-Mo-Ngat-hoan-toan"><span class="toc-number">1.3.2.</span> <span class="toc-text">🔴 OPEN (Mở) - Ngắt hoàn toàn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9F%A1-HALF-OPEN-Nua-mo-Thu-nghiem"><span class="toc-number">1.3.3.</span> <span class="toc-text">🟡 HALF-OPEN (Nửa mở) - Thử nghiệm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implement-Circuit-Breaker-bang-JavaScript"><span class="toc-number">1.4.</span> <span class="toc-text">Implement Circuit Breaker bằng JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phien-ban-don-gian"><span class="toc-number">1.4.1.</span> <span class="toc-text">Phiên bản đơn giản:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Su-dung-thuc-te"><span class="toc-number">1.4.2.</span> <span class="toc-text">Sử dụng thực tế:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Voi-thu-vien-co-san-opossum"><span class="toc-number">1.5.</span> <span class="toc-text">Với thư viện có sẵn (opossum)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cai-dat"><span class="toc-number">1.5.1.</span> <span class="toc-text">Cài đặt:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Su-dung"><span class="toc-number">1.5.2.</span> <span class="toc-text">Sử dụng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-voi-Express-js"><span class="toc-number">1.6.</span> <span class="toc-text">Ví dụ thực tế với Express.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Monitoring-va-Metrics"><span class="toc-number">1.7.</span> <span class="toc-text">Monitoring và Metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-Practices"><span class="toc-number">1.8.</span> <span class="toc-text">Best Practices</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Nen-lam"><span class="toc-number">1.8.1.</span> <span class="toc-text">✅ Nên làm:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-nen"><span class="toc-number">1.8.2.</span> <span class="toc-text">❌ Không nên:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-dung-Circuit-Breaker"><span class="toc-number">1.9.</span> <span class="toc-text">Khi nào dùng Circuit Breaker?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Phu-hop"><span class="toc-number">1.9.1.</span> <span class="toc-text">🎯 Phù hợp:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%AB-Khong-can-thiet"><span class="toc-number">1.9.2.</span> <span class="toc-text">🚫 Không cần thiết:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">1.10.</span> <span class="toc-text">Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Circuit Breaker Pattern Cho Tui
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Anph</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-20T10:28:09.000Z" class="dt-published" itemprop="datePublished">2025-06-20</time>
+        
+        (Updated: <time datetime="2025-06-20T10:29:32.837Z" class="dt-updated" itemprop="dateModified">2025-06-20</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/design-pattern/" rel="tag">design-pattern</a>, <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>, <a class="p-category" href="/tags/microservices/" rel="tag">microservices</a>, <a class="p-category" href="/tags/nodejs/" rel="tag">nodejs</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡"><a href="#Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡" class="headerlink" title="Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡"></a>Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡</h1><h2 id="Circuit-Breaker-la-cai-gi"><a href="#Circuit-Breaker-la-cai-gi" class="headerlink" title="Circuit Breaker là cái gì?"></a>Circuit Breaker là cái gì?</h2><p><strong>Circuit Breaker</strong> là một design pattern giống như <strong>cầu dao điện</strong> trong nhà bạn. Khi có chập điện (service lỗi), nó sẽ tự động <strong>ngắt</strong> để bảo vệ toàn bộ hệ thống khỏi bị cháy! 🔥</p>
+<blockquote>
+<p><strong>Ví dụ đời thường</strong>: Khi tủ lạnh chập điện, cầu dao tự ngắt để không làm cháy cả nhà. Sau một lúc, bạn thử bật lại xem đã ổn chưa.</p>
+</blockquote>
+<h2 id="Tai-sao-can-Circuit-Breaker"><a href="#Tai-sao-can-Circuit-Breaker" class="headerlink" title="Tại sao cần Circuit Breaker?"></a>Tại sao cần Circuit Breaker?</h2><h3 id="🔥-Van-de-khi-khong-co-Circuit-Breaker"><a href="#🔥-Van-de-khi-khong-co-Circuit-Breaker" class="headerlink" title="🔥 Vấn đề khi không có Circuit Breaker:"></a>🔥 <strong>Vấn đề khi không có Circuit Breaker:</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Service A gọi Service B</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getUserData</span>(<span class="params">userId</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// Service B đang down, mỗi request đều timeout sau 30s</span></span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`http://service-b/users/<span class="subst">$&#123;userId&#125;</span>`</span>, &#123;</span><br><span class="line">            <span class="attr">timeout</span>: <span class="number">30000</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> response.<span class="title function_">json</span>();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="comment">// Cứ 30s mới biết lỗi, tốn tài nguyên vô ích!</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Service B is down!&#x27;</span>);</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Kết quả: 1000 requests = 1000 x 30s = 8.3 giờ chờ đợi vô nghĩa! 😱</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Voi-Circuit-Breaker"><a href="#✅-Voi-Circuit-Breaker" class="headerlink" title="✅ Với Circuit Breaker:"></a>✅ <strong>Với Circuit Breaker:</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sau 3 lần fail, ngắt luôn trong 60s</span></span><br><span class="line"><span class="keyword">const</span> circuitBreaker = <span class="keyword">new</span> <span class="title class_">CircuitBreaker</span>(getUserData, &#123;</span><br><span class="line">    <span class="attr">failureThreshold</span>: <span class="number">3</span>,    <span class="comment">// 3 lần fail thì ngắt</span></span><br><span class="line">    <span class="attr">timeout</span>: <span class="number">5000</span>,          <span class="comment">// Timeout 5s thay vì 30s</span></span><br><span class="line">    <span class="attr">resetTimeout</span>: <span class="number">60000</span>     <span class="comment">// Thử lại sau 60s</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Kết quả: Fail nhanh, tiết kiệm tài nguyên, user experience tốt hơn!</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-trang-thai-cua-Circuit-Breaker"><a href="#3-trang-thai-cua-Circuit-Breaker" class="headerlink" title="3 trạng thái của Circuit Breaker"></a>3 trạng thái của Circuit Breaker</h2><h3 id="🟢-CLOSED-Dong-Hoat-dong-binh-thuong"><a href="#🟢-CLOSED-Dong-Hoat-dong-binh-thuong" class="headerlink" title="🟢 CLOSED (Đóng) - Hoạt động bình thường"></a>🟢 <strong>CLOSED (Đóng) - Hoạt động bình thường</strong></h3><ul>
+<li>Requests được chuyển tiếp bình thường</li>
+<li>Đếm số lần fail</li>
+<li>Khi fail đạt threshold → chuyển sang OPEN</li>
+</ul>
+<h3 id="🔴-OPEN-Mo-Ngat-hoan-toan"><a href="#🔴-OPEN-Mo-Ngat-hoan-toan" class="headerlink" title="🔴 OPEN (Mở) - Ngắt hoàn toàn"></a>🔴 <strong>OPEN (Mở) - Ngắt hoàn toàn</strong></h3><ul>
+<li>Tất cả requests bị reject ngay lập tức</li>
+<li>Không gọi service nữa (fast fail)</li>
+<li>Sau một khoảng thời gian → chuyển sang HALF-OPEN</li>
+</ul>
+<h3 id="🟡-HALF-OPEN-Nua-mo-Thu-nghiem"><a href="#🟡-HALF-OPEN-Nua-mo-Thu-nghiem" class="headerlink" title="🟡 HALF-OPEN (Nửa mở) - Thử nghiệm"></a>🟡 <strong>HALF-OPEN (Nửa mở) - Thử nghiệm</strong></h3><ul>
+<li>Cho phép một số requests thử nghiệm</li>
+<li>Nếu thành công → về CLOSED</li>
+<li>Nếu fail → về OPEN</li>
+</ul>
+<h2 id="Implement-Circuit-Breaker-bang-JavaScript"><a href="#Implement-Circuit-Breaker-bang-JavaScript" class="headerlink" title="Implement Circuit Breaker bằng JavaScript"></a>Implement Circuit Breaker bằng JavaScript</h2><h3 id="Phien-ban-don-gian"><a href="#Phien-ban-don-gian" class="headerlink" title="Phiên bản đơn giản:"></a>Phiên bản đơn giản:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCircuitBreaker</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">fn, options = &#123;&#125;</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">fn</span> = fn;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">failureThreshold</span> = options.<span class="property">failureThreshold</span> || <span class="number">3</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">resetTimeout</span> = options.<span class="property">resetTimeout</span> || <span class="number">60000</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">timeout</span> = options.<span class="property">timeout</span> || <span class="number">5000</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// State</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span> = <span class="string">&#x27;CLOSED&#x27;</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">failureCount</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastFailureTime</span> = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">call</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="comment">// Kiểm tra state hiện tại</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">state</span> === <span class="string">&#x27;OPEN&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title class_">Date</span>.<span class="title function_">now</span>() - <span class="variable language_">this</span>.<span class="property">lastFailureTime</span> &lt; <span class="variable language_">this</span>.<span class="property">resetTimeout</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Circuit breaker is OPEN&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Chuyển sang HALF-OPEN để thử</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">state</span> = <span class="string">&#x27;HALF-OPEN&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// Thực hiện request với timeout</span></span><br><span class="line">            <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">race</span>([</span><br><span class="line">                <span class="variable language_">this</span>.<span class="title function_">fn</span>(...args),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">_, reject</span>) =&gt;</span> </span><br><span class="line">                    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Timeout&#x27;</span>)), <span class="variable language_">this</span>.<span class="property">timeout</span>)</span><br><span class="line">                )</span><br><span class="line">            ]);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Thành công → reset về CLOSED</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">reset</span>();</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">            <span class="comment">// Fail → tăng counter</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">recordFailure</span>();</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">recordFailure</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">failureCount</span>++;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastFailureTime</span> = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">failureCount</span> &gt;= <span class="variable language_">this</span>.<span class="property">failureThreshold</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">state</span> = <span class="string">&#x27;OPEN&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">reset</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">failureCount</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span> = <span class="string">&#x27;CLOSED&#x27;</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastFailureTime</span> = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Su-dung-thuc-te"><a href="#Su-dung-thuc-te" class="headerlink" title="Sử dụng thực tế:"></a>Sử dụng thực tế:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tạo circuit breaker cho API call</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiCall</span> = <span class="keyword">async</span> (<span class="params">url</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url);</span><br><span class="line">    <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`HTTP <span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> protectedApiCall = <span class="keyword">new</span> <span class="title class_">SimpleCircuitBreaker</span>(apiCall, &#123;</span><br><span class="line">    <span class="attr">failureThreshold</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">resetTimeout</span>: <span class="number">30000</span>,  <span class="comment">// 30s</span></span><br><span class="line">    <span class="attr">timeout</span>: <span class="number">5000</span>         <span class="comment">// 5s</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sử dụng</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchUserData</span>(<span class="params">userId</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">await</span> protectedApiCall.<span class="title function_">call</span>(<span class="string">`/api/users/<span class="subst">$&#123;userId&#125;</span>`</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="comment">// Fallback strategy</span></span><br><span class="line">        <span class="keyword">if</span> (error.<span class="property">message</span> === <span class="string">&#x27;Circuit breaker is OPEN&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123; <span class="attr">id</span>: userId, <span class="attr">name</span>: <span class="string">&#x27;Unknown&#x27;</span>, <span class="attr">cached</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Voi-thu-vien-co-san-opossum"><a href="#Voi-thu-vien-co-san-opossum" class="headerlink" title="Với thư viện có sẵn (opossum)"></a>Với thư viện có sẵn (opossum)</h2><h3 id="Cai-dat"><a href="#Cai-dat" class="headerlink" title="Cài đặt:"></a>Cài đặt:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install opossum</span><br></pre></td></tr></table></figure>
+
+<h3 id="Su-dung"><a href="#Su-dung" class="headerlink" title="Sử dụng:"></a>Sử dụng:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">CircuitBreaker</span> = <span class="built_in">require</span>(<span class="string">&#x27;opossum&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Function cần protect</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchUserProfile</span>(<span class="params">userId</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`https://api.example.com/users/<span class="subst">$&#123;userId&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Tạo circuit breaker</span></span><br><span class="line"><span class="keyword">const</span> breaker = <span class="keyword">new</span> <span class="title class_">CircuitBreaker</span>(fetchUserProfile, &#123;</span><br><span class="line">    <span class="attr">timeout</span>: <span class="number">3000</span>,          <span class="comment">// 3s timeout</span></span><br><span class="line">    <span class="attr">errorThresholdPercentage</span>: <span class="number">50</span>,  <span class="comment">// 50% error rate</span></span><br><span class="line">    <span class="attr">resetTimeout</span>: <span class="number">30000</span>,    <span class="comment">// 30s reset time</span></span><br><span class="line">    <span class="attr">rollingCountTimeout</span>: <span class="number">10000</span>,    <span class="comment">// 10s rolling window</span></span><br><span class="line">    <span class="attr">rollingCountBuckets</span>: <span class="number">10</span>        <span class="comment">// 10 buckets</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Event listeners</span></span><br><span class="line">breaker.<span class="title function_">on</span>(<span class="string">&#x27;open&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Circuit breaker is OPEN&#x27;</span>));</span><br><span class="line">breaker.<span class="title function_">on</span>(<span class="string">&#x27;halfOpen&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Circuit breaker is HALF-OPEN&#x27;</span>));</span><br><span class="line">breaker.<span class="title function_">on</span>(<span class="string">&#x27;close&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Circuit breaker is CLOSED&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Fallback khi circuit breaker open</span></span><br><span class="line">breaker.<span class="title function_">fallback</span>(<span class="function">(<span class="params">userId</span>) =&gt;</span> (&#123; </span><br><span class="line">    <span class="attr">id</span>: userId, </span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Service Unavailable&#x27;</span>,</span><br><span class="line">    <span class="attr">cached</span>: <span class="literal">true</span> </span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sử dụng</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getUserProfile</span>(<span class="params">userId</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">await</span> breaker.<span class="title function_">fire</span>(userId);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Failed to get user profile:&#x27;</span>, error);</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vi-du-thuc-te-voi-Express-js"><a href="#Vi-du-thuc-te-voi-Express-js" class="headerlink" title="Ví dụ thực tế với Express.js"></a>Ví dụ thực tế với Express.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CircuitBreaker</span> = <span class="built_in">require</span>(<span class="string">&#x27;opossum&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Database connection với circuit breaker</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">dbQuery</span> = <span class="keyword">async</span> (<span class="params">query</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// Giả lập database query</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Math</span>.<span class="title function_">random</span>() &lt; <span class="number">0.3</span>) &#123; <span class="comment">// 30% fail rate</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Database connection failed&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">result</span>: <span class="string">&#x27;success&#x27;</span>, query &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dbCircuitBreaker = <span class="keyword">new</span> <span class="title class_">CircuitBreaker</span>(dbQuery, &#123;</span><br><span class="line">    <span class="attr">timeout</span>: <span class="number">2000</span>,</span><br><span class="line">    <span class="attr">errorThresholdPercentage</span>: <span class="number">25</span>,</span><br><span class="line">    <span class="attr">resetTimeout</span>: <span class="number">10000</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Fallback cho database</span></span><br><span class="line">dbCircuitBreaker.<span class="title function_">fallback</span>(<span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    <span class="attr">result</span>: <span class="string">&#x27;cached&#x27;</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;Database unavailable, serving cached data&#x27;</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// API endpoint</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/data&#x27;</span>, <span class="title function_">async</span> (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="keyword">await</span> dbCircuitBreaker.<span class="title function_">fire</span>(<span class="string">&#x27;SELECT * FROM users&#x27;</span>);</span><br><span class="line">        res.<span class="title function_">json</span>(result);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        res.<span class="title function_">status</span>(<span class="number">503</span>).<span class="title function_">json</span>(&#123; </span><br><span class="line">            <span class="attr">error</span>: <span class="string">&#x27;Service temporarily unavailable&#x27;</span>,</span><br><span class="line">            <span class="attr">circuitBreakerState</span>: dbCircuitBreaker.<span class="property">stats</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server running on port 3000&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Monitoring-va-Metrics"><a href="#Monitoring-va-Metrics" class="headerlink" title="Monitoring và Metrics"></a>Monitoring và Metrics</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Theo dõi stats của circuit breaker</span></span><br><span class="line"><span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> stats = breaker.<span class="property">stats</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Circuit Breaker Stats:&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">requests</span>: stats.<span class="property">requests</span>,</span><br><span class="line">        <span class="attr">successes</span>: stats.<span class="property">successes</span>,</span><br><span class="line">        <span class="attr">failures</span>: stats.<span class="property">failures</span>,</span><br><span class="line">        <span class="attr">rejects</span>: stats.<span class="property">rejects</span>,</span><br><span class="line">        <span class="attr">rate</span>: (stats.<span class="property">successes</span> / stats.<span class="property">requests</span> * <span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>) + <span class="string">&#x27;%&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, <span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Health check endpoint</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/health&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> stats = breaker.<span class="property">stats</span>;</span><br><span class="line">    res.<span class="title function_">json</span>(&#123;</span><br><span class="line">        <span class="attr">circuitBreaker</span>: &#123;</span><br><span class="line">            <span class="attr">state</span>: breaker.<span class="property">opened</span> ? <span class="string">&#x27;OPEN&#x27;</span> : breaker.<span class="property">halfOpen</span> ? <span class="string">&#x27;HALF-OPEN&#x27;</span> : <span class="string">&#x27;CLOSED&#x27;</span>,</span><br><span class="line">            <span class="attr">stats</span>: stats</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h2><h3 id="✅-Nen-lam"><a href="#✅-Nen-lam" class="headerlink" title="✅ Nên làm:"></a>✅ <strong>Nên làm:</strong></h3><ul>
+<li>Đặt timeout hợp lý (không quá ngắn, không quá dài)</li>
+<li>Implement fallback strategy (cache, default values)</li>
+<li>Monitor metrics và alerts</li>
+<li>Test các scenarios: normal, failure, recovery</li>
+</ul>
+<h3 id="❌-Khong-nen"><a href="#❌-Khong-nen" class="headerlink" title="❌ Không nên:"></a>❌ <strong>Không nên:</strong></h3><ul>
+<li>Dùng circuit breaker cho mọi thứ (overkill)</li>
+<li>Đặt threshold quá thấp (false positive)</li>
+<li>Quên implement fallback</li>
+<li>Hardcode config (nên dùng environment variables)</li>
+</ul>
+<h2 id="Khi-nao-dung-Circuit-Breaker"><a href="#Khi-nao-dung-Circuit-Breaker" class="headerlink" title="Khi nào dùng Circuit Breaker?"></a>Khi nào dùng Circuit Breaker?</h2><h3 id="🎯-Phu-hop"><a href="#🎯-Phu-hop" class="headerlink" title="🎯 Phù hợp:"></a>🎯 <strong>Phù hợp:</strong></h3><ul>
+<li>Microservices architecture</li>
+<li>External API calls</li>
+<li>Database connections</li>
+<li>Third-party services</li>
+</ul>
+<h3 id="🚫-Khong-can-thiet"><a href="#🚫-Khong-can-thiet" class="headerlink" title="🚫 Không cần thiết:"></a>🚫 <strong>Không cần thiết:</strong></h3><ul>
+<li>Internal function calls</li>
+<li>File system operations</li>
+<li>Simple CRUD operations</li>
+</ul>
+<h2 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h2><p>Circuit Breaker Pattern giống như <strong>bảo hiểm cho code</strong> - bạn hy vọng không bao giờ phải dùng, nhưng khi cần thì nó cứu cả hệ thống! 🛡️</p>
+<p><strong>Nhớ công thức:</strong></p>
+<ul>
+<li><strong>CLOSED</strong> &#x3D; Hoạt động bình thường ✅</li>
+<li><strong>OPEN</strong> &#x3D; Ngắt để bảo vệ 🔴  </li>
+<li><strong>HALF-OPEN</strong> &#x3D; Thử nghiệm cẩn thận 🟡</li>
+</ul>
+<p>Giờ đi implement thôi! Hệ thống của bạn sẽ resilient hơn nhiều! 🚀</p>
+<hr>
+<p><em>“Fail fast, recover faster!”</em> ⚡</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Circuit-Breaker-Pattern-%E2%80%9CCau-dao-tu-dong%E2%80%9D-cho-he-thong-%E2%9A%A1"><span class="toc-number">1.</span> <span class="toc-text">Circuit Breaker Pattern - “Cầu dao tự động” cho hệ thống! ⚡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Circuit-Breaker-la-cai-gi"><span class="toc-number">1.1.</span> <span class="toc-text">Circuit Breaker là cái gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tai-sao-can-Circuit-Breaker"><span class="toc-number">1.2.</span> <span class="toc-text">Tại sao cần Circuit Breaker?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-Van-de-khi-khong-co-Circuit-Breaker"><span class="toc-number">1.2.1.</span> <span class="toc-text">🔥 Vấn đề khi không có Circuit Breaker:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Voi-Circuit-Breaker"><span class="toc-number">1.2.2.</span> <span class="toc-text">✅ Với Circuit Breaker:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-trang-thai-cua-Circuit-Breaker"><span class="toc-number">1.3.</span> <span class="toc-text">3 trạng thái của Circuit Breaker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9F%A2-CLOSED-Dong-Hoat-dong-binh-thuong"><span class="toc-number">1.3.1.</span> <span class="toc-text">🟢 CLOSED (Đóng) - Hoạt động bình thường</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B4-OPEN-Mo-Ngat-hoan-toan"><span class="toc-number">1.3.2.</span> <span class="toc-text">🔴 OPEN (Mở) - Ngắt hoàn toàn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9F%A1-HALF-OPEN-Nua-mo-Thu-nghiem"><span class="toc-number">1.3.3.</span> <span class="toc-text">🟡 HALF-OPEN (Nửa mở) - Thử nghiệm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implement-Circuit-Breaker-bang-JavaScript"><span class="toc-number">1.4.</span> <span class="toc-text">Implement Circuit Breaker bằng JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phien-ban-don-gian"><span class="toc-number">1.4.1.</span> <span class="toc-text">Phiên bản đơn giản:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Su-dung-thuc-te"><span class="toc-number">1.4.2.</span> <span class="toc-text">Sử dụng thực tế:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Voi-thu-vien-co-san-opossum"><span class="toc-number">1.5.</span> <span class="toc-text">Với thư viện có sẵn (opossum)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cai-dat"><span class="toc-number">1.5.1.</span> <span class="toc-text">Cài đặt:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Su-dung"><span class="toc-number">1.5.2.</span> <span class="toc-text">Sử dụng:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-voi-Express-js"><span class="toc-number">1.6.</span> <span class="toc-text">Ví dụ thực tế với Express.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Monitoring-va-Metrics"><span class="toc-number">1.7.</span> <span class="toc-text">Monitoring và Metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-Practices"><span class="toc-number">1.8.</span> <span class="toc-text">Best Practices</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Nen-lam"><span class="toc-number">1.8.1.</span> <span class="toc-text">✅ Nên làm:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9D%8C-Khong-nen"><span class="toc-number">1.8.2.</span> <span class="toc-text">❌ Không nên:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khi-nao-dung-Circuit-Breaker"><span class="toc-number">1.9.</span> <span class="toc-text">Khi nào dùng Circuit Breaker?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Phu-hop"><span class="toc-number">1.9.1.</span> <span class="toc-text">🎯 Phù hợp:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%AB-Khong-can-thiet"><span class="toc-number">1.9.2.</span> <span class="toc-text">🚫 Không cần thiết:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-luan"><span class="toc-number">1.10.</span> <span class="toc-text">Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&text=Circuit Breaker Pattern Cho Tui"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&is_video=false&description=Circuit Breaker Pattern Cho Tui"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Circuit Breaker Pattern Cho Tui&body=Check out this article: https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&title=Circuit Breaker Pattern Cho Tui"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&name=Circuit Breaker Pattern Cho Tui&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/&t=Circuit Breaker Pattern Cho Tui"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Anph
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

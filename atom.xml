@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-20T10:23:07.198Z</updated>
+  <updated>2025-06-20T10:29:32.837Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Circuit Breaker Pattern Cho Tui</title>
+    <link href="https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"/>
+    <id>https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/</id>
+    <published>2025-06-20T10:28:09.000Z</published>
+    <updated>2025-06-20T10:29:32.837Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡&quot;&gt;&lt;a href=&quot;#Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    
+    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
+    
+    <category term="microservices" scheme="https://ph4n4n.github.io/tags/microservices/"/>
+    
+    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
     <link href="https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
     <id>https://ph4n4n.github.io/2025/06/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
     <published>2025-06-20T10:19:44.000Z</published>
-    <updated>2025-06-20T10:23:07.198Z</updated>
+    <updated>2025-06-20T10:37:57.156Z</updated>
     
     
       
@@ -120,9 +151,9 @@
     <category term="oop" scheme="https://ph4n4n.github.io/categories/oop/"/>
     
     
-    <category term="oop" scheme="https://ph4n4n.github.io/tags/oop/"/>
-    
     <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
+    
+    <category term="oop" scheme="https://ph4n4n.github.io/tags/oop/"/>
     
   </entry>
   
@@ -511,35 +542,6 @@
     
     
     <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Client - Server Token Validate</title>
-    <link href="https://ph4n4n.github.io/2018/05/29/client-server-token-validate/"/>
-    <id>https://ph4n4n.github.io/2018/05/29/client-server-token-validate/</id>
-    <published>2018-05-29T03:23:02.000Z</published>
-    <updated>2025-06-19T06:31:21.344Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Diagram&quot;&gt;&lt;a href=&quot;#Diagram&quot; class=&quot;headerlink&quot; title=&quot;Diagram&quot;&gt;&lt;/a&gt;Diagram&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;#&lt;/th&gt;
-&lt;th</summary>
-        
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://ph4n4n.github.io/categories/algorithm/"/>
-    
-    
-    <category term="algorithm" scheme="https://ph4n4n.github.io/tags/algorithm/"/>
     
   </entry>
   
