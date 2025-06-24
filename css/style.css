@@ -1190,11 +1190,13 @@ pre code {
 }
 .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
   margin-left: 0;
   list-style-type: none;
+  background-color: rgba(0,0,0,0.1);
 }
 .post-list .post-item .meta {
   display: block;
@@ -1369,6 +1371,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -1387,6 +1390,7 @@ article .content .caption {
     display: flex;
     margin-bottom: 5px;
     margin-left: 1rem;
+    background-color: rgba(0,0,0,0.1);
   }
   #archive .post-list .post-item .meta {
     text-align: left;
@@ -2289,11 +2293,13 @@ code {
 }
 .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
   margin-left: 0;
   list-style-type: none;
+  background-color: rgba(0,0,0,0.1);
 }
 .post-list .post-item .meta {
   display: block;
@@ -2468,6 +2474,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -2486,6 +2493,7 @@ article .content .caption {
     display: flex;
     margin-bottom: 5px;
     margin-left: 1rem;
+    background-color: rgba(0,0,0,0.1);
   }
   #archive .post-list .post-item .meta {
     text-align: left;
@@ -3188,11 +3196,13 @@ pre code {
 }
 .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
   margin-left: 0;
   list-style-type: none;
+  background-color: rgba(0,0,0,0.1);
 }
 .post-list .post-item .meta {
   display: block;
@@ -3367,6 +3377,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
+  margin-bottom: 5rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -3385,6 +3396,7 @@ article .content .caption {
     display: flex;
     margin-bottom: 5px;
     margin-left: 1rem;
+    background-color: rgba(0,0,0,0.1);
   }
   #archive .post-list .post-item .meta {
     text-align: left;
