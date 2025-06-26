@@ -353,6 +353,13 @@
 
   
   <url>
+    <loc>https://ph4n4n.github.io/tags/regex/</loc>
+    <lastmod>2025-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/tags/git/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -360,7 +367,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/regex/</loc>
+    <loc>https://ph4n4n.github.io/tags/javascript/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -374,7 +381,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/javascript/</loc>
+    <loc>https://ph4n4n.github.io/tags/python/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -402,20 +409,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/docker/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/python/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/tags/programming/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -424,6 +417,27 @@
   
   <url>
     <loc>https://ph4n4n.github.io/tags/concepts/</loc>
+    <lastmod>2025-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/docker/</loc>
+    <lastmod>2025-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/mysql/</loc>
+    <lastmod>2025-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/performance/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -451,20 +465,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/mysql/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/performance/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/tags/oop/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -472,7 +472,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/algorithm/</loc>
+    <loc>https://ph4n4n.github.io/tags/socket-io/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -500,7 +500,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/socket-io/</loc>
+    <loc>https://ph4n4n.github.io/tags/algorithm/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -537,13 +537,6 @@
 
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/git/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/categories/regex/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -551,7 +544,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/database/</loc>
+    <loc>https://ph4n4n.github.io/categories/git/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -565,7 +558,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/docker/</loc>
+    <loc>https://ph4n4n.github.io/categories/database/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -573,6 +566,13 @@
   
   <url>
     <loc>https://ph4n4n.github.io/categories/python/</loc>
+    <lastmod>2025-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/docker/</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
