@@ -121,8 +121,6 @@
     
     <category term="ES6" scheme="https://ph4n4n.github.io/tags/ES6/"/>
     
-    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
-    
     <category term="TypeScript" scheme="https://ph4n4n.github.io/tags/TypeScript/"/>
     
     <category term="Tutorial" scheme="https://ph4n4n.github.io/tags/Tutorial/"/>
@@ -130,6 +128,8 @@
     <category term="Beginner" scheme="https://ph4n4n.github.io/tags/Beginner/"/>
     
     <category term="Type System" scheme="https://ph4n4n.github.io/tags/Type-System/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
   </entry>
   

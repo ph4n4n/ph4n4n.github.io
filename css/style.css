@@ -1189,7 +1189,7 @@ pre code {
 }
 .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
@@ -1202,6 +1202,11 @@ pre code {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+.tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: inline-block;
 }
 @media (min-width: 480px) {
   .post-list .post-item {
@@ -1382,10 +1387,6 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
-}
-#archive .tagcloud {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
@@ -2294,7 +2295,7 @@ code {
 }
 .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
@@ -2307,6 +2308,11 @@ code {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+.tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: inline-block;
 }
 @media (min-width: 480px) {
   .post-list .post-item {
@@ -2487,10 +2493,6 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
-}
-#archive .tagcloud {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
@@ -3199,7 +3201,7 @@ pre code {
 }
 .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .post-list .post-item {
   margin-bottom: 1rem;
@@ -3212,6 +3214,11 @@ pre code {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+.tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: inline-block;
 }
 @media (min-width: 480px) {
   .post-list .post-item {
@@ -3392,10 +3399,6 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
-}
-#archive .tagcloud {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
