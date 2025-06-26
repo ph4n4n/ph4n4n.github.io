@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Zero to Hero: Docker - Containerization từ cơ bản đến nâng caoDocker là platform containerization hàng đầu, giúp đóng gói ứng dụng và dependencies vào containers độc lập, đảm bảo consistency từ develo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Zero to Hero: Docker - Containerization từ cơ bản đến nâng caoDocker là platform containerization hàng đầu, giúp đóng gói ứng dụng và dependencies vào containers độc lập, đảm bảo consistency từ develo">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:published_time" content="2025-01-27T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-26T09:30:39.384Z">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Container">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Virtualization">
+<meta property="article:tag" content="Microservices">
+<meta property="article:tag" content="CI&#x2F;CD">
+<meta property="article:tag" content="Deployment">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Bài trước" href="/2025/06/20/ACID-trong-DBMS/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Bài tiếp theo" href="/2025/01/27/Zero-to-hero-ExpressJS/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Về đầu trang" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Chia sẻ bài viết" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&text=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&is_video=false&description=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&name=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&t=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero: Docker - Containerization từ cơ bản đến nâng cao</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Docker-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">1. Docker là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dac-diem-chinh"><span class="toc-number">1.1.1.</span> <span class="toc-text">Đặc điểm chính:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#So-sanh-voi-Virtual-Machine"><span class="toc-number">1.1.2.</span> <span class="toc-text">So sánh với Virtual Machine:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Cai-dat-Docker"><span class="toc-number">1.2.</span> <span class="toc-text">2. Cài đặt Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">1.2.1.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-Debian"><span class="toc-number">1.2.2.</span> <span class="toc-text">Ubuntu&#x2F;Debian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">1.2.3.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kiem-tra-cai-dat"><span class="toc-number">1.2.4.</span> <span class="toc-text">Kiểm tra cài đặt</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-Concepts"><span class="toc-number">1.3.</span> <span class="toc-text">3. Docker Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Components"><span class="toc-number">1.3.1.</span> <span class="toc-text">Core Components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-Terms"><span class="toc-number">1.3.2.</span> <span class="toc-text">Key Terms</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-Commands-co-ban"><span class="toc-number">1.4.</span> <span class="toc-text">4. Docker Commands cơ bản</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Images"><span class="toc-number">1.4.1.</span> <span class="toc-text">Images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Containers"><span class="toc-number">1.4.2.</span> <span class="toc-text">Containers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System"><span class="toc-number">1.4.3.</span> <span class="toc-text">System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Dockerfile"><span class="toc-number">1.5.</span> <span class="toc-text">5. Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cau-truc-co-ban"><span class="toc-number">1.5.1.</span> <span class="toc-text">Cấu trúc cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-stage-build"><span class="toc-number">1.5.2.</span> <span class="toc-text">Multi-stage build</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Best-practices"><span class="toc-number">1.5.3.</span> <span class="toc-text">Best practices</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Docker-Compose"><span class="toc-number">1.6.</span> <span class="toc-text">6. Docker Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose-yml-co-ban"><span class="toc-number">1.6.1.</span> <span class="toc-text">docker-compose.yml cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commands"><span class="toc-number">1.6.2.</span> <span class="toc-text">Commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Volumes-va-Networking"><span class="toc-number">1.7.</span> <span class="toc-text">7. Volumes và Networking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volumes"><span class="toc-number">1.7.1.</span> <span class="toc-text">Volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Networks"><span class="toc-number">1.7.2.</span> <span class="toc-text">Networks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Production-Best-Practices"><span class="toc-number">1.8.</span> <span class="toc-text">8. Production Best Practices</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Security"><span class="toc-number">1.8.1.</span> <span class="toc-text">Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Performance"><span class="toc-number">1.8.2.</span> <span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Monitoring"><span class="toc-number">1.8.3.</span> <span class="toc-text">Monitoring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-CI-CD-Integration"><span class="toc-number">1.9.</span> <span class="toc-text">9. CI&#x2F;CD Integration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Actions"><span class="toc-number">1.9.1.</span> <span class="toc-text">GitHub Actions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Hub"><span class="toc-number">1.9.2.</span> <span class="toc-text">Docker Hub</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Troubleshooting"><span class="toc-number">1.10.</span> <span class="toc-text">10. Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Issues"><span class="toc-number">1.10.1.</span> <span class="toc-text">Common Issues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug-Commands"><span class="toc-number">1.10.2.</span> <span class="toc-text">Debug Commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Advanced-Topics"><span class="toc-number">1.11.</span> <span class="toc-text">11. Advanced Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Swarm"><span class="toc-number">1.11.1.</span> <span class="toc-text">Docker Swarm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kubernetes-voi-Docker"><span class="toc-number">1.11.2.</span> <span class="toc-text">Kubernetes với Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Project-thuc-te"><span class="toc-number">1.12.</span> <span class="toc-text">12. Project thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservices-Architecture"><span class="toc-number">1.12.1.</span> <span class="toc-text">Microservices Architecture</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Tai-lieu-tham-khao"><span class="toc-number">1.13.</span> <span class="toc-text">📚 Tài liệu tham khảo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Ket-luan"><span class="toc-number">1.14.</span> <span class="toc-text">🎯 Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ph4n4n</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-27T03:00:00.000Z" class="dt-published" itemprop="datePublished">2025-01-27</time>
+        
+        (Updated: <time datetime="2025-06-26T09:30:39.384Z" class="dt-updated" itemprop="dateModified">2025-06-26</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/DevOps/">DevOps</a> › <a class="category-link" href="/categories/DevOps/Docker/">Docker</a> › <a class="category-link" href="/categories/DevOps/Docker/Container/">Container</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/CI-CD/" rel="tag">CI/CD</a>, <a class="p-category" href="/tags/Container/" rel="tag">Container</a>, <a class="p-category" href="/tags/Deployment/" rel="tag">Deployment</a>, <a class="p-category" href="/tags/DevOps/" rel="tag">DevOps</a>, <a class="p-category" href="/tags/Docker/" rel="tag">Docker</a>, <a class="p-category" href="/tags/Microservices/" rel="tag">Microservices</a>, <a class="p-category" href="/tags/Virtualization/" rel="tag">Virtualization</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao"><a href="#Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao" class="headerlink" title="Zero to Hero: Docker - Containerization từ cơ bản đến nâng cao"></a>Zero to Hero: Docker - Containerization từ cơ bản đến nâng cao</h1><p>Docker là platform containerization hàng đầu, giúp đóng gói ứng dụng và dependencies vào containers độc lập, đảm bảo consistency từ development đến production.</p>
+<h2 id="1-Docker-la-gi"><a href="#1-Docker-la-gi" class="headerlink" title="1. Docker là gì?"></a>1. Docker là gì?</h2><p>Docker là platform cho phép đóng gói ứng dụng và dependencies vào containers nhẹ, portable, có thể chạy trên bất kỳ môi trường nào có Docker engine.</p>
+<h3 id="Dac-diem-chinh"><a href="#Dac-diem-chinh" class="headerlink" title="Đặc điểm chính:"></a>Đặc điểm chính:</h3><ul>
+<li><strong>Portability</strong>: Chạy nhất quán trên mọi môi trường</li>
+<li><strong>Isolation</strong>: Mỗi container độc lập với nhau</li>
+<li><strong>Lightweight</strong>: Chia sẻ OS kernel, nhẹ hơn VM</li>
+<li><strong>Versioning</strong>: Quản lý version và rollback dễ dàng</li>
+<li><strong>Scalability</strong>: Scale horizontally dễ dàng</li>
+</ul>
+<h3 id="So-sanh-voi-Virtual-Machine"><a href="#So-sanh-voi-Virtual-Machine" class="headerlink" title="So sánh với Virtual Machine:"></a>So sánh với Virtual Machine:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">VM: App + Dependencies + OS + Hypervisor + Hardware</span><br><span class="line">Docker: App + Dependencies + Docker Engine + OS + Hardware</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Cai-dat-Docker"><a href="#2-Cai-dat-Docker" class="headerlink" title="2. Cài đặt Docker"></a>2. Cài đặt Docker</h2><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cài đặt Docker Desktop</span></span><br><span class="line">brew install --cask docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># Hoặc tải từ docker.com</span></span><br><span class="line"><span class="comment"># Khởi động Docker Desktop</span></span><br><span class="line">open /Applications/Docker.app</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ubuntu-Debian"><a href="#Ubuntu-Debian" class="headerlink" title="Ubuntu&#x2F;Debian"></a>Ubuntu&#x2F;Debian</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cập nhật package index</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># Cài đặt dependencies</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br><span class="line"></span><br><span class="line"><span class="comment"># Thêm Docker GPG key</span></span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"><span class="comment"># Thêm repository</span></span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># Cài đặt Docker Engine</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Thêm user vào docker group</span></span><br><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cài đặt Docker Desktop từ docker.com</span></span><br><span class="line"><span class="comment"># Hoặc dùng WSL2</span></span><br><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Kiem-tra-cai-dat"><a href="#Kiem-tra-cai-dat" class="headerlink" title="Kiểm tra cài đặt"></a>Kiểm tra cài đặt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Docker-Concepts"><a href="#3-Docker-Concepts" class="headerlink" title="3. Docker Concepts"></a>3. Docker Concepts</h2><h3 id="Core-Components"><a href="#Core-Components" class="headerlink" title="Core Components"></a>Core Components</h3><ul>
+<li><strong>Docker Engine</strong>: Runtime và API</li>
+<li><strong>Docker Client</strong>: CLI tool</li>
+<li><strong>Docker Registry</strong>: Repository cho images</li>
+<li><strong>Docker Hub</strong>: Public registry</li>
+<li><strong>Docker Compose</strong>: Multi-container orchestration</li>
+</ul>
+<h3 id="Key-Terms"><a href="#Key-Terms" class="headerlink" title="Key Terms"></a>Key Terms</h3><ul>
+<li><strong>Image</strong>: Template cho container</li>
+<li><strong>Container</strong>: Running instance của image</li>
+<li><strong>Dockerfile</strong>: Script để build image</li>
+<li><strong>Registry</strong>: Storage cho images</li>
+<li><strong>Volume</strong>: Persistent data storage</li>
+</ul>
+<h2 id="4-Docker-Commands-co-ban"><a href="#4-Docker-Commands-co-ban" class="headerlink" title="4. Docker Commands cơ bản"></a>4. Docker Commands cơ bản</h2><h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Liệt kê images</span></span><br><span class="line">docker images</span><br><span class="line">docker image <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pull image từ registry</span></span><br><span class="line">docker pull nginx:latest</span><br><span class="line">docker pull node:18-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build image từ Dockerfile</span></span><br><span class="line">docker build -t myapp:1.0 .</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove image</span></span><br><span class="line">docker rmi nginx:latest</span><br><span class="line">docker image <span class="built_in">rm</span> myapp:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inspect image</span></span><br><span class="line">docker inspect nginx:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="Containers"><a href="#Containers" class="headerlink" title="Containers"></a>Containers</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Chạy container</span></span><br><span class="line">docker run nginx:latest</span><br><span class="line">docker run -d -p 8080:80 nginx:latest</span><br><span class="line">docker run -it --name my-container node:18-alpine sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Liệt kê containers</span></span><br><span class="line">docker ps</span><br><span class="line">docker ps -a  <span class="comment"># Tất cả containers</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop container</span></span><br><span class="line">docker stop container_id</span><br><span class="line">docker stop my-container</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start container</span></span><br><span class="line">docker start container_id</span><br><span class="line">docker start my-container</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove container</span></span><br><span class="line">docker <span class="built_in">rm</span> container_id</span><br><span class="line">docker <span class="built_in">rm</span> -f container_id  <span class="comment"># Force remove running container</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Execute command trong running container</span></span><br><span class="line">docker <span class="built_in">exec</span> -it container_id sh</span><br><span class="line">docker <span class="built_in">exec</span> -it my-container bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># View logs</span></span><br><span class="line">docker logs container_id</span><br><span class="line">docker logs -f container_id  <span class="comment"># Follow logs</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># System info</span></span><br><span class="line">docker info</span><br><span class="line">docker version</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disk usage</span></span><br><span class="line">docker system <span class="built_in">df</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Clean up</span></span><br><span class="line">docker system prune</span><br><span class="line">docker system prune -a  <span class="comment"># Remove all unused images</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Resource usage</span></span><br><span class="line">docker stats</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Dockerfile"><a href="#5-Dockerfile" class="headerlink" title="5. Dockerfile"></a>5. Dockerfile</h2><h3 id="Cau-truc-co-ban"><a href="#Cau-truc-co-ban" class="headerlink" title="Cấu trúc cơ bản"></a>Cấu trúc cơ bản</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Base image</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set working directory</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy package files</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install dependencies</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm ci --only=production</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy source code</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose port</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Start command</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Multi-stage-build"><a href="#Multi-stage-build" class="headerlink" title="Multi-stage build"></a>Multi-stage build</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Build stage</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine AS builder</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm ci</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm run build</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Production stage</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine AS production</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm ci --only=production</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /app/dist ./dist</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Best-practices"><a href="#Best-practices" class="headerlink" title="Best practices"></a>Best practices</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sử dụng specific version</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18.17</span>.<span class="number">0</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set non-root user</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> addgroup -g 1001 -S nodejs</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> adduser -S nodejs -u 1001</span></span><br><span class="line"><span class="keyword">USER</span> nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy files efficiently</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --<span class="built_in">chown</span>=nodejs:nodejs . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Health check</span></span><br><span class="line"><span class="keyword">HEALTHCHECK</span><span class="language-bash"> --interval=30s --<span class="built_in">timeout</span>=3s \</span></span><br><span class="line"><span class="language-bash">  CMD curl -f http://localhost:3000/health || <span class="built_in">exit</span> 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Labels</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;your-email@example.com&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;My Node.js application&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Docker-Compose"><a href="#6-Docker-Compose" class="headerlink" title="6. Docker Compose"></a>6. Docker Compose</h2><h3 id="docker-compose-yml-co-ban"><a href="#docker-compose-yml-co-ban" class="headerlink" title="docker-compose.yml cơ bản"></a>docker-compose.yml cơ bản</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NODE_ENV=production</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DATABASE_URL=postgresql://user:pass@db:5432/mydb</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./logs:/app/logs</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:15-alpine</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=mydb</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=user</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=pass</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">postgres_data:/var/lib/postgresql/data</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;5432:5432&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:7-alpine</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;6379:6379&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">postgres_data:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start services</span></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose up -d  <span class="comment"># Detached mode</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop services</span></span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line"><span class="comment"># Rebuild images</span></span><br><span class="line">docker-compose build</span><br><span class="line">docker-compose build --no-cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># View logs</span></span><br><span class="line">docker-compose logs</span><br><span class="line">docker-compose logs -f app</span><br><span class="line"></span><br><span class="line"><span class="comment"># Scale services</span></span><br><span class="line">docker-compose up --scale app=3</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Volumes-va-Networking"><a href="#7-Volumes-va-Networking" class="headerlink" title="7. Volumes và Networking"></a>7. Volumes và Networking</h2><h3 id="Volumes"><a href="#Volumes" class="headerlink" title="Volumes"></a>Volumes</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Named volume</span></span><br><span class="line">docker volume create my_data</span><br><span class="line">docker run -v my_data:/app/data nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bind mount</span></span><br><span class="line">docker run -v /host/path:/container/path nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Docker Compose volumes</span></span><br><span class="line">volumes:</span><br><span class="line">  - ./data:/app/data  <span class="comment"># Bind mount</span></span><br><span class="line">  - postgres_data:/var/lib/postgresql/data  <span class="comment"># Named volume</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Networks"><a href="#Networks" class="headerlink" title="Networks"></a>Networks</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create network</span></span><br><span class="line">docker network create my_network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run container với network</span></span><br><span class="line">docker run --network my_network nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inspect network</span></span><br><span class="line">docker network inspect my_network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Connect container to network</span></span><br><span class="line">docker network connect my_network container_id</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Production-Best-Practices"><a href="#8-Production-Best-Practices" class="headerlink" title="8. Production Best Practices"></a>8. Production Best Practices</h2><h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sử dụng non-root user</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> adduser -D -s /bin/sh appuser</span></span><br><span class="line"><span class="keyword">USER</span> appuser</span><br><span class="line"></span><br><span class="line"><span class="comment"># Scan vulnerabilities</span></span><br><span class="line">docker scan myapp:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use specific base images</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18.17</span>.<span class="number">0</span>-alpine</span><br></pre></td></tr></table></figure>
+
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Multi-stage builds</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine AS builder</span><br><span class="line"><span class="comment"># ... build steps</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine AS production</span><br><span class="line"><span class="comment"># ... production steps</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimize layer caching</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm ci</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Monitoring"><a href="#Monitoring" class="headerlink" title="Monitoring"></a>Monitoring</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Resource usage</span></span><br><span class="line">docker stats</span><br><span class="line"></span><br><span class="line"><span class="comment"># Container health</span></span><br><span class="line">docker ps --format <span class="string">&quot;table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Log aggregation</span></span><br><span class="line">docker logs container_id | grep ERROR</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-CI-CD-Integration"><a href="#9-CI-CD-Integration" class="headerlink" title="9. CI&#x2F;CD Integration"></a>9. CI&#x2F;CD Integration</h2><h3 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Docker</span> <span class="string">CI/CD</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span> <span class="string">Docker</span> <span class="string">image</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">docker</span> <span class="string">build</span> <span class="string">-t</span> <span class="string">myapp:$&#123;&#123;</span> <span class="string">github.sha</span> <span class="string">&#125;&#125;</span> <span class="string">.</span></span><br><span class="line">      </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Push</span> <span class="string">to</span> <span class="string">registry</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          docker tag myapp:$&#123;&#123; github.sha &#125;&#125; myapp:latest</span></span><br><span class="line"><span class="string">          docker push myapp:latest</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Login to Docker Hub</span></span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tag image</span></span><br><span class="line">docker tag myapp:latest username/myapp:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Push image</span></span><br><span class="line">docker push username/myapp:latest</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-Troubleshooting"><a href="#10-Troubleshooting" class="headerlink" title="10. Troubleshooting"></a>10. Troubleshooting</h2><h3 id="Common-Issues"><a href="#Common-Issues" class="headerlink" title="Common Issues"></a>Common Issues</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Container không start</span></span><br><span class="line">docker logs container_id</span><br><span class="line"></span><br><span class="line"><span class="comment"># Port conflicts</span></span><br><span class="line">docker ps -a | grep 3000</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disk space issues</span></span><br><span class="line">docker system prune -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># Permission issues</span></span><br><span class="line">docker run -u 1000:1000 nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Network issues</span></span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
+
+<h3 id="Debug-Commands"><a href="#Debug-Commands" class="headerlink" title="Debug Commands"></a>Debug Commands</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Inspect container</span></span><br><span class="line">docker inspect container_id</span><br><span class="line"></span><br><span class="line"><span class="comment"># Execute in running container</span></span><br><span class="line">docker <span class="built_in">exec</span> -it container_id sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># View container processes</span></span><br><span class="line">docker top container_id</span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy files from/to container</span></span><br><span class="line">docker <span class="built_in">cp</span> container_id:/app/file.txt ./</span><br><span class="line">docker <span class="built_in">cp</span> ./file.txt container_id:/app/</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-Advanced-Topics"><a href="#11-Advanced-Topics" class="headerlink" title="11. Advanced Topics"></a>11. Advanced Topics</h2><h3 id="Docker-Swarm"><a href="#Docker-Swarm" class="headerlink" title="Docker Swarm"></a>Docker Swarm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Initialize swarm</span></span><br><span class="line">docker swarm init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create service</span></span><br><span class="line">docker service create --name web --replicas 3 nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Scale service</span></span><br><span class="line">docker service scale web=5</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update service</span></span><br><span class="line">docker service update --image nginx:latest web</span><br></pre></td></tr></table></figure>
+
+<h3 id="Kubernetes-voi-Docker"><a href="#Kubernetes-voi-Docker" class="headerlink" title="Kubernetes với Docker"></a>Kubernetes với Docker</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">myapp</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">myapp:latest</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="12-Project-thuc-te"><a href="#12-Project-thuc-te" class="headerlink" title="12. Project thực tế"></a>12. Project thực tế</h2><h3 id="Microservices-Architecture"><a href="#Microservices-Architecture" class="headerlink" title="Microservices Architecture"></a>Microservices Architecture</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">api-gateway:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./api-gateway</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">auth-service</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">user-service</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">auth-service:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./auth-service</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">JWT_SECRET=secret</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">postgres</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">user-service:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./user-service</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">postgres</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">postgres:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:15-alpine</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=microservices</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">postgres_data:/var/lib/postgresql/data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">postgres_data:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="📚-Tai-lieu-tham-khao"><a href="#📚-Tai-lieu-tham-khao" class="headerlink" title="📚 Tài liệu tham khảo"></a>📚 Tài liệu tham khảo</h2><ul>
+<li><a href="https://docs.docker.com/">Docker Official Documentation</a></li>
+<li><a href="https://hub.docker.com/">Docker Hub</a></li>
+<li><a href="https://docs.docker.com/develop/dev-best-practices/">Docker Best Practices</a></li>
+<li><a href="https://docs.docker.com/engine/security/">Docker Security</a></li>
+</ul>
+<h2 id="🎯-Ket-luan"><a href="#🎯-Ket-luan" class="headerlink" title="🎯 Kết luận"></a>🎯 Kết luận</h2><p>Docker đã cách mạng hóa cách chúng ta develop, deploy và scale applications. Với kiến thức từ bài viết này, bạn có thể:</p>
+<ul>
+<li>✅ Containerize bất kỳ application nào</li>
+<li>✅ Deploy applications một cách nhất quán</li>
+<li>✅ Scale applications dễ dàng</li>
+<li>✅ Implement CI&#x2F;CD pipelines</li>
+<li>✅ Build microservices architecture</li>
+</ul>
+<p><strong>Bước tiếp theo</strong>: Học Docker Compose để orchestrate multiple containers, hoặc Kubernetes cho production-scale deployments.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Vui lòng kích hoạt JavaScript để xem các bình luận.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Trang chủ</a></li>
+        
+          <li><a href="/about/">Giới thiệu</a></li>
+        
+          <li><a href="/archives/">Bài viết</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero: Docker - Containerization từ cơ bản đến nâng cao</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Docker-la-gi"><span class="toc-number">1.1.</span> <span class="toc-text">1. Docker là gì?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dac-diem-chinh"><span class="toc-number">1.1.1.</span> <span class="toc-text">Đặc điểm chính:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#So-sanh-voi-Virtual-Machine"><span class="toc-number">1.1.2.</span> <span class="toc-text">So sánh với Virtual Machine:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Cai-dat-Docker"><span class="toc-number">1.2.</span> <span class="toc-text">2. Cài đặt Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">1.2.1.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-Debian"><span class="toc-number">1.2.2.</span> <span class="toc-text">Ubuntu&#x2F;Debian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">1.2.3.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kiem-tra-cai-dat"><span class="toc-number">1.2.4.</span> <span class="toc-text">Kiểm tra cài đặt</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-Concepts"><span class="toc-number">1.3.</span> <span class="toc-text">3. Docker Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Components"><span class="toc-number">1.3.1.</span> <span class="toc-text">Core Components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-Terms"><span class="toc-number">1.3.2.</span> <span class="toc-text">Key Terms</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-Commands-co-ban"><span class="toc-number">1.4.</span> <span class="toc-text">4. Docker Commands cơ bản</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Images"><span class="toc-number">1.4.1.</span> <span class="toc-text">Images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Containers"><span class="toc-number">1.4.2.</span> <span class="toc-text">Containers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System"><span class="toc-number">1.4.3.</span> <span class="toc-text">System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Dockerfile"><span class="toc-number">1.5.</span> <span class="toc-text">5. Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cau-truc-co-ban"><span class="toc-number">1.5.1.</span> <span class="toc-text">Cấu trúc cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-stage-build"><span class="toc-number">1.5.2.</span> <span class="toc-text">Multi-stage build</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Best-practices"><span class="toc-number">1.5.3.</span> <span class="toc-text">Best practices</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Docker-Compose"><span class="toc-number">1.6.</span> <span class="toc-text">6. Docker Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose-yml-co-ban"><span class="toc-number">1.6.1.</span> <span class="toc-text">docker-compose.yml cơ bản</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commands"><span class="toc-number">1.6.2.</span> <span class="toc-text">Commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Volumes-va-Networking"><span class="toc-number">1.7.</span> <span class="toc-text">7. Volumes và Networking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volumes"><span class="toc-number">1.7.1.</span> <span class="toc-text">Volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Networks"><span class="toc-number">1.7.2.</span> <span class="toc-text">Networks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Production-Best-Practices"><span class="toc-number">1.8.</span> <span class="toc-text">8. Production Best Practices</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Security"><span class="toc-number">1.8.1.</span> <span class="toc-text">Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Performance"><span class="toc-number">1.8.2.</span> <span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Monitoring"><span class="toc-number">1.8.3.</span> <span class="toc-text">Monitoring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-CI-CD-Integration"><span class="toc-number">1.9.</span> <span class="toc-text">9. CI&#x2F;CD Integration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Actions"><span class="toc-number">1.9.1.</span> <span class="toc-text">GitHub Actions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Hub"><span class="toc-number">1.9.2.</span> <span class="toc-text">Docker Hub</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Troubleshooting"><span class="toc-number">1.10.</span> <span class="toc-text">10. Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Issues"><span class="toc-number">1.10.1.</span> <span class="toc-text">Common Issues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug-Commands"><span class="toc-number">1.10.2.</span> <span class="toc-text">Debug Commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Advanced-Topics"><span class="toc-number">1.11.</span> <span class="toc-text">11. Advanced Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Swarm"><span class="toc-number">1.11.1.</span> <span class="toc-text">Docker Swarm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kubernetes-voi-Docker"><span class="toc-number">1.11.2.</span> <span class="toc-text">Kubernetes với Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Project-thuc-te"><span class="toc-number">1.12.</span> <span class="toc-text">12. Project thực tế</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservices-Architecture"><span class="toc-number">1.12.1.</span> <span class="toc-text">Microservices Architecture</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Tai-lieu-tham-khao"><span class="toc-number">1.13.</span> <span class="toc-text">📚 Tài liệu tham khảo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Ket-luan"><span class="toc-number">1.14.</span> <span class="toc-text">🎯 Kết luận</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&text=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&is_video=false&description=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&title=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&name=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Docker/&t=Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+    {q: 'Chết không phải lúc trái tim ngừng đập, chết là khi ý chí ngừng tiến lên.', a: 'ChatGPT'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>

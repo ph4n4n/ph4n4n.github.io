@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng caoSeri Zero to Hero là bộ hướng dẫn toàn diện giúp bạn học từ cơ bản đến nâng cao các công nghệ phổ biến trong phát triển phần mềm. Mỗi bài">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng caoSeri Zero to Hero là bộ hướng dẫn toàn diện giúp bạn học từ cơ bản đến nâng cao các công nghệ phổ biến trong phát triển phần mềm. Mỗi bài">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:published_time" content="2025-01-27T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-26T09:35:16.838Z">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Backend">
+<meta property="article:tag" content="Zero-to-Hero">
+<meta property="article:tag" content="Learning">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Bài trước" href="/2025/01/27/Zero-to-hero-Progress-Tracker/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Bài tiếp theo" href="/2025/01/27/Zero-to-hero-Python/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Về đầu trang" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Chia sẻ bài viết" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&text=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&is_video=false&description=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&name=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&t=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Seri-Zero-to-Hero-Huong-dan-toan-dien-tu-co-ban-den-nang-cao"><span class="toc-number">1.</span> <span class="toc-text">Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng cao</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Muc-tieu-cua-seri"><span class="toc-number">1.1.</span> <span class="toc-text">🎯 Mục tiêu của seri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Danh-sach-cac-chu-de"><span class="toc-number">1.2.</span> <span class="toc-text">📚 Danh sách các chủ đề</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8C%90-Frontend-Development"><span class="toc-number">1.2.1.</span> <span class="toc-text">🌐 Frontend Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Backend-Development"><span class="toc-number">1.2.2.</span> <span class="toc-text">⚡ Backend Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%84%EF%B8%8F-Database-ORM"><span class="toc-number">1.2.3.</span> <span class="toc-text">🗄️ Database &amp; ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8C-API-Development"><span class="toc-number">1.2.4.</span> <span class="toc-text">🔌 API Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%B3-DevOps-Containerization"><span class="toc-number">1.2.5.</span> <span class="toc-text">🐳 DevOps &amp; Containerization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-Message-Queues-Caching"><span class="toc-number">1.2.6.</span> <span class="toc-text">📊 Message Queues &amp; Caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%AA-Testing-Automation"><span class="toc-number">1.2.7.</span> <span class="toc-text">🧪 Testing &amp; Automation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%B1-Mobile-Development"><span class="toc-number">1.2.8.</span> <span class="toc-text">📱 Mobile Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A7-Utilities-Tools"><span class="toc-number">1.2.9.</span> <span class="toc-text">🔧 Utilities &amp; Tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8F%97%EF%B8%8F-Architecture-Design"><span class="toc-number">1.2.10.</span> <span class="toc-text">🏗️ Architecture &amp; Design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%92-Security-Performance"><span class="toc-number">1.2.11.</span> <span class="toc-text">🔒 Security &amp; Performance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-Cach-su-dung-seri-hieu-qua"><span class="toc-number">1.3.</span> <span class="toc-text">🚀 Cách sử dụng seri hiệu quả</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Chon-chu-de-phu-hop"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Chọn chủ đề phù hợp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Thuc-hanh-theo-thu-tu"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Thực hành theo thứ tự</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Code-examples"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. Code examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Project-thuc-te"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. Project thực tế</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%96-Cau-truc-bai-viet"><span class="toc-number">1.4.</span> <span class="toc-text">📖 Cấu trúc bài viết</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%93-Lo-trinh-hoc-tap"><span class="toc-number">1.5.</span> <span class="toc-text">🎓 Lộ trình học tập</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Beginner-0-3-thang"><span class="toc-number">1.5.1.</span> <span class="toc-text">Beginner (0-3 tháng)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intermediate-3-6-thang"><span class="toc-number">1.5.2.</span> <span class="toc-text">Intermediate (3-6 tháng)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-6-thang"><span class="toc-number">1.5.3.</span> <span class="toc-text">Advanced (6+ tháng)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%97-Lien-ket-nhanh"><span class="toc-number">1.6.</span> <span class="toc-text">🔗 Liên kết nhanh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Frontend"><span class="toc-number">1.6.1.</span> <span class="toc-text">Frontend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backend"><span class="toc-number">1.6.2.</span> <span class="toc-text">Backend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Database"><span class="toc-number">1.6.3.</span> <span class="toc-text">Database</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps"><span class="toc-number">1.6.4.</span> <span class="toc-text">DevOps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API"><span class="toc-number">1.6.5.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-Tips-hoc-tap"><span class="toc-number">1.7.</span> <span class="toc-text">💡 Tips học tập</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Ket-qua-mong-doi"><span class="toc-number">1.8.</span> <span class="toc-text">🎯 Kết quả mong đợi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-Trang-thai-hoan-thanh"><span class="toc-number">1.9.</span> <span class="toc-text">📊 Trạng thái hoàn thành</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ph4n4n</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-27T03:00:00.000Z" class="dt-published" itemprop="datePublished">2025-01-27</time>
+        
+        (Updated: <time datetime="2025-06-26T09:35:16.838Z" class="dt-updated" itemprop="dateModified">2025-06-26</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Programming/">Programming</a> › <a class="category-link" href="/categories/Programming/Tutorial/">Tutorial</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Backend/" rel="tag">Backend</a>, <a class="p-category" href="/tags/Database/" rel="tag">Database</a>, <a class="p-category" href="/tags/Docker/" rel="tag">Docker</a>, <a class="p-category" href="/tags/Frontend/" rel="tag">Frontend</a>, <a class="p-category" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="p-category" href="/tags/Learning/" rel="tag">Learning</a>, <a class="p-category" href="/tags/Node-js/" rel="tag">Node.js</a>, <a class="p-category" href="/tags/Programming/" rel="tag">Programming</a>, <a class="p-category" href="/tags/Python/" rel="tag">Python</a>, <a class="p-category" href="/tags/Tutorial/" rel="tag">Tutorial</a>, <a class="p-category" href="/tags/Zero-to-Hero/" rel="tag">Zero-to-Hero</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Seri-Zero-to-Hero-Huong-dan-toan-dien-tu-co-ban-den-nang-cao"><a href="#Seri-Zero-to-Hero-Huong-dan-toan-dien-tu-co-ban-den-nang-cao" class="headerlink" title="Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng cao"></a>Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng cao</h1><p>Seri <strong>Zero to Hero</strong> là bộ hướng dẫn toàn diện giúp bạn học từ cơ bản đến nâng cao các công nghệ phổ biến trong phát triển phần mềm. Mỗi bài viết được thiết kế để đưa bạn từ con số 0 đến mức độ có thể tự tin làm việc với công nghệ đó.</p>
+<h2 id="🎯-Muc-tieu-cua-seri"><a href="#🎯-Muc-tieu-cua-seri" class="headerlink" title="🎯 Mục tiêu của seri"></a>🎯 Mục tiêu của seri</h2><ul>
+<li><strong>Học từ cơ bản</strong>: Bắt đầu từ những khái niệm đơn giản nhất</li>
+<li><strong>Thực hành nhiều</strong>: Mỗi khái niệm đều có ví dụ thực tế</li>
+<li><strong>Tiến độ rõ ràng</strong>: Từ beginner → intermediate → advanced</li>
+<li><strong>Ứng dụng thực tế</strong>: Tập trung vào các use case thực tế</li>
+<li><strong>Best practices</strong>: Học cách code đúng chuẩn ngay từ đầu</li>
+</ul>
+<h2 id="📚-Danh-sach-cac-chu-de"><a href="#📚-Danh-sach-cac-chu-de" class="headerlink" title="📚 Danh sách các chủ đề"></a>📚 Danh sách các chủ đề</h2><h3 id="🌐-Frontend-Development"><a href="#🌐-Frontend-Development" class="headerlink" title="🌐 Frontend Development"></a>🌐 Frontend Development</h3><ul>
+<li>✅ <a href="/Zero-to-hero-Javascript/">JavaScript - Từ cơ bản đến nâng cao</a></li>
+<li>✅ <a href="/Zero-to-hero-HTML/">HTML - Cấu trúc web cơ bản</a></li>
+<li>✅ <a href="/Zero-to-hero-CSS/">CSS - Styling và layout</a></li>
+<li>🔄 <a href="/Zero-to-hero-TypeScript/">TypeScript - Typed JavaScript</a></li>
+<li>🔄 <a href="/Zero-to-hero-React/">React - UI Library</a></li>
+<li>🔄 <a href="/Zero-to-hero-Vue/">Vue.js - Progressive Framework</a></li>
+<li>🔄 <a href="/Zero-to-hero-Angular/">Angular - Enterprise Framework</a></li>
+</ul>
+<h3 id="⚡-Backend-Development"><a href="#⚡-Backend-Development" class="headerlink" title="⚡ Backend Development"></a>⚡ Backend Development</h3><ul>
+<li>✅ <a href="/Zero-to-hero-NodeJS/">Node.js - JavaScript runtime</a></li>
+<li>🔄 <a href="/Zero-to-hero-ExpressJS/">Express.js - Web framework</a></li>
+<li>🔄 <a href="/Zero-to-hero-NestJS/">NestJS - Enterprise framework</a></li>
+<li>🔄 <a href="/Zero-to-hero-Python/">Python - Ngôn ngữ đa năng</a></li>
+<li>🔄 <a href="/Zero-to-hero-Golang/">Golang - Hiệu năng cao</a></li>
+<li>🔄 <a href="/Zero-to-hero-Java/">Java - Enterprise language</a></li>
+<li>🔄 <a href="/Zero-to-hero-CSharp/">C# - Microsoft ecosystem</a></li>
+<li>🔄 <a href="/Zero-to-hero-PHP/">PHP - Web development</a></li>
+</ul>
+<h3 id="🗄️-Database-ORM"><a href="#🗄️-Database-ORM" class="headerlink" title="🗄️ Database &amp; ORM"></a>🗄️ Database &amp; ORM</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-MySQL/">MySQL - Relational database</a></li>
+<li>🔄 <a href="/Zero-to-hero-PostgreSQL/">PostgreSQL - Advanced SQL</a></li>
+<li>🔄 <a href="/Zero-to-hero-MongoDB/">MongoDB - NoSQL database</a></li>
+<li>🔄 <a href="/Zero-to-hero-Mongoose/">Mongoose - MongoDB ODM</a></li>
+<li>🔄 <a href="/Zero-to-hero-TypeORM/">TypeORM - TypeScript ORM</a></li>
+<li>🔄 <a href="/Zero-to-hero-Prisma/">Prisma - Modern ORM</a></li>
+<li>🔄 <a href="/Zero-to-hero-Sequelize/">Sequelize - Node.js ORM</a></li>
+<li>🔄 <a href="/Zero-to-hero-SQLAlchemy/">SQLAlchemy - Python ORM</a></li>
+</ul>
+<h3 id="🔌-API-Development"><a href="#🔌-API-Development" class="headerlink" title="🔌 API Development"></a>🔌 API Development</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-RestfulAPI/">RESTful API - Web services</a></li>
+<li>🔄 <a href="/Zero-to-hero-GraphQL/">GraphQL - Query language</a></li>
+<li>🔄 <a href="/Zero-to-hero-gRPC/">gRPC - High-performance RPC</a></li>
+<li>🔄 <a href="/Zero-to-hero-WebSocket/">WebSocket - Real-time communication</a></li>
+<li>🔄 <a href="/Zero-to-hero-SocketIO/">Socket.io - Real-time engine</a></li>
+</ul>
+<h3 id="🐳-DevOps-Containerization"><a href="#🐳-DevOps-Containerization" class="headerlink" title="🐳 DevOps &amp; Containerization"></a>🐳 DevOps &amp; Containerization</h3><ul>
+<li>✅ <a href="/Zero-to-hero-Docker/">Docker - Container platform</a></li>
+<li>🔄 <a href="/Zero-to-hero-Docker-Compose/">Docker Compose - Multi-container</a></li>
+<li>🔄 <a href="/Zero-to-hero-Kubernetes/">Kubernetes - Container orchestration</a></li>
+<li>🔄 <a href="/Zero-to-hero-Terraform/">Terraform - Infrastructure as Code</a></li>
+<li>🔄 <a href="/Zero-to-hero-Ansible/">Ansible - Configuration management</a></li>
+<li>🔄 <a href="/Zero-to-hero-Jenkins/">Jenkins - CI&#x2F;CD pipeline</a></li>
+<li>🔄 <a href="/Zero-to-hero-GitHubActions/">GitHub Actions - Automated workflows</a></li>
+</ul>
+<h3 id="📊-Message-Queues-Caching"><a href="#📊-Message-Queues-Caching" class="headerlink" title="📊 Message Queues &amp; Caching"></a>📊 Message Queues &amp; Caching</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-Redis/">Redis - In-memory database</a></li>
+<li>🔄 <a href="/Zero-to-hero-RabbitMQ/">RabbitMQ - Message broker</a></li>
+<li>🔄 <a href="/Zero-to-hero-BullMQ/">BullMQ - Job queue</a></li>
+<li>🔄 <a href="/Zero-to-hero-Kafka/">Kafka - Distributed streaming</a></li>
+<li>🔄 <a href="/Zero-to-hero-Pulsar/">Apache Pulsar - Cloud-native messaging</a></li>
+<li>🔄 <a href="/Zero-to-hero-Memcached/">Memcached - Distributed caching</a></li>
+</ul>
+<h3 id="🧪-Testing-Automation"><a href="#🧪-Testing-Automation" class="headerlink" title="🧪 Testing &amp; Automation"></a>🧪 Testing &amp; Automation</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-Jest/">Jest - Testing framework</a></li>
+<li>🔄 <a href="/Zero-to-hero-Puppeteer/">Puppeteer - Browser automation</a></li>
+<li>🔄 <a href="/Zero-to-hero-Cypress/">Cypress - E2E testing</a></li>
+<li>🔄 <a href="/Zero-to-hero-Selenium/">Selenium - Web automation</a></li>
+<li>🔄 <a href="/Zero-to-hero-Playwright/">Playwright - Modern automation</a></li>
+<li>🔄 <a href="/Zero-to-hero-Postman/">Postman - API testing</a></li>
+</ul>
+<h3 id="📱-Mobile-Development"><a href="#📱-Mobile-Development" class="headerlink" title="📱 Mobile Development"></a>📱 Mobile Development</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-Flutter/">Flutter - Cross-platform mobile</a></li>
+<li>🔄 <a href="/Zero-to-hero-Swift/">Swift - iOS development</a></li>
+<li>🔄 <a href="/Zero-to-hero-ReactNative/">React Native - JavaScript mobile</a></li>
+<li>🔄 <a href="/Zero-to-hero-Kotlin/">Kotlin - Android development</a></li>
+<li>🔄 <a href="/Zero-to-hero-Xamarin/">Xamarin - .NET mobile</a></li>
+</ul>
+<h3 id="🔧-Utilities-Tools"><a href="#🔧-Utilities-Tools" class="headerlink" title="🔧 Utilities &amp; Tools"></a>🔧 Utilities &amp; Tools</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-Regexp/">Regular Expressions - Pattern matching</a></li>
+<li>🔄 <a href="/Zero-to-hero-Git/">Git - Version control</a></li>
+<li>🔄 <a href="/Zero-to-hero-Linux/">Linux - Command line</a></li>
+<li>🔄 <a href="/Zero-to-hero-Shell/">Shell Scripting - Automation</a></li>
+<li>🔄 <a href="/Zero-to-hero-Vim/">Vim - Text editor</a></li>
+<li>🔄 <a href="/Zero-to-hero-VSCode/">VS Code - IDE</a></li>
+</ul>
+<h3 id="🏗️-Architecture-Design"><a href="#🏗️-Architecture-Design" class="headerlink" title="🏗️ Architecture &amp; Design"></a>🏗️ Architecture &amp; Design</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-Microservices/">Microservices - Distributed systems</a></li>
+<li>🔄 <a href="/Zero-to-hero-EventDriven/">Event-Driven Architecture</a></li>
+<li>🔄 <a href="/Zero-to-hero-DDD/">Domain-Driven Design</a></li>
+<li>🔄 <a href="/Zero-to-hero-CleanArchitecture/">Clean Architecture</a></li>
+<li>🔄 <a href="/Zero-to-hero-SOLID/">SOLID Principles</a></li>
+<li>🔄 <a href="/Zero-to-hero-DesignPatterns/">Design Patterns</a></li>
+</ul>
+<h3 id="🔒-Security-Performance"><a href="#🔒-Security-Performance" class="headerlink" title="🔒 Security &amp; Performance"></a>🔒 Security &amp; Performance</h3><ul>
+<li>🔄 <a href="/Zero-to-hero-WebSecurity/">Web Security - OWASP</a></li>
+<li>🔄 <a href="/Zero-to-hero-Auth/">Authentication &amp; Authorization</a></li>
+<li>🔄 <a href="/Zero-to-hero-JWT/">JWT - Token-based auth</a></li>
+<li>🔄 <a href="/Zero-to-hero-OAuth/">OAuth 2.0 - Authorization</a></li>
+<li>🔄 <a href="/Zero-to-hero-Performance/">Performance Optimization</a></li>
+<li>🔄 <a href="/Zero-to-hero-LoadBalancing/">Load Balancing</a></li>
+</ul>
+<h2 id="🚀-Cach-su-dung-seri-hieu-qua"><a href="#🚀-Cach-su-dung-seri-hieu-qua" class="headerlink" title="🚀 Cách sử dụng seri hiệu quả"></a>🚀 Cách sử dụng seri hiệu quả</h2><h3 id="1-Chon-chu-de-phu-hop"><a href="#1-Chon-chu-de-phu-hop" class="headerlink" title="1. Chọn chủ đề phù hợp"></a>1. Chọn chủ đề phù hợp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nếu bạn mới bắt đầu</span></span><br><span class="line">→ HTML → CSS → JavaScript → Node.js → Express.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># Nếu muốn làm backend</span></span><br><span class="line">→ Node.js → Express.js → MySQL/MongoDB → Docker → Kubernetes</span><br><span class="line"></span><br><span class="line"><span class="comment"># Nếu muốn làm mobile</span></span><br><span class="line">→ JavaScript → React Native → Flutter → Swift/Kotlin</span><br><span class="line"></span><br><span class="line"><span class="comment"># Nếu muốn làm DevOps</span></span><br><span class="line">→ Linux → Git → Docker → Kubernetes → Terraform</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Thuc-hanh-theo-thu-tu"><a href="#2-Thuc-hanh-theo-thu-tu" class="headerlink" title="2. Thực hành theo thứ tự"></a>2. Thực hành theo thứ tự</h3><p>Mỗi bài viết được thiết kế theo thứ tự logic:</p>
+<ul>
+<li><strong>Lý thuyết cơ bản</strong></li>
+<li><strong>Cài đặt và setup</strong></li>
+<li><strong>Ví dụ đơn giản</strong></li>
+<li><strong>Thực hành nâng cao</strong></li>
+<li><strong>Best practices</strong></li>
+<li><strong>Project thực tế</strong></li>
+</ul>
+<h3 id="3-Code-examples"><a href="#3-Code-examples" class="headerlink" title="3. Code examples"></a>3. Code examples</h3><p>Mỗi khái niệm đều có code example có thể chạy ngay:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Ví dụ từ JavaScript seri</span></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`Hello, I&#x27;m <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="title function_">greet</span>()); <span class="comment">// &quot;Hello, I&#x27;m John&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Project-thuc-te"><a href="#4-Project-thuc-te" class="headerlink" title="4. Project thực tế"></a>4. Project thực tế</h3><p>Cuối mỗi seri có project tổng hợp:</p>
+<ul>
+<li><strong>Todo App</strong> (JavaScript&#x2F;Node.js)</li>
+<li><strong>Blog API</strong> (Express.js&#x2F;MongoDB)</li>
+<li><strong>E-commerce</strong> (NestJS&#x2F;TypeORM)</li>
+<li><strong>Chat App</strong> (Socket.io&#x2F;Redis)</li>
+<li><strong>Microservices</strong> (Docker&#x2F;Kubernetes)</li>
+</ul>
+<h2 id="📖-Cau-truc-bai-viet"><a href="#📖-Cau-truc-bai-viet" class="headerlink" title="📖 Cấu trúc bài viết"></a>📖 Cấu trúc bài viết</h2><p>Mỗi bài viết trong seri đều có cấu trúc:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. Giới thiệu và khái niệm cơ bản</span><br><span class="line">2. Cài đặt và setup môi trường</span><br><span class="line">3. Cú pháp và cấu trúc cơ bản</span><br><span class="line">4. Các tính năng nâng cao</span><br><span class="line">5. Best practices và patterns</span><br><span class="line">6. Ví dụ thực tế</span><br><span class="line">7. Troubleshooting và tips</span><br><span class="line">8. Tài liệu tham khảo</span><br></pre></td></tr></table></figure>
+
+<h2 id="🎓-Lo-trinh-hoc-tap"><a href="#🎓-Lo-trinh-hoc-tap" class="headerlink" title="🎓 Lộ trình học tập"></a>🎓 Lộ trình học tập</h2><h3 id="Beginner-0-3-thang"><a href="#Beginner-0-3-thang" class="headerlink" title="Beginner (0-3 tháng)"></a>Beginner (0-3 tháng)</h3><ul>
+<li>HTML, CSS, JavaScript cơ bản</li>
+<li>Node.js và Express.js</li>
+<li>MySQL&#x2F;MongoDB cơ bản</li>
+<li>Git và GitHub</li>
+<li>Docker cơ bản</li>
+</ul>
+<h3 id="Intermediate-3-6-thang"><a href="#Intermediate-3-6-thang" class="headerlink" title="Intermediate (3-6 tháng)"></a>Intermediate (3-6 tháng)</h3><ul>
+<li>JavaScript ES6+, TypeScript</li>
+<li>NestJS, TypeORM&#x2F;Prisma</li>
+<li>Redis, Message Queues</li>
+<li>Docker Compose</li>
+<li>Testing với Jest</li>
+<li>RESTful APIs</li>
+</ul>
+<h3 id="Advanced-6-thang"><a href="#Advanced-6-thang" class="headerlink" title="Advanced (6+ tháng)"></a>Advanced (6+ tháng)</h3><ul>
+<li>Microservices architecture</li>
+<li>Kubernetes orchestration</li>
+<li>Event-driven design</li>
+<li>Performance optimization</li>
+<li>Security best practices</li>
+<li>CI&#x2F;CD pipelines</li>
+</ul>
+<h2 id="🔗-Lien-ket-nhanh"><a href="#🔗-Lien-ket-nhanh" class="headerlink" title="🔗 Liên kết nhanh"></a>🔗 Liên kết nhanh</h2><h3 id="Frontend"><a href="#Frontend" class="headerlink" title="Frontend"></a>Frontend</h3><ul>
+<li><a href="/Zero-to-hero-Javascript/">JavaScript Fundamentals</a></li>
+<li><a href="/Zero-to-hero-HTML/">HTML Structure</a></li>
+<li><a href="/Zero-to-hero-CSS/">CSS Styling</a></li>
+</ul>
+<h3 id="Backend"><a href="#Backend" class="headerlink" title="Backend"></a>Backend</h3><ul>
+<li><a href="/Zero-to-hero-NodeJS/">Node.js Runtime</a></li>
+<li><a href="/Zero-to-hero-ExpressJS/">Express.js Framework</a></li>
+<li><a href="/Zero-to-hero-NestJS/">NestJS Enterprise</a></li>
+</ul>
+<h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><ul>
+<li><a href="/Zero-to-hero-MySQL/">MySQL Database</a></li>
+<li><a href="/Zero-to-hero-MongoDB/">MongoDB NoSQL</a></li>
+<li><a href="/Zero-to-hero-TypeORM/">TypeORM ORM</a></li>
+<li><a href="/Zero-to-hero-Redis/">Redis Caching</a></li>
+</ul>
+<h3 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h3><ul>
+<li><a href="/Zero-to-hero-Docker/">Docker Containers</a></li>
+<li><a href="/Zero-to-hero-Docker-Compose/">Docker Compose</a></li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
+<li><a href="/Zero-to-hero-RestfulAPI/">RESTful API</a></li>
+<li><a href="/Zero-to-hero-GraphQL/">GraphQL</a></li>
+<li><a href="/Zero-to-hero-gRPC/">gRPC</a></li>
+</ul>
+<h2 id="💡-Tips-hoc-tap"><a href="#💡-Tips-hoc-tap" class="headerlink" title="💡 Tips học tập"></a>💡 Tips học tập</h2><ol>
+<li><strong>Thực hành mỗi ngày</strong>: Code ít nhất 30 phút&#x2F;ngày</li>
+<li><strong>Build projects</strong>: Tạo project riêng để áp dụng kiến thức</li>
+<li><strong>Read source code</strong>: Đọc code của các thư viện phổ biến</li>
+<li><strong>Join communities</strong>: Tham gia Discord, Reddit, Stack Overflow</li>
+<li><strong>Teach others</strong>: Giải thích lại cho người khác</li>
+<li><strong>Follow industry trends</strong>: Cập nhật công nghệ mới</li>
+</ol>
+<h2 id="🎯-Ket-qua-mong-doi"><a href="#🎯-Ket-qua-mong-doi" class="headerlink" title="🎯 Kết quả mong đợi"></a>🎯 Kết quả mong đợi</h2><p>Sau khi hoàn thành seri, bạn sẽ có thể:</p>
+<ul>
+<li>✅ Hiểu sâu về các công nghệ phổ biến</li>
+<li>✅ Tự tin build các ứng dụng thực tế</li>
+<li>✅ Apply best practices trong development</li>
+<li>✅ Troubleshoot và debug hiệu quả</li>
+<li>✅ Contribute vào open source projects</li>
+<li>✅ Design scalable architectures</li>
+<li>✅ Implement security best practices</li>
+</ul>
+<h2 id="📊-Trang-thai-hoan-thanh"><a href="#📊-Trang-thai-hoan-thanh" class="headerlink" title="📊 Trạng thái hoàn thành"></a>📊 Trạng thái hoàn thành</h2><ul>
+<li>✅ <strong>Hoàn thành</strong>: 3&#x2F;50+ bài viết</li>
+<li>🔄 <strong>Đang làm</strong>: 0 bài viết</li>
+<li>⏳ <strong>Chưa bắt đầu</strong>: 47+ bài viết</li>
+</ul>
+<p><strong>Ưu tiên hoàn thành theo thứ tự</strong>:</p>
+<ol>
+<li>Python, Express.js, MySQL (backend core)</li>
+<li>TypeScript, React (frontend modern)</li>
+<li>RESTful API, GraphQL (API development)</li>
+<li>Redis, RabbitMQ (caching &amp; messaging)</li>
+<li>Kubernetes, Terraform (DevOps advanced)</li>
+</ol>
+<hr>
+<p><strong>Bắt đầu ngay với bài viết đầu tiên hoặc chọn chủ đề bạn quan tâm nhất!</strong></p>
+<blockquote>
+<p>💡 <strong>Tip</strong>: Bookmark trang này để dễ dàng navigate giữa các bài viết trong seri. </p>
+</blockquote>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Vui lòng kích hoạt JavaScript để xem các bình luận.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Trang chủ</a></li>
+        
+          <li><a href="/about/">Giới thiệu</a></li>
+        
+          <li><a href="/archives/">Bài viết</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Seri-Zero-to-Hero-Huong-dan-toan-dien-tu-co-ban-den-nang-cao"><span class="toc-number">1.</span> <span class="toc-text">Seri Zero to Hero - Hướng dẫn toàn diện từ cơ bản đến nâng cao</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Muc-tieu-cua-seri"><span class="toc-number">1.1.</span> <span class="toc-text">🎯 Mục tiêu của seri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Danh-sach-cac-chu-de"><span class="toc-number">1.2.</span> <span class="toc-text">📚 Danh sách các chủ đề</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8C%90-Frontend-Development"><span class="toc-number">1.2.1.</span> <span class="toc-text">🌐 Frontend Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Backend-Development"><span class="toc-number">1.2.2.</span> <span class="toc-text">⚡ Backend Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%84%EF%B8%8F-Database-ORM"><span class="toc-number">1.2.3.</span> <span class="toc-text">🗄️ Database &amp; ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8C-API-Development"><span class="toc-number">1.2.4.</span> <span class="toc-text">🔌 API Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%B3-DevOps-Containerization"><span class="toc-number">1.2.5.</span> <span class="toc-text">🐳 DevOps &amp; Containerization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-Message-Queues-Caching"><span class="toc-number">1.2.6.</span> <span class="toc-text">📊 Message Queues &amp; Caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%AA-Testing-Automation"><span class="toc-number">1.2.7.</span> <span class="toc-text">🧪 Testing &amp; Automation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%B1-Mobile-Development"><span class="toc-number">1.2.8.</span> <span class="toc-text">📱 Mobile Development</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A7-Utilities-Tools"><span class="toc-number">1.2.9.</span> <span class="toc-text">🔧 Utilities &amp; Tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8F%97%EF%B8%8F-Architecture-Design"><span class="toc-number">1.2.10.</span> <span class="toc-text">🏗️ Architecture &amp; Design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%92-Security-Performance"><span class="toc-number">1.2.11.</span> <span class="toc-text">🔒 Security &amp; Performance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-Cach-su-dung-seri-hieu-qua"><span class="toc-number">1.3.</span> <span class="toc-text">🚀 Cách sử dụng seri hiệu quả</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Chon-chu-de-phu-hop"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Chọn chủ đề phù hợp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Thuc-hanh-theo-thu-tu"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. Thực hành theo thứ tự</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Code-examples"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. Code examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Project-thuc-te"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. Project thực tế</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%96-Cau-truc-bai-viet"><span class="toc-number">1.4.</span> <span class="toc-text">📖 Cấu trúc bài viết</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%93-Lo-trinh-hoc-tap"><span class="toc-number">1.5.</span> <span class="toc-text">🎓 Lộ trình học tập</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Beginner-0-3-thang"><span class="toc-number">1.5.1.</span> <span class="toc-text">Beginner (0-3 tháng)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intermediate-3-6-thang"><span class="toc-number">1.5.2.</span> <span class="toc-text">Intermediate (3-6 tháng)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-6-thang"><span class="toc-number">1.5.3.</span> <span class="toc-text">Advanced (6+ tháng)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%97-Lien-ket-nhanh"><span class="toc-number">1.6.</span> <span class="toc-text">🔗 Liên kết nhanh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Frontend"><span class="toc-number">1.6.1.</span> <span class="toc-text">Frontend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backend"><span class="toc-number">1.6.2.</span> <span class="toc-text">Backend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Database"><span class="toc-number">1.6.3.</span> <span class="toc-text">Database</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps"><span class="toc-number">1.6.4.</span> <span class="toc-text">DevOps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API"><span class="toc-number">1.6.5.</span> <span class="toc-text">API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-Tips-hoc-tap"><span class="toc-number">1.7.</span> <span class="toc-text">💡 Tips học tập</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Ket-qua-mong-doi"><span class="toc-number">1.8.</span> <span class="toc-text">🎯 Kết quả mong đợi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-Trang-thai-hoan-thanh"><span class="toc-number">1.9.</span> <span class="toc-text">📊 Trạng thái hoàn thành</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&text=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&is_video=false&description=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&title=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&name=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Series-Overview/&t=Seri Zero to Hero - Hướng Dẫn Toàn Diện Từ Cơ Bản đếN Nâng Cao"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+    {q: 'Chết không phải lúc trái tim ngừng đập, chết là khi ý chí ngừng tiến lên.', a: 'ChatGPT'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>

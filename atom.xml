@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-26T08:33:54.787Z</updated>
+  <updated>2025-06-26T09:31:12.829Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySQL: Window Functions</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-Window-functions/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/MySQL-Window-functions/</id>
-    <published>2025-06-26T08:33:54.000Z</published>
-    <updated>2025-06-26T08:33:54.787Z</updated>
+    <title>Zero to Hero: RestfulAPI</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/</id>
+    <published>2025-06-26T09:31:12.000Z</published>
+    <updated>2025-06-26T09:31:12.829Z</updated>
     
     
     
@@ -30,11 +30,11 @@
   </entry>
   
   <entry>
-    <title>MySQL: Temp Table</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-Temp-table/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/MySQL-Temp-table/</id>
-    <published>2025-06-26T08:33:42.000Z</published>
-    <updated>2025-06-26T08:33:42.552Z</updated>
+    <title>Zero to Hero: gRPC</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-gRPC/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-gRPC/</id>
+    <published>2025-06-26T09:31:05.000Z</published>
+    <updated>2025-06-26T09:31:05.649Z</updated>
     
     
     
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>MySQL: CTE</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-CTE/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/MySQL-CTE/</id>
-    <published>2025-06-26T08:33:34.000Z</published>
-    <updated>2025-06-26T08:33:34.428Z</updated>
+    <title>Zero to Hero: Swift</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Swift/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Swift/</id>
+    <published>2025-06-26T09:23:08.000Z</published>
+    <updated>2025-06-26T09:23:08.925Z</updated>
     
     
     
@@ -56,613 +56,223 @@
   </entry>
   
   <entry>
-    <title>MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/</id>
-    <published>2025-06-26T08:22:51.000Z</published>
-    <updated>2025-06-26T08:32:40.161Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich&quot;&gt;&lt;a href=&quot;#MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich&quot;</summary>
-        
-      
+    <title>Zero to Hero: Flutter</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Flutter/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Flutter/</id>
+    <published>2025-06-26T09:22:58.000Z</published>
+    <updated>2025-06-26T09:22:58.518Z</updated>
     
     
     
-    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
     
-    <category term="MySQL" scheme="https://ph4n4n.github.io/categories/Database/MySQL/"/>
-    
-    
-    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
-    
-    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
-    
-    <category term="Functions" scheme="https://ph4n4n.github.io/tags/Functions/"/>
-    
-    <category term="SQL" scheme="https://ph4n4n.github.io/tags/SQL/"/>
-    
-    <category term="Utility" scheme="https://ph4n4n.github.io/tags/Utility/"/>
     
   </entry>
   
   <entry>
-    <title>TypeScript All in One - Từ Zero đếN Hero</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Typescript-All-in-one/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Typescript-All-in-one/</id>
-    <published>2025-06-26T04:45:18.000Z</published>
-    <updated>2025-06-26T08:33:41.096Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;TypeScript-All-in-One-Tu-Zero-den-Hero&quot;&gt;&lt;a href=&quot;#TypeScript-All-in-One-Tu-Zero-den-Hero&quot; class=&quot;headerlink&quot; title=&quot;TypeScript All</summary>
-        
-      
+    <title>Zero to Hero: Puppeteer</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Puppeteer/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Puppeteer/</id>
+    <published>2025-06-26T09:12:57.000Z</published>
+    <updated>2025-06-26T09:12:57.326Z</updated>
     
     
     
-    <category term="TypeScript" scheme="https://ph4n4n.github.io/categories/TypeScript/"/>
     
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/TypeScript/JavaScript/"/>
-    
-    <category term="Programming" scheme="https://ph4n4n.github.io/categories/TypeScript/JavaScript/Programming/"/>
-    
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
-    
-    <category term="ES6" scheme="https://ph4n4n.github.io/tags/ES6/"/>
-    
-    <category term="TypeScript" scheme="https://ph4n4n.github.io/tags/TypeScript/"/>
-    
-    <category term="Tutorial" scheme="https://ph4n4n.github.io/tags/Tutorial/"/>
-    
-    <category term="Beginner" scheme="https://ph4n4n.github.io/tags/Beginner/"/>
-    
-    <category term="Type System" scheme="https://ph4n4n.github.io/tags/Type-System/"/>
-    
-    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
   </entry>
   
   <entry>
-    <title>Javascript ES6 Cheatsheet</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Javascript-ES6-Cheatsheet/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Javascript-ES6-Cheatsheet/</id>
-    <published>2025-06-26T04:43:51.000Z</published>
-    <updated>2025-06-26T08:33:57.497Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;JavaScript-ES6-Cheatsheet&quot;&gt;&lt;a href=&quot;#JavaScript-ES6-Cheatsheet&quot; class=&quot;headerlink&quot; title=&quot;JavaScript ES6+</summary>
-        
-      
+    <title>Zero to Hero: Jest</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Jest/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Jest/</id>
+    <published>2025-06-26T09:12:47.000Z</published>
+    <updated>2025-06-26T09:12:47.446Z</updated>
     
     
     
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/JavaScript/"/>
     
-    <category term="Programming" scheme="https://ph4n4n.github.io/categories/JavaScript/Programming/"/>
-    
-    <category term="ES6" scheme="https://ph4n4n.github.io/categories/JavaScript/Programming/ES6/"/>
-    
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="ES6" scheme="https://ph4n4n.github.io/tags/ES6/"/>
-    
-    <category term="ES2015" scheme="https://ph4n4n.github.io/tags/ES2015/"/>
-    
-    <category term="Modern JavaScript" scheme="https://ph4n4n.github.io/tags/Modern-JavaScript/"/>
-    
-    <category term="Arrow Functions" scheme="https://ph4n4n.github.io/tags/Arrow-Functions/"/>
-    
-    <category term="Destructuring" scheme="https://ph4n4n.github.io/tags/Destructuring/"/>
-    
-    <category term="Template Literals" scheme="https://ph4n4n.github.io/tags/Template-Literals/"/>
-    
-    <category term="Spread Operator" scheme="https://ph4n4n.github.io/tags/Spread-Operator/"/>
     
   </entry>
   
   <entry>
-    <title>Circuit Breaker Pattern Cho Tui</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/Circuit-breaker-pattern-cho-tui/</id>
-    <published>2025-06-20T10:28:09.000Z</published>
-    <updated>2025-06-20T10:29:32.837Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡&quot;&gt;&lt;a href=&quot;#Circuit-Breaker-Pattern-“Cau-dao-tu-dong”-cho-he-thong-⚡&quot;</summary>
-        
-      
+    <title>Zero to Hero: Python</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Python-1/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Python-1/</id>
+    <published>2025-06-26T09:12:41.000Z</published>
+    <updated>2025-06-26T09:12:41.269Z</updated>
     
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
     
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
-    
-    <category term="microservices" scheme="https://ph4n4n.github.io/tags/microservices/"/>
-    
-    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
     
   </entry>
   
   <entry>
-    <title>SOLID</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
-    <published>2025-06-20T08:12:09.000Z</published>
-    <updated>2025-06-26T08:34:24.875Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;SOLID-la-gi&quot;&gt;&lt;a href=&quot;#SOLID-la-gi&quot; class=&quot;headerlink&quot; title=&quot;SOLID là gì?&quot;&gt;&lt;/a&gt;SOLID là gì?&lt;/h2&gt;&lt;p&gt;SOLID là 5 nguyên tắc thiết kế</summary>
-        
-      
+    <title>Zero to Hero: Docker Compose</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker-Compose/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker-Compose/</id>
+    <published>2025-06-26T09:12:27.000Z</published>
+    <updated>2025-06-26T09:12:27.367Z</updated>
     
     
     
-    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
     
-    <category term="Design Patterns" scheme="https://ph4n4n.github.io/categories/Programming/Design-Patterns/"/>
-    
-    <category term="OOP" scheme="https://ph4n4n.github.io/categories/Programming/Design-Patterns/OOP/"/>
-    
-    
-    <category term="OOP" scheme="https://ph4n4n.github.io/tags/OOP/"/>
-    
-    <category term="Design Principles" scheme="https://ph4n4n.github.io/tags/Design-Principles/"/>
-    
-    <category term="SOLID" scheme="https://ph4n4n.github.io/tags/SOLID/"/>
-    
-    <category term="Clean Code" scheme="https://ph4n4n.github.io/tags/Clean-Code/"/>
-    
-    <category term="Software Architecture" scheme="https://ph4n4n.github.io/tags/Software-Architecture/"/>
-    
-    <category term="Single Responsibility" scheme="https://ph4n4n.github.io/tags/Single-Responsibility/"/>
-    
-    <category term="Open/Closed" scheme="https://ph4n4n.github.io/tags/Open-Closed/"/>
-    
-    <category term="Liskov Substitution" scheme="https://ph4n4n.github.io/tags/Liskov-Substitution/"/>
-    
-    <category term="Interface Segregation" scheme="https://ph4n4n.github.io/tags/Interface-Segregation/"/>
-    
-    <category term="Dependency Inversion" scheme="https://ph4n4n.github.io/tags/Dependency-Inversion/"/>
     
   </entry>
   
   <entry>
-    <title>ACID</title>
-    <link href="https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"/>
-    <id>https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/</id>
-    <published>2025-06-20T08:06:31.000Z</published>
-    <updated>2025-06-26T08:34:12.855Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;ACID-la-gi&quot;&gt;&lt;a href=&quot;#ACID-la-gi&quot; class=&quot;headerlink&quot; title=&quot;ACID là gì?&quot;&gt;&lt;/a&gt;ACID là gì?&lt;/h2&gt;&lt;p&gt;ACID là 4 tính chất cơ bản mà một</summary>
-        
-      
+    <title>Zero to Hero: Kafka</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Kafka/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Kafka/</id>
+    <published>2025-06-26T09:12:14.000Z</published>
+    <updated>2025-06-26T09:12:14.243Z</updated>
     
     
     
-    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
     
-    <category term="Database Theory" scheme="https://ph4n4n.github.io/categories/Database/Database-Theory/"/>
-    
-    
-    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
-    
-    <category term="ACID" scheme="https://ph4n4n.github.io/tags/ACID/"/>
-    
-    <category term="Transaction" scheme="https://ph4n4n.github.io/tags/Transaction/"/>
-    
-    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
-    
-    <category term="PostgreSQL" scheme="https://ph4n4n.github.io/tags/PostgreSQL/"/>
-    
-    <category term="Consistency" scheme="https://ph4n4n.github.io/tags/Consistency/"/>
-    
-    <category term="Atomicity" scheme="https://ph4n4n.github.io/tags/Atomicity/"/>
-    
-    <category term="Isolation" scheme="https://ph4n4n.github.io/tags/Isolation/"/>
-    
-    <category term="Durability" scheme="https://ph4n4n.github.io/tags/Durability/"/>
     
   </entry>
   
   <entry>
-    <title>Partition Trong Database Tối Giản</title>
-    <link href="https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/"/>
-    <id>https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/</id>
-    <published>2024-03-20T10:16:05.000Z</published>
-    <updated>2025-06-26T08:38:00.297Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;&gt;&lt;a href=&quot;#Database-Partitioning-Chia-de-tri-voi-bang-“khung-long”-🦕&quot;</summary>
-        
-      
+    <title>Zero to Hero: Mongoose</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Mongoose/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Mongoose/</id>
+    <published>2025-06-26T09:12:02.000Z</published>
+    <updated>2025-06-26T09:12:02.554Z</updated>
     
     
     
-    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
     
-    <category term="MySQL" scheme="https://ph4n4n.github.io/categories/Database/MySQL/"/>
-    
-    <category term="Performance" scheme="https://ph4n4n.github.io/categories/Database/MySQL/Performance/"/>
-    
-    
-    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
-    
-    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
-    
-    <category term="Performance" scheme="https://ph4n4n.github.io/tags/Performance/"/>
-    
-    <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
-    
-    <category term="Partitioning" scheme="https://ph4n4n.github.io/tags/Partitioning/"/>
-    
-    <category term="Big Data" scheme="https://ph4n4n.github.io/tags/Big-Data/"/>
-    
-    <category term="Database Design" scheme="https://ph4n4n.github.io/tags/Database-Design/"/>
     
   </entry>
   
   <entry>
-    <title>Giải Thích SQL Explain Bình Dân Học SQL</title>
-    <link href="https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"/>
-    <id>https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/</id>
-    <published>2023-06-20T09:39:15.000Z</published>
-    <updated>2025-06-26T08:35:38.045Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SQL-EXPLAIN-Cai-Gi-Ma-Database-Engine-Dang-Nghi-Trong-Dau-🤔&quot;&gt;&lt;a</summary>
-        
-      
+    <title>Zero to Hero: MongoDB</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-MongoDB/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-MongoDB/</id>
+    <published>2025-06-26T09:11:57.000Z</published>
+    <updated>2025-06-26T09:11:57.319Z</updated>
     
     
     
-    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
     
-    <category term="SQL" scheme="https://ph4n4n.github.io/categories/Database/SQL/"/>
-    
-    <category term="Performance" scheme="https://ph4n4n.github.io/categories/Database/SQL/Performance/"/>
-    
-    
-    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
-    
-    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
-    
-    <category term="PostgreSQL" scheme="https://ph4n4n.github.io/tags/PostgreSQL/"/>
-    
-    <category term="SQL" scheme="https://ph4n4n.github.io/tags/SQL/"/>
-    
-    <category term="Performance" scheme="https://ph4n4n.github.io/tags/Performance/"/>
-    
-    <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
-    
-    <category term="Explain" scheme="https://ph4n4n.github.io/tags/Explain/"/>
-    
-    <category term="Query Analysis" scheme="https://ph4n4n.github.io/tags/Query-Analysis/"/>
     
   </entry>
   
   <entry>
-    <title>Vạch Trần Kỹ Thuật Login QR Code Không Thể Dế Hiểu Hơn</title>
-    <link href="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"/>
-    <id>https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/</id>
-    <published>2021-03-22T02:40:20.000Z</published>
-    <updated>2025-06-26T08:34:58.047Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Mến chào các đồng code,&lt;br&gt;Mình đặt title có hơi quá tay tý mọi người thông cảm, vì không làm vậy bạn chắc gì đang đọc dòng này..</summary>
-        
-      
+    <title>NodeJS Lifecircle</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/NodeJS-lifecircle/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/NodeJS-lifecircle/</id>
+    <published>2025-06-26T09:08:14.000Z</published>
+    <updated>2025-06-26T09:08:14.722Z</updated>
     
     
     
-    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
     
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Backend/JavaScript/"/>
-    
-    <category term="Authentication" scheme="https://ph4n4n.github.io/categories/Backend/JavaScript/Authentication/"/>
-    
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
-    
-    <category term="Socket.io" scheme="https://ph4n4n.github.io/tags/Socket-io/"/>
-    
-    <category term="QR Code" scheme="https://ph4n4n.github.io/tags/QR-Code/"/>
-    
-    <category term="Authentication" scheme="https://ph4n4n.github.io/tags/Authentication/"/>
-    
-    <category term="Real-time" scheme="https://ph4n4n.github.io/tags/Real-time/"/>
-    
-    <category term="WebSocket" scheme="https://ph4n4n.github.io/tags/WebSocket/"/>
-    
-    <category term="Security" scheme="https://ph4n4n.github.io/tags/Security/"/>
     
   </entry>
   
   <entry>
-    <title>Imperative Programming Và Declarative Programming Dễ Như ăN Bánh</title>
-    <link href="https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
-    <id>https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
-    <published>2021-01-20T10:19:44.000Z</published>
-    <updated>2025-06-26T08:35:12.365Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Imperative-vs-Declarative-Programming-Cuoc-chien-cua-2-phong-cach-code-🥊&quot;&gt;&lt;a</summary>
-        
-      
+    <title>Zero to Hero: Redis</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Redis/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Redis/</id>
+    <published>2025-06-26T09:02:12.000Z</published>
+    <updated>2025-06-26T09:02:12.976Z</updated>
     
     
     
-    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
     
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Programming/JavaScript/"/>
-    
-    <category term="Programming Concepts" scheme="https://ph4n4n.github.io/categories/Programming/JavaScript/Programming-Concepts/"/>
-    
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
-    
-    <category term="Programming Paradigms" scheme="https://ph4n4n.github.io/tags/Programming-Paradigms/"/>
-    
-    <category term="Imperative" scheme="https://ph4n4n.github.io/tags/Imperative/"/>
-    
-    <category term="Declarative" scheme="https://ph4n4n.github.io/tags/Declarative/"/>
-    
-    <category term="Functional Programming" scheme="https://ph4n4n.github.io/tags/Functional-Programming/"/>
-    
-    <category term="Code Style" scheme="https://ph4n4n.github.io/tags/Code-Style/"/>
     
   </entry>
   
   <entry>
-    <title>Vô đề</title>
-    <link href="https://ph4n4n.github.io/2019/04/11/Vo-de/"/>
-    <id>https://ph4n4n.github.io/2019/04/11/Vo-de/</id>
-    <published>2019-04-11T07:35:43.000Z</published>
-    <updated>2025-06-20T10:10:44.737Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img src=&quot;/2019/04/11/Vo-de/vode.gif&quot; class=&quot;&quot; title=&quot;Vo De Animation&quot;&gt;
-
-&lt;p&gt;Chung quy trong đời, mọi việc cũng chỉ gói gọn trong ba</summary>
-        
-      
+    <title>Zero to Hero: BullMQ</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-BullMQ/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-BullMQ/</id>
+    <published>2025-06-26T09:02:07.000Z</published>
+    <updated>2025-06-26T09:02:07.571Z</updated>
     
     
     
-    <category term="nocode" scheme="https://ph4n4n.github.io/categories/nocode/"/>
     
-    
-    <category term="nocode" scheme="https://ph4n4n.github.io/tags/nocode/"/>
     
   </entry>
   
   <entry>
-    <title>Python Shorthand</title>
-    <link href="https://ph4n4n.github.io/2019/04/09/Python-shorthand/"/>
-    <id>https://ph4n4n.github.io/2019/04/09/Python-shorthand/</id>
-    <published>2019-04-09T02:10:17.000Z</published>
-    <updated>2025-06-20T09:59:56.753Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img src=&quot;/2019/04/09/Python-shorthand/python-tip.png&quot; class=&quot;&quot; title=&quot;Python Tips&quot;&gt;
-
-&lt;h2 id=&quot;1-Reverse-string&quot;&gt;&lt;a href=&quot;#1-Reverse-string&quot;</summary>
-        
-      
+    <title>Zero to Hero: RabbitMQ</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RabbitMQ/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RabbitMQ/</id>
+    <published>2025-06-26T09:02:02.000Z</published>
+    <updated>2025-06-26T09:02:02.188Z</updated>
     
     
     
-    <category term="python" scheme="https://ph4n4n.github.io/categories/python/"/>
     
-    
-    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
-    <title>Python: Reserved Keywords</title>
-    <link href="https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/"/>
-    <id>https://ph4n4n.github.io/2019/03/28/Python-Reserved-keywords/</id>
-    <published>2019-03-28T04:27:17.000Z</published>
-    <updated>2025-06-19T06:46:18.214Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Python-Reserved-Keywords&quot;&gt;&lt;a href=&quot;#Python-Reserved-Keywords&quot; class=&quot;headerlink&quot; title=&quot;Python Reserved Keywords&quot;&gt;&lt;/a&gt;Python</summary>
-        
-      
+    <title>Zero to Hero: Golang</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Golang/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Golang/</id>
+    <published>2025-06-26T09:01:50.000Z</published>
+    <updated>2025-06-26T09:01:50.826Z</updated>
     
     
     
-    <category term="python" scheme="https://ph4n4n.github.io/categories/python/"/>
     
-    
-    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
-    <title>Compare Python With Javascript</title>
-    <link href="https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/"/>
-    <id>https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/</id>
-    <published>2019-03-27T04:04:35.000Z</published>
-    <updated>2025-06-26T08:34:35.376Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;This-note-write-some-difference-between-JS-with-Python-from-a-JS-developer-learning-Python&quot;&gt;&lt;a</summary>
-        
-      
+    <title>Zero to Hero: Prisma</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Prisma/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Prisma/</id>
+    <published>2025-06-26T09:00:08.000Z</published>
+    <updated>2025-06-26T09:00:08.238Z</updated>
     
     
     
-    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
     
-    <category term="Python" scheme="https://ph4n4n.github.io/categories/Programming/Python/"/>
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Programming/Python/JavaScript/"/>
-    
-    
-    <category term="Python" scheme="https://ph4n4n.github.io/tags/Python/"/>
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
-    
-    <category term="Comparison" scheme="https://ph4n4n.github.io/tags/Comparison/"/>
-    
-    <category term="Data Types" scheme="https://ph4n4n.github.io/tags/Data-Types/"/>
-    
-    <category term="Syntax" scheme="https://ph4n4n.github.io/tags/Syntax/"/>
-    
-    <category term="Loops" scheme="https://ph4n4n.github.io/tags/Loops/"/>
-    
-    <category term="Functions" scheme="https://ph4n4n.github.io/tags/Functions/"/>
-    
-    <category term="Operators" scheme="https://ph4n4n.github.io/tags/Operators/"/>
     
   </entry>
   
   <entry>
-    <title>Python Operators Precedence</title>
-    <link href="https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/"/>
-    <id>https://ph4n4n.github.io/2019/03/26/Python-Operators-Prcedence/</id>
-    <published>2019-03-26T09:54:45.000Z</published>
-    <updated>2025-06-19T06:46:56.118Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Python-Operators-Precedence&quot;&gt;&lt;a href=&quot;#Python-Operators-Precedence&quot; class=&quot;headerlink&quot; title=&quot;Python Operators</summary>
-        
-      
+    <title>Zero to Hero: TypeORM</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-TypeORM/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-TypeORM/</id>
+    <published>2025-06-26T09:00:01.000Z</published>
+    <updated>2025-06-26T09:00:01.436Z</updated>
     
     
     
-    <category term="python" scheme="https://ph4n4n.github.io/categories/python/"/>
     
-    
-    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
-    <title>List of Mat Type in onpenCV</title>
-    <link href="https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/"/>
-    <id>https://ph4n4n.github.io/2019/03/25/list-of-Mat-type-in-onpenCV/</id>
-    <published>2019-03-25T09:23:30.000Z</published>
-    <updated>2025-06-19T06:31:21.345Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;LIST OF MAT TYPE IN OPENCV&lt;/p&gt;
-&lt;p&gt;A Mapping of Type to Numbers in OpenCV&lt;/p&gt;
-&lt;p&gt;| C1  | C2  | C3 |  C4&lt;br&gt;:-|-:|-:|-:|-:|-:&lt;br&gt;CV_8U   |</summary>
-        
-      
+    <title>Zero to Hero: NestJS</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-NestJS/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-NestJS/</id>
+    <published>2025-06-26T08:59:55.000Z</published>
+    <updated>2025-06-26T08:59:55.916Z</updated>
     
     
     
-    <category term="opencv" scheme="https://ph4n4n.github.io/categories/opencv/"/>
     
-    
-    <category term="opencv" scheme="https://ph4n4n.github.io/tags/opencv/"/>
     
   </entry>
   
   <entry>
-    <title>Sum Big Numbers From String</title>
-    <link href="https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/"/>
-    <id>https://ph4n4n.github.io/2019/03/14/sum-big-number-from-string/</id>
-    <published>2019-03-14T06:48:10.000Z</published>
-    <updated>2025-06-19T06:47:03.113Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Van-de&quot;&gt;&lt;a href=&quot;#Van-de&quot; class=&quot;headerlink&quot; title=&quot;Vấn đề&quot;&gt;&lt;/a&gt;Vấn đề&lt;/h2&gt;&lt;p&gt;Khi cần cộng 2 số quá lớn (big number) mà JavaScript</summary>
-        
-      
+    <title>Zero to Hero: Regexp</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/</id>
+    <published>2025-06-26T08:59:43.000Z</published>
+    <updated>2025-06-26T08:59:43.263Z</updated>
     
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
     
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
     
   </entry>
   
