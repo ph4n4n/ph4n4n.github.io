@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện íchMySQL cung cấp nhiều hàm tiện ích mạnh mẽ giúp xử lý dữ liệu hiệu quả. Dưới đây là các hàm quan trọng nhất với ví dụ thực tế. 1. CONCAT() -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện íchMySQL cung cấp nhiều hàm tiện ích mạnh mẽ giúp xử lý dữ liệu hiệu quả. Dưới đây là các hàm quan trọng nhất với ví dụ thực tế. 1. CONCAT() -">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:published_time" content="2025-06-26T08:22:51.000Z">
+<meta property="article:modified_time" content="2025-06-26T08:32:40.161Z">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Functions">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="Utility">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Bài trước" href="/2025/06/26/MySQL-CTE/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Bài tiếp theo" href="/2025/06/26/Typescript-All-in-one/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Về đầu trang" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Chia sẻ bài viết" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&text=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&is_video=false&description=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích&body=Check out this article: https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&name=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&t=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich"><span class="toc-number">1.</span> <span class="toc-text">MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện ích</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CONCAT-Noi-chuoi"><span class="toc-number">1.1.</span> <span class="toc-text">1. CONCAT() - Nối chuỗi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GROUP-CONCAT-Gop-nhieu-dong-thanh-mot"><span class="toc-number">1.2.</span> <span class="toc-text">2. GROUP_CONCAT() - Gộp nhiều dòng thành một</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IF-Dieu-kien-don-gian"><span class="toc-number">1.3.</span> <span class="toc-text">3. IF() - Điều kiện đơn giản</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-IFNULL-Xu-ly-gia-tri-NULL"><span class="toc-number">1.4.</span> <span class="toc-text">4. IFNULL() - Xử lý giá trị NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-NULLIF-So-sanh-va-tra-ve-NULL"><span class="toc-number">1.5.</span> <span class="toc-text">5. NULLIF() - So sánh và trả về NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CASE-WHEN-Dieu-kien-phuc-tap"><span class="toc-number">1.6.</span> <span class="toc-text">6. CASE WHEN - Điều kiện phức tạp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-COALESCE-Lay-gia-tri-dau-tien-khong-NULL"><span class="toc-number">1.7.</span> <span class="toc-text">7. COALESCE() - Lấy giá trị đầu tiên không NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-DATE-FORMAT-Dinh-dang-ngay-thang"><span class="toc-number">1.8.</span> <span class="toc-text">8. DATE_FORMAT() - Định dạng ngày tháng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-JSON-Functions-Xu-ly-JSON"><span class="toc-number">1.9.</span> <span class="toc-text">9. JSON Functions - Xử lý JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Window-Functions-Phan-tich-du-lieu"><span class="toc-number">1.10.</span> <span class="toc-text">10. Window Functions - Phân tích dữ liệu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips-su-dung-hieu-qua"><span class="toc-number">1.11.</span> <span class="toc-text">Tips sử dụng hiệu quả</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-Bao-cao-ban-hang"><span class="toc-number">1.12.</span> <span class="toc-text">Ví dụ thực tế: Báo cáo bán hàng</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ph4n4n</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-26T08:22:51.000Z" class="dt-published" itemprop="datePublished">2025-06-26</time>
+        
+        (Updated: <time datetime="2025-06-26T08:32:40.161Z" class="dt-updated" itemprop="dateModified">2025-06-26</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Database/">Database</a> › <a class="category-link" href="/categories/Database/MySQL/">MySQL</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Database/" rel="tag">Database</a>, <a class="p-category" href="/tags/Functions/" rel="tag">Functions</a>, <a class="p-category" href="/tags/MySQL/" rel="tag">MySQL</a>, <a class="p-category" href="/tags/SQL/" rel="tag">SQL</a>, <a class="p-category" href="/tags/Utility/" rel="tag">Utility</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich"><a href="#MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich" class="headerlink" title="MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện ích"></a>MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện ích</h1><p>MySQL cung cấp nhiều hàm tiện ích mạnh mẽ giúp xử lý dữ liệu hiệu quả. Dưới đây là các hàm quan trọng nhất với ví dụ thực tế.</p>
+<h2 id="1-CONCAT-Noi-chuoi"><a href="#1-CONCAT-Noi-chuoi" class="headerlink" title="1. CONCAT() - Nối chuỗi"></a>1. CONCAT() - Nối chuỗi</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Nối tên và họ</span></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(first_name, <span class="string">&#x27; &#x27;</span>, last_name) <span class="keyword">AS</span> full_name</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Nối với điều kiện</span></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(</span><br><span class="line">    first_name, </span><br><span class="line">    IF(middle_name <span class="keyword">IS</span> <span class="keyword">NOT NULL</span>, CONCAT(<span class="string">&#x27; &#x27;</span>, middle_name), <span class="string">&#x27;&#x27;</span>), </span><br><span class="line">    <span class="string">&#x27; &#x27;</span>, </span><br><span class="line">    last_name</span><br><span class="line">) <span class="keyword">AS</span> full_name</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Nối với separator</span></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT_WS(<span class="string">&#x27; - &#x27;</span>, product_name, category, price) <span class="keyword">AS</span> product_info</span><br><span class="line"><span class="keyword">FROM</span> products;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-GROUP-CONCAT-Gop-nhieu-dong-thanh-mot"><a href="#2-GROUP-CONCAT-Gop-nhieu-dong-thanh-mot" class="headerlink" title="2. GROUP_CONCAT() - Gộp nhiều dòng thành một"></a>2. GROUP_CONCAT() - Gộp nhiều dòng thành một</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Lấy danh sách tags của mỗi bài viết</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    post_id,</span><br><span class="line">    post_title,</span><br><span class="line">    GROUP_CONCAT(tag_name <span class="keyword">ORDER</span> <span class="keyword">BY</span> tag_name SEPARATOR <span class="string">&#x27;, &#x27;</span>) <span class="keyword">AS</span> tags</span><br><span class="line"><span class="keyword">FROM</span> posts p</span><br><span class="line"><span class="keyword">JOIN</span> post_tags pt <span class="keyword">ON</span> p.id <span class="operator">=</span> pt.post_id</span><br><span class="line"><span class="keyword">JOIN</span> tags t <span class="keyword">ON</span> pt.tag_id <span class="operator">=</span> t.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> p.id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Giới hạn số lượng kết quả</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    category_id,</span><br><span class="line">    GROUP_CONCAT(product_name <span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span> SEPARATOR <span class="string">&#x27; | &#x27;</span> LIMIT <span class="number">5</span>) <span class="keyword">AS</span> top_products</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> category_id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-IF-Dieu-kien-don-gian"><a href="#3-IF-Dieu-kien-don-gian" class="headerlink" title="3. IF() - Điều kiện đơn giản"></a>3. IF() - Điều kiện đơn giản</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Phân loại khách hàng theo điểm</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    customer_name,</span><br><span class="line">    points,</span><br><span class="line">    IF(points <span class="operator">&gt;=</span> <span class="number">1000</span>, <span class="string">&#x27;VIP&#x27;</span>, <span class="string">&#x27;Regular&#x27;</span>) <span class="keyword">AS</span> customer_type</span><br><span class="line"><span class="keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Tính phí vận chuyển</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    order_id,</span><br><span class="line">    total_amount,</span><br><span class="line">    IF(total_amount <span class="operator">&gt;=</span> <span class="number">500000</span>, <span class="number">0</span>, <span class="number">30000</span>) <span class="keyword">AS</span> shipping_fee</span><br><span class="line"><span class="keyword">FROM</span> orders;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Kiểm tra trạng thái</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_name,</span><br><span class="line">    stock_quantity,</span><br><span class="line">    IF(stock_quantity <span class="operator">&gt;</span> <span class="number">0</span>, <span class="string">&#x27;In Stock&#x27;</span>, <span class="string">&#x27;Out of Stock&#x27;</span>) <span class="keyword">AS</span> availability</span><br><span class="line"><span class="keyword">FROM</span> products;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-IFNULL-Xu-ly-gia-tri-NULL"><a href="#4-IFNULL-Xu-ly-gia-tri-NULL" class="headerlink" title="4. IFNULL() - Xử lý giá trị NULL"></a>4. IFNULL() - Xử lý giá trị NULL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Thay thế NULL bằng giá trị mặc định</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    user_id,</span><br><span class="line">    IFNULL(avatar_url, <span class="string">&#x27;/images/default-avatar.png&#x27;</span>) <span class="keyword">AS</span> avatar,</span><br><span class="line">    IFNULL(bio, <span class="string">&#x27;No bio available&#x27;</span>) <span class="keyword">AS</span> user_bio</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Tính toán với NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    price,</span><br><span class="line">    discount,</span><br><span class="line">    price <span class="operator">-</span> IFNULL(discount, <span class="number">0</span>) <span class="keyword">AS</span> final_price</span><br><span class="line"><span class="keyword">FROM</span> products;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Hiển thị thông tin liên hệ</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    customer_name,</span><br><span class="line">    IFNULL(phone, <span class="string">&#x27;No phone&#x27;</span>) <span class="keyword">AS</span> contact_phone,</span><br><span class="line">    IFNULL(email, <span class="string">&#x27;No email&#x27;</span>) <span class="keyword">AS</span> contact_email</span><br><span class="line"><span class="keyword">FROM</span> customers;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-NULLIF-So-sanh-va-tra-ve-NULL"><a href="#5-NULLIF-So-sanh-va-tra-ve-NULL" class="headerlink" title="5. NULLIF() - So sánh và trả về NULL"></a>5. NULLIF() - So sánh và trả về NULL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Tránh chia cho 0</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    sales_count,</span><br><span class="line">    total_revenue,</span><br><span class="line">    total_revenue <span class="operator">/</span> <span class="built_in">NULLIF</span>(sales_count, <span class="number">0</span>) <span class="keyword">AS</span> avg_revenue_per_sale</span><br><span class="line"><span class="keyword">FROM</span> sales_summary;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Kiểm tra thay đổi giá</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    old_price,</span><br><span class="line">    new_price,</span><br><span class="line">    <span class="built_in">NULLIF</span>(old_price, new_price) <span class="keyword">AS</span> price_changed</span><br><span class="line"><span class="keyword">FROM</span> price_history;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- So sánh chuỗi</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    user_id,</span><br><span class="line">    username,</span><br><span class="line">    display_name,</span><br><span class="line">    <span class="built_in">NULLIF</span>(username, display_name) <span class="keyword">AS</span> name_different</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-CASE-WHEN-Dieu-kien-phuc-tap"><a href="#6-CASE-WHEN-Dieu-kien-phuc-tap" class="headerlink" title="6. CASE WHEN - Điều kiện phức tạp"></a>6. CASE WHEN - Điều kiện phức tạp</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Phân loại đơn hàng</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    order_id,</span><br><span class="line">    total_amount,</span><br><span class="line">    <span class="keyword">CASE</span> </span><br><span class="line">        <span class="keyword">WHEN</span> total_amount <span class="operator">&gt;=</span> <span class="number">1000000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Premium&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> total_amount <span class="operator">&gt;=</span> <span class="number">500000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Standard&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> total_amount <span class="operator">&gt;=</span> <span class="number">100000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Basic&#x27;</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="string">&#x27;Small&#x27;</span></span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> order_category</span><br><span class="line"><span class="keyword">FROM</span> orders;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Tính hoa hồng theo cấp độ</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    salesperson_id,</span><br><span class="line">    sales_amount,</span><br><span class="line">    <span class="keyword">CASE</span> </span><br><span class="line">        <span class="keyword">WHEN</span> sales_amount <span class="operator">&gt;=</span> <span class="number">10000000</span> <span class="keyword">THEN</span> sales_amount <span class="operator">*</span> <span class="number">0.15</span></span><br><span class="line">        <span class="keyword">WHEN</span> sales_amount <span class="operator">&gt;=</span> <span class="number">5000000</span> <span class="keyword">THEN</span> sales_amount <span class="operator">*</span> <span class="number">0.10</span></span><br><span class="line">        <span class="keyword">WHEN</span> sales_amount <span class="operator">&gt;=</span> <span class="number">1000000</span> <span class="keyword">THEN</span> sales_amount <span class="operator">*</span> <span class="number">0.05</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> commission</span><br><span class="line"><span class="keyword">FROM</span> sales;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-COALESCE-Lay-gia-tri-dau-tien-khong-NULL"><a href="#7-COALESCE-Lay-gia-tri-dau-tien-khong-NULL" class="headerlink" title="7. COALESCE() - Lấy giá trị đầu tiên không NULL"></a>7. COALESCE() - Lấy giá trị đầu tiên không NULL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Ưu tiên thông tin liên hệ</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="built_in">COALESCE</span>(mobile, phone, email, <span class="string">&#x27;No contact&#x27;</span>) <span class="keyword">AS</span> primary_contact</span><br><span class="line"><span class="keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Lấy giá trị mới nhất</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="built_in">COALESCE</span>(new_price, old_price, base_price) <span class="keyword">AS</span> current_price</span><br><span class="line"><span class="keyword">FROM</span> products;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Xử lý địa chỉ</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    user_id,</span><br><span class="line">    <span class="built_in">COALESCE</span>(</span><br><span class="line">        CONCAT_WS(<span class="string">&#x27;, &#x27;</span>, address_line1, address_line2),</span><br><span class="line">        city,</span><br><span class="line">        <span class="string">&#x27;Address not provided&#x27;</span></span><br><span class="line">    ) <span class="keyword">AS</span> full_address</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-DATE-FORMAT-Dinh-dang-ngay-thang"><a href="#8-DATE-FORMAT-Dinh-dang-ngay-thang" class="headerlink" title="8. DATE_FORMAT() - Định dạng ngày tháng"></a>8. DATE_FORMAT() - Định dạng ngày tháng</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Định dạng ngày tháng Việt Nam</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    order_id,</span><br><span class="line">    DATE_FORMAT(created_at, <span class="string">&#x27;%d/%m/%Y %H:%i&#x27;</span>) <span class="keyword">AS</span> order_date_vn,</span><br><span class="line">    DATE_FORMAT(created_at, <span class="string">&#x27;%W, %d %M %Y&#x27;</span>) <span class="keyword">AS</span> order_date_full</span><br><span class="line"><span class="keyword">FROM</span> orders;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Phân tích theo thời gian</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    DATE_FORMAT(created_at, <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="keyword">month</span>,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> order_count,</span><br><span class="line">    <span class="built_in">SUM</span>(total_amount) <span class="keyword">AS</span> total_revenue</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DATE_FORMAT(created_at, <span class="string">&#x27;%Y-%m&#x27;</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">month</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-JSON-Functions-Xu-ly-JSON"><a href="#9-JSON-Functions-Xu-ly-JSON" class="headerlink" title="9. JSON Functions - Xử lý JSON"></a>9. JSON Functions - Xử lý JSON</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Trích xuất dữ liệu JSON</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    user_id,</span><br><span class="line">    JSON_EXTRACT(profile_data, <span class="string">&#x27;$.age&#x27;</span>) <span class="keyword">AS</span> age,</span><br><span class="line">    JSON_EXTRACT(profile_data, <span class="string">&#x27;$.interests[0]&#x27;</span>) <span class="keyword">AS</span> first_interest</span><br><span class="line"><span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Tạo JSON từ dữ liệu</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="built_in">JSON_OBJECT</span>(</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span>, product_name,</span><br><span class="line">        <span class="string">&#x27;price&#x27;</span>, price,</span><br><span class="line">        <span class="string">&#x27;category&#x27;</span>, category_name</span><br><span class="line">    ) <span class="keyword">AS</span> product_json</span><br><span class="line"><span class="keyword">FROM</span> products p</span><br><span class="line"><span class="keyword">JOIN</span> categories c <span class="keyword">ON</span> p.category_id <span class="operator">=</span> c.id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-Window-Functions-Phan-tich-du-lieu"><a href="#10-Window-Functions-Phan-tich-du-lieu" class="headerlink" title="10. Window Functions - Phân tích dữ liệu"></a>10. Window Functions - Phân tích dữ liệu</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Xếp hạng sản phẩm theo danh mục</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_name,</span><br><span class="line">    category_name,</span><br><span class="line">    price,</span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> category_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span>) <span class="keyword">AS</span> rank_in_category,</span><br><span class="line">    <span class="built_in">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> category_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span>) <span class="keyword">AS</span> price_rank</span><br><span class="line"><span class="keyword">FROM</span> products p</span><br><span class="line"><span class="keyword">JOIN</span> categories c <span class="keyword">ON</span> p.category_id <span class="operator">=</span> c.id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Tính tổng tích lũy</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    order_date,</span><br><span class="line">    daily_revenue,</span><br><span class="line">    <span class="built_in">SUM</span>(daily_revenue) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> order_date) <span class="keyword">AS</span> cumulative_revenue</span><br><span class="line"><span class="keyword">FROM</span> daily_sales;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tips-su-dung-hieu-qua"><a href="#Tips-su-dung-hieu-qua" class="headerlink" title="Tips sử dụng hiệu quả"></a>Tips sử dụng hiệu quả</h2><ol>
+<li><strong>Performance</strong>: Sử dụng INDEX cho các cột trong GROUP_CONCAT</li>
+<li><strong>Memory</strong>: Giới hạn độ dài GROUP_CONCAT với <code>group_concat_max_len</code></li>
+<li><strong>NULL handling</strong>: Luôn xử lý NULL để tránh lỗi logic</li>
+<li><strong>Readability</strong>: Sử dụng alias rõ ràng cho các hàm phức tạp</li>
+</ol>
+<h2 id="Vi-du-thuc-te-Bao-cao-ban-hang"><a href="#Vi-du-thuc-te-Bao-cao-ban-hang" class="headerlink" title="Ví dụ thực tế: Báo cáo bán hàng"></a>Ví dụ thực tế: Báo cáo bán hàng</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    DATE_FORMAT(order_date, <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="keyword">month</span>,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> total_orders,</span><br><span class="line">    <span class="built_in">SUM</span>(total_amount) <span class="keyword">AS</span> total_revenue,</span><br><span class="line">    <span class="built_in">AVG</span>(total_amount) <span class="keyword">AS</span> avg_order_value,</span><br><span class="line">    GROUP_CONCAT(</span><br><span class="line">        <span class="keyword">DISTINCT</span> customer_name </span><br><span class="line">        <span class="keyword">ORDER</span> <span class="keyword">BY</span> customer_name </span><br><span class="line">        SEPARATOR <span class="string">&#x27;, &#x27;</span></span><br><span class="line">    ) <span class="keyword">AS</span> customers,</span><br><span class="line">    <span class="keyword">CASE</span> </span><br><span class="line">        <span class="keyword">WHEN</span> <span class="built_in">SUM</span>(total_amount) <span class="operator">&gt;=</span> <span class="number">10000000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Excellent&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> <span class="built_in">SUM</span>(total_amount) <span class="operator">&gt;=</span> <span class="number">5000000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Good&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> <span class="built_in">SUM</span>(total_amount) <span class="operator">&gt;=</span> <span class="number">1000000</span> <span class="keyword">THEN</span> <span class="string">&#x27;Average&#x27;</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="string">&#x27;Poor&#x27;</span></span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> performance</span><br><span class="line"><span class="keyword">FROM</span> orders o</span><br><span class="line"><span class="keyword">JOIN</span> customers c <span class="keyword">ON</span> o.customer_id <span class="operator">=</span> c.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DATE_FORMAT(order_date, <span class="string">&#x27;%Y-%m&#x27;</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">month</span> <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Các hàm utility này giúp viết SQL ngắn gọn, hiệu quả và dễ bảo trì. Hãy sử dụng chúng một cách hợp lý để tối ưu hóa truy vấn của bạn!</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Vui lòng kích hoạt JavaScript để xem các bình luận.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Trang chủ</a></li>
+        
+          <li><a href="/about/">Giới thiệu</a></li>
+        
+          <li><a href="/archives/">Bài viết</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich"><span class="toc-number">1.</span> <span class="toc-text">MySQL Utility Functions - Hướng dẫn sử dụng các hàm tiện ích</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CONCAT-Noi-chuoi"><span class="toc-number">1.1.</span> <span class="toc-text">1. CONCAT() - Nối chuỗi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GROUP-CONCAT-Gop-nhieu-dong-thanh-mot"><span class="toc-number">1.2.</span> <span class="toc-text">2. GROUP_CONCAT() - Gộp nhiều dòng thành một</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IF-Dieu-kien-don-gian"><span class="toc-number">1.3.</span> <span class="toc-text">3. IF() - Điều kiện đơn giản</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-IFNULL-Xu-ly-gia-tri-NULL"><span class="toc-number">1.4.</span> <span class="toc-text">4. IFNULL() - Xử lý giá trị NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-NULLIF-So-sanh-va-tra-ve-NULL"><span class="toc-number">1.5.</span> <span class="toc-text">5. NULLIF() - So sánh và trả về NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CASE-WHEN-Dieu-kien-phuc-tap"><span class="toc-number">1.6.</span> <span class="toc-text">6. CASE WHEN - Điều kiện phức tạp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-COALESCE-Lay-gia-tri-dau-tien-khong-NULL"><span class="toc-number">1.7.</span> <span class="toc-text">7. COALESCE() - Lấy giá trị đầu tiên không NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-DATE-FORMAT-Dinh-dang-ngay-thang"><span class="toc-number">1.8.</span> <span class="toc-text">8. DATE_FORMAT() - Định dạng ngày tháng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-JSON-Functions-Xu-ly-JSON"><span class="toc-number">1.9.</span> <span class="toc-text">9. JSON Functions - Xử lý JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Window-Functions-Phan-tich-du-lieu"><span class="toc-number">1.10.</span> <span class="toc-text">10. Window Functions - Phân tích dữ liệu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips-su-dung-hieu-qua"><span class="toc-number">1.11.</span> <span class="toc-text">Tips sử dụng hiệu quả</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vi-du-thuc-te-Bao-cao-ban-hang"><span class="toc-number">1.12.</span> <span class="toc-text">Ví dụ thực tế: Báo cáo bán hàng</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&text=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&is_video=false&description=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích&body=Check out this article: https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&title=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&name=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/&t=MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>

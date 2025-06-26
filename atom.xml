@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-26T05:10:17.391Z</updated>
+  <updated>2025-06-26T08:33:54.787Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,11 +17,85 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MySQL: Window Functions</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-Window-functions/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/MySQL-Window-functions/</id>
+    <published>2025-06-26T08:33:54.000Z</published>
+    <updated>2025-06-26T08:33:54.787Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL: Temp Table</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-Temp-table/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/MySQL-Temp-table/</id>
+    <published>2025-06-26T08:33:42.000Z</published>
+    <updated>2025-06-26T08:33:42.552Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL: CTE</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-CTE/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/MySQL-CTE/</id>
+    <published>2025-06-26T08:33:34.000Z</published>
+    <updated>2025-06-26T08:33:34.428Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL Utility Functions - Hướng Dẫn Sử Dụng Các Hàm Tiện Ích</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/MySQL-utility-functions/</id>
+    <published>2025-06-26T08:22:51.000Z</published>
+    <updated>2025-06-26T08:32:40.161Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich&quot;&gt;&lt;a href=&quot;#MySQL-Utility-Functions-Huong-dan-su-dung-cac-ham-tien-ich&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/categories/Database/MySQL/"/>
+    
+    
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
+    
+    <category term="Functions" scheme="https://ph4n4n.github.io/tags/Functions/"/>
+    
+    <category term="SQL" scheme="https://ph4n4n.github.io/tags/SQL/"/>
+    
+    <category term="Utility" scheme="https://ph4n4n.github.io/tags/Utility/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TypeScript All in One - Từ Zero đếN Hero</title>
     <link href="https://ph4n4n.github.io/2025/06/26/Typescript-All-in-one/"/>
     <id>https://ph4n4n.github.io/2025/06/26/Typescript-All-in-one/</id>
     <published>2025-06-26T04:45:18.000Z</published>
-    <updated>2025-06-26T05:10:17.391Z</updated>
+    <updated>2025-06-26T08:33:41.096Z</updated>
     
     
       
@@ -34,16 +108,28 @@
     
     
     
+    <category term="TypeScript" scheme="https://ph4n4n.github.io/categories/TypeScript/"/>
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/TypeScript/JavaScript/"/>
     
-    <category term="programming" scheme="https://ph4n4n.github.io/tags/programming/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/TypeScript/JavaScript/Programming/"/>
     
-    <category term="typescript" scheme="https://ph4n4n.github.io/tags/typescript/"/>
     
-    <category term="tutorial" scheme="https://ph4n4n.github.io/tags/tutorial/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
     
-    <category term="beginner" scheme="https://ph4n4n.github.io/tags/beginner/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
+    
+    <category term="ES6" scheme="https://ph4n4n.github.io/tags/ES6/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
+    
+    <category term="TypeScript" scheme="https://ph4n4n.github.io/tags/TypeScript/"/>
+    
+    <category term="Tutorial" scheme="https://ph4n4n.github.io/tags/Tutorial/"/>
+    
+    <category term="Beginner" scheme="https://ph4n4n.github.io/tags/Beginner/"/>
+    
+    <category term="Type System" scheme="https://ph4n4n.github.io/tags/Type-System/"/>
     
   </entry>
   
@@ -52,7 +138,7 @@
     <link href="https://ph4n4n.github.io/2025/06/26/Javascript-ES6-Cheatsheet/"/>
     <id>https://ph4n4n.github.io/2025/06/26/Javascript-ES6-Cheatsheet/</id>
     <published>2025-06-26T04:43:51.000Z</published>
-    <updated>2025-06-26T04:47:33.894Z</updated>
+    <updated>2025-06-26T08:33:57.497Z</updated>
     
     
       
@@ -65,14 +151,28 @@
     
     
     
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/JavaScript/"/>
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/JavaScript/Programming/"/>
     
-    <category term="es6" scheme="https://ph4n4n.github.io/tags/es6/"/>
+    <category term="ES6" scheme="https://ph4n4n.github.io/categories/JavaScript/Programming/ES6/"/>
     
-    <category term="cheatsheet" scheme="https://ph4n4n.github.io/tags/cheatsheet/"/>
     
-    <category term="modern-js" scheme="https://ph4n4n.github.io/tags/modern-js/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
+    
+    <category term="ES6" scheme="https://ph4n4n.github.io/tags/ES6/"/>
+    
+    <category term="ES2015" scheme="https://ph4n4n.github.io/tags/ES2015/"/>
+    
+    <category term="Modern JavaScript" scheme="https://ph4n4n.github.io/tags/Modern-JavaScript/"/>
+    
+    <category term="Arrow Functions" scheme="https://ph4n4n.github.io/tags/Arrow-Functions/"/>
+    
+    <category term="Destructuring" scheme="https://ph4n4n.github.io/tags/Destructuring/"/>
+    
+    <category term="Template Literals" scheme="https://ph4n4n.github.io/tags/Template-Literals/"/>
+    
+    <category term="Spread Operator" scheme="https://ph4n4n.github.io/tags/Spread-Operator/"/>
     
   </entry>
   
@@ -112,7 +212,7 @@
     <link href="https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/"/>
     <id>https://ph4n4n.github.io/2025/06/20/SOLID-cho-devpid/</id>
     <published>2025-06-20T08:12:09.000Z</published>
-    <updated>2025-06-26T04:47:14.129Z</updated>
+    <updated>2025-06-26T08:34:24.875Z</updated>
     
     
       
@@ -125,12 +225,32 @@
     
     
     
-    <category term="oop" scheme="https://ph4n4n.github.io/categories/oop/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
+    
+    <category term="Design Patterns" scheme="https://ph4n4n.github.io/categories/Programming/Design-Patterns/"/>
+    
+    <category term="OOP" scheme="https://ph4n4n.github.io/categories/Programming/Design-Patterns/OOP/"/>
     
     
-    <category term="design-pattern" scheme="https://ph4n4n.github.io/tags/design-pattern/"/>
+    <category term="OOP" scheme="https://ph4n4n.github.io/tags/OOP/"/>
     
-    <category term="oop" scheme="https://ph4n4n.github.io/tags/oop/"/>
+    <category term="Design Principles" scheme="https://ph4n4n.github.io/tags/Design-Principles/"/>
+    
+    <category term="SOLID" scheme="https://ph4n4n.github.io/tags/SOLID/"/>
+    
+    <category term="Clean Code" scheme="https://ph4n4n.github.io/tags/Clean-Code/"/>
+    
+    <category term="Software Architecture" scheme="https://ph4n4n.github.io/tags/Software-Architecture/"/>
+    
+    <category term="Single Responsibility" scheme="https://ph4n4n.github.io/tags/Single-Responsibility/"/>
+    
+    <category term="Open/Closed" scheme="https://ph4n4n.github.io/tags/Open-Closed/"/>
+    
+    <category term="Liskov Substitution" scheme="https://ph4n4n.github.io/tags/Liskov-Substitution/"/>
+    
+    <category term="Interface Segregation" scheme="https://ph4n4n.github.io/tags/Interface-Segregation/"/>
+    
+    <category term="Dependency Inversion" scheme="https://ph4n4n.github.io/tags/Dependency-Inversion/"/>
     
   </entry>
   
@@ -139,7 +259,7 @@
     <link href="https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/"/>
     <id>https://ph4n4n.github.io/2025/06/20/ACID-trong-DBMS/</id>
     <published>2025-06-20T08:06:31.000Z</published>
-    <updated>2025-06-26T04:47:21.118Z</updated>
+    <updated>2025-06-26T08:34:12.855Z</updated>
     
     
       
@@ -152,10 +272,28 @@
     
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
+    
+    <category term="Database Theory" scheme="https://ph4n4n.github.io/categories/Database/Database-Theory/"/>
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
+    
+    <category term="ACID" scheme="https://ph4n4n.github.io/tags/ACID/"/>
+    
+    <category term="Transaction" scheme="https://ph4n4n.github.io/tags/Transaction/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
+    
+    <category term="PostgreSQL" scheme="https://ph4n4n.github.io/tags/PostgreSQL/"/>
+    
+    <category term="Consistency" scheme="https://ph4n4n.github.io/tags/Consistency/"/>
+    
+    <category term="Atomicity" scheme="https://ph4n4n.github.io/tags/Atomicity/"/>
+    
+    <category term="Isolation" scheme="https://ph4n4n.github.io/tags/Isolation/"/>
+    
+    <category term="Durability" scheme="https://ph4n4n.github.io/tags/Durability/"/>
     
   </entry>
   
@@ -164,7 +302,7 @@
     <link href="https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/"/>
     <id>https://ph4n4n.github.io/2024/03/20/Partition-trong-database-toi-gian/</id>
     <published>2024-03-20T10:16:05.000Z</published>
-    <updated>2025-06-20T10:39:41.138Z</updated>
+    <updated>2025-06-26T08:38:00.297Z</updated>
     
     
       
@@ -177,14 +315,26 @@
     
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/categories/Database/MySQL/"/>
+    
+    <category term="Performance" scheme="https://ph4n4n.github.io/categories/Database/MySQL/Performance/"/>
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
     
-    <category term="mysql" scheme="https://ph4n4n.github.io/tags/mysql/"/>
+    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
     
-    <category term="performance" scheme="https://ph4n4n.github.io/tags/performance/"/>
+    <category term="Performance" scheme="https://ph4n4n.github.io/tags/Performance/"/>
+    
+    <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
+    
+    <category term="Partitioning" scheme="https://ph4n4n.github.io/tags/Partitioning/"/>
+    
+    <category term="Big Data" scheme="https://ph4n4n.github.io/tags/Big-Data/"/>
+    
+    <category term="Database Design" scheme="https://ph4n4n.github.io/tags/Database-Design/"/>
     
   </entry>
   
@@ -193,7 +343,7 @@
     <link href="https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/"/>
     <id>https://ph4n4n.github.io/2023/06/20/Giai-thich-SQL-Explain-binh-dan-hoc-SQL/</id>
     <published>2023-06-20T09:39:15.000Z</published>
-    <updated>2025-06-20T10:39:23.065Z</updated>
+    <updated>2025-06-26T08:35:38.045Z</updated>
     
     
       
@@ -206,10 +356,28 @@
     
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/categories/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
+    
+    <category term="SQL" scheme="https://ph4n4n.github.io/categories/Database/SQL/"/>
+    
+    <category term="Performance" scheme="https://ph4n4n.github.io/categories/Database/SQL/Performance/"/>
     
     
-    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
+    
+    <category term="PostgreSQL" scheme="https://ph4n4n.github.io/tags/PostgreSQL/"/>
+    
+    <category term="SQL" scheme="https://ph4n4n.github.io/tags/SQL/"/>
+    
+    <category term="Performance" scheme="https://ph4n4n.github.io/tags/Performance/"/>
+    
+    <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
+    
+    <category term="Explain" scheme="https://ph4n4n.github.io/tags/Explain/"/>
+    
+    <category term="Query Analysis" scheme="https://ph4n4n.github.io/tags/Query-Analysis/"/>
     
   </entry>
   
@@ -218,7 +386,7 @@
     <link href="https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/"/>
     <id>https://ph4n4n.github.io/2021/03/22/Vach-tran-ky-thuat-login-QR-code/</id>
     <published>2021-03-22T02:40:20.000Z</published>
-    <updated>2025-06-20T10:43:01.103Z</updated>
+    <updated>2025-06-26T08:34:58.047Z</updated>
     
     
       
@@ -231,14 +399,28 @@
     
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
+    
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Backend/JavaScript/"/>
+    
+    <category term="Authentication" scheme="https://ph4n4n.github.io/categories/Backend/JavaScript/Authentication/"/>
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
     
-    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
-    <category term="socket.io" scheme="https://ph4n4n.github.io/tags/socket-io/"/>
+    <category term="Socket.io" scheme="https://ph4n4n.github.io/tags/Socket-io/"/>
+    
+    <category term="QR Code" scheme="https://ph4n4n.github.io/tags/QR-Code/"/>
+    
+    <category term="Authentication" scheme="https://ph4n4n.github.io/tags/Authentication/"/>
+    
+    <category term="Real-time" scheme="https://ph4n4n.github.io/tags/Real-time/"/>
+    
+    <category term="WebSocket" scheme="https://ph4n4n.github.io/tags/WebSocket/"/>
+    
+    <category term="Security" scheme="https://ph4n4n.github.io/tags/Security/"/>
     
   </entry>
   
@@ -247,7 +429,7 @@
     <link href="https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/"/>
     <id>https://ph4n4n.github.io/2021/01/20/Imperative-programming-va-Declaretive-programming-de-nhu-an-banh/</id>
     <published>2021-01-20T10:19:44.000Z</published>
-    <updated>2025-06-20T10:39:49.459Z</updated>
+    <updated>2025-06-26T08:35:12.365Z</updated>
     
     
       
@@ -260,14 +442,26 @@
     
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
+    
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Programming/JavaScript/"/>
+    
+    <category term="Programming Concepts" scheme="https://ph4n4n.github.io/categories/Programming/JavaScript/Programming-Concepts/"/>
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
     
-    <category term="programming" scheme="https://ph4n4n.github.io/tags/programming/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
     
-    <category term="concepts" scheme="https://ph4n4n.github.io/tags/concepts/"/>
+    <category term="Programming Paradigms" scheme="https://ph4n4n.github.io/tags/Programming-Paradigms/"/>
+    
+    <category term="Imperative" scheme="https://ph4n4n.github.io/tags/Imperative/"/>
+    
+    <category term="Declarative" scheme="https://ph4n4n.github.io/tags/Declarative/"/>
+    
+    <category term="Functional Programming" scheme="https://ph4n4n.github.io/tags/Functional-Programming/"/>
+    
+    <category term="Code Style" scheme="https://ph4n4n.github.io/tags/Code-Style/"/>
     
   </entry>
   
@@ -355,7 +549,7 @@
     <link href="https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/"/>
     <id>https://ph4n4n.github.io/2019/03/27/Compare-Python-with-Javascript/</id>
     <published>2019-03-27T04:04:35.000Z</published>
-    <updated>2025-06-26T04:43:27.529Z</updated>
+    <updated>2025-06-26T08:34:35.376Z</updated>
     
     
       
@@ -368,12 +562,30 @@
     
     
     
-    <category term="python" scheme="https://ph4n4n.github.io/categories/python/"/>
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Programming/"/>
+    
+    <category term="Python" scheme="https://ph4n4n.github.io/categories/Programming/Python/"/>
+    
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Programming/Python/JavaScript/"/>
     
     
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
+    <category term="Python" scheme="https://ph4n4n.github.io/tags/Python/"/>
     
-    <category term="python" scheme="https://ph4n4n.github.io/tags/python/"/>
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
+    
+    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
+    
+    <category term="Comparison" scheme="https://ph4n4n.github.io/tags/Comparison/"/>
+    
+    <category term="Data Types" scheme="https://ph4n4n.github.io/tags/Data-Types/"/>
+    
+    <category term="Syntax" scheme="https://ph4n4n.github.io/tags/Syntax/"/>
+    
+    <category term="Loops" scheme="https://ph4n4n.github.io/tags/Loops/"/>
+    
+    <category term="Functions" scheme="https://ph4n4n.github.io/tags/Functions/"/>
+    
+    <category term="Operators" scheme="https://ph4n4n.github.io/tags/Operators/"/>
     
   </entry>
   
@@ -442,107 +654,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Van-de&quot;&gt;&lt;a href=&quot;#Van-de&quot; class=&quot;headerlink&quot; title=&quot;Vấn đề&quot;&gt;&lt;/a&gt;Vấn đề&lt;/h2&gt;&lt;p&gt;Khi cần cộng 2 số quá lớn (big number) mà JavaScript</summary>
-        
-      
-    
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://ph4n4n.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>19 Bí Kíp Bạn Có Thể Dùng Khi Phạm Sai Lầm Với Git</title>
-    <link href="https://ph4n4n.github.io/2019/01/03/19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git/"/>
-    <id>https://ph4n4n.github.io/2019/01/03/19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git/</id>
-    <published>2019-01-03T10:34:58.000Z</published>
-    <updated>2025-06-19T06:35:45.367Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git&quot;&gt;&lt;a href=&quot;#19-Bi-Kip-Ban-Co-The-Dung-Khi-Pham-Sai-Lam-Voi-Git&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="git" scheme="https://ph4n4n.github.io/categories/git/"/>
-    
-    
-    <category term="git" scheme="https://ph4n4n.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ĐÙa Nghịch Với Docker Trong 5 Phút</title>
-    <link href="https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/"/>
-    <id>https://ph4n4n.github.io/2019/01/03/Dua-nghich-voi-Docker-trong-5-phut/</id>
-    <published>2019-01-03T10:34:40.000Z</published>
-    <updated>2025-06-19T06:40:35.200Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/docker_logo.png&quot; alt=&quot;Docker Logo&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Docker-la-gi&quot;&gt;&lt;a href=&quot;#Docker-la-gi&quot; class=&quot;headerlink&quot; title=&quot;Docker</summary>
-        
-      
-    
-    
-    
-    <category term="docker" scheme="https://ph4n4n.github.io/categories/docker/"/>
-    
-    
-    <category term="docker" scheme="https://ph4n4n.github.io/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>30 Regex Patterns Hữu Ích</title>
-    <link href="https://ph4n4n.github.io/2018/07/21/30-regex/"/>
-    <id>https://ph4n4n.github.io/2018/07/21/30-regex/</id>
-    <published>2018-07-21T03:07:26.000Z</published>
-    <updated>2025-06-19T06:40:33.182Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-Password-Strength-Mat-khau-manh&quot;&gt;&lt;a href=&quot;#1-Password-Strength-Mat-khau-manh&quot; class=&quot;headerlink&quot; title=&quot;1. Password Strength (Mật</summary>
-        
-      
-    
-    
-    
-    <category term="regex" scheme="https://ph4n4n.github.io/categories/regex/"/>
-    
-    
-    <category term="regex" scheme="https://ph4n4n.github.io/tags/regex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript: Horror Things</title>
-    <link href="https://ph4n4n.github.io/2018/06/21/Javascript-Horror-things/"/>
-    <id>https://ph4n4n.github.io/2018/06/21/Javascript-Horror-things/</id>
-    <published>2018-06-21T08:20:21.000Z</published>
-    <updated>2025-06-19T06:34:07.308Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;So-sanh-voi-nhung-dieu-kinh-hoang&quot;&gt;&lt;a href=&quot;#So-sanh-voi-nhung-dieu-kinh-hoang&quot; class=&quot;headerlink&quot; title=&quot;So sánh với == - những</summary>
         
       
     

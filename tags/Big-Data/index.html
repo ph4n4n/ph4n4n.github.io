@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:url" content="https://ph4n4n.github.io/tags/Big-Data/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="backend">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="tips">
+<meta property="article:tag" content="tricks">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Thẻ: Big Data</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">ph4n4n&#39;s code notes &amp; tips</h1>
+      <div id="random-quote" style="font-size:1.1em;font-style:italic;margin-top:8px;"></div>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">Trang chủ</a></li><!--
+   --><!--
+     --><li><a href="/about/">Giới thiệu</a></li><!--
+   --><!--
+     --><li><a href="/archives/">Bài viết</a></li><!--
+   --><!--
+     --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <div id="archive">
+  <ul class="post-list">
+    
+    
+    
+    
+      
+      
+      
+      
+        <li class="post-year"><h2>2024</h2></li>
+      
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-03-20T10:16:05.000Z" class="dt-published" itemprop="datePublished">2024-03-20</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2024/03/20/Partition-trong-database-toi-gian/">Partition Trong Database Tối Giản</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>

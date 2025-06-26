@@ -1369,7 +1369,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -1382,6 +1382,10 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+#archive .tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
@@ -2470,7 +2474,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -2483,6 +2487,10 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+#archive .tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
@@ -3371,7 +3379,7 @@ article .content .caption {
 }
 #archive .post-list {
   padding: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 #archive .post-list .post-item {
   margin-bottom: 1rem;
@@ -3384,6 +3392,10 @@ article .content .caption {
   min-width: 100px;
   color: #fff;
   font-size: 14px;
+}
+#archive .tagcloud {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
