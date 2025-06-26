@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang=vi>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="website">
+    <meta name="description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="ph4n4n&#39;s code notes &amp; tips">
 <meta property="og:url" content="https://ph4n4n.github.io/index.html">
 <meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
-<meta property="og:locale">
-<meta property="article:author" content="Anph">
+<meta property="og:description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="backend">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="tips">
+<meta property="article:tag" content="tricks">
 <meta name="twitter:card" content="summary">
     
     
@@ -78,6 +89,7 @@
   
     <div id="title">
       <h1 class="p-name">ph4n4n&#39;s code notes &amp; tips</h1>
+      <div id="random-quote" style="font-size:1.1em;font-style:italic;margin-top:8px;"></div>
     </div>
   </a>
   <div id="nav">
@@ -86,13 +98,13 @@
         <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
       </li>
       <!--
-     --><li><a href="/">Home</a></li><!--
+     --><li><a href="/">Trang chủ</a></li><!--
    --><!--
-     --><li><a href="/about/">About</a></li><!--
+     --><li><a href="/about/">Giới thiệu</a></li><!--
    --><!--
-     --><li><a href="/archives/">Writing</a></li><!--
+     --><li><a href="/archives/">Bài viết</a></li><!--
    --><!--
-     --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
    -->
     </ul>
   </div>
@@ -101,9 +113,12 @@
         
         <section id="about" class="p-note">
   
+    <p>Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.</p>
+
+  
   
     <p>
-      Find me on
+      Tìm tôi trên
       
       
       
@@ -118,7 +133,7 @@
       
         
         
-          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:ph4n4n@example.com" aria-label="mail" title="mail">
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:ph4n4n@gmail.com" aria-label="mail" title="mail">
             <i class="fa-solid fa-envelope"></i><!--
       ---></a>
         <!--
@@ -130,19 +145,59 @@
 </section>
 
 <section id="writing">
-  <span class="h1"><a href="/archives/">Writing</a></span>
+  <span class="h1"><a href="/archives/">Bài viết</a></span>
   
-  <span class="h2">Topics</span>
+  <span class="h2">Chủ đề</span>
   <span class="widget tagcloud">
-    <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/concepts/" style="font-size: 10px;">concepts</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/database/" style="font-size: 17.5px;">database</a> <a href="/tags/design-pattern/" style="font-size: 15px;">design-pattern</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/microservices/" style="font-size: 10px;">microservices</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nocode/" style="font-size: 12.5px;">nocode</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 10px;">opencv</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/socket-io/" style="font-size: 10px;">socket.io</a>
+    <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/beginner/" style="font-size: 10px;">beginner</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/concepts/" style="font-size: 10px;">concepts</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/database/" style="font-size: 17.5px;">database</a> <a href="/tags/design-pattern/" style="font-size: 17.5px;">design-pattern</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/microservices/" style="font-size: 10px;">microservices</a> <a href="/tags/modern-js/" style="font-size: 10px;">modern-js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nocode/" style="font-size: 12.5px;">nocode</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 10px;">opencv</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/programming/" style="font-size: 12.5px;">programming</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a>
   </span>
-  <span class="h2">Most recent</span>
+  <span class="h2">Gần đây nhất</span>
   
   <ul class="post-list">
     
     
       
     
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-26T04:45:18.000Z" class="dt-published" itemprop="datePublished">2025-06-26</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2025/06/26/Typescript-All-in-one/">TypeScript All in One - Từ Zero đếN Hero</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-06-26T04:43:51.000Z" class="dt-published" itemprop="datePublished">2025-06-26</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2025/06/26/Javascript-ES6-Cheatsheet/">Javascript ES6 Cheatsheet</a>
+    
+
+
+</span>
+      </li>
     
       <li class="post-item">
         
@@ -177,7 +232,7 @@
 
         <span>
     
-        <a class="" href="/2025/06/20/SOLID-cho-devpid/">SOLID Cho Dev &#34;đầU Óc đơN Giản&#34;</a>
+        <a class="" href="/2025/06/20/SOLID-cho-devpid/">SOLID</a>
     
 
 
@@ -197,7 +252,7 @@
 
         <span>
     
-        <a class="" href="/2025/06/20/ACID-trong-DBMS/">ACID Trong DBMS</a>
+        <a class="" href="/2025/06/20/ACID-trong-DBMS/">ACID</a>
     
 
 
@@ -304,46 +359,6 @@
 </span>
       </li>
     
-      <li class="post-item">
-        
-    <div class="meta">
-      
-        
-          <time datetime="2019-04-09T02:10:17.000Z" class="dt-published" itemprop="datePublished">2019-04-09</time>
-        
-      
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/04/09/Python-shorthand/">Python Shorthand</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-      
-        
-          <time datetime="2019-03-28T04:27:17.000Z" class="dt-published" itemprop="datePublished">2019-03-28</time>
-        
-      
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2019/03/28/Python-Reserved-keywords/">Python: Reserved Keywords</a>
-    
-
-
-</span>
-      </li>
-    
   </ul>
   
 </section>
@@ -353,23 +368,23 @@
         
         <footer id="footer">
   <div class="footer-left">
-    Copyright &copy;
+    Bản quyền &copy;
     
     
     2018-2025
-    Anph
+    ph4n4n
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/">Trang chủ</a></li><!--
      --><!--
-       --><li><a href="/about/">About</a></li><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
      --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
      --><!--
-       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
      -->
       </ul>
     </nav>
@@ -406,5 +421,44 @@
 
 <!-- utterances Comments -->
 
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
 </body>
 </html>

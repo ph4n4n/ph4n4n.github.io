@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang=vi>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="website">
+    <meta name="description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="ph4n4n&#39;s code notes &amp; tips">
 <meta property="og:url" content="https://ph4n4n.github.io/categories/git/index.html">
 <meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
-<meta property="og:locale">
-<meta property="article:author" content="Anph">
+<meta property="og:description" content="Blog ghi lại và chia sẻ kiến thức lập trình, tips &amp; tricks về JavaScript, Python, Database, Docker và các công nghệ backend. Nơi ghi chép và chia sẻ kinh nghiệm phát triển phần mềm.">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="backend">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="tips">
+<meta property="article:tag" content="tricks">
 <meta name="twitter:card" content="summary">
     
     
@@ -32,7 +43,7 @@
       
     
     <!-- title -->
-    <title>Category: git</title>
+    <title>Thể loại: git</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -78,6 +89,7 @@
   
     <div id="title">
       <h1 class="p-name">ph4n4n&#39;s code notes &amp; tips</h1>
+      <div id="random-quote" style="font-size:1.1em;font-style:italic;margin-top:8px;"></div>
     </div>
   </a>
   <div id="nav">
@@ -86,13 +98,13 @@
         <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
       </li>
       <!--
-     --><li><a href="/">Home</a></li><!--
+     --><li><a href="/">Trang chủ</a></li><!--
    --><!--
-     --><li><a href="/about/">About</a></li><!--
+     --><li><a href="/about/">Giới thiệu</a></li><!--
    --><!--
-     --><li><a href="/archives/">Writing</a></li><!--
+     --><li><a href="/archives/">Bài viết</a></li><!--
    --><!--
-     --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+     --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
    -->
     </ul>
   </div>
@@ -139,23 +151,23 @@
         
         <footer id="footer">
   <div class="footer-left">
-    Copyright &copy;
+    Bản quyền &copy;
     
     
     2018-2025
-    Anph
+    ph4n4n
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/">Trang chủ</a></li><!--
      --><!--
-       --><li><a href="/about/">About</a></li><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
      --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
      --><!--
-       --><li><a href="https://github.com/ph4n4n">Projects</a></li><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
      -->
       </ul>
     </nav>
@@ -192,5 +204,44 @@
 
 <!-- utterances Comments -->
 
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
 </body>
 </html>
