@@ -101,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/Zero-to-hero-CSS/</loc>
-    
-    <lastmod>2025-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/Zero-to-hero-Docker/</loc>
     
     <lastmod>2025-06-27</lastmod>
@@ -128,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/Zero-to-hero-HTML/</loc>
+    <loc>https://ph4n4n.github.io/Zero-to-hero-CSS/</loc>
     
     <lastmod>2025-06-27</lastmod>
     
@@ -147,6 +138,15 @@
   
   <url>
     <loc>https://ph4n4n.github.io/Zero-to-hero-MongoDB/</loc>
+    
+    <lastmod>2025-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/Zero-to-hero-HTML/</loc>
     
     <lastmod>2025-06-27</lastmod>
     
@@ -673,13 +673,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/javascript/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/tags/Database/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -764,6 +757,20 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/tags/javascript/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/docker/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/tags/Python/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -821,13 +828,6 @@
   
   <url>
     <loc>https://ph4n4n.github.io/tags/Operators/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/docker/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,69 +1184,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/CSS/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Frontend/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Web-Development/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Styling/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Layout/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Responsive-Design/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Flexbox/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Grid/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Animations/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/tags/docker-compose/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -1380,70 +1317,63 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/HTML/</loc>
+    <loc>https://ph4n4n.github.io/tags/CSS/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Semantic-HTML/</loc>
+    <loc>https://ph4n4n.github.io/tags/Frontend/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Forms/</loc>
+    <loc>https://ph4n4n.github.io/tags/Web-Development/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Accessibility/</loc>
+    <loc>https://ph4n4n.github.io/tags/Styling/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/SEO/</loc>
+    <loc>https://ph4n4n.github.io/tags/Layout/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/DOM/</loc>
+    <loc>https://ph4n4n.github.io/tags/Responsive-Design/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Async/</loc>
+    <loc>https://ph4n4n.github.io/tags/Flexbox/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Promises/</loc>
+    <loc>https://ph4n4n.github.io/tags/Grid/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Modules/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Classes/</loc>
+    <loc>https://ph4n4n.github.io/tags/Animations/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1527,6 +1457,41 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/tags/DOM/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Async/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Promises/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Modules/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Classes/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/tags/MongoDB/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -1583,6 +1548,62 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/tags/HTML/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Semantic-HTML/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Forms/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Accessibility/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/SEO/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/RDBMS/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Transactions/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Stored-Procedures/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/tags/NestJS/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -1619,27 +1640,6 @@
   
   <url>
     <loc>https://ph4n4n.github.io/tags/Decorators/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/RDBMS/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Transactions/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Stored-Procedures/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1828,20 +1828,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/Learning/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/tags/Zero-to-Hero/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/tags/RESTful-API/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -1878,6 +1864,20 @@
   
   <url>
     <loc>https://ph4n4n.github.io/tags/JSON/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Learning/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/tags/Zero-to-Hero/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1989,14 +1989,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/css/</loc>
+    <loc>https://ph4n4n.github.io/tags/opencv/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/tags/opencv/</loc>
+    <loc>https://ph4n4n.github.io/tags/css/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2047,13 +2047,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/javascript/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/categories/Database/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -2061,7 +2054,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Programming/</loc>
+    <loc>https://ph4n4n.github.io/categories/javascript/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2075,7 +2068,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/JavaScript/</loc>
+    <loc>https://ph4n4n.github.io/categories/Programming/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/Database/SQL/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2083,6 +2083,13 @@
   
   <url>
     <loc>https://ph4n4n.github.io/categories/Database/Database-Theory/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/JavaScript/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2103,14 +2110,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Database/SQL/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/Programming/JavaScript/</loc>
+    <loc>https://ph4n4n.github.io/categories/Database/SQL/Performance/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2124,7 +2124,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/JavaScript/Programming/</loc>
+    <loc>https://ph4n4n.github.io/categories/Programming/JavaScript/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2139,6 +2139,13 @@
   
   <url>
     <loc>https://ph4n4n.github.io/categories/Programming/Design-Patterns/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/JavaScript/Programming/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2173,21 +2180,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/categories/DevOps/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/Database/SQL/Performance/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2201,7 +2194,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Programming/JavaScript/Programming-Concepts/</loc>
+    <loc>https://ph4n4n.github.io/categories/Frontend/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2222,14 +2215,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/JavaScript/Programming/ES6/</loc>
+    <loc>https://ph4n4n.github.io/categories/Database/MySQL/Backend/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Database/MySQL/Backend/</loc>
+    <loc>https://ph4n4n.github.io/categories/Programming/JavaScript/Programming-Concepts/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2250,6 +2243,13 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/categories/Programming/Design-Patterns/OOP/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/categories/Programming/Python/Backend/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -2264,7 +2264,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Programming/Design-Patterns/OOP/</loc>
+    <loc>https://ph4n4n.github.io/categories/JavaScript/Programming/ES6/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2286,13 +2286,6 @@
   
   <url>
     <loc>https://ph4n4n.github.io/categories/Programming/Tutorial/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/Backend/API/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2327,20 +2320,6 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/css/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/categories/DevOps/Containerization/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -2362,7 +2341,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/nodejs/</loc>
+    <loc>https://ph4n4n.github.io/categories/css/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2376,14 +2355,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/HTML/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/JavaScript/</loc>
+    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2397,7 +2369,21 @@
   </url>
   
   <url>
+    <loc>https://ph4n4n.github.io/categories/Frontend/JavaScript/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://ph4n4n.github.io/categories/Database/MongoDB/NoSQL/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/Frontend/HTML/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2446,7 +2432,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Backend/API/Programming/</loc>
+    <loc>https://ph4n4n.github.io/categories/Backend/API/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2467,21 +2453,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/Web-Development/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ph4n4n.github.io/categories/DevOps/Containerization/Microservices/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/HTML/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2502,7 +2474,14 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Frontend/HTML/Programming/</loc>
+    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/Web-Development/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/Testing/JavaScript/Jest/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2516,7 +2495,7 @@
   </url>
   
   <url>
-    <loc>https://ph4n4n.github.io/categories/Testing/JavaScript/Jest/</loc>
+    <loc>https://ph4n4n.github.io/categories/Frontend/HTML/Programming/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2545,6 +2524,27 @@
   
   <url>
     <loc>https://ph4n4n.github.io/categories/Message-Broker/Microservices/Backend/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/Backend/API/Programming/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/nodejs/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ph4n4n.github.io/categories/Frontend/CSS/HTML/</loc>
     <lastmod>2025-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
