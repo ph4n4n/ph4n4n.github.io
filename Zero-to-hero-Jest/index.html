@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Zero to Hero: Jest - Testing Framework cho JavaScriptJest là testing framework phổ biến nhất cho JavaScript, được phát triển bởi Facebook. Nó cung cấp zero-config setup, mocking, snapshot testing, và">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zero to Hero: Jest - Testing Framework Cho JavaScript">
+<meta property="og:url" content="https://ph4n4n.github.io/Zero-to-hero-Jest/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Zero to Hero: Jest - Testing Framework cho JavaScriptJest là testing framework phổ biến nhất cho JavaScript, được phát triển bởi Facebook. Nó cung cấp zero-config setup, mocking, snapshot testing, và">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:published_time" content="2025-01-27T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-27T06:59:15.314Z">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Testing">
+<meta property="article:tag" content="Jest">
+<meta property="article:tag" content="Unit Testing">
+<meta property="article:tag" content="Integration Testing">
+<meta property="article:tag" content="Mocking">
+<meta property="article:tag" content="Coverage">
+<meta property="article:tag" content="TDD">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Zero to Hero: Jest - Testing Framework Cho JavaScript</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- Monaco font override -->
+    
+<link rel="stylesheet" href="/css/monaco-override.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/archives/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/2025/01/27/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Bài trước" href="/ACID-trong-DBMS/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Bài tiếp theo" href="/Zero-to-hero-MongoDB/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Về đầu trang" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Chia sẻ bài viết" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/Zero-to-hero-Jest/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&text=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&is_video=false&description=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero: Jest - Testing Framework Cho JavaScript&body=Check out this article: https://ph4n4n.github.io/Zero-to-hero-Jest/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&name=Zero to Hero: Jest - Testing Framework Cho JavaScript&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/Zero-to-hero-Jest/&t=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Jest-Testing-Framework-cho-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero: Jest - Testing Framework cho JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Tai-sao-chon-Jest"><span class="toc-number">1.1.</span> <span class="toc-text">1. Tại sao chọn Jest?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Loi-ich-cua-Jest"><span class="toc-number">1.1.1.</span> <span class="toc-text">Lợi ích của Jest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Cai-dat-va-Setup"><span class="toc-number">1.2.</span> <span class="toc-text">2. Cài đặt và Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cai-dat-Jest"><span class="toc-number">1.2.1.</span> <span class="toc-text">Cài đặt Jest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cau-hinh-co-ban"><span class="toc-number">1.2.2.</span> <span class="toc-text">Cấu hình cơ bản</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Writing-Tests"><span class="toc-number">1.3.</span> <span class="toc-text">3. Writing Tests</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Test-Structure"><span class="toc-number">1.3.1.</span> <span class="toc-text">Basic Test Structure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Matchers-va-Assertions"><span class="toc-number">1.4.</span> <span class="toc-text">4. Matchers và Assertions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Matchers"><span class="toc-number">1.4.1.</span> <span class="toc-text">Common Matchers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Mocking-va-Stubbing"><span class="toc-number">1.5.</span> <span class="toc-text">5. Mocking và Stubbing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-Mocking"><span class="toc-number">1.5.1.</span> <span class="toc-text">Function Mocking</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Snapshot-Testing"><span class="toc-number">1.6.</span> <span class="toc-text">6. Snapshot Testing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Component-Snapshot"><span class="toc-number">1.6.1.</span> <span class="toc-text">Component Snapshot</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Integration-Testing"><span class="toc-number">1.7.</span> <span class="toc-text">7. Integration Testing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#API-Testing"><span class="toc-number">1.7.1.</span> <span class="toc-text">API Testing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Advanced-Patterns"><span class="toc-number">1.8.</span> <span class="toc-text">8. Advanced Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Utilities"><span class="toc-number">1.8.1.</span> <span class="toc-text">Test Utilities</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Zero to Hero: Jest - Testing Framework Cho JavaScript
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ph4n4n</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-27T03:00:00.000Z" class="dt-published" itemprop="datePublished">2025-01-27</time>
+        
+        (Updated: <time datetime="2025-06-27T06:59:15.314Z" class="dt-updated" itemprop="dateModified">2025-06-27</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Testing/">Testing</a> › <a class="category-link" href="/categories/Testing/JavaScript/">JavaScript</a> › <a class="category-link" href="/categories/Testing/JavaScript/Jest/">Jest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Coverage/" rel="tag">Coverage</a>, <a class="p-category" href="/tags/Integration-Testing/" rel="tag">Integration Testing</a>, <a class="p-category" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="p-category" href="/tags/Jest/" rel="tag">Jest</a>, <a class="p-category" href="/tags/Mocking/" rel="tag">Mocking</a>, <a class="p-category" href="/tags/TDD/" rel="tag">TDD</a>, <a class="p-category" href="/tags/Testing/" rel="tag">Testing</a>, <a class="p-category" href="/tags/Unit-Testing/" rel="tag">Unit Testing</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Zero-to-Hero-Jest-Testing-Framework-cho-JavaScript"><a href="#Zero-to-Hero-Jest-Testing-Framework-cho-JavaScript" class="headerlink" title="Zero to Hero: Jest - Testing Framework cho JavaScript"></a>Zero to Hero: Jest - Testing Framework cho JavaScript</h1><p>Jest là testing framework phổ biến nhất cho JavaScript, được phát triển bởi Facebook. Nó cung cấp zero-config setup, mocking, snapshot testing, và code coverage tích hợp.</p>
+<h2 id="1-Tai-sao-chon-Jest"><a href="#1-Tai-sao-chon-Jest" class="headerlink" title="1. Tại sao chọn Jest?"></a>1. Tại sao chọn Jest?</h2><h3 id="Loi-ich-cua-Jest"><a href="#Loi-ich-cua-Jest" class="headerlink" title="Lợi ích của Jest"></a>Lợi ích của Jest</h3><ul>
+<li><strong>Zero Configuration</strong>: Setup tự động</li>
+<li><strong>Built-in Mocking</strong>: Không cần thư viện bổ sung</li>
+<li><strong>Snapshot Testing</strong>: Visual regression testing</li>
+<li><strong>Code Coverage</strong>: Tích hợp sẵn</li>
+<li><strong>Parallel Execution</strong>: Chạy test song song</li>
+<li><strong>Watch Mode</strong>: Tự động chạy lại khi code thay đổi</li>
+</ul>
+<h2 id="2-Cai-dat-va-Setup"><a href="#2-Cai-dat-va-Setup" class="headerlink" title="2. Cài đặt và Setup"></a>2. Cài đặt và Setup</h2><h3 id="Cai-dat-Jest"><a href="#Cai-dat-Jest" class="headerlink" title="Cài đặt Jest"></a>Cài đặt Jest</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cau-hinh-co-ban"><a href="#Cau-hinh-co-ban" class="headerlink" title="Cấu hình cơ bản"></a>Cấu hình cơ bản</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;test:watch&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest --watch&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;test:coverage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest --coverage&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Writing-Tests"><a href="#3-Writing-Tests" class="headerlink" title="3. Writing Tests"></a>3. Writing Tests</h2><h3 id="Basic-Test-Structure"><a href="#Basic-Test-Structure" class="headerlink" title="Basic Test Structure"></a>Basic Test Structure</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">describe</span>(<span class="string">&#x27;Calculator&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&#x27;should add two numbers&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">expect</span>(<span class="number">2</span> + <span class="number">2</span>).<span class="title function_">toBe</span>(<span class="number">4</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Matchers-va-Assertions"><a href="#4-Matchers-va-Assertions" class="headerlink" title="4. Matchers và Assertions"></a>4. Matchers và Assertions</h2><h3 id="Common-Matchers"><a href="#Common-Matchers" class="headerlink" title="Common Matchers"></a>Common Matchers</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">expect</span>(<span class="number">2</span> + <span class="number">2</span>).<span class="title function_">toBe</span>(<span class="number">4</span>);</span><br><span class="line"><span class="title function_">expect</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span> &#125;).<span class="title function_">toEqual</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span> &#125;);</span><br><span class="line"><span class="title function_">expect</span>(<span class="literal">true</span>).<span class="title function_">toBeTruthy</span>();</span><br><span class="line"><span class="title function_">expect</span>(<span class="literal">false</span>).<span class="title function_">toBeFalsy</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Mocking-va-Stubbing"><a href="#5-Mocking-va-Stubbing" class="headerlink" title="5. Mocking và Stubbing"></a>5. Mocking và Stubbing</h2><h3 id="Function-Mocking"><a href="#Function-Mocking" class="headerlink" title="Function Mocking"></a>Function Mocking</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mockFn = jest.<span class="title function_">fn</span>();</span><br><span class="line">mockFn.<span class="title function_">mockReturnValue</span>(<span class="string">&#x27;mocked value&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Snapshot-Testing"><a href="#6-Snapshot-Testing" class="headerlink" title="6. Snapshot Testing"></a>6. Snapshot Testing</h2><h3 id="Component-Snapshot"><a href="#Component-Snapshot" class="headerlink" title="Component Snapshot"></a>Component Snapshot</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;should render correctly&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">Component</span> /&gt;</span></span>);</span><br><span class="line">  <span class="title function_">expect</span>(container.<span class="property">firstChild</span>).<span class="title function_">toMatchSnapshot</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Integration-Testing"><a href="#7-Integration-Testing" class="headerlink" title="7. Integration Testing"></a>7. Integration Testing</h2><h3 id="API-Testing"><a href="#API-Testing" class="headerlink" title="API Testing"></a>API Testing</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;should create user&#x27;</span>, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">request</span>(app)</span><br><span class="line">    .<span class="title function_">post</span>(<span class="string">&#x27;/api/users&#x27;</span>)</span><br><span class="line">    .<span class="title function_">send</span>(userData)</span><br><span class="line">    .<span class="title function_">expect</span>(<span class="number">201</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Advanced-Patterns"><a href="#8-Advanced-Patterns" class="headerlink" title="8. Advanced Patterns"></a>8. Advanced Patterns</h2><h3 id="Test-Utilities"><a href="#Test-Utilities" class="headerlink" title="Test Utilities"></a>Test Utilities</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeEach</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Setup</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title function_">afterEach</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Cleanup</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Jest cung cấp testing framework mạnh mẽ và dễ sử dụng cho JavaScript.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Vui lòng kích hoạt JavaScript để xem các bình luận.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/archives/">Trang chủ</a></li>
+        
+          <li><a href="/2025/01/27/Zero-to-hero-Series-Overview/">Zero to Hero</a></li>
+        
+          <li><a href="/archives/">Bài viết</a></li>
+        
+          <li><a href="/about/">Giới thiệu</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Jest-Testing-Framework-cho-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero: Jest - Testing Framework cho JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Tai-sao-chon-Jest"><span class="toc-number">1.1.</span> <span class="toc-text">1. Tại sao chọn Jest?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Loi-ich-cua-Jest"><span class="toc-number">1.1.1.</span> <span class="toc-text">Lợi ích của Jest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Cai-dat-va-Setup"><span class="toc-number">1.2.</span> <span class="toc-text">2. Cài đặt và Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cai-dat-Jest"><span class="toc-number">1.2.1.</span> <span class="toc-text">Cài đặt Jest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cau-hinh-co-ban"><span class="toc-number">1.2.2.</span> <span class="toc-text">Cấu hình cơ bản</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Writing-Tests"><span class="toc-number">1.3.</span> <span class="toc-text">3. Writing Tests</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Test-Structure"><span class="toc-number">1.3.1.</span> <span class="toc-text">Basic Test Structure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Matchers-va-Assertions"><span class="toc-number">1.4.</span> <span class="toc-text">4. Matchers và Assertions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Matchers"><span class="toc-number">1.4.1.</span> <span class="toc-text">Common Matchers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Mocking-va-Stubbing"><span class="toc-number">1.5.</span> <span class="toc-text">5. Mocking và Stubbing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-Mocking"><span class="toc-number">1.5.1.</span> <span class="toc-text">Function Mocking</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Snapshot-Testing"><span class="toc-number">1.6.</span> <span class="toc-text">6. Snapshot Testing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Component-Snapshot"><span class="toc-number">1.6.1.</span> <span class="toc-text">Component Snapshot</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Integration-Testing"><span class="toc-number">1.7.</span> <span class="toc-text">7. Integration Testing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#API-Testing"><span class="toc-number">1.7.1.</span> <span class="toc-text">API Testing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Advanced-Patterns"><span class="toc-number">1.8.</span> <span class="toc-text">8. Advanced Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Utilities"><span class="toc-number">1.8.1.</span> <span class="toc-text">Test Utilities</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/Zero-to-hero-Jest/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&text=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&is_video=false&description=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero: Jest - Testing Framework Cho JavaScript&body=Check out this article: https://ph4n4n.github.io/Zero-to-hero-Jest/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&title=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/Zero-to-hero-Jest/&name=Zero to Hero: Jest - Testing Framework Cho JavaScript&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/Zero-to-hero-Jest/&t=Zero to Hero: Jest - Testing Framework Cho JavaScript"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/archives/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/2025/01/27/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+    {q: 'Chết không phải lúc trái tim ngừng đập, chết là khi ý chí ngừng tiến lên.', a: 'ChatGPT'},
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>

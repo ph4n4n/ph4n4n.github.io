@@ -102,11 +102,13 @@
         <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
       </li>
       <!--
-     --><li><a href="/">Trang chủ</a></li><!--
+     --><li><a href="/archives/">Trang chủ</a></li><!--
    --><!--
-     --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><li><a href="/2025/01/27/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
    --><!--
      --><li><a href="/archives/">Bài viết</a></li><!--
+   --><!--
+     --><li><a href="/about/">Giới thiệu</a></li><!--
    --><!--
      --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
    -->
@@ -165,11 +167,13 @@
     <nav>
       <ul>
         <!--
-       --><li><a href="/">Trang chủ</a></li><!--
+       --><li><a href="/archives/">Trang chủ</a></li><!--
      --><!--
-       --><li><a href="/about/">Giới thiệu</a></li><!--
+       --><li><a href="/2025/01/27/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
      --><!--
        --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
      --><!--
        --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
      -->
@@ -234,23 +238,6 @@
   }
   function showFallback() {
     var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
-    showQuote(r.q, r.a);
-  }
-  fetch('https://zenquotes.io/api/random')
-    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
-    .then(function(data) {
-      if (Array.isArray(data) && data[0] && data[0].q) {
-        showQuote(data[0].q, data[0].a);
-      } else {
-        showFallback();
-      }
-    })
-    .catch(showFallback);
-})();
-</script>
-</body>
-</html>
-es[Math.floor(Math.random() * fallbackQuotes.length)];
     showQuote(r.q, r.a);
   }
   fetch('https://zenquotes.io/api/random')

@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-27T02:26:36.996Z</updated>
+  <updated>2025-06-27T07:02:33.065Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Zero to Hero: RESTful API - Thiết Kế Và Xây Dựng API Chuẩn</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-RestfulAPI/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-RestfulAPI/</id>
     <published>2025-06-26T09:31:12.000Z</published>
-    <updated>2025-06-27T02:26:36.996Z</updated>
+    <updated>2025-06-27T07:02:33.065Z</updated>
     
     
       
@@ -61,10 +61,10 @@
   
   <entry>
     <title>Zero to Hero: gRPC</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-gRPC/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-gRPC/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-gRPC/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-gRPC/</id>
     <published>2025-06-26T09:31:05.000Z</published>
-    <updated>2025-06-26T09:31:05.649Z</updated>
+    <updated>2025-06-27T07:00:03.062Z</updated>
     
     
     
@@ -74,10 +74,10 @@
   
   <entry>
     <title>Zero to Hero: Swift</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Swift/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Swift/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Swift/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Swift/</id>
     <published>2025-06-26T09:23:08.000Z</published>
-    <updated>2025-06-26T09:23:08.925Z</updated>
+    <updated>2025-06-27T07:00:05.749Z</updated>
     
     
     
@@ -87,10 +87,10 @@
   
   <entry>
     <title>Zero to Hero: Flutter</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Flutter/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Flutter/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Flutter/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Flutter/</id>
     <published>2025-06-26T09:22:58.000Z</published>
-    <updated>2025-06-26T09:22:58.518Z</updated>
+    <updated>2025-06-27T07:00:08.596Z</updated>
     
     
     
@@ -100,23 +100,10 @@
   
   <entry>
     <title>Zero to Hero: Puppeteer</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Puppeteer/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Puppeteer/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Puppeteer/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Puppeteer/</id>
     <published>2025-06-26T09:12:57.000Z</published>
-    <updated>2025-06-26T09:12:57.326Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Zero to Hero: Jest</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Jest/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Jest/</id>
-    <published>2025-06-26T09:12:47.000Z</published>
-    <updated>2025-06-26T09:12:47.446Z</updated>
+    <updated>2025-06-27T07:00:14.700Z</updated>
     
     
     
@@ -126,10 +113,10 @@
   
   <entry>
     <title>Zero to Hero: Python</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Python-1/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Python-1/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Python-1/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Python-1/</id>
     <published>2025-06-26T09:12:41.000Z</published>
-    <updated>2025-06-26T09:12:41.269Z</updated>
+    <updated>2025-06-27T07:00:17.415Z</updated>
     
     
     
@@ -139,10 +126,10 @@
   
   <entry>
     <title>Zero to Hero: Docker Compose</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker-Compose/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker-Compose/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/</id>
     <published>2025-06-26T09:12:27.000Z</published>
-    <updated>2025-06-26T09:12:27.367Z</updated>
+    <updated>2025-06-27T07:00:20.944Z</updated>
     
     
     
@@ -152,10 +139,10 @@
   
   <entry>
     <title>Zero to Hero: Kafka</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Kafka/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Kafka/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Kafka/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Kafka/</id>
     <published>2025-06-26T09:12:14.000Z</published>
-    <updated>2025-06-26T09:12:14.243Z</updated>
+    <updated>2025-06-27T07:00:23.588Z</updated>
     
     
     
@@ -165,10 +152,10 @@
   
   <entry>
     <title>Zero to Hero: Mongoose</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Mongoose/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Mongoose/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Mongoose/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Mongoose/</id>
     <published>2025-06-26T09:12:02.000Z</published>
-    <updated>2025-06-26T09:12:02.554Z</updated>
+    <updated>2025-06-27T07:00:26.400Z</updated>
     
     
     
@@ -190,24 +177,11 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Redis</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Redis/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Redis/</id>
-    <published>2025-06-26T09:02:12.000Z</published>
-    <updated>2025-06-26T09:02:12.976Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Zero to Hero: BullMQ</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-BullMQ/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-BullMQ/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-BullMQ/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-BullMQ/</id>
     <published>2025-06-26T09:02:07.000Z</published>
-    <updated>2025-06-26T09:02:07.571Z</updated>
+    <updated>2025-06-27T07:00:29.576Z</updated>
     
     
     
@@ -217,10 +191,10 @@
   
   <entry>
     <title>Zero to Hero: RabbitMQ</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RabbitMQ/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RabbitMQ/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/</id>
     <published>2025-06-26T09:02:02.000Z</published>
-    <updated>2025-06-26T09:02:02.188Z</updated>
+    <updated>2025-06-27T07:00:33.661Z</updated>
     
     
     
@@ -230,10 +204,10 @@
   
   <entry>
     <title>Zero to Hero: Golang</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Golang/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Golang/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Golang/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Golang/</id>
     <published>2025-06-26T09:01:50.000Z</published>
-    <updated>2025-06-26T09:01:50.826Z</updated>
+    <updated>2025-06-27T07:00:37.270Z</updated>
     
     
     
@@ -243,23 +217,10 @@
   
   <entry>
     <title>Zero to Hero: Prisma</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Prisma/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Prisma/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Prisma/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Prisma/</id>
     <published>2025-06-26T09:00:08.000Z</published>
-    <updated>2025-06-26T09:00:08.238Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Zero to Hero: TypeORM</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-TypeORM/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-TypeORM/</id>
-    <published>2025-06-26T09:00:01.000Z</published>
-    <updated>2025-06-26T09:00:01.436Z</updated>
+    <updated>2025-06-27T07:00:41.041Z</updated>
     
     
     
@@ -269,10 +230,10 @@
   
   <entry>
     <title>Zero to Hero: Regexp</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/</id>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Regexp/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Regexp/</id>
     <published>2025-06-26T08:59:43.000Z</published>
-    <updated>2025-06-26T08:59:43.263Z</updated>
+    <updated>2025-06-27T07:04:06.157Z</updated>
     
     
     
@@ -281,11 +242,56 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker/</id>
+    <title>Zero to Hero: CSS - Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-CSS/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-CSS/</id>
     <published>2025-06-26T08:59:38.000Z</published>
-    <updated>2025-06-27T03:34:08.466Z</updated>
+    <updated>2025-06-27T07:02:33.065Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot; class=&quot;headerlink&quot; title=&quot;Zero to Hero:</summary>
+        
+      
+    
+    
+    
+    <category term="Frontend" scheme="https://ph4n4n.github.io/categories/Frontend/"/>
+    
+    <category term="CSS" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/"/>
+    
+    <category term="Web Development" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/Web-Development/"/>
+    
+    
+    <category term="CSS" scheme="https://ph4n4n.github.io/tags/CSS/"/>
+    
+    <category term="Frontend" scheme="https://ph4n4n.github.io/tags/Frontend/"/>
+    
+    <category term="Web Development" scheme="https://ph4n4n.github.io/tags/Web-Development/"/>
+    
+    <category term="Styling" scheme="https://ph4n4n.github.io/tags/Styling/"/>
+    
+    <category term="Layout" scheme="https://ph4n4n.github.io/tags/Layout/"/>
+    
+    <category term="Responsive Design" scheme="https://ph4n4n.github.io/tags/Responsive-Design/"/>
+    
+    <category term="Flexbox" scheme="https://ph4n4n.github.io/tags/Flexbox/"/>
+    
+    <category term="Grid" scheme="https://ph4n4n.github.io/tags/Grid/"/>
+    
+    <category term="Animations" scheme="https://ph4n4n.github.io/tags/Animations/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Docker/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Docker/</id>
+    <published>2025-06-26T08:59:38.000Z</published>
+    <updated>2025-06-27T07:02:33.065Z</updated>
     
     
       
@@ -324,47 +330,139 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: CSS - Từ Cơ Bản đếN Nâng Cao</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-CSS/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-CSS/</id>
+    <title>Zero to Hero: ExpressJS - Web Framework Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-ExpressJS/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-ExpressJS/</id>
     <published>2025-06-26T08:59:38.000Z</published>
-    <updated>2025-06-27T03:24:29.083Z</updated>
+    <updated>2025-06-27T07:02:33.065Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot; class=&quot;headerlink&quot; title=&quot;Zero to Hero:</summary>
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-ExpressJS-Web-Framework-tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-ExpressJS-Web-Framework-tu-co-ban-den-nang-cao&quot;</summary>
         
       
     
     
     
-    <category term="Frontend" scheme="https://ph4n4n.github.io/categories/Frontend/"/>
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
     
-    <category term="CSS" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/"/>
+    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/"/>
     
-    <category term="Web Development" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/Web-Development/"/>
+    <category term="Web Development" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/Web-Development/"/>
     
     
-    <category term="CSS" scheme="https://ph4n4n.github.io/tags/CSS/"/>
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
     
-    <category term="Frontend" scheme="https://ph4n4n.github.io/tags/Frontend/"/>
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
-    <category term="Web Development" scheme="https://ph4n4n.github.io/tags/Web-Development/"/>
+    <category term="Authentication" scheme="https://ph4n4n.github.io/tags/Authentication/"/>
     
-    <category term="Styling" scheme="https://ph4n4n.github.io/tags/Styling/"/>
+    <category term="ExpressJS" scheme="https://ph4n4n.github.io/tags/ExpressJS/"/>
     
-    <category term="Layout" scheme="https://ph4n4n.github.io/tags/Layout/"/>
+    <category term="Web Framework" scheme="https://ph4n4n.github.io/tags/Web-Framework/"/>
     
-    <category term="Responsive Design" scheme="https://ph4n4n.github.io/tags/Responsive-Design/"/>
+    <category term="REST API" scheme="https://ph4n4n.github.io/tags/REST-API/"/>
     
-    <category term="Flexbox" scheme="https://ph4n4n.github.io/tags/Flexbox/"/>
+    <category term="Middleware" scheme="https://ph4n4n.github.io/tags/Middleware/"/>
     
-    <category term="Grid" scheme="https://ph4n4n.github.io/tags/Grid/"/>
+    <category term="Routing" scheme="https://ph4n4n.github.io/tags/Routing/"/>
     
-    <category term="Animations" scheme="https://ph4n4n.github.io/tags/Animations/"/>
+    <category term="Testing" scheme="https://ph4n4n.github.io/tags/Testing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: MySQL - Database Management Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-MySQL/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-MySQL/</id>
+    <published>2025-06-26T08:59:38.000Z</published>
+    <updated>2025-06-27T06:59:32.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-MySQL-Database-Management-tu-co-ban-den-nang-cao&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/categories/Database/MySQL/"/>
+    
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Database/MySQL/Backend/"/>
+    
+    
+    <category term="Database" scheme="https://ph4n4n.github.io/tags/Database/"/>
+    
+    <category term="MySQL" scheme="https://ph4n4n.github.io/tags/MySQL/"/>
+    
+    <category term="SQL" scheme="https://ph4n4n.github.io/tags/SQL/"/>
+    
+    <category term="Performance" scheme="https://ph4n4n.github.io/tags/Performance/"/>
+    
+    <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
+    
+    <category term="Indexing" scheme="https://ph4n4n.github.io/tags/Indexing/"/>
+    
+    <category term="RDBMS" scheme="https://ph4n4n.github.io/tags/RDBMS/"/>
+    
+    <category term="Transactions" scheme="https://ph4n4n.github.io/tags/Transactions/"/>
+    
+    <category term="Stored Procedures" scheme="https://ph4n4n.github.io/tags/Stored-Procedures/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Node.js - Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-NodeJS/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-NodeJS/</id>
+    <published>2025-06-26T08:59:38.000Z</published>
+    <updated>2025-06-27T07:00:11.857Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Node-js-Tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Node-js-Tu-co-ban-den-nang-cao&quot; class=&quot;headerlink&quot; title=&quot;Zero</summary>
+        
+      
+    
+    
+    
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/"/>
+    
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
+    
+    <category term="Backend" scheme="https://ph4n4n.github.io/tags/Backend/"/>
+    
+    <category term="Server" scheme="https://ph4n4n.github.io/tags/Server/"/>
+    
+    <category term="Express" scheme="https://ph4n4n.github.io/tags/Express/"/>
+    
+    <category term="NPM" scheme="https://ph4n4n.github.io/tags/NPM/"/>
+    
+    <category term="Async" scheme="https://ph4n4n.github.io/tags/Async/"/>
+    
+    <category term="Event Loop" scheme="https://ph4n4n.github.io/tags/Event-Loop/"/>
+    
+    <category term="Streams" scheme="https://ph4n4n.github.io/tags/Streams/"/>
+    
+    <category term="Modules" scheme="https://ph4n4n.github.io/tags/Modules/"/>
     
   </entry>
   
