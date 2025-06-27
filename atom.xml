@@ -99,19 +99,6 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Puppeteer</title>
-    <link href="https://ph4n4n.github.io/Zero-to-hero-Puppeteer/"/>
-    <id>https://ph4n4n.github.io/Zero-to-hero-Puppeteer/</id>
-    <published>2025-06-26T09:12:57.000Z</published>
-    <updated>2025-06-27T07:00:14.700Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Zero to Hero: Python</title>
     <link href="https://ph4n4n.github.io/Zero-to-hero-Python-1/"/>
     <id>https://ph4n4n.github.io/Zero-to-hero-Python-1/</id>
@@ -125,28 +112,33 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Docker Compose</title>
-    <link href="https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/"/>
-    <id>https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/</id>
-    <published>2025-06-26T09:12:27.000Z</published>
-    <updated>2025-06-27T07:00:20.944Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Zero to Hero: Kafka</title>
     <link href="https://ph4n4n.github.io/Zero-to-hero-Kafka/"/>
     <id>https://ph4n4n.github.io/Zero-to-hero-Kafka/</id>
     <published>2025-06-26T09:12:14.000Z</published>
-    <updated>2025-06-27T07:00:23.588Z</updated>
+    <updated>2025-06-27T08:02:35.643Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Kafka&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Kafka&quot; class=&quot;headerlink&quot; title=&quot;Zero to Hero: Kafka&quot;&gt;&lt;/a&gt;Zero to Hero:</summary>
+        
+      
     
     
     
     
+    <category term="Kafka" scheme="https://ph4n4n.github.io/tags/Kafka/"/>
+    
+    <category term="Message Queue" scheme="https://ph4n4n.github.io/tags/Message-Queue/"/>
+    
+    <category term="Streaming" scheme="https://ph4n4n.github.io/tags/Streaming/"/>
+    
+    <category term="Event-Driven" scheme="https://ph4n4n.github.io/tags/Event-Driven/"/>
+    
+    <category term="Distributed Systems" scheme="https://ph4n4n.github.io/tags/Distributed-Systems/"/>
     
   </entry>
   
@@ -181,24 +173,29 @@
     <link href="https://ph4n4n.github.io/Zero-to-hero-BullMQ/"/>
     <id>https://ph4n4n.github.io/Zero-to-hero-BullMQ/</id>
     <published>2025-06-26T09:02:07.000Z</published>
-    <updated>2025-06-27T07:00:29.576Z</updated>
+    <updated>2025-06-27T07:59:53.957Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-BullMQ&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-BullMQ&quot; class=&quot;headerlink&quot; title=&quot;Zero to Hero: BullMQ&quot;&gt;&lt;/a&gt;Zero to Hero:</summary>
+        
+      
     
     
     
     
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Zero to Hero: RabbitMQ</title>
-    <link href="https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/"/>
-    <id>https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/</id>
-    <published>2025-06-26T09:02:02.000Z</published>
-    <updated>2025-06-27T07:00:33.661Z</updated>
+    <category term="BullMQ" scheme="https://ph4n4n.github.io/tags/BullMQ/"/>
     
+    <category term="Queue" scheme="https://ph4n4n.github.io/tags/Queue/"/>
     
+    <category term="Redis" scheme="https://ph4n4n.github.io/tags/Redis/"/>
     
-    
+    <category term="Job Processing" scheme="https://ph4n4n.github.io/tags/Job-Processing/"/>
     
   </entry>
   
@@ -216,15 +213,166 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Prisma</title>
+    <title>Zero to Hero: Docker Compose - Multi-Container Orchestration</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Docker-Compose/</id>
+    <published>2025-06-26T09:00:08.000Z</published>
+    <updated>2025-06-27T07:40:49.447Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Docker-Compose-Multi-Container-Orchestration&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Docker-Compose-Multi-Container-Orchestration&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://ph4n4n.github.io/categories/DevOps/"/>
+    
+    <category term="Containerization" scheme="https://ph4n4n.github.io/categories/DevOps/Containerization/"/>
+    
+    <category term="Microservices" scheme="https://ph4n4n.github.io/categories/DevOps/Containerization/Microservices/"/>
+    
+    
+    <category term="microservices" scheme="https://ph4n4n.github.io/tags/microservices/"/>
+    
+    <category term="docker" scheme="https://ph4n4n.github.io/tags/docker/"/>
+    
+    <category term="docker-compose" scheme="https://ph4n4n.github.io/tags/docker-compose/"/>
+    
+    <category term="containerization" scheme="https://ph4n4n.github.io/tags/containerization/"/>
+    
+    <category term="orchestration" scheme="https://ph4n4n.github.io/tags/orchestration/"/>
+    
+    <category term="devops" scheme="https://ph4n4n.github.io/tags/devops/"/>
+    
+    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Prisma - Modern Database Toolkit</title>
     <link href="https://ph4n4n.github.io/Zero-to-hero-Prisma/"/>
     <id>https://ph4n4n.github.io/Zero-to-hero-Prisma/</id>
     <published>2025-06-26T09:00:08.000Z</published>
-    <updated>2025-06-27T07:00:41.041Z</updated>
+    <updated>2025-06-27T07:26:38.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Prisma-Modern-Database-Toolkit&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Prisma-Modern-Database-Toolkit&quot; class=&quot;headerlink&quot; title=&quot;Zero</summary>
+        
+      
     
     
     
+    <category term="Database" scheme="https://ph4n4n.github.io/categories/Database/"/>
     
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Database/Backend/"/>
+    
+    <category term="TypeScript" scheme="https://ph4n4n.github.io/categories/Database/Backend/TypeScript/"/>
+    
+    
+    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    
+    <category term="database" scheme="https://ph4n4n.github.io/tags/database/"/>
+    
+    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
+    
+    <category term="prisma" scheme="https://ph4n4n.github.io/tags/prisma/"/>
+    
+    <category term="orm" scheme="https://ph4n4n.github.io/tags/orm/"/>
+    
+    <category term="typescript" scheme="https://ph4n4n.github.io/tags/typescript/"/>
+    
+    <category term="backend" scheme="https://ph4n4n.github.io/tags/backend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Puppeteer - Web Automation &amp; Scraping</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Puppeteer/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Puppeteer/</id>
+    <published>2025-06-26T09:00:08.000Z</published>
+    <updated>2025-06-27T07:57:42.665Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web Automation" scheme="https://ph4n4n.github.io/categories/Web-Automation/"/>
+    
+    <category term="Testing" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/Node-js/"/>
+    
+    
+    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    
+    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
+    
+    <category term="puppeteer" scheme="https://ph4n4n.github.io/tags/puppeteer/"/>
+    
+    <category term="web-automation" scheme="https://ph4n4n.github.io/tags/web-automation/"/>
+    
+    <category term="scraping" scheme="https://ph4n4n.github.io/tags/scraping/"/>
+    
+    <category term="testing" scheme="https://ph4n4n.github.io/tags/testing/"/>
+    
+    <category term="headless-browser" scheme="https://ph4n4n.github.io/tags/headless-browser/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: RabbitMQ - Message Broker Mastery</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/</id>
+    <published>2025-06-26T09:00:08.000Z</published>
+    <updated>2025-06-27T07:36:21.034Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-RabbitMQ-Message-Broker-Mastery&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-RabbitMQ-Message-Broker-Mastery&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Message Broker" scheme="https://ph4n4n.github.io/categories/Message-Broker/"/>
+    
+    <category term="Microservices" scheme="https://ph4n4n.github.io/categories/Message-Broker/Microservices/"/>
+    
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Message-Broker/Microservices/Backend/"/>
+    
+    
+    <category term="microservices" scheme="https://ph4n4n.github.io/tags/microservices/"/>
+    
+    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
+    
+    <category term="backend" scheme="https://ph4n4n.github.io/tags/backend/"/>
+    
+    <category term="rabbitmq" scheme="https://ph4n4n.github.io/tags/rabbitmq/"/>
+    
+    <category term="message-broker" scheme="https://ph4n4n.github.io/tags/message-broker/"/>
+    
+    <category term="queue" scheme="https://ph4n4n.github.io/tags/queue/"/>
+    
+    <category term="amqp" scheme="https://ph4n4n.github.io/tags/amqp/"/>
     
   </entry>
   
@@ -456,9 +604,9 @@
     
     <category term="Optimization" scheme="https://ph4n4n.github.io/tags/Optimization/"/>
     
-    <category term="RDBMS" scheme="https://ph4n4n.github.io/tags/RDBMS/"/>
-    
     <category term="Indexing" scheme="https://ph4n4n.github.io/tags/Indexing/"/>
+    
+    <category term="RDBMS" scheme="https://ph4n4n.github.io/tags/RDBMS/"/>
     
     <category term="Transactions" scheme="https://ph4n4n.github.io/tags/Transactions/"/>
     
