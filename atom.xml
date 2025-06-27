@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-26T09:31:12.829Z</updated>
+  <updated>2025-06-27T02:26:36.996Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -17,15 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Zero to Hero: RestfulAPI</title>
+    <title>Zero to Hero: RESTful API - Thiết Kế Và Xây Dựng API Chuẩn</title>
     <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/"/>
     <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-RestfulAPI/</id>
     <published>2025-06-26T09:31:12.000Z</published>
-    <updated>2025-06-26T09:31:12.829Z</updated>
+    <updated>2025-06-27T02:26:36.996Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-RESTful-API-Thiet-ke-va-xay-dung-API-chuan&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-RESTful-API-Thiet-ke-va-xay-dung-API-chuan&quot;</summary>
+        
+      
     
     
     
+    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
     
+    <category term="API" scheme="https://ph4n4n.github.io/categories/Backend/API/"/>
+    
+    <category term="Programming" scheme="https://ph4n4n.github.io/categories/Backend/API/Programming/"/>
+    
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
+    
+    <category term="Backend" scheme="https://ph4n4n.github.io/tags/Backend/"/>
+    
+    <category term="RESTful API" scheme="https://ph4n4n.github.io/tags/RESTful-API/"/>
+    
+    <category term="HTTP" scheme="https://ph4n4n.github.io/tags/HTTP/"/>
+    
+    <category term="Web Services" scheme="https://ph4n4n.github.io/tags/Web-Services/"/>
+    
+    <category term="API Design" scheme="https://ph4n4n.github.io/tags/API-Design/"/>
+    
+    <category term="Express.js" scheme="https://ph4n4n.github.io/tags/Express-js/"/>
+    
+    <category term="JSON" scheme="https://ph4n4n.github.io/tags/JSON/"/>
     
   </entry>
   
@@ -147,19 +177,6 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: MongoDB</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-MongoDB/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-MongoDB/</id>
-    <published>2025-06-26T09:11:57.000Z</published>
-    <updated>2025-06-26T09:11:57.319Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>NodeJS Lifecircle</title>
     <link href="https://ph4n4n.github.io/2025/06/26/NodeJS-lifecircle/"/>
     <id>https://ph4n4n.github.io/2025/06/26/NodeJS-lifecircle/</id>
@@ -251,19 +268,6 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: NestJS</title>
-    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-NestJS/"/>
-    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-NestJS/</id>
-    <published>2025-06-26T08:59:55.000Z</published>
-    <updated>2025-06-26T08:59:55.916Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Zero to Hero: Regexp</title>
     <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/"/>
     <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Regexp/</id>
@@ -273,6 +277,94 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: CSS - Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-CSS/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-CSS/</id>
+    <published>2025-06-26T08:59:38.000Z</published>
+    <updated>2025-06-27T03:24:29.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-CSS-Tu-co-ban-den-nang-cao&quot; class=&quot;headerlink&quot; title=&quot;Zero to Hero:</summary>
+        
+      
+    
+    
+    
+    <category term="Frontend" scheme="https://ph4n4n.github.io/categories/Frontend/"/>
+    
+    <category term="CSS" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/"/>
+    
+    <category term="Web Development" scheme="https://ph4n4n.github.io/categories/Frontend/CSS/Web-Development/"/>
+    
+    
+    <category term="CSS" scheme="https://ph4n4n.github.io/tags/CSS/"/>
+    
+    <category term="Frontend" scheme="https://ph4n4n.github.io/tags/Frontend/"/>
+    
+    <category term="Web Development" scheme="https://ph4n4n.github.io/tags/Web-Development/"/>
+    
+    <category term="Styling" scheme="https://ph4n4n.github.io/tags/Styling/"/>
+    
+    <category term="Layout" scheme="https://ph4n4n.github.io/tags/Layout/"/>
+    
+    <category term="Responsive Design" scheme="https://ph4n4n.github.io/tags/Responsive-Design/"/>
+    
+    <category term="Flexbox" scheme="https://ph4n4n.github.io/tags/Flexbox/"/>
+    
+    <category term="Grid" scheme="https://ph4n4n.github.io/tags/Grid/"/>
+    
+    <category term="Animations" scheme="https://ph4n4n.github.io/tags/Animations/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Docker - Containerization Từ Cơ Bản đếN Nâng Cao</title>
+    <link href="https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker/"/>
+    <id>https://ph4n4n.github.io/2025/06/26/Zero-to-hero-Docker/</id>
+    <published>2025-06-26T08:59:38.000Z</published>
+    <updated>2025-06-27T03:34:08.466Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Docker-Containerization-tu-co-ban-den-nang-cao&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://ph4n4n.github.io/categories/DevOps/"/>
+    
+    <category term="Docker" scheme="https://ph4n4n.github.io/categories/DevOps/Docker/"/>
+    
+    <category term="Containerization" scheme="https://ph4n4n.github.io/categories/DevOps/Docker/Containerization/"/>
+    
+    
+    <category term="Docker" scheme="https://ph4n4n.github.io/tags/Docker/"/>
+    
+    <category term="Containerization" scheme="https://ph4n4n.github.io/tags/Containerization/"/>
+    
+    <category term="DevOps" scheme="https://ph4n4n.github.io/tags/DevOps/"/>
+    
+    <category term="CI/CD" scheme="https://ph4n4n.github.io/tags/CI-CD/"/>
+    
+    <category term="Microservices" scheme="https://ph4n4n.github.io/tags/Microservices/"/>
+    
+    <category term="Orchestration" scheme="https://ph4n4n.github.io/tags/Orchestration/"/>
+    
+    <category term="Kubernetes" scheme="https://ph4n4n.github.io/tags/Kubernetes/"/>
+    
+    <category term="Cloud Native" scheme="https://ph4n4n.github.io/tags/Cloud-Native/"/>
     
   </entry>
   

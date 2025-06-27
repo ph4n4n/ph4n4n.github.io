@@ -1,3 +1,26 @@
+*:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]) {
+  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
+}
+.fa,
+.fas,
+.far,
+.fab,
+.fal,
+.fad,
+.fak,
+[class*="fa-"] {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "Font Awesome 5 Pro" !important;
+}
+.fas {
+  font-weight: 900;
+}
+.far {
+  font-weight: 400;
+}
+.fab {
+  font-family: "Font Awesome 5 Brands" !important;
+  font-weight: 400;
+}
 html,
 body,
 div,
@@ -213,11 +236,11 @@ a,
 .wrapper {
   font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
 }
-.icon,
-.badge,
-.label,
-.tag-badge,
-.status-badge {
+.icon:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
+.badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
+.label:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
+.tag-badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
+.status-badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]) {
   font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
 }
 .progress,
