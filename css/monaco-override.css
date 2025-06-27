@@ -1,6 +1,9 @@
+/* Monaco font override - loại trừ Font Awesome icons */
 *:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]) {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
+  font-family: 'MesloLGL-Regular', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
 }
+
+/* Đảm bảo Font Awesome icons sử dụng font-family mặc định */
 .fa,
 .fas,
 .far,
@@ -11,251 +14,19 @@
 [class*="fa-"] {
   font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "Font Awesome 5 Pro" !important;
 }
+
+/* Font Awesome Free Solid */
 .fas {
   font-weight: 900;
 }
+
+/* Font Awesome Free Regular */
 .far {
   font-weight: 400;
 }
+
+/* Font Awesome Brands */
 .fab {
   font-family: "Font Awesome 5 Brands" !important;
   font-weight: 400;
-}
-html,
-body,
-div,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-li,
-ul,
-ol,
-table,
-tr,
-td,
-th,
-input,
-textarea,
-select,
-button,
-label,
-form,
-nav,
-header,
-footer,
-aside,
-main,
-section,
-article,
-blockquote,
-cite,
-em,
-strong,
-b,
-i,
-u,
-small,
-big,
-sub,
-sup,
-mark,
-time,
-address,
-abbr,
-acronym,
-dfn,
-kbd,
-samp,
-var,
-pre,
-code,
-tt,
-xmp,
-plaintext,
-listing {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-* {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-body,
-html {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-code,
-pre,
-kbd,
-samp,
-var,
-tt,
-xmp,
-plaintext,
-listing {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-input,
-textarea,
-select,
-button,
-optgroup,
-option,
-fieldset,
-legend {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-nav,
-.nav,
-.navigation,
-.menu,
-.header,
-.footer,
-.sidebar,
-.widget {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.content,
-.post,
-.article,
-.entry,
-.main,
-.page,
-.site {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.list,
-.item,
-.entry-item,
-.post-item,
-.article-item {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.table,
-.table-responsive,
-table,
-tr,
-td,
-th,
-thead,
-tbody,
-tfoot {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.form,
-.form-group,
-.form-control,
-.input-group,
-.btn-group {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.btn,
-.button,
-.link,
-a,
-.nav-link,
-.dropdown-item {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.meta,
-.date,
-.author,
-.tags,
-.categories,
-.taxonomy {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.comments,
-.comment,
-.comment-form,
-.comment-list {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.search,
-.filter,
-.tag,
-.category,
-.taxonomy-term {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.pagination,
-.page-nav,
-.pager,
-.page-numbers {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.social,
-.share,
-.social-media,
-.social-links {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.alert,
-.notice,
-.warning,
-.error,
-.success,
-.info {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.tooltip,
-.popup,
-.modal,
-.dialog,
-.overlay {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.breadcrumb,
-.breadcrumbs,
-.breadcrumb-nav {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.tab,
-.tabs,
-.accordion,
-.accordion-item,
-.tab-content {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.card,
-.panel,
-.box,
-.widget-box,
-.content-box {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.grid,
-.row,
-.col,
-.column,
-.container,
-.wrapper {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.icon:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
-.badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
-.label:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
-.tag-badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]),
-.status-badge:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fak):not([class*="fa-"]) {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.progress,
-.meter,
-.bar,
-.progress-bar,
-.loading {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
-.text-center,
-.text-left,
-.text-right,
-.text-justify,
-.text-uppercase,
-.text-lowercase,
-.text-capitalize {
-  font-family: "Monaco", "Menlo", "Meslo LG", "Consolas", "Liberation Mono", "Courier New", monospace !important;
-}
+} 
