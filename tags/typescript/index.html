@@ -440,28 +440,3 @@
 </script>
 </body>
 </html>
-i trong đêm tối.", a: "ChatGPT"},
-    {q: "Cách bạn làm một việc là cách bạn làm mọi việc.", a: "ChatGPT"}
-  ];
-  var el = document.getElementById('random-quote');
-  function showQuote(q, a) {
-    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
-  }
-  function showFallback() {
-    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
-    showQuote(r.q, r.a);
-  }
-  fetch('https://zenquotes.io/api/random')
-    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
-    .then(function(data) {
-      if (Array.isArray(data) && data[0] && data[0].q) {
-        showQuote(data[0].q, data[0].a);
-      } else {
-        showFallback();
-      }
-    })
-    .catch(showFallback);
-})();
-</script>
-</body>
-</html>
