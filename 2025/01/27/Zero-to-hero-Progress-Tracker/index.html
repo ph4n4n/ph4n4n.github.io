@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Zero to Hero Progress TrackerFile này dùng để theo dõi tiến độ hoàn thành seri Zero to Hero, tránh duplicate work và đảm bảo không bỏ sót bài viết nào. 📊 Trạng thái tổng quan Tổng số bài viết: 28 Đã">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành">
+<meta property="og:url" content="https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/index.html">
+<meta property="og:site_name" content="ph4n4n&#39;s code notes &amp; tips">
+<meta property="og:description" content="Zero to Hero Progress TrackerFile này dùng để theo dõi tiến độ hoàn thành seri Zero to Hero, tránh duplicate work và đảm bảo không bỏ sót bài viết nào. 📊 Trạng thái tổng quan Tổng số bài viết: 28 Đã">
+<meta property="og:locale" content="vi_VN">
+<meta property="article:published_time" content="2025-01-27T03:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-01T04:34:49.533Z">
+<meta property="article:author" content="ph4n4n">
+<meta property="article:tag" content="Progress">
+<meta property="article:tag" content="Tracking">
+<meta property="article:tag" content="Zero-to-Hero">
+<meta property="article:tag" content="Status">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- Monaco font override -->
+    
+<link rel="stylesheet" href="/css/monaco-override.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="ph4n4n&#39;s code notes &amp; tips" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/archives/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Bài trước" href="/Zero-to-hero-NestJS/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Bài tiếp theo" href="/Zero-to-hero-Python/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Về đầu trang" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Chia sẻ bài viết" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&text=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&is_video=false&description=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&name=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&t=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Progress-Tracker"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero Progress Tracker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-Trang-thai-tong-quan"><span class="toc-number">1.1.</span> <span class="toc-text">📊 Trạng thái tổng quan</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Tien-do-chi-tiet"><span class="toc-number">1.1.1.</span> <span class="toc-text">🎯 Tiến độ chi tiết</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-Bai-viet-da-hoan-thanh"><span class="toc-number">1.2.</span> <span class="toc-text">✅ Bài viết đã hoàn thành</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%84-Bai-viet-dang-lam"><span class="toc-number">1.3.</span> <span class="toc-text">🔄 Bài viết đang làm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%8F%B3-Bai-viet-chua-bat-dau"><span class="toc-number">1.4.</span> <span class="toc-text">⏳ Bài viết chưa bắt đầu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%88-Metrics"><span class="toc-number">1.5.</span> <span class="toc-text">📈 Metrics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Theo-thoi-gian"><span class="toc-number">1.5.1.</span> <span class="toc-text">Theo thời gian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Theo-category"><span class="toc-number">1.5.2.</span> <span class="toc-text">Theo category</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A8-Luu-y-quan-trong"><span class="toc-number">1.6.</span> <span class="toc-text">🚨 Lưu ý quan trọng</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ph4n4n</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-27T03:00:00.000Z" class="dt-published" itemprop="datePublished">2025-01-27</time>
+        
+        (Updated: <time datetime="2025-07-01T04:34:49.533Z" class="dt-updated" itemprop="dateModified">2025-07-01</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Meta/">Meta</a> › <a class="category-link" href="/categories/Meta/Progress/">Progress</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Progress/" rel="tag">Progress</a>, <a class="p-category" href="/tags/Status/" rel="tag">Status</a>, <a class="p-category" href="/tags/Tracking/" rel="tag">Tracking</a>, <a class="p-category" href="/tags/Zero-to-Hero/" rel="tag">Zero-to-Hero</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Zero-to-Hero-Progress-Tracker"><a href="#Zero-to-Hero-Progress-Tracker" class="headerlink" title="Zero to Hero Progress Tracker"></a>Zero to Hero Progress Tracker</h1><p>File này dùng để theo dõi tiến độ hoàn thành seri Zero to Hero, tránh duplicate work và đảm bảo không bỏ sót bài viết nào.</p>
+<h2 id="📊-Trang-thai-tong-quan"><a href="#📊-Trang-thai-tong-quan" class="headerlink" title="📊 Trạng thái tổng quan"></a>📊 Trạng thái tổng quan</h2><ul>
+<li><strong>Tổng số bài viết</strong>: 28</li>
+<li><strong>Đã hoàn thành</strong>: 23&#x2F;28 (82%)</li>
+<li><strong>Đang làm</strong>: 5</li>
+<li><strong>Chưa bắt đầu</strong>: 0</li>
+</ul>
+<h3 id="🎯-Tien-do-chi-tiet"><a href="#🎯-Tien-do-chi-tiet" class="headerlink" title="🎯 Tiến độ chi tiết"></a>🎯 Tiến độ chi tiết</h3><ul>
+<li><strong>MySQL Advanced</strong>: 3&#x2F;3 (100%) - CTE, Temp Tables, Window Functions</li>
+<li><strong>JavaScript</strong>: Tối ưu từ 537 lên 1,438 dòng</li>
+<li><strong>Series Overview</strong>: Đã tối ưu với metrics mới</li>
+<li><strong>Chất lượng</strong>: 100% bài viết đạt chuẩn 8 phần</li>
+</ul>
+<h2 id="✅-Bai-viet-da-hoan-thanh"><a href="#✅-Bai-viet-da-hoan-thanh" class="headerlink" title="✅ Bài viết đã hoàn thành"></a>✅ Bài viết đã hoàn thành</h2><ul>
+<li><p>✅ <a href="/Zero-to-hero-BullMQ/">Bull M Q</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 506</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-CSS/">C S S</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 921</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Docker-Compose/">Docker- Compose</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1258</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Docker/">Docker</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 944</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-ExpressJS/">Express J S</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1435</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Flutter/">Flutter</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 962</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Golang/">Golang</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 909</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Javascript/">Javascript</a> - <strong>Hoàn thành: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1438 (tối ưu từ 537 dòng)</li>
+<li>Nội dung: ES6+, Async&#x2F;Await, DOM, Modules, Real-world projects</li>
+<li>Status: ✅ COMPLETED &amp; OPTIMIZED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Jest/">Jest</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1311</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Kafka/">Kafka</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 746</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-MongoDB/">Mongo D B</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 817</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-MySQL/">My S Q L</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 726</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-NestJS/">Nest J S</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 866</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-NodeJS/">Node J S</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1307</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Prisma/">Prisma</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 597</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Puppeteer/">Puppeteer</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1265</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Python/">Python</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 705</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-RabbitMQ/">Rabbit M Q</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 887</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Redis/">Redis</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 651</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-RestfulAPI/">Restful A P I</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1361</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-TypeORM/">Type O R M</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 764</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-gRPC/">g R P C</a> - <strong>Hoàn thành: 2025-07-01</strong></p>
+<ul>
+<li>Số dòng: 1788</li>
+<li>Nội dung: Đầy đủ từ cơ bản đến nâng cao</li>
+<li>Status: ✅ COMPLETED</li>
+</ul>
+</li>
+</ul>
+<h2 id="🔄-Bai-viet-dang-lam"><a href="#🔄-Bai-viet-dang-lam" class="headerlink" title="🔄 Bài viết đang làm"></a>🔄 Bài viết đang làm</h2><ul>
+<li><p>🔄 <a href="/Zero-to-hero-HTML/">H T M L</a> - <strong>Đang làm: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1278</li>
+<li>Tiến độ: 256%</li>
+<li>Status: 🔄 IN PROGRESS</li>
+</ul>
+</li>
+<li><p>🔄 <a href="/Zero-to-hero-Mongoose/">Mongoose</a> - <strong>Đang làm: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1202</li>
+<li>Tiến độ: 240%</li>
+<li>Status: 🔄 IN PROGRESS</li>
+</ul>
+</li>
+<li><p>🔄 <a href="/Zero-to-hero-Python-1/">Python-1</a> - <strong>Đang làm: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1200</li>
+<li>Tiến độ: 240%</li>
+<li>Status: 🔄 IN PROGRESS</li>
+</ul>
+</li>
+<li><p>🔄 <a href="/Zero-to-hero-Regexp/">Regexp</a> - <strong>Đang làm: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1011</li>
+<li>Tiến độ: 202%</li>
+<li>Status: 🔄 IN PROGRESS</li>
+</ul>
+</li>
+<li><p>✅ <a href="/Zero-to-hero-Series-Overview/">Series- Overview</a> - <strong>Hoàn thành: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 296 (đã tối ưu)</li>
+<li>Tiến độ: 100%</li>
+<li>Nội dung: Tổng quan seri, learning paths, metrics</li>
+<li>Status: ✅ COMPLETED &amp; OPTIMIZED</li>
+</ul>
+</li>
+<li><p>🔄 <a href="/Zero-to-hero-Swift/">Swift</a> - <strong>Đang làm: 2025-01-27</strong></p>
+<ul>
+<li>Số dòng: 1235</li>
+<li>Tiến độ: 247%</li>
+<li>Status: 🔄 IN PROGRESS</li>
+</ul>
+</li>
+</ul>
+<h2 id="⏳-Bai-viet-chua-bat-dau"><a href="#⏳-Bai-viet-chua-bat-dau" class="headerlink" title="⏳ Bài viết chưa bắt đầu"></a>⏳ Bài viết chưa bắt đầu</h2><h2 id="📈-Metrics"><a href="#📈-Metrics" class="headerlink" title="📈 Metrics"></a>📈 Metrics</h2><h3 id="Theo-thoi-gian"><a href="#Theo-thoi-gian" class="headerlink" title="Theo thời gian"></a>Theo thời gian</h3><ul>
+<li><strong>Tháng 1&#x2F;2025</strong>: 22 bài hoàn thành</li>
+<li><strong>Tháng 2&#x2F;2025</strong>: Mục tiêu 26 bài</li>
+<li><strong>Tháng 3&#x2F;2025</strong>: Mục tiêu 28 bài</li>
+</ul>
+<h3 id="Theo-category"><a href="#Theo-category" class="headerlink" title="Theo category"></a>Theo category</h3><ul>
+<li>Frontend: 2&#x2F;7 (29%)</li>
+<li>Backend: 3&#x2F;8 (38%)</li>
+<li>DevOps: 2&#x2F;7 (29%)</li>
+<li>Database: 0&#x2F;8 (0%)</li>
+<li>API: 0&#x2F;5 (0%)</li>
+<li>Testing: 0&#x2F;6 (0%)</li>
+<li>Mobile: 0&#x2F;5 (0%)</li>
+<li>Utilities: 0&#x2F;6 (0%)</li>
+<li>Architecture: 0&#x2F;6 (0%)</li>
+<li>Security: 0&#x2F;6 (0%)</li>
+</ul>
+<h2 id="🚨-Luu-y-quan-trong"><a href="#🚨-Luu-y-quan-trong" class="headerlink" title="🚨 Lưu ý quan trọng"></a>🚨 Lưu ý quan trọng</h2><ol>
+<li><strong>KHÔNG duplicate work</strong>: Luôn check file này trước khi bắt đầu</li>
+<li><strong>Cập nhật real-time</strong>: Sau khi hoàn thành bài viết</li>
+<li><strong>Backup tracking</strong>: Commit thường xuyên</li>
+<li><strong>Review định kỳ</strong>: Mỗi tuần review progress</li>
+</ol>
+<hr>
+<p><strong>Last Updated</strong>: 2025-01-27<br><strong>Next Review</strong>: 2025-02-03</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Vui lòng kích hoạt JavaScript để xem các bình luận.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/archives/">Trang chủ</a></li>
+        
+          <li><a href="/Zero-to-hero-Series-Overview/">Zero to Hero</a></li>
+        
+          <li><a href="/archives/">Bài viết</a></li>
+        
+          <li><a href="/about/">Giới thiệu</a></li>
+        
+          <li><a href="https://github.com/ph4n4n">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zero-to-Hero-Progress-Tracker"><span class="toc-number">1.</span> <span class="toc-text">Zero to Hero Progress Tracker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-Trang-thai-tong-quan"><span class="toc-number">1.1.</span> <span class="toc-text">📊 Trạng thái tổng quan</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-Tien-do-chi-tiet"><span class="toc-number">1.1.1.</span> <span class="toc-text">🎯 Tiến độ chi tiết</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-Bai-viet-da-hoan-thanh"><span class="toc-number">1.2.</span> <span class="toc-text">✅ Bài viết đã hoàn thành</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%84-Bai-viet-dang-lam"><span class="toc-number">1.3.</span> <span class="toc-text">🔄 Bài viết đang làm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%8F%B3-Bai-viet-chua-bat-dau"><span class="toc-number">1.4.</span> <span class="toc-text">⏳ Bài viết chưa bắt đầu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%88-Metrics"><span class="toc-number">1.5.</span> <span class="toc-text">📈 Metrics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Theo-thoi-gian"><span class="toc-number">1.5.1.</span> <span class="toc-text">Theo thời gian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Theo-category"><span class="toc-number">1.5.2.</span> <span class="toc-text">Theo category</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A8-Luu-y-quan-trong"><span class="toc-number">1.6.</span> <span class="toc-text">🚨 Lưu ý quan trọng</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&text=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&is_video=false&description=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành&body=Check out this article: https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&title=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&name=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://ph4n4n.github.io/2025/01/27/Zero-to-hero-Progress-Tracker/&t=Zero to Hero Progress Tracker - Theo Dõi Tiến độ Hoàn Thành"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2018-2025
+    ph4n4n
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/archives/">Trang chủ</a></li><!--
+     --><!--
+       --><li><a href="/Zero-to-hero-Series-Overview/">Zero to Hero</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Bài viết</a></li><!--
+     --><!--
+       --><li><a href="/about/">Giới thiệu</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/ph4n4n">Dự án</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'https-ph4n4n-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+
+<script>
+(function() {
+  var fallbackQuotes = [
+    {q: 'Stay hungry, stay foolish.', a: 'Steve Jobs'},
+    {q: 'Không có thành công nào mà không phải trả giá.', a: 'Ẩn danh'},
+    {q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman'},
+    {q: 'Hãy kiên trì, mọi thứ rồi sẽ ổn.', a: 'Ẩn danh'},
+    {q: 'Code is like humor. When you have to explain it, it\'s bad.', a: 'Cory House'},
+    {q: 'Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề.', a: 'Khổng Tử'},
+    {q: 'The best way to get started is to quit talking and begin doing.', a: 'Walt Disney'},
+    {q: 'Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.', a: 'Tục ngữ'},
+    {q: 'First, solve the problem. Then, write the code.', a: 'John Johnson'},
+    {q: 'Đừng sợ thất bại, hãy sợ không thử.', a: 'Ẩn danh'},
+    {q: 'No code no bug, no bug no life.', a: 'ph4n4n'},
+    {q: 'No code no bug, no code no food.', a: 'ph4n4n'},
+    {q: 'The only way to do great work is to love what you do.', a: 'Steve Jobs'},
+    {q: 'Je suis món ennemi.', a: 'ph4n4n'},
+    {q: 'Chết không phải lúc trái tim ngừng đập, chết là khi ý chí ngừng tiến lên.', a: 'ChatGPT'},
+    {q: "Life is what happens when you're busy making other plans.", a: "John Lennon"},
+    {q: "The purpose of our lives is to be happy.", a: "Dalai Lama"},
+    {q: "In the middle of every difficulty lies opportunity.", a: "Albert Einstein"},
+    {q: "Live as if you were to die tomorrow. Learn as if you were to live forever.", a: "Mahatma Gandhi"},
+    {q: "Do not go where the path may lead, go instead where there is no path and leave a trail.", a: "Ralph Waldo Emerson"},
+    {q: "Simplicity is the ultimate sophistication.", a: "Leonardo da Vinci"},
+    {q: "We do not remember days, we remember moments.", a: "Cesare Pavese"},
+    {q: "Happiness is not something ready made. It comes from your own actions.", a: "Dalai Lama"},
+    {q: "Everything you can imagine is real.", a: "Pablo Picasso"},
+    {q: "Success is not the key to happiness. Happiness is the key to success.", a: "Albert Schweitzer"},
+    {q: "Success usually comes to those who are too busy to be looking for it.", a: "Henry David Thoreau"},
+    {q: "The only place where success comes before work is in the dictionary.", a: "Vidal Sassoon"},
+    {q: "I have not failed. I've just found 10,000 ways that won't work.", a: "Thomas Edison"},
+    {q: "Success is walking from failure to failure with no loss of enthusiasm.", a: "Winston Churchill"},
+    {q: "Don't watch the clock; do what it does. Keep going.", a: "Sam Levenson"},
+    {q: "Opportunities don't happen. You create them.", a: "Chris Grosser"},
+    {q: "If you really look closely, most overnight successes took a long time.", a: "Steve Jobs"},
+    {q: "The way to get started is to quit talking and begin doing.", a: "Walt Disney"},
+    {q: "Only those who dare to fail greatly can ever achieve greatly.", a: "Robert F. Kennedy"},
+    {q: "Dream big and dare to fail.", a: "Norman Vaughan"},
+    {q: "Stay hungry, stay foolish.", a: "Steve Jobs"},
+    {q: "Whether you think you can or you think you can’t, you’re right.", a: "Henry Ford"},
+    {q: "Imagination is more important than knowledge.", a: "Albert Einstein"},
+    {q: "Creativity is intelligence having fun.", a: "Albert Einstein"},
+    {q: "What you think, you become. What you feel, you attract. What you imagine, you create.", a: "Buddha"},
+    {q: "The mind is everything. What you think you become.", a: "Buddha"},
+    {q: "Do one thing every day that scares you.", a: "Eleanor Roosevelt"},
+    {q: "If you want something you've never had, you must be willing to do something you've never done.", a: "Thomas Jefferson"},
+    {q: "Think big, start small, move fast.", a: "Unknown"},
+    {q: "An unexamined life is not worth living.", a: "Socrates"},
+    {q: "Discipline is the bridge between goals and accomplishment.", a: "Jim Rohn"},
+    {q: "Do not pray for an easy life, pray for the strength to endure a difficult one.", a: "Bruce Lee"},
+    {q: "There is no substitute for hard work.", a: "Thomas Edison"},
+    {q: "Don’t limit your challenges. Challenge your limits.", a: "Unknown"},
+    {q: "The man who moves a mountain begins by carrying away small stones.", a: "Confucius"},
+    {q: "Work hard in silence, let your success be your noise.", a: "Frank Ocean"},
+    {q: "Success isn’t always about greatness. It’s about consistency.", a: "Dwayne Johnson"},
+    {q: "Start where you are. Use what you have. Do what you can.", a: "Arthur Ashe"},
+    {q: "Perseverance is failing 19 times and succeeding the 20th.", a: "Julie Andrews"},
+    {q: "Do it with passion, or not at all.", a: "Rosa Nouchette Carey"},
+    {q: "The only true wisdom is in knowing you know nothing.", a: "Socrates"},
+    {q: "Education is the most powerful weapon which you can use to change the world.", a: "Nelson Mandela"},
+    {q: "Knowledge speaks, but wisdom listens.", a: "Jimi Hendrix"},
+    {q: "Learning never exhausts the mind.", a: "Leonardo da Vinci"},
+    {q: "Change is the end result of all true learning.", a: "Leo Buscaglia"},
+    {q: "The more that you read, the more things you will know.", a: "Dr. Seuss"},
+    {q: "Tell me and I forget. Teach me and I remember. Involve me and I learn.", a: "Benjamin Franklin"},
+    {q: "A wise man can learn more from a foolish question than a fool can learn from a wise answer.", a: "Bruce Lee"},
+    {q: "Curiosity is the wick in the candle of learning.", a: "William Arthur Ward"},
+    {q: "Live as if you were to die tomorrow. Learn as if you were to live forever.", a: "Mahatma Gandhi"},
+    {q: "Where there is love there is life.", a: "Mahatma Gandhi"},
+    {q: "The best thing to hold onto in life is each other.", a: "Audrey Hepburn"},
+    {q: "We accept the love we think we deserve.", a: "Stephen Chbosky"},
+    {q: "Love all, trust a few, do wrong to none.", a: "William Shakespeare"},
+    {q: "You always gain by giving love.", a: "Reese Witherspoon"},
+    {q: "Love is composed of a single soul inhabiting two bodies.", a: "Aristotle"},
+    {q: "To love and be loved is to feel the sun from both sides.", a: "David Viscott"},
+    {q: "Love is not only something you feel, it is something you do.", a: "David Wilkerson"},
+    {q: "At the touch of love everyone becomes a poet.", a: "Plato"},
+    {q: "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.", a: "Lao Tzu"},
+    {q: "He who has a why to live can bear almost any how.", a: "Friedrich Nietzsche"},
+    {q: "Knowing yourself is the beginning of all wisdom.", a: "Aristotle"},
+    {q: "It does not matter how slowly you go as long as you do not stop.", a: "Confucius"},
+    {q: "Be yourself; everyone else is already taken.", a: "Oscar Wilde"},
+    {q: "The greatest wealth is to live content with little.", a: "Plato"},
+    {q: "Peace begins with a smile.", a: "Mother Teresa"},
+    {q: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", a: "Aristotle"},
+    {q: "The unexamined life is not worth living.", a: "Socrates"},
+    {q: "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.", a: "Buddha"},
+    {q: "You must be the change you wish to see in the world.", a: "Mahatma Gandhi"},
+    {q: "Leadership is not about being in charge. It is about taking care of those in your charge.", a: "Simon Sinek"},
+    {q: "A leader is one who knows the way, goes the way, and shows the way.", a: "John C. Maxwell"},
+    {q: "The greatest leader is not necessarily the one who does the greatest things. He is the one that gets the people to do the greatest things.", a: "Ronald Reagan"},
+    {q: "Management is doing things right; leadership is doing the right things.", a: "Peter Drucker"},
+    {q: "If your actions inspire others to dream more, learn more, do more and become more, you are a leader.", a: "John Quincy Adams"},
+    {q: "The function of leadership is to produce more leaders, not more followers.", a: "Ralph Nader"},
+    {q: "Innovation distinguishes between a leader and a follower.", a: "Steve Jobs"},
+    {q: "Don't follow the crowd, let the crowd follow you.", a: "Margaret Thatcher"},
+    {q: "Power isn't control at all – power is strength, and giving that strength to others.", a: "Beth Revis"},
+    {q: "Leadership is not a position or a title, it is action and example.", a: "Cory Booker"},
+    {q: "Don’t count the days, make the days count.", a: "Muhammad Ali"},
+    {q: "Push yourself, because no one else is going to do it for you.", a: "Unknown"},
+    {q: "Great things never come from comfort zones.", a: "Unknown"},
+    {q: "You don’t have to be great to start, but you have to start to be great.", a: "Zig Ziglar"},
+    {q: "Your time is limited, so don’t waste it living someone else’s life.", a: "Steve Jobs"},
+    {q: "Pain is temporary. Quitting lasts forever.", a: "Lance Armstrong"},
+    {q: "Believe you can and you're halfway there.", a: "Theodore Roosevelt"},
+    {q: "The harder you work for something, the greater you'll feel when you achieve it.", a: "Unknown"},
+    {q: "Success is the sum of small efforts, repeated day-in and day-out.", a: "Robert Collier"},
+    {q: "Be fearless in the pursuit of what sets your soul on fire.", a: "Jennifer Lee"},
+    {q: "I can resist everything except temptation.", a: "Oscar Wilde"},
+    {q: "Behind every great man is a woman rolling her eyes.", a: "Jim Carrey"},
+    {q: "If you think you are too small to make a difference, try sleeping with a mosquito.", a: "Dalai Lama"},
+    {q: "A day without laughter is a day wasted.", a: "Charlie Chaplin"},
+    {q: "Life is short. Smile while you still have teeth.", a: "Unknown"},
+    {q: "If at first you don’t succeed, then skydiving definitely isn’t for you.", a: "Steven Wright"},
+    {q: "The road to success is always under construction.", a: "Lily Tomlin"},
+    {q: "Behind every successful man is a surprised woman.", a: "Maryon Pearson"},
+    {q: "I always wanted to be somebody, but now I realize I should have been more specific.", a: "Lily Tomlin"},
+    {q: "Age is of no importance unless you’re a cheese.", a: "Billie Burke"},
+    {q: "Chết không phải lúc trái tim ngừng đập, chết là khi ý chí ngừng tiến lên.", a: "ChatGPT"},
+    {q: "Không có thành công nào mà không phải trả giá.", a: "Ẩn danh"},
+    {q: "Bạn không thể thay đổi hướng gió, nhưng có thể điều chỉnh cánh buồm.", a: "Jimmy Dean"},
+    {q: "Thành công là khi bạn đứng dậy nhiều hơn số lần bạn ngã xuống.", a: "Nelson Mandela"},
+    {q: "Kiên trì không phải là làm mãi một việc, mà là không từ bỏ mục tiêu.", a: "Ngạn ngữ Nhật"},
+    {q: "Thất bại không phải là ngược lại với thành công, mà là một phần của thành công.", a: "Arianna Huffington"},
+    {q: "Chỉ cần không dừng lại, thì dù chậm đến đâu bạn vẫn đang tiến lên.", a: "Khổng Tử"},
+    {q: "Thái độ quan trọng hơn trình độ.", a: "Zig Ziglar"},
+    {q: "Hãy sống như thể bạn sẽ chết vào ngày mai. Hãy học như thể bạn sẽ sống mãi mãi.", a: "Mahatma Gandhi"},
+    {q: "Muốn đi nhanh thì đi một mình, muốn đi xa thì đi cùng nhau.", a: "Tục ngữ châu Phi"},
+    {q: "Đừng đếm những gì bạn mất, hãy trân trọng những gì bạn còn.", a: "Ẩn danh"},
+    {q: "Hạnh phúc không phải là đích đến, mà là hành trình.", a: "Thích Nhất Hạnh"},
+    {q: "Người ta không nhớ bạn nói gì, họ nhớ bạn làm họ cảm thấy thế nào.", a: "Maya Angelou"},
+    {q: "Đời thay đổi khi ta thay đổi.", a: "Tony Robbins"},
+    {q: "Khó khăn tạo nên con người mạnh mẽ.", a: "Ngạn ngữ Nga"},
+    {q: "Người không mắc sai lầm là người không làm gì cả.", a: "Theodore Roosevelt"},
+    {q: "Giá trị của một người không nằm ở chỗ họ biết gì, mà là ở cách họ sử dụng điều họ biết.", a: "Bruce Lee"},
+    {q: "Thành công lớn nhất là làm chủ được chính mình.", a: "Plato"},
+    {q: "Người thông minh giải quyết vấn đề. Người khôn ngoan tránh vấn đề.", a: "Albert Einstein"},
+    {q: "Tư duy tích cực là nhiên liệu của hành động tích cực.", a: "Zig Ziglar"},
+    {q: "Đừng mong mọi thứ dễ dàng, hãy mong mình mạnh mẽ hơn.", a: "Jim Rohn"},
+    {q: "Không ai có thể quay lại bắt đầu một khởi đầu mới, nhưng ai cũng có thể bắt đầu hôm nay và tạo ra một kết thúc mới.", a: "Maria Robinson"},
+    {q: "Hãy là sự thay đổi mà bạn muốn thấy trên thế giới.", a: "Mahatma Gandhi"},
+    {q: "Đừng sống cuộc đời của người khác.", a: "Steve Jobs"},
+    {q: "Người thành công là người có thói quen làm những điều người thất bại không thích làm.", a: "Albert Gray"},
+    {q: "Tự do lớn nhất là làm điều đúng đắn, không cần ai phải nhắc nhở.", a: "ChatGPT"},
+    {q: "Hãy học từ hôm qua, sống cho hôm nay, hy vọng cho ngày mai.", a: "Albert Einstein"},
+    {q: "Đừng đánh giá tôi qua những gì tôi nói, hãy nhìn những gì tôi làm.", a: "Ẩn danh"},
+    {q: "Người mạnh mẽ không phải là người không bao giờ khóc, mà là người biết đứng dậy sau mỗi lần gục ngã.", a: "Ngạn ngữ Nhật"},
+    {q: "Nỗi sợ lớn nhất là sợ chính mình không đủ tốt.", a: "Ẩn danh"},
+    {q: "Cơ hội không gõ cửa hai lần.", a: "Ngạn ngữ Anh"},
+    {q: "Một hành trình ngàn dặm bắt đầu từ một bước chân.", a: "Lão Tử"},
+    {q: "Kẻ thù lớn nhất của tri thức không phải là vô minh mà là ảo tưởng về tri thức.", a: "Stephen Hawking"},
+    {q: "Chẳng có con đường nào dẫn đến hạnh phúc. Hạnh phúc chính là con đường.", a: "Thích Nhất Hạnh"},
+    {q: "Không có áp lực, không có kim cương.", a: "Thomas Carlyle"},
+    {q: "Kỷ luật là cây cầu nối giữa mục tiêu và thành tựu.", a: "Jim Rohn"},
+    {q: "Tương lai thuộc về những người tin vào vẻ đẹp của giấc mơ mình.", a: "Eleanor Roosevelt"},
+    {q: "Chấp nhận là bước đầu tiên để chữa lành.", a: "Carl Jung"},
+    {q: "Thành công là kết quả của sự chuẩn bị, chăm chỉ và học hỏi từ thất bại.", a: "Colin Powell"},
+    {q: "Người lạc quan thấy cơ hội trong mọi khó khăn. Kẻ bi quan thấy khó khăn trong mọi cơ hội.", a: "Winston Churchill"},
+    {q: "Lỗi lầm lớn nhất là không dám thử.", a: "George Bernard Shaw"},
+    {q: "Giấc mơ không trở thành hiện thực nhờ phép màu – mà nhờ mồ hôi, quyết tâm và nỗ lực.", a: "Colin Powell"},
+    {q: "Khi bạn thay đổi cách nhìn, điều bạn nhìn sẽ thay đổi.", a: "Wayne Dyer"},
+    {q: "Đời không cho ta thứ ta muốn, mà cho ta thứ ta cần để trưởng thành.", a: "ChatGPT"},
+    {q: "Hãy sống tử tế, ai cũng đang chiến đấu một trận chiến mà ta không biết.", a: "Plato"},
+    {q: "Thời gian là tài sản quý giá nhất – vì một khi đã mất đi, không thể lấy lại được.", a: "Harvey Mackay"},
+    {q: "Không ai tắm hai lần trên cùng một dòng sông.", a: "Heraclitus"},
+    {q: "Chỉ có những ai sẵn sàng đi xa mới biết mình có thể đi bao xa.", a: "T.S. Eliot"},
+    {q: "Hành động là nền tảng của thành công.", a: "Pablo Picasso"},
+    {q: "Nếu bạn không xây ước mơ cho mình, bạn sẽ bị thuê để xây ước mơ cho người khác.", a: "Tony Gaskins"},
+    {q: "Mỗi sáng thức dậy là thêm một cơ hội để làm lại.", a: "ChatGPT"},
+    {q: "Người mạnh mẽ nhất là người kiểm soát được cảm xúc của chính mình.", a: "Seneca"},
+    {q: "Không ai sinh ra đã giỏi – mọi thứ đều là luyện tập.", a: "Angela Duckworth"},
+    {q: "Lựa chọn tạo nên con người – không phải khả năng.", a: "J.K. Rowling"},
+    {q: "Giá trị của bạn không đến từ người khác công nhận bạn, mà từ chính bạn tin vào bản thân mình.", a: "ChatGPT"},
+    {q: "Sự khác biệt giữa người bình thường và người phi thường chính là một chút 'phi'.", a: "Jimmy Johnson"},
+    {q: "Bình an không phải là không có sóng gió, mà là vẫn vững vàng giữa sóng gió.", a: "ChatGPT"},
+    {q: "Nỗi đau là tạm thời. Từ bỏ là mãi mãi.", a: "Lance Armstrong"},
+    {q: "Nếu bạn không lên kế hoạch cho cuộc sống của mình, người khác sẽ làm điều đó thay bạn.", a: "Jim Rohn"},
+    {q: "Đừng để những gì bạn không thể làm cản trở điều bạn có thể làm.", a: "John Wooden"},
+    {q: "Mọi việc xảy ra đều có lý do của nó – hãy học cách tìm ra bài học.", a: "ChatGPT"},
+    {q: "Người khôn ngoan là người biết học từ người khác.", a: "Voltaire"},
+    {q: "Kiến thức là sức mạnh, nhưng hành động mới là sức mạnh thực sự.", a: "Tony Robbins"},
+    {q: "Tình yêu là sức mạnh duy nhất có thể biến kẻ thù thành bạn bè.", a: "Martin Luther King Jr."},
+    {q: "Chúng ta chính là những gì chúng ta làm lặp đi lặp lại. Vì vậy, xuất sắc không phải là hành động, mà là thói quen.", a: "Aristotle"},
+    {q: "Người thành công có hai điều: lý do tốt và lý do vững chắc.", a: "Napoleon Hill"},
+    {q: "Đừng tìm lý do. Hãy tìm cách.", a: "Jack Ma"},
+    {q: "Nếu không thay đổi, bạn sẽ mãi là phiên bản cũ của chính mình.", a: "ChatGPT"},
+    {q: "Đôi khi bạn không cần động lực, bạn cần kỷ luật.", a: "ChatGPT"},
+    {q: "Hãy bắt đầu từ điều nhỏ nhất, nhưng đừng dừng lại.", a: "Lão Tử"},
+    {q: "Người biết đủ là người giàu có.", a: "Lão Tử"},
+    {q: "Không gì là không thể với một trái tim quyết tâm.", a: "Napoleon Bonaparte"},
+    {q: "Lòng biết ơn biến điều bình thường thành điều đặc biệt.", a: "Melody Beattie"},
+    {q: "Người mạnh không phải người không bao giờ khóc, mà là người dám khóc rồi vẫn tiếp tục tiến bước.", a: "ChatGPT"},
+    {q: "Bạn không cần phải thấy toàn bộ cầu thang – chỉ cần bước bước đầu tiên.", a: "Martin Luther King Jr."},
+    {q: "Khi bạn cảm thấy mệt, hãy học cách nghỉ – đừng từ bỏ.", a: "Banksy"},
+    {q: "Đừng sợ thay đổi, đôi khi điều tốt đẹp phải kết thúc để điều tốt hơn bắt đầu.", a: "ChatGPT"},
+    {q: "Người biết lắng nghe là người có thể thay đổi cả thế giới.", a: "Dalai Lama"},
+    {q: "Trí tuệ thực sự là biết mình không biết gì.", a: "Socrates"},
+    {q: "Đường dài không làm bạn mỏi mệt, chính là đôi giày sai mới khiến bạn đau đớn.", a: "ChatGPT"},
+    {q: "Sống đơn giản cho tâm trí nhẹ nhàng.", a: "Thích Nhất Hạnh"},
+    {q: "Hãy sống như bạn đang viết nên một câu chuyện đáng nhớ.", a: "ChatGPT"},
+    {q: "Bạn càng biết nhiều, bạn càng biết mình chẳng biết gì.", a: "Socrates"},
+    {q: "Thành công không đến từ việc luôn đúng, mà từ việc học từ khi sai.", a: "ChatGPT"},
+    {q: "Hãy sống như thể bạn là ánh sáng cuối cùng còn lại trong đêm tối.", a: "ChatGPT"},
+    {q: "Cách bạn làm một việc là cách bạn làm mọi việc.", a: "ChatGPT"}
+  ];
+  var el = document.getElementById('random-quote');
+  function showQuote(q, a) {
+    if (el) el.innerHTML = q + (a ? ' <span style="font-size:0.95em;color:#888;">– ' + a + '</span>' : '');
+  }
+  function showFallback() {
+    var r = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    showQuote(r.q, r.a);
+  }
+  fetch('https://zenquotes.io/api/random')
+    .then(function(res) { return res.ok ? res.json() : Promise.reject(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data[0] && data[0].q) {
+        showQuote(data[0].q, data[0].a);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(showFallback);
+})();
+</script>
+</body>
+</html>
