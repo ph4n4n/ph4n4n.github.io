@@ -6,7 +6,7 @@
   <link href="https://ph4n4n.github.io/atom.xml" rel="self"/>
   
   <link href="https://ph4n4n.github.io/"/>
-  <updated>2025-06-27T07:02:33.065Z</updated>
+  <updated>2025-08-27T04:40:43.731Z</updated>
   <id>https://ph4n4n.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deep Dive Into DSA</title>
+    <link href="https://ph4n4n.github.io/2025/08/27/Deep-Dive-into-DSA/"/>
+    <id>https://ph4n4n.github.io/2025/08/27/Deep-Dive-into-DSA/</id>
+    <published>2025-08-27T04:08:04.000Z</published>
+    <updated>2025-08-27T04:40:43.731Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to our deep dive into Data Structures and Algorithms (DSA)! This series is designed to help anyone, from beginners to</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Programming" scheme="https://ph4n4n.github.io/tags/Programming/"/>
+    
+    <category term="DSA" scheme="https://ph4n4n.github.io/tags/DSA/"/>
+    
+    <category term="Data Structures" scheme="https://ph4n4n.github.io/tags/Data-Structures/"/>
+    
+    <category term="Algorithms" scheme="https://ph4n4n.github.io/tags/Algorithms/"/>
+    
+  </entry>
   
   <entry>
     <title>Zero to Hero: RESTful API - Thiết Kế Và Xây Dựng API Chuẩn</title>
@@ -289,13 +318,13 @@
     
     
     
-    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
-    
     <category term="BullMQ" scheme="https://ph4n4n.github.io/tags/BullMQ/"/>
     
     <category term="Queue" scheme="https://ph4n4n.github.io/tags/Queue/"/>
     
     <category term="Redis" scheme="https://ph4n4n.github.io/tags/Redis/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
     
     <category term="Job Processing" scheme="https://ph4n4n.github.io/tags/Job-Processing/"/>
     
@@ -417,47 +446,6 @@
   </entry>
   
   <entry>
-    <title>Zero to Hero: Puppeteer - Web Automation &amp; Scraping</title>
-    <link href="https://ph4n4n.github.io/Zero-to-hero-Puppeteer/"/>
-    <id>https://ph4n4n.github.io/Zero-to-hero-Puppeteer/</id>
-    <published>2025-06-26T09:00:08.000Z</published>
-    <updated>2025-06-27T07:57:42.665Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Web Automation" scheme="https://ph4n4n.github.io/categories/Web-Automation/"/>
-    
-    <category term="Testing" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/"/>
-    
-    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/Node-js/"/>
-    
-    
-    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
-    
-    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
-    
-    <category term="puppeteer" scheme="https://ph4n4n.github.io/tags/puppeteer/"/>
-    
-    <category term="web-automation" scheme="https://ph4n4n.github.io/tags/web-automation/"/>
-    
-    <category term="scraping" scheme="https://ph4n4n.github.io/tags/scraping/"/>
-    
-    <category term="testing" scheme="https://ph4n4n.github.io/tags/testing/"/>
-    
-    <category term="headless-browser" scheme="https://ph4n4n.github.io/tags/headless-browser/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Zero to Hero: RabbitMQ - Message Broker Mastery</title>
     <link href="https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/"/>
     <id>https://ph4n4n.github.io/Zero-to-hero-RabbitMQ/</id>
@@ -495,6 +483,47 @@
     <category term="queue" scheme="https://ph4n4n.github.io/tags/queue/"/>
     
     <category term="amqp" scheme="https://ph4n4n.github.io/tags/amqp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zero to Hero: Puppeteer - Web Automation &amp; Scraping</title>
+    <link href="https://ph4n4n.github.io/Zero-to-hero-Puppeteer/"/>
+    <id>https://ph4n4n.github.io/Zero-to-hero-Puppeteer/</id>
+    <published>2025-06-26T09:00:08.000Z</published>
+    <updated>2025-06-27T07:57:42.665Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Puppeteer-Web-Automation-Scraping&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web Automation" scheme="https://ph4n4n.github.io/categories/Web-Automation/"/>
+    
+    <category term="Testing" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/"/>
+    
+    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Web-Automation/Testing/Node-js/"/>
+    
+    
+    <category term="nodejs" scheme="https://ph4n4n.github.io/tags/nodejs/"/>
+    
+    <category term="zero-to-hero" scheme="https://ph4n4n.github.io/tags/zero-to-hero/"/>
+    
+    <category term="puppeteer" scheme="https://ph4n4n.github.io/tags/puppeteer/"/>
+    
+    <category term="web-automation" scheme="https://ph4n4n.github.io/tags/web-automation/"/>
+    
+    <category term="scraping" scheme="https://ph4n4n.github.io/tags/scraping/"/>
+    
+    <category term="testing" scheme="https://ph4n4n.github.io/tags/testing/"/>
+    
+    <category term="headless-browser" scheme="https://ph4n4n.github.io/tags/headless-browser/"/>
     
   </entry>
   
@@ -704,53 +733,6 @@
     <category term="Transactions" scheme="https://ph4n4n.github.io/tags/Transactions/"/>
     
     <category term="Stored Procedures" scheme="https://ph4n4n.github.io/tags/Stored-Procedures/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Zero to Hero: Node.js - Từ Cơ Bản đếN Nâng Cao</title>
-    <link href="https://ph4n4n.github.io/Zero-to-hero-NodeJS/"/>
-    <id>https://ph4n4n.github.io/Zero-to-hero-NodeJS/</id>
-    <published>2025-06-26T08:59:38.000Z</published>
-    <updated>2025-06-27T07:00:11.857Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Zero-to-Hero-Node-js-Tu-co-ban-den-nang-cao&quot;&gt;&lt;a href=&quot;#Zero-to-Hero-Node-js-Tu-co-ban-den-nang-cao&quot; class=&quot;headerlink&quot; title=&quot;Zero</summary>
-        
-      
-    
-    
-    
-    <category term="Backend" scheme="https://ph4n4n.github.io/categories/Backend/"/>
-    
-    <category term="Node.js" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/"/>
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/categories/Backend/Node-js/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://ph4n4n.github.io/tags/JavaScript/"/>
-    
-    <category term="Node.js" scheme="https://ph4n4n.github.io/tags/Node-js/"/>
-    
-    <category term="Backend" scheme="https://ph4n4n.github.io/tags/Backend/"/>
-    
-    <category term="Async" scheme="https://ph4n4n.github.io/tags/Async/"/>
-    
-    <category term="Modules" scheme="https://ph4n4n.github.io/tags/Modules/"/>
-    
-    <category term="Server" scheme="https://ph4n4n.github.io/tags/Server/"/>
-    
-    <category term="Express" scheme="https://ph4n4n.github.io/tags/Express/"/>
-    
-    <category term="NPM" scheme="https://ph4n4n.github.io/tags/NPM/"/>
-    
-    <category term="Event Loop" scheme="https://ph4n4n.github.io/tags/Event-Loop/"/>
-    
-    <category term="Streams" scheme="https://ph4n4n.github.io/tags/Streams/"/>
     
   </entry>
   
